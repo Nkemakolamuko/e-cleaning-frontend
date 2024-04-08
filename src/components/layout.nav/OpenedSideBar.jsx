@@ -54,7 +54,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           <FaTimes className="w-8 h-8 text-rose-500 hover:bg-rose-600 hover:text-white transition-all duration-300 cursor-pointer active:scale-75" />
         </p>
       </div>
-      <ul className="flex flex-col gap-1 my-4 text-green-900 overflow-hidden hover:overflow-auto transition-all duration-300">
+      <ul className="flex flex-col gap-1 my-4 text-green-900 overflow-auto md:overflow-hidden md:hover:overflow-auto transition-all duration-300">
         <Link to="/dashboard" onClick={() => handleActiveLink("/dashboard")}>
           <li
             className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
