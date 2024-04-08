@@ -8,13 +8,14 @@ import {
   FaXTwitter,
 } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,8 +30,12 @@ const Register = () => {
     localStorage.setItem("user", JSON.stringify(user));
 
     setTimeout(() => {
-      if (user) window.location.href = "/dashboard/settings";
-    }, 3000);
+      // if (user) window.location.href = "/dashboard/settings";
+      if (user) {
+        alert("Registration successful");
+        navigate("/dashboard/settings");
+      }
+    }, 2000);
     setName("");
     setEmail("");
     setPassword("");

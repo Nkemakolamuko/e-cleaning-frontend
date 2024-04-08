@@ -5,7 +5,7 @@ import logo from "../assets/logo.jpg";
 const Home = () => {
   return (
     <div className="mt-5 w-full flex flex-col h-screen">
-      <h2 className="text-center tracking-widest font-semibold text-2xl">
+      <h2 className="text-center tracking-widest font-semibold text-xl md:text-2xl px-2">
         Welcome to 24/7 E-Laundry Service
       </h2>
       <div className="flex flex-col w-[320px] md:w-[400px] justify-center items-center mx-auto h-full my-auto">

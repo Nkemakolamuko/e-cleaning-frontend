@@ -8,12 +8,13 @@ import {
   FaXTwitter,
 } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,8 +31,9 @@ const Login = () => {
     ) {
       alert("Login Successful");
       setTimeout(() => {
-        window.location.href = "/dashboard";
-      }, 3000);
+        // window.location.href = "/dashboard";
+        navigate("/dashboard/settings");
+      }, 1000);
     } else {
       alert("Incorrect user details.");
     }
