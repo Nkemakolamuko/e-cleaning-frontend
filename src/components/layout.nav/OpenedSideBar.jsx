@@ -11,12 +11,14 @@ import {
   FaStore,
   FaUsersGear,
 } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BgContext } from "../../App";
 
 const OpenedSideBar = ({ handleSideBarClose }) => {
   const { darkMode } = useContext(BgContext);
   const [activeLink, setActiveLink] = useState(null);
+
+  const navigate = useNavigate();
 
   const handleActiveLink = (link) => {
     setActiveLink(localStorage.setItem("active", link));
@@ -35,7 +37,8 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
 
     const confirmLogOut = confirm("Are you sure?");
     if (confirmLogOut) {
-      window.location.href = "/login";
+      // window.location.href = "/login";
+      navigate("/login");
     }
   };
   return (
