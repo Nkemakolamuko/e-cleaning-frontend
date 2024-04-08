@@ -1,0 +1,57 @@
+import React from "react";
+import { FaTimes } from "react-icons/fa";
+import logo from "../../assets/logo.jpg";
+
+const ProductDetails = ({ handleCloseAddress }) => {
+  return (
+    <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center absolute -top-16 p-[10px] md:p-[200px] flex-col mx-auto">
+      <p className="ml-auto" onClick={handleCloseAddress}>
+        <FaTimes className="w-12 h-12 text-rose-600 mb-2 hover:bg-rose-600 hover:text-white transition-all duration-300 cursor-default" />
+      </p>
+      <div className="w-fit px-4 py-6 rounded-md flex flex-col md:flex-row items-center mx-auto gap-4 bg-white">
+        <p className="">
+          <img
+            src={logo}
+            alt="Product Image"
+            width={"250rem"}
+            height={"250rem"}
+            className="rounded-full"
+          />
+        </p>
+        <div className="flex flex-col gap-2">
+          <span className="tracking-widest font-medium text-lg">
+            Nike Sneakers
+          </span>
+          <p className="flex flex-col">
+            <span className="font-medium">Description</span>
+            <span className="text-slate-700 text-sm">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              description Lorem ipsum dolor sit amet.
+            </span>
+          </p>
+          <p>
+            <select
+              name="size"
+              id="size"
+              className="active:outline-none outline-none border-2 p-2 rounded w-full font-medium transition-all duration-300"
+            >
+              <option value="size">Select size</option>
+              <option value="size">Size 44</option>
+              <option value="size">Size 45</option>
+              <option value="size">Size 46</option>
+              <option value="size">Size 47</option>
+              <option value="size">Size 48</option>
+              <option value="size">Size 49</option>
+            </select>
+          </p>
+
+          <button className="p-2 w-full text-white bg-black/90 hover:bg-black hover:text-white  border-2 border-black/90 hover:border-black font-medium hover:rounded transition-all duration-300 ease-in-out">
+            Buy Now
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProductDetails;

@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Ubuntu&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dark-mode {
+  color: rgb(0, 255, 0);
+  background-color: rgb(24, 83, 59);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 260px 1fr 1fr 1fr;
+  grid-template-rows: 60px 1fr;
+  grid-template-areas:
+    "sidebar header header header"
+    "sidebar main main main";
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.grid-container-close {
+  display: grid;
+
+  grid-template-columns: 80px 1fr 1fr 1fr;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas:
+    "sidebar header header header"
+    "sidebar main main main";
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.main-container {
+  grid-area: main;
+  overflow-y: auto;
+  padding: 10px;
+  /* color: rgba(255, 255, 255, 0.95); */
+}
+
+.main-container-small {
+  grid-area: main;
+  display: hidden;
+  opacity: 0;
+}
+
+.header {
+  grid-area: header;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10px;
+}
+
+.dashCard {
+  background-image: url("./assets/logo.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.dashCardCover {
+  position: absolute;
+  height: fit-content;
+  width: fit-content;
+  background-color: gray;
+}
+
+@keyframes feature {
+  from {
+    /* For the starting - I'd have to adjust it each time I add a feature - prolly by reducing it */
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-110%);
+  }
+}
+
+/* @media (max-width: 740) {
+  @keyframes feature {
+    from {
+      /* For the starting - I'd have to adjust it each time I add a feature - prolly by reducing it */
+/* transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-80%);
+    }
+  } */
+/* } */
+
+.update {
+  animation: feature 25s linear infinite;
+}
+
+/* Cleaners */
+.cleaners {
+  box-shadow: 10px -50px 10px 20px rgb(240, 253, 244);
+}
