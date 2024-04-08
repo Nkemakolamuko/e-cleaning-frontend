@@ -8,7 +8,7 @@ const Home = () => {
       <h2 className="text-center tracking-widest font-semibold text-2xl">
         Welcome to 24/7 E-Laundry Service
       </h2>
-      <div className="flex flex-col w-[400px] justify-center items-center mx-auto h-full my-auto">
+      <div className="flex flex-col w-[320px] md:w-[400px] justify-center items-center mx-auto h-full my-auto">
         {/* <Link to="/dashboard">
           <p className="text-blue-500 underline underline-offset-1 hover:text-blue-700">
             dashboard
