@@ -79,18 +79,6 @@
   }
 }
 
-/* @media (max-width: 740) {
-  @keyframes feature {
-    from {
-      /* For the starting - I'd have to adjust it each time I add a feature - prolly by reducing it */
-/* transform: translateX(100%);
-    }
-    to {
-      transform: translateX(-80%);
-    }
-  } */
-/* } */
-
 .update {
   animation: feature 25s linear infinite;
 }
@@ -98,4 +86,17 @@
 /* Cleaners */
 .cleaners {
   box-shadow: 10px -50px 10px 20px rgb(240, 253, 244);
+}
+
+/* Slide effect */
+.slide-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.slide-out {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
