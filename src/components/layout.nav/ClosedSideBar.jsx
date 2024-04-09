@@ -43,26 +43,26 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
   };
   return (
     <aside
-      className={`w-fit h-screen bg-white flex flex-col px-6 py-5 shadow-sm z-50 border-r ${
+      className={`w-fit h-screen bg-white flex flex-col px-2 py-4 shadow-sm md:border-r z-[999] ${
         darkMode ? "dark-mode" : ""
       }`}
     >
       {/* <p className="text-lg font-bold">Clean-Off Agency</p> */}
-      <div className="px-1 py-[5px]">
-        {/* <p className="text-lg font-bold truncate">24/7 E-Laundry Service</p> */}
+      <div className="px-1 py-[5px] tooltip">
         <p
           onClick={handleSideBarOpen}
           className="active:scale-75 cursor-pointer"
         >
           <GiHamburgerMenu className="w-6 h-6" />
         </p>
+        <span className="tooltiptext rounded">Open Menu</span>
       </div>
       <ul className="flex flex-col gap-1 my-4 text-green-900 overflow-hidden hover:overflow-auto w-fit transition-all duration-300">
         <Link to="/dashboard" onClick={() => handleActiveLink("/dashboard")}>
           <li
-            className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-300 hover:text-white hover:rounded-md ${
               activeLink === "/dashboard"
-                ? "bg-green-500 text-white rounded-md"
+                ? "bg-green-300 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -77,9 +77,9 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
           onClick={() => handleActiveLink("/cleaners")}
         >
           <li
-            className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-300 hover:text-white hover:rounded-md ${
               activeLink === "/cleaners"
-                ? "bg-green-500 text-white rounded-md"
+                ? "bg-green-300 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -94,9 +94,9 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
           onClick={() => handleActiveLink("/orders")}
         >
           <li
-            className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-300 hover:text-white hover:rounded-md ${
               activeLink === "/orders"
-                ? "bg-green-500 text-white rounded-md"
+                ? "bg-green-300 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -111,9 +111,9 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
           onClick={() => handleActiveLink("/notifications")}
         >
           <li
-            className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-300 hover:text-white hover:rounded-md ${
               activeLink === "/notifications"
-                ? "bg-green-500 text-white rounded-md"
+                ? "bg-green-300 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -125,9 +125,9 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
 
         <Link to="/dashboard/store" onClick={() => handleActiveLink("/store")}>
           <li
-            className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-300 hover:text-white hover:rounded-md ${
               activeLink === "/store"
-                ? "bg-green-500 text-white rounded-md"
+                ? "bg-green-300 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -139,8 +139,8 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
 
         <Link to="/dashboard/faq" onClick={() => handleActiveLink("/faq")}>
           <li
-            className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
-              activeLink === "/faq" ? "bg-green-500 text-white rounded-md" : ""
+            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-300 hover:text-white hover:rounded-md ${
+              activeLink === "/faq" ? "bg-green-300 text-white rounded-md" : ""
             } transition-all duration-300`}
           >
             <span className="">
@@ -154,9 +154,9 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
           onClick={() => handleActiveLink("/history")}
         >
           <li
-            className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-300 hover:text-white hover:rounded-md ${
               activeLink === "/history"
-                ? "bg-green-500 text-white rounded-md"
+                ? "bg-green-300 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -171,9 +171,9 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
           onClick={() => handleActiveLink("/contact")}
         >
           <li
-            className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-300 hover:text-white hover:rounded-md ${
               activeLink === "/contact"
-                ? "bg-green-500 text-white rounded-md"
+                ? "bg-green-300 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -188,14 +188,14 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
           onClick={() => handleActiveLink("/settings")}
         >
           <li
-            className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-300 hover:text-white hover:rounded-md ${
               activeLink === "/settings"
-                ? "bg-green-500 text-white rounded-md"
+                ? "bg-green-300 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
             <span className="">
-              <FaGear />
+              <FaUsersGear />
             </span>
           </li>
         </Link>
@@ -203,12 +203,13 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
 
       {/* Log Out */}
       <p
-        className="flex flex-col items-center text-rose-600 border border-slate-300 p-2 hover:bg-rose-600 hover:text-white w-fit transition-all duration-300 cursor-pointer"
+        className="flex flex-col items-center text-rose-600 border border-slate-300 p-2 hover:bg-rose-600 hover:text-white w-fit transition-all duration-300 cursor-pointer tooltip"
         onClick={handleLogout}
       >
         <span>
           <FaSignOutAlt />
         </span>
+        <span className="tooltiptext rounded">Logout</span>
       </p>
     </aside>
   );

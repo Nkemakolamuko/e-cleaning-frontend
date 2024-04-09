@@ -1,5 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { FaCartShopping, FaMoon, FaRegBell, FaSun } from "react-icons/fa6";
+import {
+  FaCartShopping,
+  FaFire,
+  FaMoon,
+  FaRegBell,
+  FaSun,
+} from "react-icons/fa6";
 import { BgContext } from "../App";
 import CartModal from "../components/modal/CartModal";
 import NotificationModal from "../components/modal/NotificationModal";
@@ -55,7 +61,7 @@ const Header = () => {
 
   return (
     <header
-      className={`header border-b relative transition-all duration-300 ${
+      className={`header shadow-md relative transition-all duration-300 bg-green-50 ${
         darkMode ? "dark-mode" : ""
       }`}
     >
@@ -66,18 +72,26 @@ const Header = () => {
           handleCloseNotificationModal={handleCloseNotificationModal}
         />
       )}
-      {!smallScreenSideBar && (
-        <p className="font-semibold">
-          👋 Welcome,{" "}
-          {user?.name?.split(" ")[1].toUpperCase() ||
-            user?.name?.toUpperCase() ||
-            "Buddy"}
-        </p>
-      )}
+
+      <p className="font-semibold truncate">
+        👋 Hi,{" "}
+        {user?.name?.split(" ")[0].charAt(0).toUpperCase() +
+          user?.name?.slice(1).split(" ")[0] ||
+          user?.name?.charAt(0).toUpperCase() ||
+          "Buddy"}
+      </p>
+
       <div className="hidden md:flex items-center gap-2">
-        <p className="p-2 border bg-slate-100 rounded-sm hover:bg-black hover:text-white hover:rounded-md text-sm cursor-pointer font-semibold transition-all duration-300 ">
-          Call To Book
-        </p>
+        <a
+          href="tel:+2347040876440"
+          target="_blank"
+          className="p-2 border bg-black/90 rounded hover:bg-black text-white hover:rounded-md text-sm cursor-pointer font-semibold transition-all duration-300 flex items-center gap-3"
+        >
+          <span className="text-yellow-300">
+            <FaFire />
+          </span>
+          <span>Hotline</span>
+        </a>
         <div className="px-4 md:px-4 lg:px-4 flex gap-2 items-center ">
           <p
             className="hover:bg-slate-100 text-yellow-400 border rounded-full cursor-pointer p-2 transition-all duration-300"

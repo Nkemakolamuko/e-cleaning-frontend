@@ -18,20 +18,20 @@ const Dashboard = () => {
         to display our products - then maybe clicking it takes you to the Store
         page{" "}
       </p> */}
-      <div className="flex flex-col md:flex-row items-center gap-2">
+      <div className="flex flex-col lg:flex-row items-center gap-2 scale-100 lg:scale-95 md:scale-90">
         {/* Turn these to individual components */}
-        <div className="bg-white w-full h-fit md:w-[33%] md:h-[200px] border border-green-200 rounded-[4px] shadow-lg md:shadow-green-100 shadow-black/30 flex flex-col">
-          <p className="border-b w-full text-center rounded-t-[4px] py-1 tracking-wider px-2">
+        <div className="bg-white w-full h-fit lg:w-[33%] lg:h-[200px] border border-green-200 rounded-[4px] shadow-lg md:shadow-green-100 shadow-black/30 flex flex-col">
+          <p className="border-b-2 bg-slate-50 w-full text-center rounded-t-[4px] py-1 tracking-wider px-2">
             Weekly Top Rated Cleaner
           </p>
-          <div className="flex flex-col md:flex-row items-start mx-auto gap-2 w-full md:w-[80%] h-full p-2 justify-between">
-            <div className="flex flex-col">
+          <div className="flex flex-col md:flex-row items-center md:items-center mx-auto text-center md:text-start gap-2 w-full md:w-[80%] h-full md:h-fit p-2 justify-between">
+            <div className="flex flex-col w-full md:w-fit items-center">
               <img
                 src={userImage}
                 alt="User Image"
                 width={"150rem"}
                 height={"150rem"}
-                className="rounded-[4px] border-4 border-green-200 w-full"
+                className="rounded-[4px] border-4 border-green-200"
               />
               <p className="font-semibold flex items-center gap-1">
                 Rating:{" "}
@@ -45,10 +45,10 @@ const Dashboard = () => {
               </p>
             </div>
             <div className="flex flex-col gap-1">
-              <p className="font-semibold text-green-500 text-nowrap">
+              <p className="font-semibold text-green-600 text-nowrap">
                 Ugo Best And Sons
               </p>
-              <p className="font-semibold">
+              <p className="font-semibold text-start">
                 Location:{" "}
                 <span className="text-xs font-normal">
                   1st Floor Makazi Plaza, Area 2 by TZ Junction Owerri
@@ -59,7 +59,7 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="bg-gradient-to-t hover:bg-gradient-to-b from-green-200 to-white w-full h-fit md:w-[33%] md:h-[200px] border border-green-200 rounded-[4px] shadow-lg shadow-black/30 md:shadow-green-100 flex flex-col transition-all duration-300 ease-in-out">
+        <div className="bg-gradient-to-t hover:bg-gradient-to-b from-green-200 to-white w-full h-fit lg:w-[33%] lg:h-[200px] border border-green-200 rounded-[4px] shadow-lg shadow-black/30 md:shadow-green-100 flex flex-col transition-all duration-300 ease-in-out">
           <p className="bg-[#FFC83D] text-white w-full text-center rounded-t-[4px] py-[2px] text-xl tracking-widest">
             Flash Sales!!!!
           </p>
@@ -82,7 +82,7 @@ const Dashboard = () => {
             <ActionBTN text="Buy Now @ N14, 800" />
           </div>
         </div>
-        <div className="bg-white w-full h-fit md:w-[33%] md:h-[200px] border border-green-200 rounded-[4px] shadow-lg shadow-green-100 flex flex-col">
+        <div className="bg-white w-full h-fit lg:w-[33%] lg:h-[200px] border border-green-200 rounded-[4px] shadow-lg shadow-green-100 flex flex-col">
           <p className="border-b w-full text-center rounded-t-[4px] py-1 tracking-widest">
             Promo! Promo!! Promo!!!
           </p>
@@ -111,25 +111,24 @@ const Dashboard = () => {
       </section>
 
       {/* History */}
-      <section className="mt-7 w-full">
-        <div className="flex items-center justify-between">
-          <h2 className={`font-semibold tracking-widest text-gray-800`}>
-            History
-          </h2>
+      <div className="flex items-center justify-between mt-7">
+        <h2 className={`font-semibold tracking-widest text-gray-800`}>
+          History
+        </h2>
 
-          <Link
-            to="/dashboard/history"
-            className="w-fit flex items-center justify-end font-medium gap-2 py-2 px-4 bg-slate-200 rounded ml-auto text-slate-700 hover:bg-slate-300 hover:underline hover:underline-offset-1 text-xs md:text-base transition-all duration-300"
-          >
-            <span>View All</span>
-            <span>
-              <FaGreaterThan />
-            </span>
-          </Link>
-        </div>
-        <div className="overflow-auto">
-          <DashboardHistory />
-        </div>
+        <Link
+          to="/dashboard/history"
+          className="w-fit flex items-center justify-end font-medium gap-2 py-2 px-4 bg-slate-200 rounded ml-auto text-slate-700 hover:bg-slate-300 hover:underline hover:underline-offset-1 text-xs md:text-base transition-all duration-300"
+        >
+          <span>View All</span>
+          <span>
+            <FaGreaterThan />
+          </span>
+        </Link>
+      </div>
+      <section className="md:flex md:flex-col w-full overflow-auto">
+        <div className="overflow-auto"></div>
+        <DashboardHistory />
       </section>
     </section>
   );

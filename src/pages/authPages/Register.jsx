@@ -21,7 +21,12 @@ const Register = () => {
     e.preventDefault();
     if (!name || !email || !password) {
       alert("All fields are required");
+      return;
     }
+    // if (name.split(" ")[1] === undefined) {
+    //   alert("Needs at least 2 names");
+    //   return;
+    // }
     const user = {
       name,
       email,

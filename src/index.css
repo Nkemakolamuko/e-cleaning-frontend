@@ -23,8 +23,8 @@
 .grid-container-close {
   display: grid;
 
-  grid-template-columns: 80px 1fr 1fr 1fr;
-  grid-template-rows: 50px 1fr;
+  grid-template-columns: 45px 1fr 1fr 1fr;
+  grid-template-rows: 60px 1fr;
   grid-template-areas:
     "sidebar header header header"
     "sidebar main main main";
@@ -88,15 +88,42 @@
   box-shadow: 10px -50px 10px 20px rgb(240, 253, 244);
 }
 
-/* Slide effect */
-.slide-in {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+/* Tootip */
+.tooltip {
+  position: relative;
+  /* display: inline-block; */
 }
 
-.slide-out {
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: fit-content;
+  text-wrap: nowrap;
+  background: greenyellow;
+  padding: 4px 4px;
+  position: absolute;
+  z-index: 9999;
+  top: 0px;
+  left: 110%;
+  color: green;
   opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.5s;
 }
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent rgb(48, 80, 0) transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+/* .tooltip .tooltiptext {
+  visibility: visible;
+} */

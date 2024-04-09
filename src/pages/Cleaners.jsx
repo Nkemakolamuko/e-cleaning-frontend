@@ -3,7 +3,7 @@ import Title from "../components/Title";
 import CleanersCard from "../components/cleanersNearby/CleanersCard";
 
 const Cleaners = () => {
-  const [border, setBorder] = useState("All");
+  const [border, setBorder] = useState("Favorite");
   const [favHandler, setFavHandler] = useState(false);
 
   const names = [
@@ -121,7 +121,7 @@ const Cleaners = () => {
       </section>
 
       {/* Cards */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-2 w-full md:max-w-[75%] mt-8">
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-2 w-full md:max-w-[95%] mt-8">
         {border === "Favorite" && (
           <>
             {names.map((name, i) => (
@@ -187,10 +187,10 @@ const Cleaners = () => {
         )}
       </section>
 
-      <h2 className="mt-[100px]">
+      {/* <h2 className="mt-[100px]">
         I'd use the design in Google Discoveries on mobile as my cards design
         here with Action Buttons - And an infinite scroll
-      </h2>
+      </h2> */}
     </div>
   );
 };

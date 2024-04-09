@@ -12,7 +12,7 @@ const Store = () => {
     <div className="relative">
       <Title title="Our Store" />
 
-      <section className="grid grid-cols-1 md:grid-cols-4 w-[90%] md:w-[90%] place-content-center gap-4">
+      <section className="grid grid-cols-1 md:grid-cols-4 w-[100%]  place-content-center gap-4">
         <StoreCards handleViewDetails={handleViewDetails} />
         <StoreCards handleViewDetails={handleViewDetails} />
         <StoreCards handleViewDetails={handleViewDetails} />
