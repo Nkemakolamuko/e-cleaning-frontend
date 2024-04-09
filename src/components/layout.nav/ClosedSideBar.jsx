@@ -60,9 +60,9 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
       <ul className="flex flex-col gap-1 my-4 text-green-900 overflow-hidden hover:overflow-auto w-fit transition-all duration-300">
         <Link to="/dashboard" onClick={() => handleActiveLink("/dashboard")}>
           <li
-            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-300 hover:text-white hover:rounded-md ${
+            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-200 hover:text-white hover:rounded-md ${
               activeLink === "/dashboard"
-                ? "bg-green-300 text-white rounded-md"
+                ? "bg-green-200 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -77,9 +77,9 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
           onClick={() => handleActiveLink("/cleaners")}
         >
           <li
-            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-300 hover:text-white hover:rounded-md ${
+            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-200 hover:text-white hover:rounded-md ${
               activeLink === "/cleaners"
-                ? "bg-green-300 text-white rounded-md"
+                ? "bg-green-200 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -94,9 +94,9 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
           onClick={() => handleActiveLink("/orders")}
         >
           <li
-            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-300 hover:text-white hover:rounded-md ${
+            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-200 hover:text-white hover:rounded-md ${
               activeLink === "/orders"
-                ? "bg-green-300 text-white rounded-md"
+                ? "bg-green-200 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -111,9 +111,9 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
           onClick={() => handleActiveLink("/notifications")}
         >
           <li
-            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-300 hover:text-white hover:rounded-md ${
+            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-200 hover:text-white hover:rounded-md ${
               activeLink === "/notifications"
-                ? "bg-green-300 text-white rounded-md"
+                ? "bg-green-200 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -125,9 +125,9 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
 
         <Link to="/dashboard/store" onClick={() => handleActiveLink("/store")}>
           <li
-            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-300 hover:text-white hover:rounded-md ${
+            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-200 hover:text-white hover:rounded-md ${
               activeLink === "/store"
-                ? "bg-green-300 text-white rounded-md"
+                ? "bg-green-200 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -139,8 +139,8 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
 
         <Link to="/dashboard/faq" onClick={() => handleActiveLink("/faq")}>
           <li
-            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-300 hover:text-white hover:rounded-md ${
-              activeLink === "/faq" ? "bg-green-300 text-white rounded-md" : ""
+            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-200 hover:text-white hover:rounded-md ${
+              activeLink === "/faq" ? "bg-green-200 text-white rounded-md" : ""
             } transition-all duration-300`}
           >
             <span className="">
@@ -154,9 +154,9 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
           onClick={() => handleActiveLink("/history")}
         >
           <li
-            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-300 hover:text-white hover:rounded-md ${
+            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-200 hover:text-white hover:rounded-md ${
               activeLink === "/history"
-                ? "bg-green-300 text-white rounded-md"
+                ? "bg-green-200 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -171,9 +171,9 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
           onClick={() => handleActiveLink("/contact")}
         >
           <li
-            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-300 hover:text-white hover:rounded-md ${
+            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-200 hover:text-white hover:rounded-md ${
               activeLink === "/contact"
-                ? "bg-green-300 text-white rounded-md"
+                ? "bg-green-200 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -188,9 +188,9 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
           onClick={() => handleActiveLink("/settings")}
         >
           <li
-            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-300 hover:text-white hover:rounded-md ${
+            className={`flex items-center gap-4 bg-green-50 px-2 py-4 cursor-pointer hover:bg-green-200 hover:text-white hover:rounded-md ${
               activeLink === "/settings"
-                ? "bg-green-300 text-white rounded-md"
+                ? "bg-green-200 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
