@@ -43,7 +43,7 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
   };
   return (
     <aside
-      className={`w-fit h-screen bg-white flex flex-col px-2 py-4 shadow-sm md:border-r z-[999] ${
+      className={`w-fit h-screen bg-white flex flex-col px-2 py-4 shadow-lg md:border-r z-[999] ${
         darkMode ? "dark-mode" : ""
       }`}
     >
@@ -221,7 +221,7 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
             } transition-all duration-300`}
           >
             <span className="">
-              <FaUsersGear />
+              <FaGear />
             </span>
           </li>
           <span className="tooltiptext rounded">User Setting</span>

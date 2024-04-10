@@ -53,7 +53,8 @@ const UserImage = ({ user }) => {
               setShowInput(true);
             }}
           >
-            <p className="text-base text-center md:text-lg tracking-widest group-hover:font-semibold">
+            {/* Name */}
+            <p className="text-base text-center md:text-lg tracking-widest font-semibold">
               {userData?.name?.toUpperCase() || "Username"}
             </p>
             <FaPencil className="opacity-100 md:opacity-0 md:group-hover:opacity-100 w-6 h-6 md:w-6 md:h-6 md:text-slate-700" />

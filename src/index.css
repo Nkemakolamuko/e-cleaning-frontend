@@ -100,7 +100,7 @@
   width: fit-content;
   text-wrap: nowrap;
   /* background: greenyellow; */
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.6);
   padding: 4px 8px;
   position: absolute;
   z-index: 9999;
@@ -121,7 +121,7 @@
   border-width: 5px;
   border-style: solid;
   /* border-color: transparent rgb(154, 255, 3) transparent transparent; */
-  border-color: transparent rgba(0, 0, 0, 0.8) transparent transparent;
+  border-color: transparent rgba(0, 0, 0, 0.6) transparent transparent;
 }
 
 .tooltip:hover .tooltiptext {

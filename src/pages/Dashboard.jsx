@@ -18,22 +18,37 @@ const Dashboard = () => {
         to display our products - then maybe clicking it takes you to the Store
         page{" "}
       </p> */}
-      <div className="flex flex-col lg:flex-row items-center gap-2 scale-100 lg:scale-95 md:scale-90">
+      <div className="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row items-center gap-2 scale-100 lg:scale-95 md:scale-90">
         {/* Turn these to individual components */}
-        <div className="bg-white w-full h-fit lg:w-[33%] lg:h-[200px] border border-green-200 rounded-[4px] shadow-lg md:shadow-green-100 shadow-black/30 flex flex-col">
+        <div className="bg-white w-full h-fit lg:w-[33%] lg:h-[200px] border border-green-200 rounded-[4px] shadow-lg md:shadow-green-100 shadow-black/20 flex flex-col">
           <p className="border-b-2 bg-slate-50 w-full text-center rounded-t-[4px] py-1 tracking-wider px-2">
             Weekly Top Rated Cleaner
           </p>
-          <div className="flex flex-col md:flex-row items-center md:items-center mx-auto text-center md:text-start gap-2 w-full md:w-[80%] h-full md:h-fit p-2 justify-between">
-            <div className="flex flex-col w-full md:w-fit items-center">
+          <div className="flex flex-col md:flex-row items-center md:items-center text-center mx-auto md:mx-0 md:text-start gap-2 w-full md:w-full h-full md:h-full p-2 justify-between">
+            <div className="flex flex-col w-full md:w-full items-center h-full">
               <img
                 src={userImage}
                 alt="User Image"
                 width={"150rem"}
                 height={"150rem"}
-                className="rounded-[4px] border-4 border-green-200"
+                className="rounded-[4px] border-4 border-cyan-200"
               />
-              <p className="font-semibold flex items-center gap-1">
+              {/* <p className="font-semibold flex items-center gap-1 text-sm">
+                Rating:{" "}
+                <span className="text-sm font-normal text-yellow-400 flex items-center">
+                  <FaStar />
+                  <FaStar />
+                  <FaStar />
+                  <FaStar />
+                  <FaStarHalf />
+                </span>
+              </p> */}
+            </div>
+            <div className="flex flex-col gap-1">
+              <p className="font-semibold text-green-600 text-nowrap">
+                Ugo Best And Sons
+              </p>
+              <p className="font-semibold flex items-center gap-1 text-sm">
                 Rating:{" "}
                 <span className="text-sm font-normal text-yellow-400 flex items-center">
                   <FaStar />
@@ -43,12 +58,7 @@ const Dashboard = () => {
                   <FaStarHalf />
                 </span>
               </p>
-            </div>
-            <div className="flex flex-col gap-1">
-              <p className="font-semibold text-green-600 text-nowrap">
-                Ugo Best And Sons
-              </p>
-              <p className="font-semibold text-start">
+              <p className="font-semibold text-start text-sm">
                 Location:{" "}
                 <span className="text-xs font-normal">
                   1st Floor Makazi Plaza, Area 2 by TZ Junction Owerri
@@ -59,7 +69,7 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="bg-gradient-to-t hover:bg-gradient-to-b from-green-200 to-white w-full h-fit lg:w-[33%] lg:h-[200px] border border-green-200 rounded-[4px] shadow-lg shadow-black/30 md:shadow-green-100 flex flex-col transition-all duration-300 ease-in-out">
+        <div className="bg-gradient-to-t hover:bg-gradient-to-b to-green-200 from-white w-full h-fit lg:w-[33%] lg:h-[210px] border border-green-200 rounded-[4px] shadow-lg shadow-black/20 md:shadow-green-100 flex flex-col transition-all duration-300 ease-in-out">
           <p className="bg-[#FFC83D] text-white w-full text-center rounded-t-[4px] py-[2px] text-xl tracking-widest">
             Flash Sales!!!!
           </p>
@@ -79,11 +89,14 @@ const Dashboard = () => {
               </p>
               <p className="text-sm">Product available as seen. Hurry Now!!</p>
             </div>
-            <ActionBTN text="Buy Now @ N14, 800" />
+            {/* <ActionBTN text="Buy Now @ N14, 800" /> */}
+            <button className="bg-green-500 text-white text-sm py-2 font-semibold rounded-[3px] hover:bg-green-600 transition-all duration-300 mb-1">
+              Buy Now @ N14, 800
+            </button>
           </div>
         </div>
-        <div className="bg-white w-full h-fit lg:w-[33%] lg:h-[200px] border border-green-200 rounded-[4px] shadow-lg shadow-green-100 flex flex-col">
-          <p className="border-b w-full text-center rounded-t-[4px] py-1 tracking-widest">
+        <div className="bg-white w-full h-fit lg:w-[33%] lg:h-[200px] border border-green-200 rounded-[4px] shadow-lg shadow-black/20 md:shadow-green-100 flex flex-col">
+          <p className="border-b-2 bg-slate-50 w-full text-center rounded-t-[4px] py-1 tracking-widest">
             Promo! Promo!! Promo!!!
           </p>
           <div className="flex flex-col p-2 m-auto w-[80%] items-center">

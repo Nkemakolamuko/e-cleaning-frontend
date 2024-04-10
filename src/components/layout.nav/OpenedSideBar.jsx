@@ -43,13 +43,13 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
   };
   return (
     <aside
-      className={`w-full h-screen bg-white flex flex-col px-6 py-5 shadow-sm z-50 border-r ${
+      className={`w-full h-screen bg-white flex flex-col px-6 py-5 shadow-2xl md:shadow-lg z-50 border-r ${
         darkMode ? "dark-mode" : ""
       }`}
     >
       {/* <p className="text-lg font-bold">Clean-Off Agency</p> */}
       <div className="flex items-center justify-between w-full">
-        <p className="text-lg font-bold truncate w-[80%]">
+        <p className="text-base md:text-lg font-bold truncate w-[80%]">
           24/7 E-Laundry Service
         </p>
 
