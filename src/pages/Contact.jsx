@@ -19,6 +19,7 @@ const Contact = () => {
     setAction(value);
     // alert(value);
   };
+
   return (
     <section className="relative">
       <Title title="Contact Us" />
@@ -34,23 +35,23 @@ const Contact = () => {
             to="tel:08069487650"
             text="Phone"
             logo={<FaPhone className="w-5 h-5" />}
-            bg="bg-slate-800 md:bg-slate-700"
-            bgHover="md:hover:bg-slate-800"
+            bg="shadow-lg shadow-black/10 bg-white !text-black"
+            bgHover="hover:shadow-xl hover:shadow-black/20 md:hover:bg-slate-200 hover:bg-slate-200"
             handleClick={() => handleClick("Phone")}
           />
           <ActionButtons
             to="mailto:e-laundry@gmail.com"
             text="Email"
             logo={<FaEnvelope className="w-5 h-5" />}
-            bg="bg-neutral-950 md:bg-neutral-900"
-            bgHover="md:hover:bg-neutral-950"
+            bg="shadow-lg shadow-black/10 bg-neutral-950 md:bg-neutral-900"
+            bgHover="hover:shadow-xl hover:shadow-black/20 md:hover:bg-neutral-950"
             handleClick={() => handleClick("Email")}
           />
           <ActionButtons
             text="Twitter (X)"
             logo={<FaXTwitter className="w-5 h-5" />}
-            bg="bg-blue-700 md:bg-blue-600"
-            bgHover="md:hover:bg-blue-700"
+            bg="shadow-lg shadow-black/10 bg-blue-700 md:bg-blue-600"
+            bgHover="hover:shadow-xl hover:shadow-black/20 md:hover:bg-blue-700"
             handleClick={() => handleClick("Twitter")}
           />
         </ul>
@@ -59,24 +60,24 @@ const Contact = () => {
           <ActionButtons
             text="WhatsApp"
             logo={<FaWhatsapp className="w-5 h-5" />}
-            bg="bg-green-500"
-            bgHover="md:hover:bg-green-600"
+            bg="shadow-lg shadow-black/10 bg-green-500"
+            bgHover="hover:shadow-xl hover:shadow-black/20 md:hover:bg-green-600"
             handleClick={() => handleClick("WhatsApp")}
           />
 
           <ActionButtons
             text="LinkedIn"
             logo={<FaLinkedin className="w-5 h-5" />}
-            bg="bg-blue-500 md:bg-blue-400"
-            bgHover="md:hover:bg-blue-500"
+            bg="shadow-lg shadow-black/10 bg-blue-500 md:bg-blue-400"
+            bgHover="hover:shadow-xl hover:shadow-black/20 md:hover:bg-blue-500"
             handleClick={() => handleClick("LinkedIn")}
           />
 
           <ActionButtons
             text="Start Live Chat - tawk.to will do here"
             logo={<GiChatBubble className="w-5 h-5" />}
-            bg="bg-green-400"
-            bgHover="md:hover:bg-green-500"
+            bg="shadow-lg shadow-black/10 bg-green-400"
+            bgHover="hover:shadow-xl hover:shadow-black/20 md:hover:bg-green-500"
             handleClick={() => handleClick("Live-Chat")}
           />
         </ul>

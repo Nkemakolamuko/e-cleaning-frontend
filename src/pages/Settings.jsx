@@ -29,7 +29,7 @@ const Settings = () => {
         <div className="mx-auto w-full">
           <ul className="flex flex-col gap-2 w-full">
             <li
-              className="p-3 group bg-slate-200 hover:bg-slate-300 cursor-pointer flex justify-between items-center transition-all duration-300"
+              className="p-3 group bg-white hover:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300"
               onClick={() => setShow("Payment")}
             >
               <p className="flex flex-col">
@@ -41,7 +41,7 @@ const Settings = () => {
               </p>
             </li>
             <li
-              className="p-3 bg-slate-200 group hover:bg-slate-300 cursor-pointer group transition-all duration-300 flex items-center justify-between"
+              className="p-3 bg-white hover:bg-slate-200 shadow-md hover:shadow-lg cursor-pointer group transition-all duration-300 flex items-center justify-between"
               onClick={() => setShow("Email")}
             >
               <p className="flex flex-col">
@@ -53,7 +53,7 @@ const Settings = () => {
               </p>
             </li>
             <li
-              className="p-3 bg-slate-200 group hover:bg-slate-300 cursor-pointer group transition-all duration-300 flex items-center justify-between"
+              className="p-3 bg-white hover:bg-slate-200 shadow-md hover:shadow-lg cursor-pointer group transition-all duration-300 flex items-center justify-between"
               onClick={() => setShow("Privacy")}
             >
               <p className="flex flex-col">
@@ -69,7 +69,7 @@ const Settings = () => {
         <div className="mx-auto w-full">
           <ul className="flex flex-col gap-2 w-full">
             <li
-              className="p-3 bg-slate-200 group hover:bg-slate-300 cursor-pointer flex justify-between group items-center transition-all duration-300"
+              className="p-3 bg-white hover:bg-slate-200 shadow-md hover:shadow-lg cursor-pointer flex justify-between group items-center transition-all duration-300"
               onClick={() => setShow("Address")}
             >
               <p className="flex flex-col w-[91%]">
@@ -83,7 +83,7 @@ const Settings = () => {
               </p>
             </li>
             <li
-              className="p-3 group bg-slate-200 hover:bg-slate-300 cursor-pointer flex items-center justify-between transition-all duration-300"
+              className="p-3 group bg-white hover:bg-slate-200 shadow-md hover:shadow-lg cursor-pointer flex items-center justify-between transition-all duration-300"
               onClick={() => setShow("Password")}
             >
               <p className="flex flex-col">

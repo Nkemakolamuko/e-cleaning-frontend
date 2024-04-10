@@ -9,7 +9,7 @@ const January23 = ({ handleNextMonthR, handleNextMonthL }) => {
     <div
       className={`${
         darkMode ? "dark-mode" : ""
-      } border-2 w-fit mt-3 rounded-md`}
+      } border-2 w-fit md:w-full mt-3 rounded-md`}
     >
       <div className="w-full flex items-center justify-between bg-white border-b">
         <p

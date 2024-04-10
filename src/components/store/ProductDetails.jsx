@@ -2,11 +2,14 @@ import React from "react";
 import { FaTimes } from "react-icons/fa";
 import logo from "../../assets/logo.jpg";
 
-const ProductDetails = ({ handleCloseAddress }) => {
+const ProductDetails = ({ handleCloseProduct }) => {
   return (
     <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center absolute -top-16 p-[10px] md:p-[200px] flex-col mx-auto">
-      <p className="ml-auto" onClick={handleCloseAddress}>
-        <FaTimes className="w-12 h-12 text-rose-600 mb-2 hover:bg-rose-600 hover:text-white transition-all duration-300 cursor-default" />
+      <p
+        className="text-rose-600 border-2 border-white rounded hover:border-rose-600 hover:text-white hover:bg-rose-600 p-2 md:p-2 font-semibold ml-auto mb-2 cursor-pointer active:scale-90 transition-all duration-300"
+        onClick={handleCloseProduct}
+      >
+        <FaTimes className="w-6 h-6 md:w-10 md:h-10 text-rose-600 hover:bg-rose-600 hover:text-white transition-all duration-300 cursor-default" />
       </p>
       <div className="w-fit px-4 py-6 rounded-md flex flex-col md:flex-row items-center mx-auto gap-4 bg-white">
         <p className="">

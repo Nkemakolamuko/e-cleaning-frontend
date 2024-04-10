@@ -62,7 +62,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           <li
             className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
               activeLink === "/dashboard"
-                ? "bg-green-500 text-white rounded-md"
+                ? "bg-green-300 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -80,7 +80,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           <li
             className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
               activeLink === "/cleaners"
-                ? "bg-green-500 text-white rounded-md"
+                ? "bg-green-300 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -98,7 +98,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           <li
             className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
               activeLink === "/orders"
-                ? "bg-green-500 text-white rounded-md"
+                ? "bg-green-300 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -116,7 +116,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           <li
             className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
               activeLink === "/notifications"
-                ? "bg-green-500 text-white rounded-md"
+                ? "bg-green-300 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -131,7 +131,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           <li
             className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
               activeLink === "/store"
-                ? "bg-green-500 text-white rounded-md"
+                ? "bg-green-300 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -145,7 +145,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
         <Link to="/dashboard/faq" onClick={() => handleActiveLink("/faq")}>
           <li
             className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
-              activeLink === "/faq" ? "bg-green-500 text-white rounded-md" : ""
+              activeLink === "/faq" ? "bg-green-300 text-white rounded-md" : ""
             } transition-all duration-300`}
           >
             <span className="">
@@ -162,7 +162,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           <li
             className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
               activeLink === "/history"
-                ? "bg-green-500 text-white rounded-md"
+                ? "bg-green-300 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -180,7 +180,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           <li
             className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
               activeLink === "/contact"
-                ? "bg-green-500 text-white rounded-md"
+                ? "bg-green-300 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -198,7 +198,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           <li
             className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
               activeLink === "/settings"
-                ? "bg-green-500 text-white rounded-md"
+                ? "bg-green-300 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >

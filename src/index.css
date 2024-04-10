@@ -89,7 +89,8 @@
 }
 
 /* Tootip */
-.tooltip {
+.tooltip,
+.tooltip-hot {
   position: relative;
   /* display: inline-block; */
 }
@@ -98,15 +99,17 @@
   visibility: hidden;
   width: fit-content;
   text-wrap: nowrap;
-  background: greenyellow;
-  padding: 4px 4px;
+  /* background: greenyellow; */
+  background: rgba(0, 0, 0, 0.8);
+  padding: 4px 8px;
   position: absolute;
   z-index: 9999;
   top: 0px;
   left: 110%;
-  color: green;
+  /* color: green; */
+  color: whitesmoke;
   opacity: 0;
-  transition: opacity 0.5s;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .tooltip .tooltiptext::after {
@@ -117,13 +120,46 @@
   margin-top: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: transparent rgb(48, 80, 0) transparent transparent;
+  /* border-color: transparent rgb(154, 255, 3) transparent transparent; */
+  border-color: transparent rgba(0, 0, 0, 0.8) transparent transparent;
 }
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
 }
-/* .tooltip .tooltiptext {
+
+/* For Hot */
+.tooltip-hot .tooltip-hottext {
+  visibility: hidden;
+  width: fit-content;
+  text-wrap: nowrap;
+  /* background: greenyellow; */
+  background: rgba(255, 251, 0, 0.795);
+  padding: 4px 8px;
+  position: absolute;
+  z-index: 9999;
+  top: 120%;
+  left: -75%;
+  /* color: green; */
+  color: black;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.tooltip-hot .tooltip-hottext::after {
+  content: "";
+  position: absolute;
+  right: 50%;
+  top: -20%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  /* border-color: transparent rgb(154, 255, 3) transparent transparent; */
+  border-color: transparent transparent rgba(255, 251, 0, 0.795) transparent;
+}
+
+.tooltip-hot:hover .tooltip-hottext {
   visibility: visible;
-} */
+  opacity: 1;
+}

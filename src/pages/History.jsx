@@ -6,7 +6,7 @@ import History25 from "../components/history/history25/History25";
 import History26 from "../components/history/history26/History26";
 
 const History = () => {
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState("2023");
   return (
     <div className="flex flex-col w-full h-screen">
       <div className="fixed top-16 sticky-z-50 bg-green-50 w-full md:hidden">
@@ -27,32 +27,40 @@ const History = () => {
             Select Year
           </p>
           <p
-            className={`p-2 border-2 border-black/50 rounded tracking-wide font-medium hover:bg-slate-200 ${
-              active === "2023" ? "bg-slate-200" : "bg-white"
+            className={`p-2 border-2 border-black/50 rounded tracking-wide font-medium hover:bg-green-300 hover:text-white hover:border-green-300 ${
+              active === "2023"
+                ? "bg-green-300 text-white border-green-300"
+                : "bg-white"
             } transition-all duration-300 cursor-pointer`}
             onClick={() => setActive("2023")}
           >
             2023
           </p>
           <p
-            className={`p-2 border-2 border-black/50 rounded tracking-wide font-medium hover:bg-slate-200 ${
-              active === "2024" ? "bg-slate-200" : "bg-white"
+            className={`p-2 border-2 border-black/50 rounded tracking-wide font-medium hover:bg-green-300 hover:text-white hover:border-green-300 ${
+              active === "2024"
+                ? "bg-green-300 text-white border-green-300"
+                : "bg-white"
             } transition-all duration-300 cursor-pointer`}
             onClick={() => setActive("2024")}
           >
             2024
           </p>
           <p
-            className={`p-2 border-2 border-black/50 rounded tracking-wide font-medium hover:bg-slate-200 ${
-              active === "2025" ? "bg-slate-200" : "bg-white"
+            className={`p-2 border-2 border-black/50 rounded tracking-wide font-medium hover:bg-green-300 hover:text-white hover:border-green-300 ${
+              active === "2025"
+                ? "bg-green-300 text-white border-green-300"
+                : "bg-white"
             } transition-all duration-300 cursor-pointer`}
             onClick={() => setActive("2025")}
           >
             2025
           </p>
           <p
-            className={`p-2 border-2 border-black/50 rounded tracking-wide font-medium hover:bg-slate-200 ${
-              active === "2026" ? "bg-slate-200" : "bg-white"
+            className={`p-2 border-2 border-black/50 rounded tracking-wide font-medium hover:bg-green-300 hover:text-white hover:border-green-300 ${
+              active === "2026"
+                ? "bg-green-300 text-white border-green-300"
+                : "bg-white"
             } transition-all duration-300 cursor-pointer`}
             onClick={() => setActive("2026")}
           >

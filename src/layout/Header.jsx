@@ -35,12 +35,12 @@ const Header = () => {
 
   const toggleThemeDark = () => {
     setDarkMode(true);
-    console.log(darkMode);
+    // console.log(darkMode);
   };
 
   const toggleThemeLight = () => {
     setDarkMode(false);
-    console.log(darkMode);
+    // console.log(darkMode);
   };
 
   const handleCartModal = () => {
@@ -85,23 +85,26 @@ const Header = () => {
         <a
           href="tel:+2347040876440"
           target="_blank"
-          className="p-2 border bg-black/90 rounded hover:bg-black text-white hover:rounded-md text-sm cursor-pointer font-semibold transition-all duration-300 flex items-center gap-3"
+          className="p-2 border bg-black/90 rounded hover:bg-black text-white hover:rounded-md text-sm cursor-pointer font-semibold flex items-center gap-3 tooltip-hot transition-all duration-300"
         >
           <span className="text-yellow-300">
             <FaFire />
           </span>
           <span>Hotline</span>
+          <span className="tooltip-hottext rounded">
+            Available For Immediate Response!!
+          </span>
         </a>
         <div className="px-4 md:px-4 lg:px-4 flex gap-2 items-center ">
           <p
-            className="hover:bg-slate-100 text-yellow-400 border rounded-full cursor-pointer p-2 transition-all duration-300"
+            className="bg-white text-yellow-400 border rounded-full cursor-pointer p-2 transition-all duration-300"
             onClick={toggleThemeLight}
           >
             <FaSun />
           </p>
           <p className="tracking-tighter text-xs font-medium">MODE</p>
           <p
-            className="border rounded-full cursor-pointer p-2 hover:bg-black hover:text-white transition-all duration-300"
+            className="border bg-green-900 rounded-full cursor-pointer p-2 text-white transition-all duration-300"
             onClick={toggleThemeDark}
           >
             <FaMoon />

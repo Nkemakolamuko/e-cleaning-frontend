@@ -12,7 +12,25 @@ const Store = () => {
     <div className="relative">
       <Title title="Our Store" />
 
-      <section className="grid grid-cols-1 md:grid-cols-4 w-[100%]  place-content-center gap-4">
+      <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-[100%]  place-content-center gap-4 transition-all duration-300">
+        <StoreCards handleViewDetails={handleViewDetails} />
+        <StoreCards handleViewDetails={handleViewDetails} />
+        <StoreCards handleViewDetails={handleViewDetails} />
+        <StoreCards handleViewDetails={handleViewDetails} />
+        <StoreCards handleViewDetails={handleViewDetails} />
+        <StoreCards handleViewDetails={handleViewDetails} />
+        <StoreCards handleViewDetails={handleViewDetails} />
+        <StoreCards handleViewDetails={handleViewDetails} />
+        <StoreCards handleViewDetails={handleViewDetails} />
+        <StoreCards handleViewDetails={handleViewDetails} />
+        <StoreCards handleViewDetails={handleViewDetails} />
+        <StoreCards handleViewDetails={handleViewDetails} />
+        <StoreCards handleViewDetails={handleViewDetails} />
+        <StoreCards handleViewDetails={handleViewDetails} />
+        <StoreCards handleViewDetails={handleViewDetails} />
+        <StoreCards handleViewDetails={handleViewDetails} />
+        <StoreCards handleViewDetails={handleViewDetails} />
+        <StoreCards handleViewDetails={handleViewDetails} />
         <StoreCards handleViewDetails={handleViewDetails} />
         <StoreCards handleViewDetails={handleViewDetails} />
         <StoreCards handleViewDetails={handleViewDetails} />
@@ -23,9 +41,13 @@ const Store = () => {
 
       {/* Details PopUp */}
       {viewProducts && (
-        <ProductDetails handleCloseAddress={() => setViewProducts(false)} />
+        <ProductDetails
+          handleCloseProduct={() => {
+            setViewProducts(false);
+          }}
+        />
       )}
-      <p>
+      {/* <p>
         Buy from here - I will make the cards infinite scroll and when the user
         click on any, it will open in a new component with the details
       </p>
@@ -37,7 +59,7 @@ const Store = () => {
         I will add the buy buttons in the pop which will lead them to checkout
         page.
       </p>
-      <p>I can also add sections to the Store page and search as well</p>
+      <p>I can also add sections to the Store page and search as well</p> */}
     </div>
   );
 };

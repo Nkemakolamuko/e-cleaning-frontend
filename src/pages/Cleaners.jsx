@@ -52,8 +52,8 @@ const Cleaners = () => {
       <section className="top-0 sticky z-50 bg-green-50 cleaners">
         <Title title="Dry Cleaners Nearby" />
 
-        {/* Drop Down */}
-        <section className="flex items-center gap-6 md:gap-28 w-full h-fit border-b text-nowrap">
+        {/* Nav */}
+        <section className="flex items-center gap-6 md:gap-28 w-full h-fit border-b text-nowrap shadow-lg md:shadow-none">
           <div
             className="flex flex-col group cursor-pointer transition-all duration-300"
             onClick={() => setBorder("Favorite")}
@@ -121,7 +121,7 @@ const Cleaners = () => {
       </section>
 
       {/* Cards */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-2 w-full md:max-w-[95%] mt-8">
+      <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 w-full md:max-w-[95%] mt-8">
         {border === "Favorite" && (
           <>
             {names.map((name, i) => (

@@ -53,10 +53,10 @@ const UserImage = ({ user }) => {
               setShowInput(true);
             }}
           >
-            <p className="text-base text-center md:text-lg tracking-widest">
+            <p className="text-base text-center md:text-lg tracking-widest group-hover:font-semibold">
               {userData?.name?.toUpperCase() || "Username"}
             </p>
-            <FaPencil className="opacity-100 md:opacity-0 md:group-hover:opacity-100 w-6 h-6 md:w-8 md:h-8" />
+            <FaPencil className="opacity-100 md:opacity-0 md:group-hover:opacity-100 w-6 h-6 md:w-6 md:h-6 md:text-slate-700" />
           </div>
         )}
         {showInput && (

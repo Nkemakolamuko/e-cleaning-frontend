@@ -10,7 +10,7 @@ const StoreCards = ({ handleViewDetails }) => {
     setCartModalCount(() => cartModalCount + 1);
   };
   return (
-    <div className="bg-gradient-to-tr from-white to-white/30 hover:from-white/30 hover:to-white flex flex-col md:shadow-sm shadow-lg md:hover:shadow-lg items-center p-2 rounded scale-95 md:scale-100 transition-all duration-300 relative">
+    <div className="bg-white flex flex-col md:shadow-lg shadow-lg md:hover:shadow-lg items-center p-2 rounded scale-95 md:scale-100 transition-all duration-300 relative">
       <p
         className="right-2 top-2 absolute p-1 text-xs hover:bg-yellow-300 bg-yellow-400 text-slate-100 cursor-pointer shadow-md active:shadow-none active:scale-90 transition-all duration-300"
         onClick={handleCartModalCount}

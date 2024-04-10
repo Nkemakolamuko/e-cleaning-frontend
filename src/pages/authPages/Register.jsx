@@ -40,14 +40,19 @@ const Register = () => {
         alert("Registration successful");
         navigate("/dashboard/settings");
       }
-    }, 2000);
+    }, 1000);
     setName("");
     setEmail("");
     setPassword("");
   };
   return (
-    <section className="w-full h-full bg-gradient-to-t from-green-50 to-transparent">
-      <div className="max-w-[410px] flex flex-col items-center justify-center mx-auto  p-2">
+    <section className="w-full h-screen bg-white md:flex md:flex-row md:items-center">
+      <div className="w-[50%] h-screen hidden md:block overflow-hidden">
+        <img src={logo} alt="Login Image" className="h-full" />
+      </div>
+
+      {/* max-w-[410px] */}
+      <div className="md:max-w-[50%] h-full flex flex-col items-center justify-center md:justify-normal  container mx-auto lg:px-20 md:py-8 md:px-6 px-2 pb-2 pt-24 overflow-auto">
         <img
           src={logo}
           alt="Our Logo"
@@ -114,7 +119,7 @@ const Register = () => {
             </div>
           </div>
           <button
-            className="p-2 bg-green-500 hover:bg-green-600 text-white font-medium tracking-widest rounded w-full mt-2  transition-all duration-300"
+            className="p-2 md:p-3 bg-green-500 hover:bg-green-600 text-white font-medium tracking-widest rounded w-full mt-2  transition-all duration-300"
             onClick={handleSubmit}
           >
             Register
@@ -139,12 +144,10 @@ const Register = () => {
 
         {/* Other Methods */}
         <div className="flex flex-col w-full gap-1 transition-all duration-300">
-          <p className="p-2 bg-white border-2 border-slate-400 hover:bg-slate-400 font-medium tracking-widest rounded w-full mt-2 flex items-center justify-center cursor-pointer gap-4 group transition-all duration-300">
+          <p className="p-2 bg-black text-white border-2 border-black font-medium tracking-widest rounded w-full mt-2 flex items-center justify-center cursor-pointer gap-4 group transition-all duration-300">
             <FcGoogle className="w-6 h-6" />
 
-            <span className=" text-slate-700 group-hover:text-white">
-              Google
-            </span>
+            <span className="">Google</span>
           </p>
           <p className="p-2 bg-blue-500 border-2 border-blue-500 hover:border-blue-600 hover:bg-blue-600 font-medium text-white tracking-widest rounded w-full mt-2 flex justify-center items-center cursor-pointer gap-4 transition-all duration-300">
             <FaFacebook className="w-6 h-6" />
