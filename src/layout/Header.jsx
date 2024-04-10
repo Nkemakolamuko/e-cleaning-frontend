@@ -135,6 +135,23 @@ const Header = () => {
           )}
         </p>
       </div>
+
+      {!smallScreenSideBar && (
+        <a
+          href="tel:+2347040876440"
+          target="_blank"
+          className="p-2 border bg-black/90 rounded hover:bg-black text-white hover:rounded-md text-sm cursor-pointer font-semibold flex items-center gap-3 tooltip-hot transition-all duration-300 md:hidden"
+        >
+          <span className="text-yellow-300">
+            <FaFire />
+          </span>
+          <span>Hotline</span>
+          <span className="tooltip-hottext rounded">
+            Available For Immediate Response!!
+          </span>
+        </a>
+      )}
+
       {!smallScreenSideBar && (
         <p className="cursor-pointer md:hidden" onClick={handleCartModal}>
           <FaCartShopping
