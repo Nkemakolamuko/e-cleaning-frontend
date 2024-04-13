@@ -56,7 +56,7 @@ const ShareApp = ({ handleCloseShare }) => {
           //   }}
         >
           <FaEnvelope className="w-6 h-6" />
-          Text Message
+          Email
         </p>
       </div>
     </div>

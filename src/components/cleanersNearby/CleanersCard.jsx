@@ -51,7 +51,7 @@ const CleanersCard = ({ fav, handleFav, name }) => {
           target="_blank"
           className="md:w-[70%] mx-auto w-full"
         >
-          <button className="p-2 md:p-3 bg-cyan-700 text-white font-medium tracking-widest rounded text-xs md:text-sm active:scale-90 md:w-full w-full">
+          <button className="p-2 md:p-3 bg-cyan-700 text-white hover:bg-cyan-800 font-medium tracking-widest rounded text-xs md:text-sm active:scale-90 md:w-full w-full transition-all duration-300">
             Call Now!
           </button>
         </a>

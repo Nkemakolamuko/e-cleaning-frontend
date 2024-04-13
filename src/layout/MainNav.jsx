@@ -30,7 +30,7 @@ const MainNav = ({ children }) => {
           className={`${
             smallScreenSideBar && window.innerWidth < 400
               ? "bg-slate-400 main-container-small"
-              : "main-container bg-green-50"
+              : "main-container bg-white"
           } ${darkMode ? "dark-mode" : ""}`}
         >
           {children}

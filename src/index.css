@@ -85,7 +85,8 @@
 
 /* Cleaners */
 .cleaners {
-  box-shadow: 10px -50px 10px 20px rgb(240, 253, 244);
+  box-shadow: 10px -50px 10px 20px rgb(255, 255, 255);
+  /* box-shadow: 10px -50px 10px 20px rgb(240, 253, 244); */
 }
 
 /* Tootip */
@@ -162,4 +163,9 @@
 .tooltip-hot:hover .tooltip-hottext {
   visibility: visible;
   opacity: 1;
+}
+
+/* History Table */
+.shadow-history {
+  box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.6);
 }

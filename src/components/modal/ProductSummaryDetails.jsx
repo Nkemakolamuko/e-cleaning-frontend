@@ -50,7 +50,7 @@ const ProductSummaryDetails = () => {
           <FaPlus />
         </p>
       </div>
-      <p className="bg-slate-100 hover:text-white hover:bg-rose-600 p-1 md:p-2 rounded-md cursor-pointer text-slate-500 mt-4 transition-all duration-300">
+      <p className="bg-slate-100 hover:text-white hover:bg-rose-600 p-1 md:p-2 rounded-md cursor-pointer text-slate-500 transition-all duration-300">
         <FaTrash />
       </p>
     </div>

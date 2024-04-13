@@ -3,9 +3,12 @@ import React from "react";
 const ActionBTN = ({ text }) => {
   return (
     <>
-      <button className="bg-cyan-500 text-white text-sm py-2 font-semibold rounded-[3px] hover:bg-cyan-600 transition-all duration-300">
+      <a
+        href="tel:+2347049876440"
+        className="bg-cyan-500 text-white text-sm py-2 font-semibold rounded-[3px] hover:bg-cyan-600 cursor-pointer text-center transition-all duration-300"
+      >
         {text}
-      </button>
+      </a>
     </>
   );
 };

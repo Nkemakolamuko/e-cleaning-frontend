@@ -48,7 +48,7 @@ const UserImage = ({ user }) => {
         </p>
         {!showInput && (
           <div
-            className="flex items-center gap-2 md:gap-4 group hover:bg-slate-300 p-2 rounded cursor-pointer transition-all duration-300"
+            className="flex items-center gap-2 md:gap-4 group hover:bg-slate-200 p-2 rounded cursor-pointer transition-all duration-300"
             onClick={() => {
               setShowInput(true);
             }}
@@ -57,7 +57,7 @@ const UserImage = ({ user }) => {
             <p className="text-base text-center md:text-lg tracking-widest font-semibold">
               {userData?.name?.toUpperCase() || "Username"}
             </p>
-            <FaPencil className="opacity-100 md:opacity-0 md:group-hover:opacity-100 w-6 h-6 md:w-6 md:h-6 md:text-slate-700" />
+            <FaPencil className="opacity-100 md:opacity-0 md:group-hover:opacity-100 w-6 h-6 md:w-6 md:h-6 md:text-slate-600" />
           </div>
         )}
         {showInput && (

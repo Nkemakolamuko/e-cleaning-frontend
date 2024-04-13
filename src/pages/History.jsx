@@ -6,7 +6,7 @@ import History25 from "../components/history/history25/History25";
 import History26 from "../components/history/history26/History26";
 
 const History = () => {
-  const [active, setActive] = useState("2023");
+  const [active, setActive] = useState("2024");
   return (
     <div className="flex flex-col w-full h-screen">
       <div className="fixed top-16 sticky-z-50 bg-green-50 w-full md:hidden">

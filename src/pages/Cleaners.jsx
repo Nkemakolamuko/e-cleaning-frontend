@@ -49,11 +49,11 @@ const Cleaners = () => {
   };
   return (
     <div>
-      <section className="top-0 sticky z-50 bg-green-50 cleaners">
+      <section className="top-0 sticky z-50 bg-white cleaners">
         <Title title="Dry Cleaners Nearby" />
 
         {/* Nav */}
-        <section className="flex items-center gap-6 md:gap-28 w-full h-fit border-b text-nowrap shadow-lg md:shadow-none">
+        <section className="flex items-center gap-6 md:gap-28 w-full h-fit border-b text-nowrap shadow-lg md:shadow-lg">
           <div
             className="flex flex-col group cursor-pointer transition-all duration-300"
             onClick={() => setBorder("Favorite")}

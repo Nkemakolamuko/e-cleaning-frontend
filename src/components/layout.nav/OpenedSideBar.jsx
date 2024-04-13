@@ -53,8 +53,9 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           24/7 E-Laundry Service
         </p>
 
-        <p className="" onClick={handleSideBarClose}>
+        <p onClick={handleSideBarClose} className="tooltip">
           <FaTimes className="w-8 h-8 text-rose-500 hover:bg-rose-600 hover:text-white transition-all duration-300 cursor-pointer active:scale-75" />
+          <span className="tooltiptext rounded">Close Menu</span>
         </p>
       </div>
       <ul className="flex flex-col gap-1 my-4 text-green-900 overflow-auto md:overflow-hidden md:hover:overflow-auto transition-all duration-300">

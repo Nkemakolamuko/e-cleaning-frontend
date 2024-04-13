@@ -4,7 +4,7 @@ import logo from "../../assets/logo.jpg";
 
 const ProductDetails = ({ handleCloseProduct }) => {
   return (
-    <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center absolute -top-16 p-[10px] md:p-[200px] flex-col mx-auto">
+    <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center absolute -top-16 px-[10px] pb-[10px] pt-[70px] md:p-[200px] flex-col mx-auto">
       <p
         className="text-rose-600 border-2 border-white rounded hover:border-rose-600 hover:text-white hover:bg-rose-600 p-2 md:p-2 font-semibold ml-auto mb-2 cursor-pointer active:scale-90 transition-all duration-300"
         onClick={handleCloseProduct}
@@ -48,7 +48,7 @@ const ProductDetails = ({ handleCloseProduct }) => {
             </select>
           </p>
 
-          <button className="p-2 w-full text-white bg-black/90 hover:bg-black hover:text-white  border-2 border-black/90 hover:border-black font-medium hover:rounded transition-all duration-300 ease-in-out">
+          <button className="p-2 w-full text-white bg-black/90 hover:bg-black hover:text-white  border-2 border-black/90 hover:border-black font-medium md:hover:rounded rounded transition-all duration-300 ease-in-out">
             Buy Now
           </button>
         </div>

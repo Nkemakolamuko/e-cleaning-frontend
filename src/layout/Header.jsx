@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa6";
 import { BgContext } from "../App";
 import CartModal from "../components/modal/CartModal";
-import NotificationModal from "../components/modal/NotificationModal";
+import NotificationModal from "../components/notification/NotificationModal";
 import { SideBarContext } from "./MainNav";
 
 const Header = () => {
@@ -61,7 +61,7 @@ const Header = () => {
 
   return (
     <header
-      className={`header shadow-md relative transition-all duration-300 bg-green-50 ${
+      className={`header shadow-md relative transition-all duration-300 bg-white ${
         darkMode ? "dark-mode" : ""
       }`}
     >
@@ -110,13 +110,19 @@ const Header = () => {
             <FaMoon />
           </p>
         </div>
-        <p
-          className="cursor-pointer active:scale-90"
-          onClick={handleNotificationModal}
-        >
+        <p className="cursor-pointer" onClick={handleNotificationModal}>
           <FaRegBell
-            className={`w-6 h-6 text-green-900 ${darkMode ? "dark-mode" : ""}`}
+            className={`w-6 h-6 text-green-900 relative active:scale-90 mr-2 ${
+              darkMode ? "dark-mode" : ""
+            }`}
           />
+
+          <span
+            className={`absolute px-[9px]
+                 py-1 bg-rose-500 text-white text-xs top-2 right-10 rounded-full`}
+          >
+            9
+          </span>
         </p>
         <p className="cursor-pointer" onClick={handleCartModal}>
           <FaCartShopping
