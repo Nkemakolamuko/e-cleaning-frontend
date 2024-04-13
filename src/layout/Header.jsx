@@ -73,7 +73,10 @@ const Header = () => {
         />
       )}
 
-      <p className="font-semibold truncate">
+      <p
+        className="font-semibold truncate"
+        // contentEditable
+      >
         👋 Hi,{" "}
         {user?.name?.split(" ")[0].charAt(0).toUpperCase() +
           user?.name?.slice(1).split(" ")[0] ||

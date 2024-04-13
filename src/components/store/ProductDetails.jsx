@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import logo from "../../assets/logo.jpg";
+import { BgContext } from "../../App";
 
 const ProductDetails = ({ handleCloseProduct }) => {
+  const { cartModalCount, setCartModalCount } = useContext(BgContext);
+  const [cartSuccess, setCartSuccess] = useState(false);
+  const [cartError, setCartError] = useState(false);
+
+  const handleAddToCart = () => {
+    setCartModalCount(() => cartModalCount + 1);
+    setCartSuccess(true);
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setCartSuccess(false);
+    }, 5000);
+  }, [cartModalCount]);
+
   return (
     <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center absolute -top-16 px-[10px] pb-[10px] pt-[70px] md:p-[200px] flex-col mx-auto">
       <p
@@ -22,6 +38,11 @@ const ProductDetails = ({ handleCloseProduct }) => {
           />
         </p>
         <div className="flex flex-col gap-2">
+          {cartSuccess && (
+            <p className="text-green-500 text-center bg-green-50 rounded p-2">
+              Successfully added to cart
+            </p>
+          )}
           <span className="tracking-widest font-medium text-lg">
             Nike Sneakers
           </span>
@@ -47,10 +68,33 @@ const ProductDetails = ({ handleCloseProduct }) => {
               <option value="size">Size 49</option>
             </select>
           </p>
+          <p>
+            <select
+              name="color"
+              id="color"
+              className="active:outline-none outline-none border-2 p-2 rounded w-full font-medium transition-all duration-300"
+            >
+              <option value="color">Choose Color</option>
+              <option value="color">Black</option>
+              <option value="color">White</option>
+              <option value="color">Gray</option>
+              <option value="color">Red</option>
+              <option value="color">Green</option>
+              <option value="color">Baby Pink</option>
+            </select>
+          </p>
 
-          <button className="p-2 w-full text-white bg-black/90 hover:bg-black hover:text-white  border-2 border-black/90 hover:border-black font-medium md:hover:rounded rounded transition-all duration-300 ease-in-out">
-            Buy Now
+          <button
+            className="p-2 w-full text-white bg-yellow-500/90 hover:bg-yellow-500 hover:text-white  border-2 border-yellow-500/90 hover:border-yellow-500 font-medium md:hover:rounded rounded transition-all duration-300 ease-in-out"
+            onClick={handleAddToCart}
+          >
+            Add To Cart
           </button>
+          {cartError && (
+            <p className="text-rose-500 text-center bg-rose-50 rounded p-2">
+              Error while adding to cart - try again
+            </p>
+          )}
         </div>
       </div>
     </div>

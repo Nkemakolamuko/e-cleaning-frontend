@@ -35,7 +35,7 @@ const StoreCards = ({ handleViewDetails }) => {
           <span className="font-medium text-green-500">N 8, 400</span>
         </p>
         <button
-          className="p-2 w-full bg-black/85 hover:bg-black text-white  border-2 border-black/85 hover:border-black font-medium hover:rounded-md rounded transition-all duration-300 ease-in-out"
+          className="p-2 w-full bg-green-500/85 hover:bg-green-500 text-white  border-2 border-green-500/85 hover:border-green-500 font-medium hover:rounded-md rounded transition-all duration-300 ease-in-out"
           onClick={handleViewDetails}
         >
           View Details
