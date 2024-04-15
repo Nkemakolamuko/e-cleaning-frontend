@@ -12,7 +12,7 @@ const NotificationModal = ({ handleCloseNotificationModal }) => {
         <CloseButton handleModalClose={handleCloseNotificationModal} />
       </div>
       {noti ? (
-        <div className="flex flex-col gap-1 max-w-[100%]">
+        <div className="flex flex-col gap-2 max-w-[100%]">
           {/* Max 5 for small screen 9 for md and up */}
           <NotificationModalCards />
           <NotificationModalCards />

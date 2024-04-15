@@ -16,6 +16,14 @@ const Notifications = () => {
         <NotificationPageCard />
         <NotificationPageCard />
         <NotificationPageCard />
+        <NotificationPageCard />
+        <NotificationPageCard />
+        <NotificationPageCard />
+        <NotificationPageCard />
+        <NotificationPageCard />
+        <NotificationPageCard />
+        <NotificationPageCard />
+        <NotificationPageCard />
       </div>
       <div className="w-full flex items-center justify-center">
         <div className="flex items-center fixed justify-between text-slate-500 bottom-0 w-full md:w-[50%] bg-white cursor-pointer md:rounded-md text-sm transition-all duration-300">

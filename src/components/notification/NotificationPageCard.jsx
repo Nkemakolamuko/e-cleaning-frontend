@@ -4,6 +4,7 @@ import {
   FaAngleUp,
   FaEnvelope,
   FaExclamation,
+  FaEyeSlash,
 } from "react-icons/fa6";
 
 const NotificationPageCard = () => {
@@ -84,10 +85,11 @@ const NotificationPageCard = () => {
           ) : (
             <div className="flex items-center justify-start pl-4 pb-2 transition-all duration-300">
               <div className="p-2 bg-rose-50 text-slate-500 rounded-full">
-                <FaExclamation className="w-4 h-4" />
+                <FaEyeSlash className="w-4 h-4" />
               </div>
               <div className="text-sm p-2 text-slate-500">
-                Content Hidden - use Actions to show
+                Content Hidden - use{" "}
+                <code className="bg-green-50">Actions</code> to show
               </div>
             </div>
           )}
