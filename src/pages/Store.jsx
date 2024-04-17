@@ -41,9 +41,9 @@ const Store = () => {
     // Filtering Input values
     if (search) {
       filteredProducts = filteredItems;
-      console.log("Inside Search ", filteredProducts);
+      // console.log("Inside Search ", filteredProducts);
     }
-    console.log("After Search: ", filteredProducts);
+    // console.log("After Search: ", filteredProducts);
 
     // Selected Filter
     if (selected) {
@@ -143,7 +143,7 @@ const Store = () => {
           <div className="flex flex-col md:grid md:grid-cols-4 md:items-center gap-2 mb-4 w-full">
             <div className="flex items-center gap-2 md:col-span-3">
               <p>Search Keywords: </p>
-              <p className="flex items-center gap-2 text-nowrap overflow-auto">
+              <p className="flex items-center gap-2 text-nowrap overflow-auto w-full mt-1 scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-track-transparent scrollbar-thumb-transparent scrollbar-thin">
                 <span className="py-2 px-4 border">All</span>
 
                 <span className="py-2 px-4 border">Tie</span>
