@@ -6,12 +6,19 @@ const UserImage = ({ user }) => {
   const [userData, setUserData] = useState([]);
   const [username, setUsername] = useState("");
   const [showInput, setShowInput] = useState(false);
-  const [file, setFile] = useState();
+  const [file, setFile] = useState(() => {
+    const storedImage = localStorage.getItem("userImage");
+    return storedImage ? storedImage : null;
+  });
+
   const handleChange = (e) => {
-    console.log(e.target.files);
-    setFile(URL.createObjectURL(e.target.files[0]));
-    console.log(file);
+    const selectedFile = e.target.files[0];
+    const imageUrl = URL.createObjectURL(selectedFile);
+    setFile(imageUrl);
+    // Store the selected image URL in local storage
+    localStorage.setItem("userImage", imageUrl);
   };
+
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("user"));
     setUserData(data);
