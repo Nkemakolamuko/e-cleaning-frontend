@@ -24,10 +24,14 @@ const Store = () => {
     setSearch(e.target.value);
   };
 
+  // const filteredItems = data.filter((product) => {
+  //   product.title.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) !==
+  //     -1;
+  //   // product.title.toLowerCase().includes(search.toLowerCase());
+  // });
+
   const filteredItems = data.filter((product) => {
-    product.title.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) !==
-      -1;
-    // product.title.toLowerCase().includes(search.toLowerCase());
+    return product.title.toLowerCase().includes(search.toLowerCase());
   });
 
   // console.log(filteredItems);
