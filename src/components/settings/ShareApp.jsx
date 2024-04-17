@@ -6,6 +6,38 @@ import {
   FaWhatsapp,
   FaXTwitter,
 } from "react-icons/fa6";
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  GabShareButton,
+  HatenaShareButton,
+  InstapaperShareButton,
+  LineShareButton,
+  LinkedinShareButton,
+  LivejournalShareButton,
+  MailruShareButton,
+  OKShareButton,
+  PinterestShareButton,
+  PocketShareButton,
+  RedditShareButton,
+  TelegramShareButton,
+  TumblrShareButton,
+  TwitterShareButton,
+  ViberShareButton,
+  VKShareButton,
+  WhatsappShareButton,
+  WorkplaceShareButton,
+} from "react-share";
+
+import {
+  FacebookShareCount,
+  HatenaShareCount,
+  OKShareCount,
+  PinterestShareCount,
+  RedditShareCount,
+  TumblrShareCount,
+  VKShareCount,
+} from "react-share";
 
 const ShareApp = ({ handleCloseShare }) => {
   return (
@@ -17,47 +49,65 @@ const ShareApp = ({ handleCloseShare }) => {
         <h2 className="tracking-widest font-semibold text-lg mb-2">
           Share Via
         </h2>
-        <p
-          className="w-full bg-green-500 hover:bg-green-600 text-white p-2 tracking-widest rounded font-semibold cursor-pointer flex items-center justify-start gap-2 transition-all duration-300"
-          //   onClick={() => alert("This method is not advisable.")}
-        >
-          <FaWhatsapp className="w-6 h-6" />
-          WhatsApp
-        </p>
-        <p
-          className="w-full bg-neutral-900 hover:bg-neutral-950 text-white p-2 tracking-widest rounded font-semibold cursor-pointer flex items-center justify-start gap-2 transition-all duration-300"
-          //   onClick={() => {
-          //     alert(
-          //       "You'd be redirected to our trusted payment partner shortly."
-          //     );
-          //   }}
-        >
-          <FaXTwitter className="w-6 h-6" />
-          Twitter
-        </p>
-        <p
-          className="w-full bg-blue-500 hover:bg-blue-600 text-white p-2 tracking-widest rounded font-semibold cursor-pointer flex items-center justify-start gap-2 transition-all duration-300"
-          //   onClick={() => {
-          //     alert(
-          //       "You'd be redirected to our trusted payment partner shortly."
-          //     );
-          //   }}
-        >
-          <FaFacebook className="w-6 h-6" />
-          FaceBook
-        </p>
 
-        <p
-          className="w-full bg-neutral-900 hover:bg-neutral-950 text-white p-2 tracking-widest rounded font-semibold cursor-pointer flex items-center justify-start gap-2 transition-all duration-300"
-          //   onClick={() => {
-          //     alert(
-          //       "You'd be redirected to our trusted payment partner shortly."
-          //     );
-          //   }}
+        <WhatsappShareButton url="https://wa.me/" title="24/7_E-CLEANING">
+          <p
+            className="w-full bg-green-500 hover:bg-green-600 text-white p-2 tracking-widest rounded font-semibold cursor-pointer flex items-center justify-start gap-2 transition-all duration-300"
+            //   onClick={() => alert("This method is not advisable.")}
+          >
+            <FaWhatsapp className="w-6 h-6" />
+            WhatsApp
+          </p>
+        </WhatsappShareButton>
+
+        <TwitterShareButton url="https://twitter.com/" title="24/7_E-CLEANING">
+          <p
+            className="w-full bg-neutral-900 hover:bg-neutral-950 text-white p-2 tracking-widest rounded font-semibold cursor-pointer flex items-center justify-start gap-2 transition-all duration-300"
+            //   onClick={() => {
+            //     alert(
+            //       "You'd be redirected to our trusted payment partner shortly."
+            //     );
+            //   }}
+          >
+            <FaXTwitter className="w-6 h-6" />
+            Twitter
+          </p>
+        </TwitterShareButton>
+
+        <FacebookShareButton
+          url="https://www.facebook.com/"
+          quote="24/7_E-CLEANING"
         >
-          <FaEnvelope className="w-6 h-6" />
-          Email
-        </p>
+          <p
+            className="w-full bg-blue-500 hover:bg-blue-600 text-white p-2 tracking-widest rounded font-semibold cursor-pointer flex items-center justify-start gap-2 transition-all duration-300"
+            //   onClick={() => {
+            //     alert(
+            //       "You'd be redirected to our trusted payment partner shortly."
+            //     );
+            //   }}
+          >
+            <FaFacebook className="w-6 h-6" />
+            FaceBook
+          </p>
+        </FacebookShareButton>
+
+        <EmailShareButton
+          url="https://mail.google.com/"
+          subject="24/7_E-CLEANING"
+          body="Share via Email"
+        >
+          <p
+            className="w-full bg-neutral-900 hover:bg-neutral-950 text-white p-2 tracking-widest rounded font-semibold cursor-pointer flex items-center justify-start gap-2 transition-all duration-300"
+            //   onClick={() => {
+            //     alert(
+            //       "You'd be redirected to our trusted payment partner shortly."
+            //     );
+            //   }}
+          >
+            <FaEnvelope className="w-6 h-6" />
+            Email
+          </p>
+        </EmailShareButton>
       </div>
     </div>
   );
