@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CloseButton from "../CloseButton";
 import {
   FaEnvelope,
@@ -40,6 +40,12 @@ import {
 } from "react-share";
 
 const ShareApp = ({ handleCloseShare }) => {
+  const [loading, setLoading] = useState(false);
+
+  setTimeout(() => {
+    setLoading(false);
+  }, 5000);
+
   return (
     <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center md:justify-start gap-2 absolute -top-16 p-[10px] md:px-[300px] md:pb-[300px] md:pt-[200px] flex-col">
       <div className="ml-auto">
@@ -50,10 +56,16 @@ const ShareApp = ({ handleCloseShare }) => {
           Share Via
         </h2>
 
+        {loading && (
+          <p className="p-3 bg-green-50 text-center text-green-700 text-sm">
+            Loading...
+          </p>
+        )}
+
         <WhatsappShareButton url="https://wa.me/" title="24/7_E-CLEANING">
           <p
             className="w-full bg-green-500 hover:bg-green-600 text-white p-2 tracking-widest rounded font-semibold cursor-pointer flex items-center justify-start gap-2 transition-all duration-300"
-            //   onClick={() => alert("This method is not advisable.")}
+            onClick={() => setLoading(true)}
           >
             <FaWhatsapp className="w-6 h-6" />
             WhatsApp
@@ -63,11 +75,7 @@ const ShareApp = ({ handleCloseShare }) => {
         <TwitterShareButton url="https://twitter.com/" title="24/7_E-CLEANING">
           <p
             className="w-full bg-neutral-900 hover:bg-neutral-950 text-white p-2 tracking-widest rounded font-semibold cursor-pointer flex items-center justify-start gap-2 transition-all duration-300"
-            //   onClick={() => {
-            //     alert(
-            //       "You'd be redirected to our trusted payment partner shortly."
-            //     );
-            //   }}
+            onClick={() => setLoading(true)}
           >
             <FaXTwitter className="w-6 h-6" />
             Twitter
@@ -80,11 +88,7 @@ const ShareApp = ({ handleCloseShare }) => {
         >
           <p
             className="w-full bg-blue-500 hover:bg-blue-600 text-white p-2 tracking-widest rounded font-semibold cursor-pointer flex items-center justify-start gap-2 transition-all duration-300"
-            //   onClick={() => {
-            //     alert(
-            //       "You'd be redirected to our trusted payment partner shortly."
-            //     );
-            //   }}
+            onClick={() => setLoading(true)}
           >
             <FaFacebook className="w-6 h-6" />
             FaceBook
@@ -98,11 +102,7 @@ const ShareApp = ({ handleCloseShare }) => {
         >
           <p
             className="w-full bg-neutral-900 hover:bg-neutral-950 text-white p-2 tracking-widest rounded font-semibold cursor-pointer flex items-center justify-start gap-2 transition-all duration-300"
-            //   onClick={() => {
-            //     alert(
-            //       "You'd be redirected to our trusted payment partner shortly."
-            //     );
-            //   }}
+            onClick={() => setLoading(true)}
           >
             <FaEnvelope className="w-6 h-6" />
             Email
