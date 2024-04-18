@@ -10,6 +10,7 @@ const UserImage = ({ user }) => {
     const storedImage = localStorage.getItem("userImage");
     return storedImage ? storedImage : null;
   });
+  const [updatedName, setUpdatedName] = useState([]);
 
   const handleChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -20,12 +21,37 @@ const UserImage = ({ user }) => {
   };
 
   useEffect(() => {
+    // I did this so as to annul that behavior of the updatedName being empty each time I click the handleUpdate function
     const data = JSON.parse(localStorage.getItem("user"));
     setUserData(data);
+    const userToUpdate = JSON.parse(localStorage.getItem("user"));
+    console.log(userToUpdate);
+
+    setUpdatedName([userToUpdate]);
+    console.log("U ", updatedName);
   }, []);
 
-  const handleSubmit = () => {
-    alert("Name changed!");
+  useEffect(() => {
+    // This is so that the name in the UI rerenders immediately once there's a change in the updateName
+    const data = JSON.parse(localStorage.getItem("user"));
+    setUserData(data);
+  }, [updatedName]);
+
+  const handleUpdate = () => {
+    setShowInput(true);
+    const userToUpdate = JSON.parse(localStorage.getItem("user"));
+    console.log(userToUpdate);
+    const newUsername = userToUpdate[0].name;
+    setUsername(newUsername);
+    setUpdatedName([userToUpdate]);
+    console.log("U ", updatedName);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setUpdatedName([...updatedName, (updatedName[0][0].name = username)]);
+    const updatedNameToLS = updatedName[0];
+    localStorage.setItem("user", JSON.stringify(updatedNameToLS));
     setShowInput(false);
   };
 
@@ -56,19 +82,17 @@ const UserImage = ({ user }) => {
         {!showInput && (
           <div
             className="flex items-center gap-2 md:gap-4 group hover:bg-slate-200 p-2 rounded cursor-pointer transition-all duration-300"
-            onClick={() => {
-              setShowInput(true);
-            }}
+            onClick={() => handleUpdate()}
           >
             {/* Name */}
             <p className="text-base text-center md:text-lg tracking-widest font-semibold">
-              {userData?.name?.toUpperCase() || "Username"}
+              {userData?.map((user) => user?.name?.toUpperCase()) || "Username"}
             </p>
             <FaPencil className="opacity-100 md:opacity-0 md:group-hover:opacity-100 w-6 h-6 md:w-6 md:h-6 md:text-slate-600" />
           </div>
         )}
         {showInput && (
-          <form action="#" method="POST" onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <input
               type="text"
               name="usernameChange"

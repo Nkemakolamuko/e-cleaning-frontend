@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../assets/logo.jpg";
 import {
   FaEye,
@@ -14,7 +14,17 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [userDetail, setUserDetail] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const userDetails = JSON.parse(localStorage.getItem("user"));
+    // console.log(userDetails);
+    // setUserDetail([...userDetail, userDetails]);
+    userDetails.map((user) => setUserDetail(user));
+    // console.log(user);
+    // console.log(userDetail);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,11 +33,15 @@ const Login = () => {
       password,
     };
     const userDetails = JSON.parse(localStorage.getItem("user"));
-    console.log(userDetails);
+    // console.log(userDetails);
+    // setUserDetail([...userDetail, userDetails]);
+    userDetails.map((user) => setUserDetail(user));
+    // console.log(user);
+    // console.log(userDetail);
 
     if (
-      user.email === userDetails.email &&
-      user.password === userDetails.password
+      user.email.trim() === userDetail.email &&
+      user.password.trim() === userDetail.password
     ) {
       alert("Login Successful");
       setTimeout(() => {

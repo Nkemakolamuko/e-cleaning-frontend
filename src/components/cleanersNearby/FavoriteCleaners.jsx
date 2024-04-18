@@ -7,38 +7,19 @@ import {
   FaRegBookmark,
 } from "react-icons/fa6";
 
-const CleanersCard = ({ fav, handleFav, name }) => {
+const FavoriteCleaners = ({ fav, handleFav, name }) => {
   return (
     <div className="px-2 pt-2 pb-3 rounded h-fit flex flex-col md:shadow-sm shadow-lg hover:shadow-lg w-full items-center bg-white border border-green-100 to-white relative transition-all duration-300">
-      {/* {fav ? (
-        <p
-          className="absolute right-2 top-0 flex flex-col items-center cursor-pointer transition-all duration-300"
-          onClick={handleFav}
-        >
-          <span className="text-green-500">
-            <FaBookmark />
-          </span>
-        </p>
-      ) : (
-        <p
-          className="absolute right-2 top-0 flex flex-col items-center cursor-pointer transition-all duration-300"
-          onClick={handleFav}
-        >
-          <span className="text-slate-400">
-            <FaRegBookmark />
-          </span>
-        </p>
-      )} */}
       <p
         className="absolute right-2 top-0 flex flex-col items-center cursor-pointer transition-all duration-300"
-        onClick={handleFav}
+        //   onClick={handleFav}
       >
-        <span className="text-slate-400">
-          <FaRegBookmark className="w-6 h-6" />
+        <span className="text-green-500">
+          <FaBookmark className="w-6 h-6" />
         </span>
-        <span className="text-xs text-slate-500">Add to</span>
-        <span className="text-xs text-slate-500">favorite</span>
+        <span className="text-xs text-green-500">favorite</span>
       </p>
+
       <img
         src={logo}
         alt="Cleaner Image"
@@ -61,7 +42,7 @@ const CleanersCard = ({ fav, handleFav, name }) => {
           target="_blank"
           className="md:w-[70%] mx-auto w-full"
         >
-          <button className="p-2 md:p-3 bg-cyan-700 text-white hover:bg-cyan-800 font-medium tracking-widest rounded text-xs md:text-sm active:scale-90 md:w-full w-full transition-all duration-300">
+          <button className="p-2 md:p-3 bg-cyan-500 text-white hover:bg-cyan-600 font-medium tracking-widest rounded text-xs md:text-sm active:scale-90 md:w-full w-full transition-all duration-300">
             Call Now!
           </button>
         </a>
@@ -70,4 +51,4 @@ const CleanersCard = ({ fav, handleFav, name }) => {
   );
 };
 
-export default CleanersCard;
+export default FavoriteCleaners;

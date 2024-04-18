@@ -21,18 +21,43 @@ export const BgContext = createContext(null);
 function App() {
   const [bg, setBg] = useState("bg-slate-300");
   const [darkMode, setDarkMode] = useState(false);
-  const [cartModalCount, setCartModalCount] = useState(0);
+  const [cartId, setCartId] = useState(null);
+  const [cartItem, setCartItem] = useState([]);
+  const [cartModalCount, setCartModalCount] = useState(cartItem.length); //I'd use the length of the cartItem here
+  const [cartExistErr, setCartExistErr] = useState(null);
+  const [cartAdded, setCartAdded] = useState(false);
+  const [cartTotal, setCartTotal] = useState([]);
   const [showCartModal, setShowCartModal] = useState(false);
-  const [notificationModalCount, setNotificationModalCount] = useState(0);
+  const [notificationModalCount, setNotificationModalCount] = useState(null);
   const [showNotificationModal, setShowNotificationModal] = useState(false);
+
+  setTimeout(() => {
+    setCartExistErr(false);
+  }, 5000);
+
+  setTimeout(() => {
+    setCartAdded(false);
+  }, 5000);
+
   return (
     // There'd be Cart Count and Checking Items In It All That
+
     <BgContext.Provider
       value={{
         bg,
         setBg,
+        cartId,
+        setCartId,
+        cartTotal,
+        setCartTotal,
         darkMode,
         setDarkMode,
+        cartItem,
+        setCartItem,
+        cartExistErr,
+        setCartExistErr,
+        cartAdded,
+        setCartAdded,
         cartModalCount,
         setCartModalCount,
         showCartModal,

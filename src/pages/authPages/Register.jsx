@@ -19,7 +19,7 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name || !email || !password) {
+    if (!name.trim() || !email.trim() || !password.trim()) {
       alert("All fields are required");
       return;
     }
@@ -27,11 +27,14 @@ const Register = () => {
     //   alert("Needs at least 2 names");
     //   return;
     // }
-    const user = {
-      name,
-      email,
-      password,
-    };
+    const user = [
+      {
+        name,
+        email,
+        password,
+        id: Math.random(),
+      },
+    ];
     localStorage.setItem("user", JSON.stringify(user));
 
     setTimeout(() => {

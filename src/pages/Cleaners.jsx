@@ -1,52 +1,77 @@
 import React, { useState } from "react";
 import Title from "../components/Title";
 import CleanersCard from "../components/cleanersNearby/CleanersCard";
+import FavoriteCleaners from "../components/cleanersNearby/FavoriteCleaners";
 
+// Still on this -- the favorite stuff -- I need it to remain true when set to true and be unable to add it to favorites if it's true -- I want to add toggle option as well
+
+const names = [
+  {
+    name: "Ugo Best",
+    favorite: false,
+    id: 1,
+  },
+  {
+    name: "Tony Best",
+    favorite: false,
+    id: 2,
+  },
+  {
+    name: "Euvoria",
+    favorite: false,
+    id: 3,
+  },
+  {
+    name: "Nkem Best",
+    favorite: false,
+    id: 4,
+  },
+  {
+    name: "Sheri Best",
+    favorite: false,
+    id: 5,
+  },
+  {
+    name: "Anto Best",
+    favorite: false,
+    id: 6,
+  },
+  {
+    name: "Diamond Best",
+    favorite: false,
+    id: 7,
+  },
+];
 const Cleaners = () => {
-  const [border, setBorder] = useState("Favorite");
+  const [border, setBorder] = useState("All");
   const [favHandler, setFavHandler] = useState(false);
+  const [forFavNames, setForFavNames] = useState(names);
+  const [yourFavorites, setYourFavorites] = useState([]);
 
-  const names = [
-    {
-      name: "Ugo Best",
-      favorite: favHandler,
-      id: 1,
-    },
-    {
-      name: "Tony Best",
-      favorite: favHandler,
-      id: 2,
-    },
-    {
-      name: "Euvoria",
-      favorite: favHandler,
-      id: 3,
-    },
-    {
-      name: "Nkem Best",
-      favorite: favHandler,
-      id: 4,
-    },
-    {
-      name: "Sheri Best",
-      favorite: favHandler,
-      id: 5,
-    },
-    {
-      name: "Anto Best",
-      favorite: favHandler,
-      id: 6,
-    },
-    {
-      name: "Diamond Best",
-      favorite: favHandler,
-      id: 7,
-    },
-  ];
+  const handleFav = (id) => {
+    setForFavNames(
+      names.map((val) =>
+        val.id === id ? { ...val, favorite: !val.favorite } : val
+      )
+    );
+    const favFound = forFavNames.find((val) => val.id == id);
 
-  const handleFav = () => {
-    setFavHandler(!favHandler);
+    if (yourFavorites.includes(favFound)) {
+      console.log("Exist");
+      alert("Exist");
+      return;
+    } else {
+      setYourFavorites([
+        ...yourFavorites,
+        { ...favFound, favorite: !favFound.favorite },
+      ]);
+      console.log("Else block ", yourFavorites);
+    }
+    alert("Added to favorite!");
   };
+
+  // console.log(yourFavorites);
+
   return (
     <div>
       <section className="top-0 sticky z-50 bg-white cleaners">
@@ -124,65 +149,44 @@ const Cleaners = () => {
       <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 w-full md:max-w-[95%] mt-8">
         {border === "Favorite" && (
           <>
-            {names.map((name, i) => (
+            {yourFavorites.length !== 0 ? (
+              yourFavorites.map((name, i) => (
+                <FavoriteCleaners
+                  name={name.name}
+                  key={name.id}
+                  // handleFav={() => handleFav(name.id)}
+                  // fav={name.favorite}
+                />
+              ))
+            ) : (
+              <p className="text-slate-600">No Favorites added yet</p>
+            )}
+          </>
+        )}
+
+        {border === "Area" && (
+          <>
+            {forFavNames.map((name, i) => (
               <CleanersCard
                 name={name.name}
                 key={name.id}
-                handleFav={handleFav}
+                handleFav={() => handleFav(name.id)}
                 fav={name.favorite}
               />
             ))}
           </>
         )}
 
-        {border === "Area" && (
-          <>
-            <CleanersCard />
-            <CleanersCard fav={favHandler} />
-            <CleanersCard />
-            <CleanersCard />
-            <CleanersCard />
-            <CleanersCard fav={favHandler} />
-            <CleanersCard fav={favHandler} />
-            <CleanersCard />
-            <CleanersCard />
-            <CleanersCard />
-            <CleanersCard />
-            <CleanersCard fav={favHandler} />
-            <CleanersCard fav={favHandler} />
-          </>
-        )}
-
         {border === "All" && (
           <>
-            <CleanersCard />
-            <CleanersCard />
-            <CleanersCard fav={favHandler} />
-            <CleanersCard fav={favHandler} />
-            <CleanersCard />
-            <CleanersCard />
-            <CleanersCard />
-            <CleanersCard />
-            <CleanersCard />
-            <CleanersCard fav={favHandler} />
-            <CleanersCard fav={favHandler} />
-            <CleanersCard />
-            <CleanersCard />
-            <CleanersCard />
-            <CleanersCard />
-            <CleanersCard />
-            <CleanersCard />
-            <CleanersCard fav={favHandler} />
-            <CleanersCard />
-            <CleanersCard />
-            <CleanersCard />
-            <CleanersCard />
-            <CleanersCard />
-            <CleanersCard fav={favHandler} />
-            <CleanersCard />
-            <CleanersCard />
-            <CleanersCard />
-            <CleanersCard />
+            {forFavNames.map((name, i) => (
+              <CleanersCard
+                name={name.name}
+                key={name.id}
+                handleFav={() => handleFav(name.id)}
+                fav={name.favorite}
+              />
+            ))}
           </>
         )}
       </section>

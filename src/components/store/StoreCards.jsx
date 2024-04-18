@@ -1,19 +1,129 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import logo from "../../assets/logo.jpg";
 import { FaCartPlus, FaPlus } from "react-icons/fa6";
 import { BgContext } from "../../App";
+import data from "../../../db/storeDB";
 
-const StoreCards = ({ handleViewDetails, title, prevPrice, newPrice }) => {
-  const { cartModalCount, setCartModalCount } = useContext(BgContext);
+const StoreCards = ({ handleViewDetails, title, prevPrice, newPrice, id }) => {
+  const {
+    cartModalCount,
+    setCartModalCount,
+    cartId,
+    setCartId,
+    cartExistErr,
+    setCartExistErr,
+    setCartAdded,
+    setCartItem,
+    cartItem,
+    cartTotal,
+    setCartTotal,
+  } = useContext(BgContext);
 
-  const handleCartModalCount = () => {
-    setCartModalCount(() => cartModalCount + 1);
+  const addedProduct = data?.find((product) => {
+    return product.id == cartId;
+  });
+
+  useEffect(() => {
+    if (cartItem.includes(addedProduct) || addedProduct == undefined) {
+      // console.log("can not");
+      return;
+    } else {
+      setCartItem([...cartItem, addedProduct]);
+      // console.log("Initial Cart Item from card: ", cartItem);
+      cartItem.map((product) => {
+        let initial = product.newPrice;
+        setCartTotal((initial += product.newPrice));
+      });
+      console.log("Initial Cart Total card ", cartTotal);
+    }
+  }, []);
+
+  const handleCartModalCount = (id) => {
+    //   // setCartModalCount(() => cartModalCount + 1);
+    setCartId(id);
+
+    //   if (cartId == null) {
+    // console.log("It does... or null...");
+    //     setCartExistErr(true);
+    //     return;
+    //   } else if (cartItem?.includes(addedProduct)) {
+    // console.log("Err From card");
+    //     setCartExistErr(true);
+    //     return;
+    //   } else {
+    //     setCartAdded(true);
+    //     // setTimeout(() => {
+    //     setCartItem([...cartItem, addedProduct]);
+    //     setCartModalCount(cartModalCount + 1);
+    //     // }, 3000);
+    //   }
   };
+
+  useEffect(() => {
+    const addToCartFn = () => {
+      // console.log("After Cart Item: ", cartItem);
+      if (cartItem.includes(addedProduct) || addedProduct == undefined) {
+        return;
+      } else {
+        setCartItem([...cartItem, addedProduct]);
+        cartItem.map((product) => {
+          let initial = product.newPrice; // not working, just replace and not concatenating
+          setCartTotal((initial += product.newPrice));
+        });
+        // console.log("After Cart Item from card: ", cartItem);
+      }
+
+      // if (cartId == null) {
+      // console.log("It does... or null...");
+      //   setCartExistErr(true);
+      //   return;
+      // } else
+      if (cartItem?.includes(addedProduct)) {
+        setCartExistErr(true);
+        // console.log("Err From card");
+        return;
+      } else {
+        setCartAdded(true);
+        // console.log("True From card add");
+        setCartModalCount(cartModalCount + 1);
+        // setTimeout(() => {
+        setCartItem([...cartItem, addedProduct]);
+        cartItem.map((product) => {
+          let initial = product.newPrice;
+          setCartTotal((initial += product.newPrice));
+        });
+        // }, 3000);
+      }
+    };
+    addToCartFn();
+    // console.log(cartItem);
+  }, [cartId]);
+
+  // console.log(allAddedProduct);
+
+  // useEffect(() => {
+  //   if (cartId == null) {
+  // console.log("It does... or null...");
+  //     setCartExistErr(true);
+  //     return;
+  //   } else if (cartItem?.includes(addedProduct)) {
+  //     setCartExistErr(true);
+  //     return;
+  //   } else {
+  //     setCartAdded(true);
+  //     setTimeout(() => {
+  //       setCartItem([...cartItem, addedProduct]);
+  //       setCartModalCount(() => cartModalCount + 1);
+  //     }, 3000);
+  //   }
+  // console.log(cartItem);
+  // }, [cartId]);
+
   return (
     <div className="bg-white h-full flex flex-col md:shadow-lg shadow-lg md:hover:shadow-lg items-center p-2 rounded scale-95 md:scale-100 transition-all duration-300 relative">
       <p
         className="right-2 top-2 absolute p-1 text-xs hover:bg-yellow-300 bg-yellow-400 text-slate-100 cursor-pointer shadow-md active:shadow-none active:scale-90 transition-all duration-300"
-        onClick={handleCartModalCount}
+        onClick={() => handleCartModalCount(id)}
       >
         <span>
           <FaCartPlus className="w-5 h-5" />

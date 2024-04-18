@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Title from "../components/Title";
 import StoreCards from "../components/store/StoreCards";
 import ProductDetails from "../components/store/ProductDetails";
 import { FaSearch, FaTimes } from "react-icons/fa";
 import data from "../../db/storeDB";
+import { BgContext } from "../App";
 
 const Store = () => {
+  const { cartExistErr, cartAdded } = useContext(BgContext);
   const [viewProducts, setViewProducts] = useState(false);
   const [searchProduct, setSearchProduct] = useState(false);
   const [search, setSearch] = useState("");
@@ -16,34 +18,21 @@ const Store = () => {
     localStorage.setItem("store-id", id);
   };
 
-  // const filteredTasks = tasks.filter((task) =>
-  //   task.text.toLowerCase().includes(search.toLowerCase())
-  // );
-
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
   };
 
-  // const filteredItems = data.filter((product) => {
-  //   product.title.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) !==
-  //     -1;
-  //   // product.title.toLowerCase().includes(search.toLowerCase());
-  // });
-
+  // I needed to add a return statement to make it fully work here --
   const filteredItems = data.filter((product) => {
     return product.title.toLowerCase().includes(search.toLowerCase());
   });
-
-  // console.log(filteredItems);
 
   function filteredData(data, selected, search) {
     let filteredProducts = data;
     // Filtering Input values
     if (search) {
       filteredProducts = filteredItems;
-      // console.log("Inside Search ", filteredProducts);
     }
-    // console.log("After Search: ", filteredProducts);
 
     // Selected Filter
     if (selected) {
@@ -56,9 +45,8 @@ const Store = () => {
     return filteredProducts.map(
       ({ img, title, star, reviews, newPrice, prevPrice, id }) => (
         <StoreCards
-          // key={uuid4()}
           key={id}
-          // id={id}
+          id={id}
           // img={img}
           title={title}
           handleViewDetails={() => handleViewDetails(id)}
@@ -72,11 +60,31 @@ const Store = () => {
   }
   const result = filteredData(data, selectedCategory, search);
 
-  // I am trying to make my search queries return a card -- still on it
-
   return (
     <div className="relative">
       <Title title="Our Store" />
+      {/* {cartExistErr && (
+        <p className="p-3 text-rose-600 bg-rose-50 text-center rounded">
+          An error occurred or product exist
+        </p>
+      )}
+      {cartAdded && (
+        <p className="p-3 text-green-800 bg-green-50 text-center rounded">
+          Product added
+        </p>
+      )} */}
+
+      {cartExistErr ? (
+        <p className="p-3 text-rose-600 bg-rose-50 text-center rounded">
+          An error occurred or product exist
+        </p>
+      ) : cartAdded ? (
+        <p className="p-3 text-green-800 bg-green-50 text-center rounded">
+          Product added
+        </p>
+      ) : (
+        ""
+      )}
 
       <section className="mb-4 mt-2 md:mt-4 md:mb-8">
         {/* Available Products */}

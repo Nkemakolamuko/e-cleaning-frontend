@@ -30,7 +30,11 @@ const Header = () => {
   const [user, setUser] = useState([]);
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("user"));
-    setUser(data);
+    data.map((name) => setUser(name));
+
+    // console.log(data);
+    // console.log(user);
+    // setUser(data);
   }, []);
 
   const toggleThemeDark = () => {
