@@ -56,8 +56,9 @@ const ProductSummary = () => {
 
   return (
     <div className="max-w-fit flex-col flex items-center justify-between h-[70vh] overflow-auto transition-all duration-300 ease-in-out">
-      <ProductSummaryDetails />
-
+      <div>
+        <ProductSummaryDetails />
+      </div>
       <div className="sticky bottom-0 w-full bg-white px-2 pt-2">
         <div className="flex items-center justify-between w-full bg-slate-100 p-2 rounded-md transition-all duration-300">
           <p className="font-medium tracking-widest">Total</p>
