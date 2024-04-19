@@ -56,7 +56,7 @@ const StoreCards = ({ handleViewDetails, title, prevPrice, newPrice, id }) => {
         setCartItem([...cartItem, addedProduct]);
         setCartTotal(cartItem);
       }
-      console.log(cartTotal);
+      // console.log(cartTotal);
     };
     addToCartFn();
     // console.log(cartItem);

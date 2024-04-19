@@ -27,6 +27,7 @@ function App() {
   const [cartExistErr, setCartExistErr] = useState(null);
   const [cartAdded, setCartAdded] = useState(false);
   const [cartTotal, setCartTotal] = useState([]);
+  const [total, setTotal] = useState(null);
   const [showCartModal, setShowCartModal] = useState(false);
   const [notificationModalCount, setNotificationModalCount] = useState(null);
   const [showNotificationModal, setShowNotificationModal] = useState(false);
@@ -50,6 +51,8 @@ function App() {
         setCartId,
         cartTotal,
         setCartTotal,
+        total,
+        setTotal,
         darkMode,
         setDarkMode,
         cartItem,

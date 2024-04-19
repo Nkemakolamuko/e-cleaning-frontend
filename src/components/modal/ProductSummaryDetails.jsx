@@ -51,6 +51,7 @@ const ProductSummaryDetails = () => {
         setCartTotal(cartItem);
       }
     };
+
     addToCartFn();
   }, [cartId]);
 
