@@ -28,7 +28,7 @@ const MainNav = ({ children }) => {
         <Header />
         <main
           className={`${
-            smallScreenSideBar && window.innerWidth < 400
+            smallScreenSideBar
               ? "bg-slate-400 main-container-small"
               : "main-container bg-white"
           } ${darkMode ? "dark-mode" : ""}`}

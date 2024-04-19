@@ -29,7 +29,7 @@ const Store = () => {
 
   function filteredData(data, selected, search) {
     let filteredProducts = data;
-    // Filtering Input values
+    // Filtering Input values - If there's a value in the search input, then thr data , which is the filteredProducts becomes the filteredItems (which we've specified how it should behave above) - and then the (map) is now done on the whatever was assigned to filteredProducts
     if (search) {
       filteredProducts = filteredItems;
     }
@@ -63,17 +63,6 @@ const Store = () => {
   return (
     <div className="relative">
       <Title title="Our Store" />
-      {/* {cartExistErr && (
-        <p className="p-3 text-rose-600 bg-rose-50 text-center rounded">
-          An error occurred or product exist
-        </p>
-      )}
-      {cartAdded && (
-        <p className="p-3 text-green-800 bg-green-50 text-center rounded">
-          Product added
-        </p>
-      )} */}
-
       {cartExistErr ? (
         <p className="p-3 text-rose-600 bg-rose-50 text-center rounded">
           An error occurred or product exist
@@ -86,16 +75,16 @@ const Store = () => {
         ""
       )}
 
-      <section className="mb-4 mt-2 md:mt-4 md:mb-8">
+      <section className="mb-4 mt-2 lg:mt-4 lg:mb-8">
         {/* Available Products */}
         {!searchProduct && (
-          <div className="flex items-start md:items-center justify-between md:justify-normal">
-            <div className="flex flex-col md:flex-row md:items-center md:w-[80%] w-[100%]">
-              <p className="hidden md:flex pr-2">Available Products: </p>
-              <div className="flex items-center md:hidden gap-3 mb-2">
-                <p className="md:hidden">Available Products: </p>
+          <div className="flex items-start lg:items-center justify-between lg:justify-normal">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:w-[80%] w-[100%]">
+              <p className="hidden lg:flex pr-2">Available Products: </p>
+              <div className="flex items-center lg:hidden gap-3 mb-2">
+                <p className="lg:hidden">Available Products: </p>
                 <div
-                  className="rounded-full md:hidden border text-slate-600 p-2 w-fit"
+                  className="hover:rounded-lg rounded-md py-2 px-4 lg:hidden border text-slate-600 hover:bg-slate-100 w-fit cursor-pointer transition-all duration-300"
                   onClick={() => {
                     setSearchProduct(true);
                   }}
@@ -103,7 +92,7 @@ const Store = () => {
                   <FaSearch />
                 </div>
               </div>
-              <p className="flex items-center gap-2  overflow-auto">
+              <p className="flex items-center gap-2 overflow-auto">
                 <span className="py-2 px-4 text-center border rounded cursor-pointer">
                   Tie
                 </span>
@@ -132,7 +121,7 @@ const Store = () => {
             </div>
 
             <div
-              className="hidden md:flex w-fit cursor-pointer md:flex-row md:py-3 md:px-12 md:text-center md:justify-center md:gap-2 md:rounded md:hover:bg-cyan-200 md:items-center md:pl-4 md:bg-cyan-100 md:border transition-all duration-300"
+              className="hidden lg:flex w-fit cursor-pointer lg:flex-row lg:py-3 lg:px-12 lg:text-center lg:justify-center lg:gap-2 lg:rounded lg:hover:bg-cyan-200 lg:items-center lg:pl-4 lg:bg-cyan-100 lg:border transition-all duration-300"
               onClick={() => {
                 setSearchProduct(true);
               }}
@@ -153,10 +142,10 @@ const Store = () => {
         {/* Search Products */}
         {/* max-w-[820px] */}
         {searchProduct && (
-          <div className="flex flex-col md:grid md:grid-cols-4 md:items-center gap-2 mb-4 w-full">
-            <div className="flex items-center gap-2 md:col-span-3">
-              <p>Search Keywords: </p>
-              <p className="flex items-center gap-2 text-nowrap overflow-auto w-full mt-1 scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-track-transparent scrollbar-thumb-transparent scrollbar-thin">
+          <div className="flex flex-col lg:grid lg:grid-cols-4 lg:items-center gap-2 mb-4 w-full">
+            <div className="flex items-center md:justify-between md:w-full gap-2 md:gap-0 lg:gap-2 lg:col-span-3">
+              <p className="md:w-[20%]">Search Keywords: </p>
+              <p className="flex items-center gap-2 text-nowrap overflow-auto w-full mt-1 scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-track-transparent scrollbar-thumb-transparent scrollbar-thin md:w-[80%]">
                 <span className="py-2 px-4 border">All</span>
 
                 <span className="py-2 px-4 border">Tie</span>
@@ -171,21 +160,21 @@ const Store = () => {
               </p>
             </div>
 
-            <div className="flex items-center gap-2 w-full md:col-span-1 pl-4">
+            <div className="flex items-center gap-2 w-full md:w-[60%] lg:w-[100%] lg:col-span-1 lg:pl-4 md:container md:mx-auto">
               <input
                 type="text"
-                className="border border-cyan-400 rounded px-2 py-3 md:py-3 text-sky-500 w-full outline-none caret-sky-500"
+                className="border border-cyan-400 rounded px-2 py-3 lg:py-3 text-sky-500 w-full outline-none caret-sky-500"
                 placeholder="Search for product"
                 value={search}
                 onChange={handleSearchChange}
               />
               <p
-                className="p-3 md:p-1 rounded-full text-rose-500 hover:bg-rose-500 hover:text-white cursor-pointer hover:border-rose-500 transition-all duration-300"
+                className="p-3 lg:p-1 rounded-full text-rose-500 hover:bg-rose-500 hover:text-white cursor-pointer hover:border-rose-500 transition-all duration-300"
                 onClick={() => {
                   setSearchProduct(false);
                 }}
               >
-                <FaTimes className="md:w-6 md:h-6" />
+                <FaTimes className="lg:w-6 lg:h-6" />
               </p>
             </div>
           </div>
