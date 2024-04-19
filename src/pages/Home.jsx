@@ -4,7 +4,7 @@ import logo from "../assets/logo.jpg";
 
 const Home = () => {
   return (
-    <div className="mt-5 w-full flex flex-col h-[100vh] md:h-[85vh] justify-center">
+    <div className="mt-5 w-full flex flex-col h-[80vh] md:h-[85vh] justify-center">
       <div className="flex flex-col w-[320px] md:w-[400px] justify-center items-center mx-auto h-full my-auto">
         <div className="p-2 rounded-full shadow-lg w-fit  mx-auto mb-4">
           <p className="text-8xl md:text-[130px] py-7 px-3 md:py-8">👋</p>
