@@ -13,43 +13,30 @@ const ProductSummary = () => {
     return product.id == cartId;
   });
 
-  useEffect(() => {
-    cartItem.map((product) => {
-      let initial = product.newPrice;
-      setCartTotal((initial += product.newPrice));
-    });
-    console.log("Initial Cart Total summary parent ", cartTotal);
-    // if (cartItem.includes(addedProduct) || addedProduct == undefined) {
-    //   // console.log("can not");
-    //   return;
-    // } else {
-    //   setCartItem([...cartItem, addedProduct]);
-    //   // console.log("Initial Cart Item from card: ", cartItem);
-    // }
-  }, []);
+  // useEffect(() => {
+  //   console.log("Initial SummaryDetails Parent", cartItem);
 
-  useEffect(() => {
-    console.log("From SummaryDetails Parent", cartItem);
-    cartItem.map((product) => {
-      let initial = product.newPrice;
-      setCartTotal((initial += product.newPrice));
-    });
-    console.log("After Cart Total ", cartTotal);
-    console.log("Stringed ", cartTotal.toString().split("₦"));
+  //   // setCartItem([...cartItem, addedProduct]);
+  //   cartItem.map((product) => setCartTotal([...cartTotal, product]));
+  //   // setCartTotal(cartItem);
 
-    // setMainSum([...mainSum, sum.split("₦")]);
-    // console.log("Sum ", sum.split("₦"));
-    // console.log("Main Sum ", mainSum);
-  }, [cartItem]);
+  //   console.log("Initial Cart Total summary parent ", cartTotal);
+  // }, []);
+
+  // useEffect(() => {
+  //   console.log("From SummaryDetails Parent", cartItem);
+  //   cartItem.map((product) => setCartTotal([...cartTotal, product]));
+
+  //   // setCartItem([...cartItem, addedProduct]);
+  //   // setCartTotal(cartItem);
+
+  //   console.log("After Cart Total summary parent ", cartTotal);
+  // }, [cartItem]);
 
   return (
     <div className="max-w-fit flex-col flex items-center justify-between h-[70vh] overflow-auto transition-all duration-300 ease-in-out">
       <ProductSummaryDetails />
-      {/* <ProductSummaryDetails />
-      <ProductSummaryDetails />
-      <ProductSummaryDetails />
-      <ProductSummaryDetails />
-      <ProductSummaryDetails /> */}
+
       <div className="sticky bottom-0 w-full bg-white px-2 pt-2">
         <div className="flex items-center justify-between w-full bg-slate-100 p-2 rounded-md transition-all duration-300">
           <p className="font-medium tracking-widest">Total</p>

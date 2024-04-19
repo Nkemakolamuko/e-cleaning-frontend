@@ -14,6 +14,7 @@ const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [address, setAddress] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
@@ -32,6 +33,7 @@ const Register = () => {
         name,
         email,
         password,
+        address,
         id: Math.random(),
       },
     ];

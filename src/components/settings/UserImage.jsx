@@ -25,10 +25,10 @@ const UserImage = ({ user }) => {
     const data = JSON.parse(localStorage.getItem("user"));
     setUserData(data);
     const userToUpdate = JSON.parse(localStorage.getItem("user"));
-    console.log(userToUpdate);
+    // console.log(userToUpdate);
 
     setUpdatedName([userToUpdate]);
-    console.log("U ", updatedName);
+    // console.log("U ", updatedName);
   }, []);
 
   useEffect(() => {
@@ -40,11 +40,11 @@ const UserImage = ({ user }) => {
   const handleUpdate = () => {
     setShowInput(true);
     const userToUpdate = JSON.parse(localStorage.getItem("user"));
-    console.log(userToUpdate);
+    // console.log(userToUpdate);
     const newUsername = userToUpdate[0].name;
     setUsername(newUsername);
     setUpdatedName([userToUpdate]);
-    console.log("U ", updatedName);
+    // console.log("U ", updatedName);
   };
 
   const handleSubmit = (e) => {
@@ -86,6 +86,7 @@ const UserImage = ({ user }) => {
           >
             {/* Name */}
             <p className="text-base text-center md:text-lg tracking-widest font-semibold">
+              {/* {userData?.name?.toUpperCase() || "Username"} */}
               {userData?.map((user) => user?.name?.toUpperCase()) || "Username"}
             </p>
             <FaPencil className="opacity-100 md:opacity-0 md:group-hover:opacity-100 w-6 h-6 md:w-6 md:h-6 md:text-slate-600" />

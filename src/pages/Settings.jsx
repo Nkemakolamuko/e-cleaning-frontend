@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Title from "../components/Title";
 import user from "../assets/logo.jpg";
 import {
@@ -19,6 +19,50 @@ import ShareApp from "../components/settings/ShareApp";
 
 const Settings = () => {
   const [show, setShow] = useState(null);
+  const [user, setUser] = useState([]);
+  const [userEmail, setUserEmail] = useState("");
+  const [userAddress, setUserAddress] = useState("");
+  const [updatedUser, setUpdatedUser] = useState([]);
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("user"));
+    setUser(data[0]);
+    setUpdatedUser([...updatedUser, data]);
+  }, []);
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("user"));
+    setUser(data[0]);
+  }, [updatedUser]);
+
+  // Address Change
+  const handleChangeAddress = (e) => {
+    setUserAddress(e.target.value);
+  };
+
+  const handleUpdateAddress = (e) => {
+    e.preventDefault();
+    setUpdatedUser([...updatedUser, (updatedUser[0][0].address = userAddress)]);
+
+    const updatedUserToLS = updatedUser[0];
+    localStorage.setItem("user", JSON.stringify(updatedUserToLS));
+    setShow(false);
+  };
+
+  // Email Change
+  const handleChangeEmail = (e) => {
+    setUserEmail(e.target.value);
+  };
+
+  const handleEmailUpdate = (e) => {
+    e.preventDefault();
+    setUpdatedUser([...updatedUser, (updatedUser[0][0].email = userEmail)]);
+
+    const updatedUserToLS = updatedUser[0];
+    localStorage.setItem("user", JSON.stringify(updatedUserToLS));
+    setShow(false);
+  };
+
   return (
     <section className="relative mb-6 md:mb-0">
       <Title title="Settings" />
@@ -44,10 +88,17 @@ const Settings = () => {
             </li>
             <li
               className="p-3 bg-white hover:bg-slate-200 shadow-md hover:shadow-lg cursor-pointer group transition-all duration-300 flex items-center justify-between"
-              onClick={() => setShow("Email")}
+              onClick={() => {
+                setShow("Email");
+                const data = JSON.parse(localStorage.getItem("user"));
+                setUser(data[0]);
+                setUserEmail(user?.email);
+              }}
             >
               <p className="flex flex-col">
-                <span className="font-medium">useremail@gmail.com</span>{" "}
+                <span className="font-medium">
+                  {user?.email || "loading..."}
+                </span>{" "}
                 <span className="text-xs">Click to change</span>
               </p>
               <p>
@@ -72,12 +123,17 @@ const Settings = () => {
           <ul className="flex flex-col gap-2 w-full">
             <li
               className="p-3 bg-white hover:bg-slate-200 shadow-md hover:shadow-lg cursor-pointer flex justify-between group items-center transition-all duration-300"
-              onClick={() => setShow("Address")}
+              onClick={() => {
+                setShow("Address");
+                const data = JSON.parse(localStorage.getItem("user"));
+                setUser(data[0]);
+                setUserAddress(user?.address);
+              }}
             >
               <p className="flex flex-col w-[91%]">
                 <span className="font-medium">Change Address</span>{" "}
                 <span className="text-xs truncate w-[90%]">
-                  No 12 Nwaobasi Estate, Ogbor Hill Aba.
+                  {user?.address || "Address for delivery"}
                 </span>
               </p>
               <p className="w-[9%]">
@@ -125,11 +181,23 @@ const Settings = () => {
       {show === "Payment" && <PaymentType handleClose={() => setShow(null)} />}
 
       {show === "Address" && (
-        <ChangeAddress handleCloseAddress={() => setShow(null)} />
+        <ChangeAddress
+          handleCloseAddress={() => setShow(null)}
+          userAddress={userAddress}
+          handleChangeAddress={handleChangeAddress}
+          handleUpdateAddress={handleUpdateAddress}
+        />
       )}
 
       {show === "Email" && (
-        <ChangeEmail handleCloseEmail={() => setShow(null)} />
+        <ChangeEmail
+          handleCloseEmail={() => {
+            setShow(null);
+          }}
+          userEmail={userEmail}
+          handleChange={handleChangeEmail}
+          handleEmailUpdate={handleEmailUpdate}
+        />
       )}
 
       {show === "Password" && (

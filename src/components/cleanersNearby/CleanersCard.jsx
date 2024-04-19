@@ -9,26 +9,7 @@ import {
 
 const CleanersCard = ({ fav, handleFav, name }) => {
   return (
-    <div className="px-2 pt-2 pb-3 rounded h-fit flex flex-col md:shadow-sm shadow-lg hover:shadow-lg w-full items-center bg-white border border-green-100 to-white relative transition-all duration-300">
-      {/* {fav ? (
-        <p
-          className="absolute right-2 top-0 flex flex-col items-center cursor-pointer transition-all duration-300"
-          onClick={handleFav}
-        >
-          <span className="text-green-500">
-            <FaBookmark />
-          </span>
-        </p>
-      ) : (
-        <p
-          className="absolute right-2 top-0 flex flex-col items-center cursor-pointer transition-all duration-300"
-          onClick={handleFav}
-        >
-          <span className="text-slate-400">
-            <FaRegBookmark />
-          </span>
-        </p>
-      )} */}
+    <div className="px-2 pt-2 pb-3 rounded h-fit flex flex-col md:shadow-lg shadow-lg hover:shadow-lg w-full items-center bg-white border border-green-100 to-white relative transition-all duration-300">
       <p
         className="absolute right-2 top-0 flex flex-col items-center cursor-pointer transition-all duration-300"
         onClick={handleFav}

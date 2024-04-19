@@ -23,40 +23,24 @@ const StoreCards = ({ handleViewDetails, title, prevPrice, newPrice, id }) => {
     return product.id == cartId;
   });
 
+  // To update cartTotal on load
   useEffect(() => {
     if (cartItem.includes(addedProduct) || addedProduct == undefined) {
-      // console.log("can not");
       return;
     } else {
+      setCartAdded(true);
+      // console.log("True From card add");
+      setCartModalCount(cartModalCount + 1);
+
       setCartItem([...cartItem, addedProduct]);
-      // console.log("Initial Cart Item from card: ", cartItem);
-      cartItem.map((product) => {
-        let initial = product.newPrice;
-        setCartTotal((initial += product.newPrice));
-      });
-      console.log("Initial Cart Total card ", cartTotal);
+      setCartTotal(cartItem);
     }
+    console.log(cartItem);
+    console.log(cartTotal);
   }, []);
 
   const handleCartModalCount = (id) => {
-    //   // setCartModalCount(() => cartModalCount + 1);
     setCartId(id);
-
-    //   if (cartId == null) {
-    // console.log("It does... or null...");
-    //     setCartExistErr(true);
-    //     return;
-    //   } else if (cartItem?.includes(addedProduct)) {
-    // console.log("Err From card");
-    //     setCartExistErr(true);
-    //     return;
-    //   } else {
-    //     setCartAdded(true);
-    //     // setTimeout(() => {
-    //     setCartItem([...cartItem, addedProduct]);
-    //     setCartModalCount(cartModalCount + 1);
-    //     // }, 3000);
-    //   }
   };
 
   useEffect(() => {
@@ -65,59 +49,18 @@ const StoreCards = ({ handleViewDetails, title, prevPrice, newPrice, id }) => {
       if (cartItem.includes(addedProduct) || addedProduct == undefined) {
         return;
       } else {
-        setCartItem([...cartItem, addedProduct]);
-        cartItem.map((product) => {
-          let initial = product.newPrice; // not working, just replace and not concatenating
-          setCartTotal((initial += product.newPrice));
-        });
-        // console.log("After Cart Item from card: ", cartItem);
-      }
-
-      // if (cartId == null) {
-      // console.log("It does... or null...");
-      //   setCartExistErr(true);
-      //   return;
-      // } else
-      if (cartItem?.includes(addedProduct)) {
-        setCartExistErr(true);
-        // console.log("Err From card");
-        return;
-      } else {
         setCartAdded(true);
         // console.log("True From card add");
         setCartModalCount(cartModalCount + 1);
-        // setTimeout(() => {
+
         setCartItem([...cartItem, addedProduct]);
-        cartItem.map((product) => {
-          let initial = product.newPrice;
-          setCartTotal((initial += product.newPrice));
-        });
-        // }, 3000);
+        setCartTotal(cartItem);
       }
+      console.log(cartTotal);
     };
     addToCartFn();
     // console.log(cartItem);
   }, [cartId]);
-
-  // console.log(allAddedProduct);
-
-  // useEffect(() => {
-  //   if (cartId == null) {
-  // console.log("It does... or null...");
-  //     setCartExistErr(true);
-  //     return;
-  //   } else if (cartItem?.includes(addedProduct)) {
-  //     setCartExistErr(true);
-  //     return;
-  //   } else {
-  //     setCartAdded(true);
-  //     setTimeout(() => {
-  //       setCartItem([...cartItem, addedProduct]);
-  //       setCartModalCount(() => cartModalCount + 1);
-  //     }, 3000);
-  //   }
-  // console.log(cartItem);
-  // }, [cartId]);
 
   return (
     <div className="bg-white h-full flex flex-col md:shadow-lg shadow-lg md:hover:shadow-lg items-center p-2 rounded scale-95 md:scale-100 transition-all duration-300 relative">

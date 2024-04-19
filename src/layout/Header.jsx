@@ -30,12 +30,16 @@ const Header = () => {
   const [user, setUser] = useState([]);
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("user"));
-    data.map((name) => setUser(name));
-
     // console.log(data);
-    // console.log(user);
+    data.map((name) => setUser(name));
     // setUser(data);
   }, []);
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("user"));
+    data.map((name) => setUser(name));
+    // setUser(data);
+  }, [user.name]);
 
   const toggleThemeDark = () => {
     setDarkMode(true);

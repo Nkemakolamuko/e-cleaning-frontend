@@ -66,8 +66,8 @@ const Cleaners = () => {
         { ...favFound, favorite: !favFound.favorite },
       ]);
       console.log("Else block ", yourFavorites);
+      alert("Added to favorite!");
     }
-    alert("Added to favorite!");
   };
 
   // console.log(yourFavorites);

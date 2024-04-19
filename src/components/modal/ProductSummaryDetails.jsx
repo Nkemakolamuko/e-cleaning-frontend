@@ -30,56 +30,28 @@ const ProductSummaryDetails = () => {
       return;
     } else {
       setCartItem([...cartItem, addedProduct]);
-      cartItem.map((product) => {
-        let initial = product.newPrice;
-        setCartTotal((initial += product.newPrice));
-      });
-      console.log("Initial Cart Total summary child ", cartTotal);
-      // console.log("Initial Cart Item: ", cartItem);
+      setCartTotal(cartItem);
     }
   }, []);
 
-  // console.log(allAddedProduct);
   useEffect(() => {
     const addToCartFn = () => {
-      // console.log("After Cart Item: ", cartItem);
       if (cartItem.includes(addedProduct) || addedProduct == undefined) {
         return;
       } else {
         setCartItem([...cartItem, addedProduct]);
-        cartItem.map((product) => {
-          let initial = "";
-          setCartTotal((initial += product.newPrice));
-        });
-        console.log("Initial Cart Total summary child ", cartTotal);
-        // console.log("After Cart Item: ", cartItem);
+        setCartTotal(cartItem);
       }
 
-      // if (cartId == null) {
-      //   console.log("It does... or null...");
-      //   setCartExistErr(true);
-      //   return;
-      // } else
       if (cartItem?.includes(addedProduct)) {
-        // setCartExistErr(true);
-        // console.log("Err From summary");
         return;
       } else {
-        // setCartAdded(true);
-        // console.log("Err From summary add");
         setCartModalCount(cartModalCount + 1);
-        // setTimeout(() => {
         setCartItem([...cartItem, addedProduct]);
-        cartItem.map((product) => {
-          let initial = "";
-          setCartTotal((initial += product.newPrice));
-        });
-        console.log("Initial Cart Total summary child ", cartTotal);
-        // }, 3000);
+        setCartTotal(cartItem);
       }
     };
     addToCartFn();
-    // console.log(cartItem);
   }, [cartId]);
 
   return (

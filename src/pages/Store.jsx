@@ -89,7 +89,7 @@ const Store = () => {
       <section className="mb-4 mt-2 md:mt-4 md:mb-8">
         {/* Available Products */}
         {!searchProduct && (
-          <div className="flex items-start justify-between md:justify-normal">
+          <div className="flex items-start md:items-center justify-between md:justify-normal">
             <div className="flex flex-col md:flex-row md:items-center md:w-[80%] w-[100%]">
               <p className="hidden md:flex pr-2">Available Products: </p>
               <div className="flex items-center md:hidden gap-3 mb-2">
@@ -131,16 +131,21 @@ const Store = () => {
               </p>
             </div>
 
-            <div className="hidden md:flex w-fit cursor-pointer md:flex-col md:items-center md:pl-4">
-              <div
+            <div
+              className="hidden md:flex w-fit cursor-pointer md:flex-row md:py-3 md:px-12 md:text-center md:justify-center md:gap-2 md:rounded md:hover:bg-cyan-200 md:items-center md:pl-4 md:bg-cyan-100 md:border transition-all duration-300"
+              onClick={() => {
+                setSearchProduct(true);
+              }}
+            >
+              {/* <div
                 className="rounded-full border text-slate-600 p-2"
                 onClick={() => {
                   setSearchProduct(true);
                 }}
               >
-                <FaSearch />
-              </div>
-              <span className="text-xs text-slate-700">Search</span>
+              </div> */}
+              <FaSearch />
+              <span className="text-base text-slate-700">Search</span>
             </div>
           </div>
         )}
