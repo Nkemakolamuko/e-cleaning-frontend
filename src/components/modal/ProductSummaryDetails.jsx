@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { Profiler, useContext, useEffect, useState } from "react";
 import logo from "../../assets/logo.jpg";
 import { FaMinus, FaPlus, FaTrash } from "react-icons/fa6";
 import { BgContext } from "../../App";
@@ -55,10 +55,40 @@ const ProductSummaryDetails = () => {
     addToCartFn();
   }, [cartId]);
 
+  // Delete from cart
+  const handleDeleteFromCart = (id) => {
+    const youSure = confirm("Are you sure?");
+    youSure &&
+      setCartItem(
+        cartItem.filter((product) => {
+          return product.id !== id;
+        })
+      );
+
+    youSure && setCartModalCount(cartModalCount - 1);
+
+    console.log(cartItem);
+    // const leftProducts = cartItem.filter((product) => {
+    //   return product.id !== id;
+    //   // console.log(product.id);
+    // });
+    // setCartItem([...cartItem, foundProduct]);
+
+    // const foundProduct = leftProducts.map((product) => {
+    //   // console.log(product);
+    //   return product;
+    //   // setCartItem([...cartItem, product]);
+    // });
+
+    // console.log(foundProduct);
+
+    // console.log(cartItem);
+  };
+
   return (
     <>
       {cartItem &&
-        cartItem?.map((product) => (
+        cartItem?.map((product, i, a) => (
           <div
             className="grid grid-cols-5 md:grid-cols-4 items-center justify-between w-full my-2 gap-6 px-2"
             // key={product.id}
@@ -99,6 +129,7 @@ const ProductSummaryDetails = () => {
                 <FaMinus />
               </p>
               <p>{count}</p>
+              {/* <p>{i}</p> */}
               <p
                 className="p-1 md:p-2 rounded-md bg-green-300 cursor-pointer text-white hover:bg-green-400  transition-all duration-300"
                 onClick={() => {
@@ -109,7 +140,10 @@ const ProductSummaryDetails = () => {
                 <FaPlus />
               </p>
             </div>
-            <p className="bg-slate-100 hover:text-white hover:bg-rose-600 p-1 md:p-2 rounded-md cursor-pointer text-slate-500 transition-all duration-300 col-span-1 w-fit ml-auto text-sm md:text-base">
+            <p
+              className="bg-slate-100 hover:text-white hover:bg-rose-600 p-1 md:p-2 rounded-md cursor-pointer text-slate-500 transition-all duration-300 col-span-1 w-fit ml-auto text-sm md:text-base"
+              onClick={() => handleDeleteFromCart(product?.id)}
+            >
               <FaTrash />
             </p>
           </div>

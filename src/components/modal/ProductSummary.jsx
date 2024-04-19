@@ -31,7 +31,7 @@ const ProductSummary = () => {
     // Then I used reduce method on the values - since it's an object (I used typeof to check) - so I can sum them all up, but when the summation is been done, I converted the individual values from strings to numbers ao I'd get summation and not concatenation
     const sumTotal = totalPrice.reduce((pVal, cVal) => {
       return Number(pVal) + Number(cVal);
-    });
+    }, 0); // The initial value of '0' is so it doesn't through an error when the array is empty (Probably when we deleting items from cart)
     // Then of course I set the value to an existing null 'total'
     setTotal(sumTotal);
   }, []);
@@ -47,7 +47,7 @@ const ProductSummary = () => {
     // Then I used reduce method on the values - since it's an object (I used typeof to check) - so I can sum them all up, but when the summation is been done, I converted the individual values from strings to numbers ao I'd get summation and not concatenation
     const sumTotal = totalPrice.reduce((pVal, cVal) => {
       return Number(pVal) + Number(cVal);
-    });
+    }, 0); // The initial value of '0' is so it doesn't through an error when the array is empty (Probably when we deleting items from cart)
     // Then of course I set the value to an existing null 'total'
     setTotal(sumTotal);
   }, [cartItem]);

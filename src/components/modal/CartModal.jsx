@@ -25,9 +25,7 @@ const CartModal = ({ handleModalClose }) => {
       </div>
       {!cartModalCount ? (
         <div className="px-4 py-6 flex flex-col w-full bg-white my-[10px] mx-[55px] md:my-[50px] text-center justify-center md:mx-[100px]">
-          <p className="text-slate-500">
-            Cart Is Empty - ( Needs to be more than 1 item )
-          </p>
+          <p className="text-slate-500">Cart Is Empty</p>
         </div>
       ) : (
         <>
