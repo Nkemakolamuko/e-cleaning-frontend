@@ -30,6 +30,7 @@
     "sidebar main main main";
   height: 100vh;
   overflow-y: hidden;
+  overflow-x: hidden; /* I added this on my own to fix the scroll x shit */
 }
 
 .main-container {

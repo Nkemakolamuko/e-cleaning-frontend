@@ -11,7 +11,7 @@ const ChangeEmail = ({
   return (
     <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center absolute top-0 p-[10px] md:p-[200px] lg:p-[300px] flex-col">
       <div className="w-full rounded-md flex flex-col gap-4 bg-white">
-        <div className="flex items-center border-b px-2 py-2 md:px-4 md:py-4">
+        <div className="flex items-center border-b px-2 md:px-4 pt-2 pb-0">
           <h2 className="tracking-widest font-medium">Update/Change Email</h2>
           <div className="ml-auto">
             <CloseButton handleModalClose={handleCloseEmail} />

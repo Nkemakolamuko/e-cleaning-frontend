@@ -6,7 +6,7 @@ const ReadPrivacyPolicy = ({ handleClosePrivacy }) => {
   return (
     <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center absolute top-0 p-[10px] md:p-[50px] flex-col text-sm">
       <div className="w-full rounded-md bg-white overflow-auto flex flex-col">
-        <div className="flex items-center mb-6 px-4 md:px-12 py-2 border-b">
+        <div className="flex items-center mb-6 px-4 md:px-12 pt-2 pb-0 border-b">
           <h2 className="tracking-widest font-medium text-lg text-center">
             Privacy Policy
           </h2>

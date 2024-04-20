@@ -11,7 +11,7 @@ const ChangeAddress = ({
   return (
     <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center absolute top-0 p-[10px] md:p-[200px] lg:p-[300px] flex-col">
       <div className="w-full rounded-md flex flex-col bg-white">
-        <div className="flex items-center px-2 md:px-4 py-2 md:py-4 border-b">
+        <div className="flex items-center px-2 md:px-4 pt-2 pb-0 border-b">
           <h2 className="tracking-widest font-medium">Change Address</h2>
           <div className="ml-auto">
             <CloseButton handleModalClose={handleCloseAddress} />

@@ -14,7 +14,7 @@ const ChangePassword = ({ handleClosePassword }) => {
   return (
     <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center absolute top-0 p-[10px] md:p-[200px] flex-col">
       <div className="w-full rounded-md flex flex-col gap-4 bg-white">
-        <div className="flex items-center px-2 md:px-4 py-2 md:py-4 border-b">
+        <div className="flex items-center px-2 md:px-4 pt-2 pb-0 border-b">
           <h2 className="tracking-widest font-medium">Change password</h2>
           <div className="ml-auto">
             <CloseButton handleModalClose={handleClosePassword} />
@@ -22,7 +22,7 @@ const ChangePassword = ({ handleClosePassword }) => {
         </div>
         <p
           onClick={toggleShowPasswords}
-          className="bg-neutral-800 text-white p-2  hover:bg-neutral-900 cursor-default text-center transition-all duration-300"
+          className="bg-neutral-800 text-white p-3  hover:bg-neutral-900 cursor-default text-center transition-all duration-300"
         >
           {showPasswords ? "Hide Passwords 🙈" : "Show Passwords 🙊"}
         </p>

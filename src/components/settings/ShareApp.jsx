@@ -50,9 +50,9 @@ const ShareApp = ({ handleCloseShare }) => {
   return (
     <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center md:justify-center gap-2 absolute top-0 p-[10px] md:px-[100px] lg:px-[300px] flex-col">
       <div className="w-full rounded-md flex flex-col gap-2 bg-white text-center">
-        <div className="flex items-center mb-2 border-b px-4 py-2 md:py-6 ">
+        <div className="flex items-center mb-2 border-b px-4 pt-2 pb-0">
           <h2 className="tracking-widest font-semibold text-lg flex items-center justify-center gap-2">
-            <FaShareFromSquare className="md:w-6 md:h-6" /> Share Via
+            <FaShareFromSquare className="md:w-6 md:h-6" /> Share through...
           </h2>
           <div className="ml-auto">
             <CloseButton handleModalClose={handleCloseShare} />
