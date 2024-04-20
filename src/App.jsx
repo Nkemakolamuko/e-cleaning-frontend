@@ -32,6 +32,7 @@ function App() {
   const [cartItemCount, setCartItemCount] = useState([]);
   const [notificationModalCount, setNotificationModalCount] = useState(null);
   const [showNotificationModal, setShowNotificationModal] = useState(false);
+  const [notification, setNotification] = useState([]);
 
   setTimeout(() => {
     setCartExistErr(false);
@@ -72,6 +73,8 @@ function App() {
         setShowNotificationModal,
         cartItemCount,
         setCartItemCount,
+        notification,
+        setNotification,
       }}
     >
       <BrowserRouter>

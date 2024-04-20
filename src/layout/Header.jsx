@@ -10,6 +10,7 @@ import { BgContext } from "../App";
 import CartModal from "../components/modal/CartModal";
 import NotificationModal from "../components/notification/NotificationModal";
 import { SideBarContext } from "./MainNav";
+import notificationDb from "../../db/notificationDb";
 
 const Header = () => {
   const {
@@ -23,6 +24,8 @@ const Header = () => {
     setNotificationModalCount,
     showNotificationModal,
     setShowNotificationModal,
+    notification,
+    setNotification,
   } = useContext(BgContext);
 
   const { smallScreenSideBar } = useContext(SideBarContext);
@@ -33,6 +36,9 @@ const Header = () => {
     // console.log(data);
     data.map((name) => setUser(name));
     // setUser(data);
+
+    // Notification
+    setNotification(notificationDb);
   }, []);
 
   useEffect(() => {
@@ -121,6 +127,7 @@ const Header = () => {
             <FaMoon />
           </p>
         </div>
+        {/* Notification */}
         <p className="cursor-pointer" onClick={handleNotificationModal}>
           <FaRegBell
             className={`w-6 h-6 text-green-900 relative active:scale-90 mr-2 ${
@@ -129,10 +136,12 @@ const Header = () => {
           />
 
           <span
-            className={`absolute px-[9px]
-                 py-1 bg-rose-500 text-white text-xs top-2 right-10 rounded-full`}
+            className={`absolute 
+                 py-1 bg-rose-500 text-white text-xs top-2 right-10 rounded-full ${
+                   notification?.length > 9 ? "px-1" : "px-[9px]"
+                 } `}
           >
-            9
+            {notification?.length > 9 ? "9+" : notification?.length || "0"}
           </span>
         </p>
         <p className="cursor-pointer" onClick={handleCartModal}>
