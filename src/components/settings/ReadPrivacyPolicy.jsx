@@ -4,11 +4,11 @@ import CloseButton from "../CloseButton";
 
 const ReadPrivacyPolicy = ({ handleClosePrivacy }) => {
   return (
-    <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center absolute top-0 p-[10px] md:p-[100px] flex-col">
+    <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center absolute top-0 p-[10px] md:p-[50px] flex-col text-sm">
       <div className="ml-auto">
         <CloseButton handleModalClose={handleClosePrivacy} />
       </div>
-      <div className="w-full px-4 py-6 rounded-md bg-white overflow-auto flex flex-col">
+      <div className="w-full px-4 md:px-12 py-6 rounded-md bg-white overflow-auto flex flex-col">
         <h2 className="tracking-widest font-medium text-lg mb-4 text-center">
           Privacy Policy
         </h2>

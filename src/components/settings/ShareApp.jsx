@@ -3,6 +3,7 @@ import CloseButton from "../CloseButton";
 import {
   FaEnvelope,
   FaFacebook,
+  FaShareFromSquare,
   FaWhatsapp,
   FaXTwitter,
 } from "react-icons/fa6";
@@ -47,13 +48,13 @@ const ShareApp = ({ handleCloseShare }) => {
   }, 5000);
 
   return (
-    <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center md:justify-start gap-2 absolute -top-16 p-[10px] md:px-[300px] md:pb-[300px] md:pt-[200px] flex-col">
+    <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center md:justify-center gap-2 absolute top-0 p-[10px] md:px-[100px] lg:px-[300px] flex-col">
       <div className="ml-auto">
         <CloseButton handleModalClose={handleCloseShare} />
       </div>
       <div className="w-full px-4 py-6 rounded-md flex flex-col gap-2 bg-white text-center">
-        <h2 className="tracking-widest font-semibold text-lg mb-2">
-          Share Via
+        <h2 className="tracking-widest font-semibold text-lg mb-2 flex items-center justify-center gap-2">
+          <FaShareFromSquare className="md:w-6 md:h-6" /> Share Via
         </h2>
 
         {loading && (
@@ -64,7 +65,7 @@ const ShareApp = ({ handleCloseShare }) => {
 
         <WhatsappShareButton url="https://wa.me/" title="24/7_E-CLEANING">
           <p
-            className="w-full bg-green-500 hover:bg-green-600 text-white p-2 tracking-widest rounded font-semibold cursor-pointer flex items-center justify-start gap-2 transition-all duration-300"
+            className="w-full bg-green-500 hover:bg-green-600 text-white p-3 md:p-4  tracking-widest rounded font-semibold cursor-pointer flex items-center justify-start gap-2 transition-all duration-300"
             onClick={() => setLoading(true)}
           >
             <FaWhatsapp className="w-6 h-6" />
@@ -74,7 +75,7 @@ const ShareApp = ({ handleCloseShare }) => {
 
         <TwitterShareButton url="https://twitter.com/" title="24/7_E-CLEANING">
           <p
-            className="w-full bg-neutral-900 hover:bg-neutral-950 text-white p-2 tracking-widest rounded font-semibold cursor-pointer flex items-center justify-start gap-2 transition-all duration-300"
+            className="w-full bg-neutral-900 hover:bg-neutral-950 text-white p-3 md:p-4  tracking-widest rounded font-semibold cursor-pointer flex items-center justify-start gap-2 transition-all duration-300"
             onClick={() => setLoading(true)}
           >
             <FaXTwitter className="w-6 h-6" />
@@ -87,7 +88,7 @@ const ShareApp = ({ handleCloseShare }) => {
           quote="24/7_E-CLEANING"
         >
           <p
-            className="w-full bg-blue-500 hover:bg-blue-600 text-white p-2 tracking-widest rounded font-semibold cursor-pointer flex items-center justify-start gap-2 transition-all duration-300"
+            className="w-full bg-blue-500 hover:bg-blue-600 text-white p-3 md:p-4  tracking-widest rounded font-semibold cursor-pointer flex items-center justify-start gap-2 transition-all duration-300"
             onClick={() => setLoading(true)}
           >
             <FaFacebook className="w-6 h-6" />
@@ -101,7 +102,7 @@ const ShareApp = ({ handleCloseShare }) => {
           body="Share via Email"
         >
           <p
-            className="w-full bg-neutral-900 hover:bg-neutral-950 text-white p-2 tracking-widest rounded font-semibold cursor-pointer flex items-center justify-start gap-2 transition-all duration-300"
+            className="w-full bg-orange-500 hover:bg-orange-600 text-white p-3 md:p-4  tracking-widest rounded font-semibold cursor-pointer flex items-center justify-start gap-2 transition-all duration-300"
             onClick={() => setLoading(true)}
           >
             <FaEnvelope className="w-6 h-6" />

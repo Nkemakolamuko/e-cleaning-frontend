@@ -29,6 +29,7 @@ function App() {
   const [cartTotal, setCartTotal] = useState([]);
   const [total, setTotal] = useState(null);
   const [showCartModal, setShowCartModal] = useState(false);
+  const [cartItemCount, setCartItemCount] = useState([]);
   const [notificationModalCount, setNotificationModalCount] = useState(null);
   const [showNotificationModal, setShowNotificationModal] = useState(false);
 
@@ -69,6 +70,8 @@ function App() {
         setNotificationModalCount,
         showNotificationModal,
         setShowNotificationModal,
+        cartItemCount,
+        setCartItemCount,
       }}
     >
       <BrowserRouter>

@@ -178,37 +178,43 @@ const Settings = () => {
 
       {/* Show Components */}
       {/* It will also be a pop-up form for updating other user info in the settings page */}
-      {show === "Payment" && <PaymentType handleClose={() => setShow(null)} />}
+      <div className="fixed left-0 top-0 w-[100%] z-[999]">
+        {show === "Payment" && (
+          <PaymentType handleClose={() => setShow(null)} />
+        )}
 
-      {show === "Address" && (
-        <ChangeAddress
-          handleCloseAddress={() => setShow(null)}
-          userAddress={userAddress}
-          handleChangeAddress={handleChangeAddress}
-          handleUpdateAddress={handleUpdateAddress}
-        />
-      )}
+        {show === "Address" && (
+          <ChangeAddress
+            handleCloseAddress={() => setShow(null)}
+            userAddress={userAddress}
+            handleChangeAddress={handleChangeAddress}
+            handleUpdateAddress={handleUpdateAddress}
+          />
+        )}
 
-      {show === "Email" && (
-        <ChangeEmail
-          handleCloseEmail={() => {
-            setShow(null);
-          }}
-          userEmail={userEmail}
-          handleChange={handleChangeEmail}
-          handleEmailUpdate={handleEmailUpdate}
-        />
-      )}
+        {show === "Email" && (
+          <ChangeEmail
+            handleCloseEmail={() => {
+              setShow(null);
+            }}
+            userEmail={userEmail}
+            handleChange={handleChangeEmail}
+            handleEmailUpdate={handleEmailUpdate}
+          />
+        )}
 
-      {show === "Password" && (
-        <ChangePassword handleClosePassword={() => setShow(null)} />
-      )}
+        {show === "Password" && (
+          <ChangePassword handleClosePassword={() => setShow(null)} />
+        )}
 
-      {show === "Privacy" && (
-        <ReadPrivacyPolicy handleClosePrivacy={() => setShow(null)} />
-      )}
+        {show === "Privacy" && (
+          <ReadPrivacyPolicy handleClosePrivacy={() => setShow(null)} />
+        )}
 
-      {show === "Share" && <ShareApp handleCloseShare={() => setShow(null)} />}
+        {show === "Share" && (
+          <ShareApp handleCloseShare={() => setShow(null)} />
+        )}
+      </div>
     </section>
   );
 };

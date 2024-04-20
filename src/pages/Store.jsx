@@ -201,13 +201,15 @@ const Store = () => {
       )}
 
       {/* Details PopUp */}
-      {viewProducts && (
-        <ProductDetails
-          handleCloseProduct={() => {
-            setViewProducts(false);
-          }}
-        />
-      )}
+      <div className="fixed w-full top-0 left-0 z-[999]">
+        {viewProducts && (
+          <ProductDetails
+            handleCloseProduct={() => {
+              setViewProducts(false);
+            }}
+          />
+        )}
+      </div>
       {/* <p>
         Buy from here - I will make the cards infinite scroll and when the user
         click on any, it will open in a new component with the details

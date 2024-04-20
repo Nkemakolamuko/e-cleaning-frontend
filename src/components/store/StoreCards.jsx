@@ -33,10 +33,10 @@ const StoreCards = ({ handleViewDetails, title, prevPrice, newPrice, id }) => {
       setCartModalCount(cartModalCount + 1);
 
       setCartItem([...cartItem, addedProduct]);
-      setCartTotal(cartItem);
+      // setCartTotal(cartItem);
     }
-    console.log(cartItem);
-    console.log(cartTotal);
+    // console.log(cartItem);
+    // console.log(cartTotal);
   }, []);
 
   const handleCartModalCount = (id) => {
@@ -54,7 +54,7 @@ const StoreCards = ({ handleViewDetails, title, prevPrice, newPrice, id }) => {
         setCartModalCount(cartModalCount + 1);
 
         setCartItem([...cartItem, addedProduct]);
-        setCartTotal(cartItem);
+        // setCartTotal(cartItem);
       }
       // console.log(cartTotal);
     };

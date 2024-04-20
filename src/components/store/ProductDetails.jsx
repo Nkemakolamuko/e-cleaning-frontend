@@ -35,30 +35,30 @@ const ProductDetails = ({ handleCloseProduct }) => {
   }, [cartModalCount]);
 
   return (
-    <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center absolute -top-16 px-[10px] pb-[10px] pt-[70px] md:p-[200px] flex-col mx-auto">
+    <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center absolute top-0 px-[10px] md:py-[0px] md:px-[100px] flex-col mx-auto">
       <p
         className="text-rose-600 border-2 group border-white rounded hover:border-rose-600 hover:text-white hover:bg-rose-600 p-2 md:p-2 font-semibold ml-auto mb-2 cursor-pointer active:scale-90 transition-all duration-300"
         onClick={handleCloseProduct}
       >
         <FaTimes className="w-6 h-6 md:w-10 md:h-10 text-rose-600 group-hover:bg-rose-600 group-hover:text-white transition-all duration-300 cursor-pointer" />
       </p>
-      <div className="w-fit px-4 py-6 rounded-md flex flex-col md:flex-row items-center mx-auto gap-4 bg-white">
-        <p className="">
+      <div className="w-fit md:h-[500px] lg:h-[500px] px-2 md:px-6 py-3 md:py-2 rounded-md flex flex-col md:grid md:grid-cols-2 items-center mx-auto gap-4 md:gap-2 bg-white">
+        <p className="md:col-span-1 h-[200px] w-[200px] md:w-fit md:h-fit lg:w-[400px] lg:h-[400px] md:flex md:items-center md:justify-center">
           <img
             src={logo}
             alt="Product Image"
-            width={"250rem"}
-            height={"250rem"}
-            className="rounded-full"
+            // width={250}
+            // height={250}
+            className="rounded-md md:rounded-md md:flex md:items-center md:justify-center w-fit h-fit"
           />
         </p>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 md:col-span-1">
           {cartSuccess && (
             <p className="text-green-500 text-center bg-green-50 rounded p-2">
               {currentProduct?.title + " successfully added to cart!"}
             </p>
           )}
-          <span className="tracking-widest font-medium text-lg">
+          <span className="tracking-widest font-medium text-lg text-center md:text-start">
             {currentProduct?.title || "Loading..."}
           </span>
           <p className="flex flex-col">

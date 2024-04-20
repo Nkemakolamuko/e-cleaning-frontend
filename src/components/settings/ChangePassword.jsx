@@ -12,7 +12,7 @@ const ChangePassword = ({ handleClosePassword }) => {
 
   const [showPasswords, setShowPasswords] = useState(false);
   return (
-    <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center absolute -top-6 md:-top-16 p-[10px] md:p-[200px] flex-col">
+    <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center absolute top-0 p-[10px] md:p-[200px] flex-col">
       <div className="ml-auto">
         <CloseButton handleModalClose={handleClosePassword} />
       </div>
@@ -41,7 +41,7 @@ const ChangePassword = ({ handleClosePassword }) => {
               name="password"
               value={oldPassword}
               placeholder="Old password"
-              className="border-slate-300 border-2 outline-none text-slate-700 rounded p-2"
+              className="border-slate-300 border-2 outline-none text-slate-700 rounded p-3"
               onChange={(e) => setOldPwd(e.target.value)}
               required
             />
@@ -61,7 +61,7 @@ const ChangePassword = ({ handleClosePassword }) => {
               name="password"
               value={newPassword}
               onChange={(e) => setNewPwd(e.target.value)}
-              className="border-slate-300 border-2 outline-none text-slate-700 rounded p-2"
+              className="border-slate-300 border-2 outline-none text-slate-700 rounded p-3"
               required
             />
           </p>

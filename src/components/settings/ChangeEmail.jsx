@@ -9,7 +9,7 @@ const ChangeEmail = ({
   handleEmailUpdate,
 }) => {
   return (
-    <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center absolute -top-16 p-[10px] md:p-[200px] flex-col">
+    <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center absolute top-0 p-[10px] md:p-[200px] lg:p-[300px] flex-col">
       <div className="ml-auto">
         <CloseButton handleModalClose={handleCloseEmail} />
       </div>
@@ -30,7 +30,7 @@ const ChangeEmail = ({
             placeholder="new-email@gmail.com"
             value={userEmail}
             onChange={handleChange}
-            className="outline-none bg-slate-200 rounded p-2"
+            className="outline-none bg-slate-200 rounded p-3"
             required
           />
           <input
