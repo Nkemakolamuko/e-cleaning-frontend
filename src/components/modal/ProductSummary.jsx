@@ -5,16 +5,24 @@ import data from "../../../db/storeDB";
 
 const ProductSummary = () => {
   const {
-    cartTotal,
-    setCartTotal,
+    cartId,
     cartItem,
     setCartItem,
-    cartId,
+    cartExistErr,
+    setCartExistErr,
+    cartAdded,
+    setCartAdded,
+    cartModalCount,
+    setCartModalCount,
+    cartTotal,
+    setCartTotal,
+    quantity,
+    setQuantity,
     total,
     setTotal,
   } = useContext(BgContext);
-  const [mainSum, setMainSum] = useState([]);
-  const [newSum, setNewSum] = useState(0);
+
+  // const [newQty, setNewQty] = useState(1);
 
   const addedProduct = data?.find((product) => {
     return product.id == cartId;
@@ -54,20 +62,114 @@ const ProductSummary = () => {
 
   // Why there are two useEffects is for when the page loads and when there's a change in the cartItem for the iteration to run again -
 
-  return (
-    <div className="max-w-fit flex-col flex items-center justify-between h-[70vh] overflow-auto transition-all duration-300 ease-in-out">
-      <div>
-        <ProductSummaryDetails />
-      </div>
-      <div className="sticky bottom-0 w-full bg-white px-2 pt-2">
-        <div className="flex items-center justify-between w-full bg-slate-100 p-2 rounded-md transition-all duration-300">
-          <p className="font-medium tracking-widest">Total</p>
-          <p className="font-medium tracking-widest">₦{total || " "}</p>
-        </div>
+  useEffect(() => {
+    if (cartItem.includes(addedProduct) || addedProduct == undefined) {
+      return;
+    } else {
+      setCartItem([...cartItem, addedProduct]);
+      setCartTotal(cartItem);
+      // setNewQty((prev) => prev + 1);
+    }
+  }, []);
 
-        <button className="w-full p-4 bg-black/80 text-white font-medium mt-3 rounded hover:bg-black transition-all duration-300">
-          Checkout
-        </button>
+  useEffect(() => {
+    const addToCartFn = () => {
+      if (cartItem.includes(addedProduct) || addedProduct == undefined) {
+        return;
+      } else {
+        setCartItem([...cartItem, addedProduct]);
+        // setNewQty(quantity++);
+        setCartTotal(cartItem);
+      }
+
+      if (cartItem?.includes(addedProduct)) {
+        return;
+      } else {
+        setCartModalCount(cartModalCount + 1);
+        setCartItem([...cartItem, addedProduct]);
+        setCartTotal(cartItem);
+      }
+    };
+
+    addToCartFn();
+  }, [cartId]);
+
+  // Delete from cart
+  const handleDeleteFromCart = (id) => {
+    const youSure = confirm("Are you sure?");
+    youSure &&
+      setCartItem(
+        cartItem.filter((product) => {
+          return product.id !== id;
+        })
+      );
+
+    youSure && setCartModalCount(cartModalCount - 1);
+  };
+
+  // Increment
+  const handleIncrement = (id) => {
+    const foundProduct = cartItem.find((product) => {
+      return product.id === id;
+    });
+    foundProduct.quantity++;
+    setTotal(
+      (prev) =>
+        prev + Number(foundProduct.newPrice.split("₦")[1].split(",").join(""))
+    );
+  };
+
+  // Decrement
+  const handleDecrement = (id) => {
+    const foundProduct = cartItem.find((product) => {
+      return product.id === id;
+    });
+    foundProduct.quantity && foundProduct.quantity--;
+    foundProduct.quantity &&
+      setTotal(
+        (prev) =>
+          prev - Number(foundProduct.newPrice.split("₦")[1].split(",").join(""))
+      );
+  };
+
+  return (
+    <div className="bg-transparent h-[80vh] w-full">
+      <div className="max-w-fit md:max-w-full flex-col flex items-center justify-between h-[100%] overflow-auto bg-white shadow-xl shadow-black/20 transition-all duration-300 ease-in-out">
+        <div>
+          {cartItem &&
+            cartItem?.map(({ title, newPrice, id, quantity }) => (
+              <ProductSummaryDetails
+                handleDeleteFromCart={() => handleDeleteFromCart(id)}
+                handleIncrement={() => handleIncrement(id)}
+                handleDecrement={() => handleDecrement(id)}
+                id={id}
+                title={title}
+                newPrice={newPrice}
+                key={id}
+                quantity={quantity}
+              />
+            ))}
+        </div>
+        <div className="sticky bottom-0 w-full bg-white px-2 pt-2 pb-2">
+          <div className="flex items-center justify-between w-full bg-slate-100 px-2 py-3 rounded-md transition-all duration-300">
+            <p className="font-medium tracking-widest">Total</p>
+            <p className="font-medium tracking-widest">₦{total || " "}</p>
+          </div>
+          <p className="flex flex-row items-center py-2 gap-2 w-full">
+            <span className="text-slate-700 w-[30%] text-sm">
+              Enter Voucher Code
+            </span>
+            <input
+              type="text"
+              className="py-2 md:py-3 px-2 text-slate-600 border-2 border-orange-500/80 rounded outline-none w-[70%]"
+              placeholder="(Optional)"
+            />
+          </p>
+
+          <button className="w-full p-4 bg-black/80 text-white font-medium rounded hover:bg-black transition-all duration-300">
+            Checkout
+          </button>
+        </div>
       </div>
     </div>
   );
