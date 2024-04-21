@@ -5,8 +5,8 @@
 @tailwind utilities;
 
 .dark-mode {
-  color: rgb(0, 255, 0);
-  background-color: rgb(24, 83, 59);
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
 }
 
 .grid-container {
@@ -73,15 +73,28 @@
 @keyframes feature {
   from {
     /* For the starting - I'd have to adjust it each time I add a feature - prolly by reducing it */
-    transform: translateX(100%);
+    transform: translateX(-19%);
   }
   to {
-    transform: translateX(-110%);
+    transform: translateX(-120%);
   }
 }
 
 .update {
-  animation: feature 25s linear infinite;
+  animation: feature 10s linear infinite;
+}
+@keyframes feature-small {
+  from {
+    /* For the starting - I'd have to adjust it each time I add a feature - prolly by reducing it */
+    transform: translateX(1%); /* Start here */
+  }
+  to {
+    transform: translateX(-100%); /* End here */
+  }
+}
+
+.update-small {
+  animation: feature-small 10s linear infinite;
 }
 
 /* Cleaners */

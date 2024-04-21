@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Title from "../components/Title";
 import userImage from "../assets/userImage.jpg";
 import logo from "../assets/logo.jpg";
-import { FaStar, FaStarHalf } from "react-icons/fa6";
+import { FaCircleExclamation, FaStar, FaStarHalf } from "react-icons/fa6";
 import ActionBTN from "../components/ActionBTN";
 import LatestFeatures from "../components/LatestFeatures";
 import DashboardHistory from "../components/DashboardHistory";
@@ -26,7 +26,7 @@ const Dashboard = () => {
       </p> */}
       <div className="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row items-center gap-2 scale-100 lg:scale-95 md:scale-90">
         {/* Turn these to individual components */}
-        <div className="bg-white w-full h-fit lg:w-[33%] lg:h-[200px] border border-green-200 rounded-[4px] shadow-lg md:shadow-green-100 shadow-black/20 flex flex-col">
+        <div className="bg-white w-full h-fit lg:w-[33%] md:h-[200px] rounded-[4px] shadow-lg shadow-black/20 flex flex-col">
           <p className="border-b-2 bg-slate-50 w-full text-center rounded-t-[4px] py-1 tracking-wider px-2">
             Weekly Top Rated Cleaner
           </p>
@@ -75,7 +75,7 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="bg-gradient-to-t hover:bg-gradient-to-b to-green-200 from-white w-full h-fit lg:w-[33%] lg:h-[210px] border border-green-200 rounded-[4px] shadow-lg shadow-black/20 md:shadow-green-100 flex flex-col transition-all duration-300 ease-in-out">
+        <div className="w-full h-fit lg:w-[33%] md:h-[210px] rounded-[4px] shadow-lg shadow-black/20 flex flex-col transition-all duration-300 ease-in-out">
           <p className="bg-[#FFC83D] text-white w-full text-center rounded-t-[4px] py-[2px] text-xl tracking-widest">
             Flash Sales!!!!
           </p>
@@ -104,32 +104,104 @@ const Dashboard = () => {
             </a>
           </div>
         </div>
-        <div className="bg-white w-full h-fit lg:w-[33%] lg:h-[200px] border border-green-200 rounded-[4px] shadow-lg shadow-black/20 md:shadow-green-100 flex flex-col">
-          <p className="border-b-2 bg-slate-50 w-full text-center rounded-t-[4px] py-1 tracking-widest">
+        <div className="bg-white w-full h-fit lg:w-[33%] md:h-[200px] rounded-[4px] shadow-lg shadow-black/20 flex items-center">
+          <div className="flex flex-col px-2 bg-slate-50 tracking-widest h-full md:h-full items-center justify-center lg:text-2xl md:text-xl text-lg font-semibold">
+            <p>P</p>
+            <p>R</p>
+            <p>0</p>
+            <p>M</p>
+            <p>0</p>
+          </div>
+          {/* <p className="border-b-2 bg-slate-50 w-full text-center rounded-t-[4px] py-1 tracking-widest">
             Promo! Promo!! Promo!!!
-          </p>
-          <div className="flex flex-col p-2 m-auto w-[80%] items-center">
-            <p className="">
-              <span className="text-green-500 md:text-8xl text-6xl tracking-tighter font-bold">
-                20%
-              </span>{" "}
-              <span className="text-rose-500 md:text-3xl text-xl font-medium">
-                Off
-              </span>
-            </p>
-            <p className="font-semibold text-center">
-              For Laundry Wash Above N5,000
+          </p> */}
+          <div className="flex flex-col h-full w-full">
+            <div className="flex flex-col px-2 pt-2 m-auto items-center pb-8 md:pb-2">
+              <p className="">
+                <span className="text-green-500 md:text-8xl text-7xl tracking-tighter font-bold">
+                  20%
+                </span>{" "}
+                <span className="text-rose-500 md:text-3xl text-xl font-medium">
+                  Off
+                </span>
+              </p>
+              <p className="font-semibold text-center">
+                For Laundry Wash Above N5,000
+              </p>
+            </div>
+            <p className="bg-slate-50 w-full text-center rounded-b-[4px] py-1 text-xs bottom-0 absolute md:static lg:static">
+              Promo Last NOW till August 24th 2024
             </p>
           </div>
-          <p className="bg-slate-100 w-full text-center rounded-b-[4px] py-1 text-xs">
-            Promo Last NOW till August 24th 2024
-          </p>
         </div>
       </div>
 
       {/* Features */}
-      <section className="mt-7 w-full">
+      <section className="mt-7 w-full hidden md:flex">
         <LatestFeatures />
+      </section>
+      <section className="md:hidden mt-7">
+        <h2
+          className={`font-semibold tracking-widest text-gray-800 ${
+            darkMode ? "dark-mode" : ""
+          }`}
+        >
+          Latest Features And Updates
+        </h2>
+        <div className="flex items-center py-3 gap-4 overflow-hidden w-full text-nowrap border-y">
+          <p className="flex items-center update-small gap-4">
+            <div className="flex items-center gap-2 w-fit text-nowrap">
+              <FaCircleExclamation className="text-[#FFC83D]" />
+              <h2 className="font-semibold  ">We've Added Search Filter!!</h2>
+            </div>
+            <div className="flex items-center gap-2 w-fit text-nowrap">
+              <FaCircleExclamation className="text-[#FFC83D]" />
+              <h2 className="font-semibold  ">We've Partnered With Kuda</h2>
+            </div>
+            <div className="flex items-center gap-2 w-fit text-nowrap">
+              <FaCircleExclamation className="text-[#FFC83D]" />
+              <h2 className="font-semibold  ">
+                Your Laundry Will Be Delivered Within 24hrs
+              </h2>
+            </div>
+            <div className="flex items-center gap-2 w-fit text-nowrap">
+              <FaCircleExclamation className="text-[#FFC83D]" />
+              <h2 className="font-semibold my-1">
+                {" "}
+                We've Expanded To <span className="text-green-500">
+                  Lagos
+                </span>{" "}
+                and <span className="text-green-500">Abuja</span> !!
+              </h2>
+            </div>
+          </p>
+          <p className="flex items-center update-small gap-4">
+            <div className="flex items-center gap-2 w-fit text-nowrap">
+              <FaCircleExclamation className="text-[#FFC83D]" />
+              <h2 className="font-semibold  ">We've Added Search Filter!!</h2>
+            </div>
+            <div className="flex items-center gap-2 w-fit text-nowrap">
+              <FaCircleExclamation className="text-[#FFC83D]" />
+              <h2 className="font-semibold  ">We've Partnered With Kuda</h2>
+            </div>
+            <div className="flex items-center gap-2 w-fit text-nowrap">
+              <FaCircleExclamation className="text-[#FFC83D]" />
+              <h2 className="font-semibold  ">
+                Your Laundry Will Be Delivered Within 24hrs
+              </h2>
+            </div>
+            <div className="flex items-center gap-2 w-fit text-nowrap">
+              <FaCircleExclamation className="text-[#FFC83D]" />
+              <h2 className="font-semibold my-1">
+                {" "}
+                We've Expanded To <span className="text-green-500">
+                  Lagos
+                </span>{" "}
+                and <span className="text-green-500">Abuja</span> !!
+              </h2>
+            </div>
+          </p>
+        </div>
       </section>
 
       {/* History */}
@@ -156,8 +228,8 @@ const Dashboard = () => {
           </span>
         </Link>
       </div>
-      <section className="md:flex md:flex-col w-full overflow-auto">
-        <div className="overflow-auto"></div>
+      <section className="flex flex-col w-full overflow-auto">
+        {/* <div className="overflow-auto"></div> */}
         <DashboardHistory />
       </section>
     </section>
