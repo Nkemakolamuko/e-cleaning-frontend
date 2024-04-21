@@ -16,7 +16,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { BgContext } from "../../App";
 
 const ClosedSideBar = ({ handleSideBarOpen }) => {
-  const { darkMode } = useContext(BgContext);
+  const { darkMode, notification } = useContext(BgContext);
   const [activeLink, setActiveLink] = useState(null);
 
   const navigate = useNavigate();
@@ -128,7 +128,15 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
             } transition-all duration-300`}
           >
             <span className="">
-              <FaRegBell />
+              <FaRegBell className="relative" />
+              <span
+                className={`absolute 
+                 py-1 bg-rose-500/80 text-white text-xs -mt-8 rounded-full ${
+                   notification?.length > 9 ? "px-1" : "px-[9px]"
+                 } `}
+              >
+                {notification?.length > 9 ? "9+" : notification?.length || "0"}
+              </span>
             </span>
           </li>
           <span className="tooltiptext rounded">Notifications</span>
