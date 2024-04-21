@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 import CloseButton from "../CloseButton";
 import NotificationModalCards from "./NotificationModalCards";
@@ -7,10 +8,16 @@ import { BgContext } from "../../App";
 
 const NotificationModal = ({ handleCloseNotificationModal }) => {
   const { notification, setNotification } = useContext(BgContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setNotification(notificationDb);
   }, []);
+
+  const handleNavigation = () => {
+    localStorage.setItem("active", "/notifications");
+    navigate("/dashboard/notifications");
+  };
 
   return (
     <div className="max-w-[300px] h-fit bg-white flex items-center flex-col justify-center absolute top-2 right-16 z-[999] shadow-lg shadow-black/20 rounded transition-all duration-300">
@@ -25,6 +32,7 @@ const NotificationModal = ({ handleCloseNotificationModal }) => {
               title={value.title}
               desc={value.desc}
               key={value.id}
+              handleNavigation={handleNavigation}
             />
           ))}
         </div>

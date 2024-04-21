@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const NotificationModalCards = ({ title, desc }) => {
+const NotificationModalCards = ({ title, desc, handleNavigation }) => {
   return (
     // It's going to be a link that navigates to notification page and shows details based on id
-    <Link
-      to="/dashboard/notifications"
+    <div
+      // to="/dashboard/notifications"
+      onClick={handleNavigation}
       className="flex items-center w-full bg-white mx-[0px]"
     >
       <div className="flex flex-col w-[100%] border-l-4 border-l-green-300 border-b hover:bg-green-100 cursor-pointer transition-all duration-300">
@@ -14,7 +15,7 @@ const NotificationModalCards = ({ title, desc }) => {
           {desc}
         </p>
       </div>
-    </Link>
+    </div>
   );
 };
 
