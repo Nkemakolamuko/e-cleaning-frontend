@@ -161,6 +161,22 @@
   transition: opacity 0.3s ease-in-out;
 }
 
+.dark-mode .tooltip .tooltiptext {
+  visibility: hidden;
+  width: fit-content;
+  text-wrap: nowrap;
+  /* background: greenyellow; */
+  background: rgba(255, 255, 255, 0.9);
+  color: black;
+  padding: 4px 8px;
+  position: absolute;
+  z-index: 9999;
+  top: 0px;
+  left: 110%;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
 .tooltip .tooltiptext::after {
   content: "";
   position: absolute;
@@ -171,6 +187,18 @@
   border-style: solid;
   /* border-color: transparent rgb(154, 255, 3) transparent transparent; */
   border-color: transparent rgba(0, 0, 0, 0.6) transparent transparent;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  /* border-color: transparent rgb(154, 255, 3) transparent transparent; */
+  border-color: transparent rgba(255, 255, 255, 0.9) transparent transparent;
 }
 
 .tooltip:hover .tooltiptext {
