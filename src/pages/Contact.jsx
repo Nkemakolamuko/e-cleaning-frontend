@@ -35,8 +35,8 @@ const Contact = () => {
             to="tel:08069487650"
             text="Phone"
             logo={<FaPhone className="w-5 h-5" />}
-            bg="shadow-lg shadow-black/10 bg-white !text-black"
-            bgHover="hover:shadow-xl hover:shadow-black/20 md:hover:bg-slate-200 hover:bg-slate-200"
+            bg="shadow-lg shadow-black/10 !bg-white !text-black"
+            bgHover="hover:shadow-xl hover:shadow-black/20 !md:hover:bg-slate-200 !active:bg-slate-200"
             handleClick={() => handleClick("Phone")}
           />
           <ActionButtons

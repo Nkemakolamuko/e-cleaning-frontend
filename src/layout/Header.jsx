@@ -76,7 +76,7 @@ const Header = () => {
   return (
     <header
       className={`header shadow-md relative transition-all duration-300 bg-white ${
-        darkMode ? "dark-mode" : ""
+        darkMode ? "dark-mode shadow-md shadow-white" : ""
       }`}
     >
       {showCartModal && <CartModal handleModalClose={handleModalClose} />}
@@ -102,9 +102,11 @@ const Header = () => {
         <a
           href="tel:+2347040876440"
           target="_blank"
-          className="p-2 border bg-black/90 rounded hover:bg-black text-white hover:rounded-md text-sm cursor-pointer font-semibold flex items-center gap-3 tooltip-hot transition-all duration-300"
+          className={`p-2 border bg-black/90 rounded hover:bg-black text-white hover:rounded-md text-sm cursor-pointer font-semibold flex items-center gap-3 tooltip-hot transition-all duration-300 ${
+            darkMode ? "dark-mode !bg-yellow-500" : ""
+          }`}
         >
-          <span className="text-yellow-300">
+          <span className={`text-yellow-300 ${darkMode ? "!text-white" : ""}`}>
             <FaFire />
           </span>
           <span>Hotline</span>
@@ -114,14 +116,14 @@ const Header = () => {
         </a>
         <div className="px-4 md:px-4 lg:px-4 flex gap-2 items-center ">
           <p
-            className="bg-white text-yellow-400 border rounded-full cursor-pointer p-2 transition-all duration-300"
+            className="!bg-white text-yellow-400 border rounded-full cursor-pointer p-2 transition-all duration-300"
             onClick={toggleThemeLight}
           >
             <FaSun />
           </p>
-          <p className="tracking-tighter text-xs font-medium">MODE</p>
+          <p className="tracking-tighter text-xs font-medium">THEME</p>
           <p
-            className="border bg-green-900 rounded-full cursor-pointer p-2 text-white transition-all duration-300"
+            className="border bg-neutral-900 rounded-full cursor-pointer p-2 text-white transition-all duration-300"
             onClick={toggleThemeDark}
           >
             <FaMoon />

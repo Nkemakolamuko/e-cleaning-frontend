@@ -9,7 +9,7 @@ import {
 
 const FavoriteCleaners = ({ fav, handleFav, name }) => {
   return (
-    <div className="px-2 pt-2 pb-3 rounded h-fit flex flex-col md:shadow-lg shadow-lg hover:shadow-lg w-full items-center bg-white border border-green-100 to-white relative transition-all duration-300">
+    <div className="px-2 pt-2 pb-3 rounded h-fit flex flex-col md:shadow-lg shadow-lg hover:shadow-lg w-full items-center !bg-white border border-green-100 to-white relative transition-all duration-300">
       <p
         className="absolute right-2 top-0 flex flex-col items-center cursor-pointer transition-all duration-300"
         //   onClick={handleFav}
@@ -28,7 +28,7 @@ const FavoriteCleaners = ({ fav, handleFav, name }) => {
         className="rounded-full mx-auto"
       />
       <div className="flex flex-col w-full text-slate-800 gap-2 mt-2">
-        <p className="text-center text-base md:text-lg font-medium tracking-widest text-green-700">
+        <p className="text-center text-base md:text-lg font-medium !tracking-widest text-green-700">
           {name || "Tony Best"}
         </p>
 

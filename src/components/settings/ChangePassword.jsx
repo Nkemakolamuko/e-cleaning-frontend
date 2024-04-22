@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import CloseButton from "../CloseButton";
+import { BgContext } from "../../App";
 
 const ChangePassword = ({ handleClosePassword }) => {
+  const { darkMode } = useContext(BgContext);
   const [oldPassword, setOldPwd] = useState("");
   const [newPassword, setNewPwd] = useState("");
 
@@ -13,9 +15,17 @@ const ChangePassword = ({ handleClosePassword }) => {
   const [showPasswords, setShowPasswords] = useState(false);
   return (
     <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center absolute top-0 p-[10px] md:p-[200px] flex-col">
-      <div className="w-full rounded-md flex flex-col gap-4 bg-white">
-        <div className="flex items-center px-2 md:px-4 pt-2 pb-0 border-b">
-          <h2 className="tracking-widest font-medium">Change password</h2>
+      <div
+        className={`w-full rounded-md flex flex-col gap-2 bg-white text-center ${
+          darkMode ? "border-2" : ""
+        }`}
+      >
+        <div
+          className={`flex items-center mb-2 border-b px-4 pt-2 pb-0 ${
+            darkMode ? "dark-mode" : ""
+          }`}
+        >
+          <h2 className="!tracking-widest font-medium">Change password</h2>
           <div className="ml-auto">
             <CloseButton handleModalClose={handleClosePassword} />
           </div>
@@ -34,7 +44,7 @@ const ChangePassword = ({ handleClosePassword }) => {
           <p className="flex flex-col">
             <label
               htmlFor="oldPassword"
-              className="py-2 tracking-widest font-medium"
+              className="py-2 !tracking-widest font-medium"
             >
               Enter Old Password
             </label>
@@ -44,7 +54,7 @@ const ChangePassword = ({ handleClosePassword }) => {
               name="password"
               value={oldPassword}
               placeholder="Old password"
-              className="border-slate-300 border-2 outline-none text-slate-700 rounded p-3"
+              className="border-slate-300 border-2 outline-none rounded p-3 !text-black"
               onChange={(e) => setOldPwd(e.target.value)}
               required
             />
@@ -53,7 +63,7 @@ const ChangePassword = ({ handleClosePassword }) => {
           <p className="flex flex-col">
             <label
               htmlFor="newPassword"
-              className="py-2 tracking-widest font-medium"
+              className="py-2 !tracking-widest font-medium"
             >
               Enter New Password
             </label>
@@ -64,14 +74,14 @@ const ChangePassword = ({ handleClosePassword }) => {
               name="password"
               value={newPassword}
               onChange={(e) => setNewPwd(e.target.value)}
-              className="border-slate-300 border-2 outline-none text-slate-700 rounded p-3"
+              className="border-slate-300 border-2 outline-none rounded p-3 !text-black"
               required
             />
           </p>
           <input
             type="submit"
             value="Reset"
-            className="py-3 px-6 w-fit font-semibold tracking-widest bg-yellow-500 text-white rounded hover:bg-yellow-600 transition-all duration-300 cursor-pointer"
+            className="py-3 px-6 w-fit font-semibold !tracking-widest bg-yellow-500 text-white rounded hover:bg-yellow-600 transition-all duration-300 cursor-pointer"
           />
         </form>
       </div>

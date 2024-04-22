@@ -26,8 +26,12 @@ const Dashboard = () => {
       </p> */}
       <div className="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row items-center gap-2 scale-100 lg:scale-95 md:scale-90">
         {/* Turn these to individual components */}
-        <div className="bg-white w-full h-fit lg:w-[33%] md:h-[200px] rounded-[4px] shadow-lg shadow-black/20 flex flex-col">
-          <p className="border-b-2 bg-slate-50 w-full text-center rounded-t-[4px] py-1 tracking-wider px-2">
+        <div
+          className={`!bg-white w-full h-fit lg:w-[33%] md:h-[210px] rounded-[4px] shadow-lg shadow-black/20 flex flex-col ${
+            darkMode ? "dark-mode !bg-white !text-black" : ""
+          }`}
+        >
+          <p className="border-b-2 bg-slate-50 w-full text-center rounded-t-[4px] py-1 !tracking-wider px-2">
             Weekly Top Rated Cleaner
           </p>
           <div className="flex flex-col md:flex-row items-center md:items-center text-center mx-auto md:mx-0 md:text-start gap-2 w-full md:w-full h-full md:h-full p-2 justify-between">
@@ -39,16 +43,6 @@ const Dashboard = () => {
                 height={"180rem"}
                 className="rounded-[4px] border-4 border-cyan-200"
               />
-              {/* <p className="font-semibold flex items-center gap-1 text-sm">
-                Rating:{" "}
-                <span className="text-sm font-normal text-yellow-400 flex items-center">
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStarHalf />
-                </span>
-              </p> */}
             </div>
             <div className="flex flex-col gap-1">
               <p className="font-semibold text-green-600 text-nowrap">
@@ -75,8 +69,12 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="w-full h-fit lg:w-[33%] md:h-[210px] rounded-[4px] shadow-lg shadow-black/20 flex flex-col transition-all duration-300 ease-in-out">
-          <p className="bg-[#FFC83D] text-white w-full text-center rounded-t-[4px] py-[2px] text-xl tracking-widest">
+        <div
+          className={`w-full h-fit lg:w-[33%] md:h-[210px] rounded-[4px] shadow-lg shadow-black/20 flex flex-col transition-all duration-300 ease-in-out ${
+            darkMode ? "dark-mode !bg-white !text-black" : ""
+          }`}
+        >
+          <p className="bg-[#FFC83D] text-white w-full text-center rounded-t-[4px] py-[2px] text-xl !tracking-widest">
             Flash Sales!!!!
           </p>
 
@@ -90,7 +88,7 @@ const Dashboard = () => {
                 className=""
               />
               <p className="font-semibold">
-                <span className="tracking-widest">Sneakers -</span>{" "}
+                <span className="!tracking-widest">Sneakers -</span>{" "}
                 <span className="text-rose-600">15% off</span>
               </p>
               <p className="text-sm">Product available as seen. Hurry Now!!</p>
@@ -104,21 +102,25 @@ const Dashboard = () => {
             </a>
           </div>
         </div>
-        <div className="bg-white w-full h-fit lg:w-[33%] md:h-[200px] rounded-[4px] shadow-lg shadow-black/20 flex items-center">
-          <div className="flex flex-col px-2 bg-slate-50 tracking-widest h-full md:h-full items-center justify-center lg:text-2xl md:text-xl text-lg font-semibold">
+        <div
+          className={`!bg-white w-full h-fit lg:w-[33%] md:h-[210px] rounded-[4px] shadow-lg shadow-black/20 flex items-center ${
+            darkMode ? "dark-mode !bg-white !text-black" : ""
+          }`}
+        >
+          <div className="flex flex-col px-2 !bg-slate-50 !tracking-widest h-full md:h-full items-center justify-center lg:text-2xl md:text-xl text-lg font-semibold">
             <p>P</p>
             <p>R</p>
             <p>0</p>
             <p>M</p>
             <p>0</p>
           </div>
-          {/* <p className="border-b-2 bg-slate-50 w-full text-center rounded-t-[4px] py-1 tracking-widest">
+          {/* <p className="border-b-2 bg-slate-50 w-full text-center rounded-t-[4px] py-1 !tracking-widest">
             Promo! Promo!! Promo!!!
           </p> */}
           <div className="flex flex-col h-full w-full">
             <div className="flex flex-col px-2 pt-2 m-auto items-center pb-8 md:pb-2">
               <p className="">
-                <span className="text-green-500 md:text-8xl text-7xl tracking-tighter font-bold">
+                <span className="text-green-500 md:text-8xl text-7xl !tracking-tighter font-bold">
                   20%
                 </span>{" "}
                 <span className="text-rose-500 md:text-3xl text-xl font-medium">
@@ -142,7 +144,7 @@ const Dashboard = () => {
       </section>
       <section className="md:hidden mt-7">
         <h2
-          className={`font-semibold tracking-widest text-gray-800 ${
+          className={`font-semibold !tracking-widest text-gray-800 ${
             darkMode ? "dark-mode" : ""
           }`}
         >
@@ -211,7 +213,7 @@ const Dashboard = () => {
         }`}
       >
         <h2
-          className={`font-semibold tracking-widest text-gray-800 ${
+          className={`font-semibold !tracking-widest text-gray-800 ${
             darkMode ? "dark-mode" : ""
           }`}
         >

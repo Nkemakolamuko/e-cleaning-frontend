@@ -17,6 +17,7 @@ const StoreCards = ({ handleViewDetails, title, prevPrice, newPrice, id }) => {
     cartItem,
     cartTotal,
     setCartTotal,
+    darkMode,
   } = useContext(BgContext);
 
   const addedProduct = data?.find((product) => {
@@ -63,7 +64,11 @@ const StoreCards = ({ handleViewDetails, title, prevPrice, newPrice, id }) => {
   }, [cartId]);
 
   return (
-    <div className="bg-white h-full flex flex-col md:shadow-lg shadow-lg md:hover:shadow-lg items-center p-2 rounded scale-95 md:scale-100 transition-all duration-300 relative">
+    <div
+      className={` h-full flex flex-col md:shadow-lg shadow-lg md:hover:shadow-lg items-center p-2 rounded scale-95 md:scale-100 transition-all duration-300 relative ${
+        darkMode ? "dark-mode border-2 border-white" : ""
+      }`}
+    >
       <p
         className="right-2 top-2 absolute p-1 text-xs hover:bg-yellow-300 bg-yellow-400 text-slate-100 cursor-pointer shadow-md active:shadow-none active:scale-90 transition-all duration-300"
         onClick={() => handleCartModalCount(id)}

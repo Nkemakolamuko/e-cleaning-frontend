@@ -20,6 +20,7 @@ const ProductSummary = () => {
     setQuantity,
     total,
     setTotal,
+    darkMode,
   } = useContext(BgContext);
 
   // const [newQty, setNewQty] = useState(1);
@@ -134,8 +135,12 @@ const ProductSummary = () => {
 
   return (
     <div className="bg-transparent h-[80vh] w-full">
-      <div className="max-w-fit md:max-w-full flex-col flex items-center justify-between h-[100%] overflow-auto bg-white shadow-xl shadow-black/20 transition-all duration-300 ease-in-out">
-        <div>
+      <div
+        className={`max-w-fit md:max-w-full flex-col flex items-center justify-between h-[100%] overflow-auto bg-white shadow-xl shadow-black/20 transition-all duration-300 ease-in-out ${
+          darkMode ? "dark-mode shadow shadow-white/50" : ""
+        }`}
+      >
+        <div className={`w-full px-2 ${darkMode ? "dark-mode" : ""}`}>
           {cartItem &&
             cartItem?.map(({ title, newPrice, id, quantity }) => (
               <ProductSummaryDetails
@@ -150,13 +155,29 @@ const ProductSummary = () => {
               />
             ))}
         </div>
-        <div className="sticky bottom-0 w-full bg-white px-2 pt-2 pb-2">
-          <div className="flex items-center justify-between w-full bg-slate-100 px-2 py-3 rounded-md transition-all duration-300">
-            <p className="font-medium tracking-widest">Total</p>
-            <p className="font-medium tracking-widest">₦{total || " "}</p>
+        <div
+          className={`sticky bottom-0 w-full bg-white px-2 pt-2 pb-2 ${
+            darkMode ? "dark-mode pb-0" : ""
+          }`}
+        >
+          <div
+            className={`flex items-center justify-between w-full bg-slate-100 px-2 py-3 rounded-md transition-all duration-300 ${
+              darkMode ? "dark-mode !bg-white !text-black" : ""
+            }`}
+          >
+            <p className="font-medium !tracking-widest">Total</p>
+            <p className="font-medium !tracking-widest">₦{total || " "}</p>
           </div>
-          <p className="flex flex-row items-center py-2 gap-2 w-full">
-            <span className="text-slate-700 w-[30%] text-sm">
+          <p
+            className={`flex flex-row items-center py-2 gap-2 w-full ${
+              darkMode ? "dark-mode !text-white" : ""
+            }`}
+          >
+            <span
+              className={`text-slate-700 w-[30%] text-sm ${
+                darkMode ? "dark-mode" : ""
+              }`}
+            >
               Enter Voucher Code
             </span>
             <input
@@ -166,7 +187,11 @@ const ProductSummary = () => {
             />
           </p>
 
-          <button className="w-full p-4 bg-black/80 text-white font-medium rounded hover:bg-black transition-all duration-300">
+          <button
+            className={`w-full p-4 bg-black/80 text-white font-medium rounded hover:bg-black transition-all duration-300 ${
+              darkMode ? "dark-mode !bg-orange-500" : ""
+            }`}
+          >
             Checkout
           </button>
         </div>

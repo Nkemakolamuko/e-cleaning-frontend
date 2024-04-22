@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   FaAngleDown,
   FaAngleUp,
@@ -7,6 +7,7 @@ import {
   FaExclamation,
   FaEyeSlash,
 } from "react-icons/fa6";
+import { BgContext } from "../../App";
 
 const NotificationPageCard = ({
   title,
@@ -18,6 +19,7 @@ const NotificationPageCard = ({
   // deleteNoti,
   // setDeleteNoti,
 }) => {
+  const { darkMode } = useContext(BgContext);
   const [actions, setActions] = useState(false);
   const [collapse, setCollapse] = useState(false);
   const [deleteNoti, setDeleteNoti] = useState(false);
@@ -26,7 +28,11 @@ const NotificationPageCard = ({
   return (
     <>
       {!deleteNoti ? (
-        <div className="md:max:-w-[90%] w-full shadow-md rounded flex-flex-col h-fit gap-3 border-t border-t-slate-100 transition-all duration-300">
+        <div
+          className={`md:max:-w-[90%] w-full shadow-md rounded flex-flex-col h-fit gap-3 border-t !bg-white border-t-slate-100 transition-all duration-300 ${
+            darkMode ? "shadow-white" : ""
+          }`}
+        >
           <div className="flex items-center justify-between px-4 py-2">
             <p className="tracking-wider font-medium text-slate-700">{title}</p>
             <div className="flex flex-col cursor-pointer transition-all duration-300">

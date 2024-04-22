@@ -7,7 +7,7 @@ const NotificationModalCards = ({ title, desc, handleNavigation }) => {
     <div
       // to="/dashboard/notifications"
       onClick={handleNavigation}
-      className="flex items-center w-full bg-white mx-[0px]"
+      className="flex items-center w-full !bg-white mx-[0px]"
     >
       <div className="flex flex-col w-[100%] border-l-4 border-l-green-300 border-b hover:bg-green-100 cursor-pointer transition-all duration-300">
         <p className="font-medium text-sm pl-2 pt-1 text-green-600">{title}</p>

@@ -7,7 +7,7 @@ import data from "../../db/storeDB";
 import { BgContext } from "../App";
 
 const Store = () => {
-  const { cartExistErr, cartAdded } = useContext(BgContext);
+  const { cartExistErr, cartAdded, darkMode } = useContext(BgContext);
   const [viewProducts, setViewProducts] = useState(false);
   const [searchProduct, setSearchProduct] = useState(false);
   const [search, setSearch] = useState("");
@@ -61,7 +61,7 @@ const Store = () => {
   const result = filteredData(data, selectedCategory, search);
 
   return (
-    <div className="relative">
+    <div className={`relative ${darkMode ? "dark-mode" : ""}`}>
       <Title title="Our Store" />
       {cartExistErr ? (
         <p className="p-3 text-rose-600 bg-rose-50 text-center rounded">

@@ -56,7 +56,7 @@ const Notifications = () => {
       )}
 
       <div className="w-full flex items-center justify-center">
-        <div className="flex items-center fixed justify-between text-slate-500 bottom-0 w-full md:w-[50%] bg-white cursor-pointer md:rounded-md text-sm transition-all duration-300">
+        <div className="flex items-center fixed justify-between text-slate-500 bottom-0 w-full md:w-[50%] !bg-white cursor-pointer md:rounded-md text-sm transition-all duration-300">
           <p
             className="flex flex-col items-center px-2 py-2 md:py-3 w-[50%] bg-rose-50 hover:bg-rose-100 hover:text-rose-600 md:rounded-l-md transition-all duration-300"
             onClick={() => {

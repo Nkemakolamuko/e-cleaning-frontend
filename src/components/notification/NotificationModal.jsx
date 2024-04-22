@@ -7,7 +7,7 @@ import notificationDb from "../../../db/notificationDb";
 import { BgContext } from "../../App";
 
 const NotificationModal = ({ handleCloseNotificationModal }) => {
-  const { notification, setNotification } = useContext(BgContext);
+  const { notification, setNotification, darkMode } = useContext(BgContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,9 +20,19 @@ const NotificationModal = ({ handleCloseNotificationModal }) => {
   };
 
   return (
-    <div className="max-w-[300px] h-fit bg-white flex items-center flex-col justify-center absolute top-2 right-16 z-[999] shadow-lg shadow-black/20 rounded transition-all duration-300">
-      <div className="w-full flex items-center justify-between p-2">
-        <p className="tracking-widest font-medium">Notifications</p>
+    <div className="max-w-[300px] h-fit !bg-white flex items-center flex-col justify-center absolute top-2 right-16 z-[999] shadow-lg shadow-black/20 rounded transition-all duration-300">
+      <div
+        className={`w-full flex items-center justify-between p-2 ${
+          darkMode ? "dark-mode border-2 rounded-t border-green-200" : ""
+        }`}
+      >
+        <p
+          className={`tracking-widest font-medium ${
+            darkMode ? "dark-mode" : ""
+          }`}
+        >
+          Notifications
+        </p>
         <CloseButton handleModalClose={handleCloseNotificationModal} />
       </div>
       {notification?.length !== 0 ? (
@@ -37,7 +47,7 @@ const NotificationModal = ({ handleCloseNotificationModal }) => {
           ))}
         </div>
       ) : (
-        <div className="px-4 py-6 flex flex-col w-full bg-white my-[100px] text-center justify-center mx-[80px] text-slate-600">
+        <div className="px-4 py-6 flex flex-col w-full !bg-white my-[100px] text-center justify-center mx-[80px] text-slate-600">
           None Yet
         </div>
       )}

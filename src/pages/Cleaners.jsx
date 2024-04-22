@@ -86,8 +86,8 @@ const Cleaners = () => {
             <p
               className={`${
                 border === "Favorite"
-                  ? "tracking-widest px-1 md:px-3"
-                  : "tracking-widest text-slate-400 group-hover:text-slate-800 px-1 md:px-3 scale-90"
+                  ? "!tracking-widest px-1 md:px-3"
+                  : "!tracking-widest text-slate-400 group-hover:text-slate-800 px-1 md:px-3 scale-90"
               }`}
             >
               Favorite
@@ -107,8 +107,8 @@ const Cleaners = () => {
             <p
               className={`${
                 border === "Area"
-                  ? "tracking-widest px-1 md:px-3"
-                  : "tracking-widest text-slate-400   group-hover:text-slate-800 px-1 md:px-3 scale-90"
+                  ? "!tracking-widest px-1 md:px-3"
+                  : "!tracking-widest text-slate-400   group-hover:text-slate-800 px-1 md:px-3 scale-90"
               }`}
             >
               Your Area
@@ -128,8 +128,8 @@ const Cleaners = () => {
             <p
               className={`${
                 border === "All"
-                  ? "tracking-widest px-1 md:px-3"
-                  : "tracking-widest text-slate-400 group-hover:text-slate-800 px-1 md:px-3 scale-90"
+                  ? "!tracking-widest px-1 md:px-3"
+                  : "!tracking-widest text-slate-400 group-hover:text-slate-800 px-1 md:px-3 scale-90"
               }`}
             >
               All

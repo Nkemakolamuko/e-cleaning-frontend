@@ -9,6 +9,36 @@
   background-color: rgb(0, 0, 0);
 }
 
+.dark-mode .rounded-tl-md {
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+}
+
+.dark-mode .rounded-tr-md {
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+}
+
+.dark-mode .tracking-widest {
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+}
+
+.dark-mode .bg-white {
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+}
+
+.dark-mode table tr {
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+}
+
+.dark-mode .year {
+  border: 2px solid gray;
+  border-radius: 4px;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: 260px 1fr 1fr 1fr;
@@ -101,6 +131,10 @@
 .cleaners {
   box-shadow: 10px -50px 10px 20px rgb(255, 255, 255);
   /* box-shadow: 10px -50px 10px 20px rgb(240, 253, 244); */
+}
+
+.dark-mode .cleaners {
+  box-shadow: none;
 }
 
 /* Tootip */

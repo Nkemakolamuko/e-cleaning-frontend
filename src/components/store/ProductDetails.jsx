@@ -7,7 +7,7 @@ import CloseButton from "../CloseButton";
 
 const ProductDetails = ({ handleCloseProduct }) => {
   const { title, description, id } = data;
-  const { cartModalCount, setCartModalCount } = useContext(BgContext);
+  const { cartModalCount, setCartModalCount, darkMode } = useContext(BgContext);
   const [cartSuccess, setCartSuccess] = useState(false);
   const [cartError, setCartError] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(null);
@@ -36,21 +36,25 @@ const ProductDetails = ({ handleCloseProduct }) => {
   }, [cartModalCount]);
 
   return (
-    <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center absolute top-0 px-[10px] md:py-[0px] md:px-[100px] flex-col mx-auto">
-      {/* <p
-        className="text-rose-600 border-2 group border-white rounded hover:border-rose-600 hover:text-white hover:bg-rose-600 p-2 md:p-2 font-semibold ml-auto mb-2 cursor-pointer active:scale-90 transition-all duration-300"
-        onClick={handleCloseProduct}
+    <div
+      className={`w-full h-screen bg-slate-500/75 flex items-center md:justify-center absolute top-0 px-[10px] md:py-[0px] md:px-[100px] flex-col mx-auto overflow-auto`}
+    >
+      <section
+        className={`flex flex-col bg-white md:h-fit lg:h-[500px] md:justify-center mt-5 mb-5 md:mt-0 md:mb-0 ${
+          darkMode ? "dark-mode" : ""
+        }`}
       >
-        <FaTimes className="w-6 h-6 md:w-10 md:h-10 text-rose-600 group-hover:bg-rose-600 group-hover:text-white transition-all duration-300 cursor-pointer" />
-      </p> */}
-      <section className="flex flex-col bg-white md:h-[500px] lg:h-[500px] justify-center">
         <div className="flex items-center px-2 md:px-6 pt-2 border-b pb-2">
           <h2 className="tracking-widest font-medium">Product details</h2>
           <div className="ml-auto">
             <CloseButton handleModalClose={handleCloseProduct} />
           </div>
         </div>
-        <div className="w-fit px-2 md:px-6 py-3 md:py-2 rounded-md flex flex-col md:grid md:grid-cols-2 items-center mx-auto gap-4 md:gap-2 bg-white">
+        <div
+          className={`w-fit px-2 md:px-6 py-3 md:py-2 rounded-md flex flex-col md:grid md:grid-cols-2 items-center mx-auto gap-4 md:gap-2 bg-white ${
+            darkMode ? "dark-mode" : ""
+          }`}
+        >
           <p className="md:col-span-1 h-[200px] w-[200px] md:w-fit md:h-fit lg:w-[400px] lg:h-[400px] md:flex md:items-center md:justify-center">
             <img
               src={logo}
@@ -71,7 +75,11 @@ const ProductDetails = ({ handleCloseProduct }) => {
             </span>
             <p className="flex flex-col">
               <span className="font-medium">Description</span>
-              <span className="text-slate-700 text-sm">
+              <span
+                className={`text-sm ${
+                  darkMode ? "text-white" : "text-slate-700"
+                }`}
+              >
                 {currentProduct?.desc || "Loading..."}
               </span>
             </p>
@@ -79,7 +87,9 @@ const ProductDetails = ({ handleCloseProduct }) => {
               <select
                 name="size"
                 id="size"
-                className="active:outline-none outline-none border-2 p-2 rounded w-full font-medium transition-all duration-300"
+                className={`active:outline-none outline-none border-2 p-2 rounded w-full font-medium transition-all duration-300 ${
+                  darkMode ? "dark-mode" : ""
+                }`}
               >
                 <option value="size">Select size</option>
                 {currentProduct?.size.map((sz) => (
@@ -93,7 +103,9 @@ const ProductDetails = ({ handleCloseProduct }) => {
               <select
                 name="color"
                 id="color"
-                className="active:outline-none outline-none border-2 p-2 rounded w-full font-medium transition-all duration-300"
+                className={`active:outline-none outline-none border-2 p-2 rounded w-full font-medium transition-all duration-300 ${
+                  darkMode ? "dark-mode" : ""
+                }`}
               >
                 <option value="color">Choose Color</option>
                 {currentProduct?.color.map((clr) => (
@@ -105,7 +117,11 @@ const ProductDetails = ({ handleCloseProduct }) => {
             </p>
 
             <button
-              className="p-3 w-full text-white bg-black hover:bg-black hover:text-white  border-2 border-black hover:border-black font-medium md:hover:rounded rounded transition-all duration-300 ease-in-out"
+              className={`p-3 w-full hover:border-black font-medium md:hover:rounded rounded transition-all duration-300 ease-in-out ${
+                darkMode
+                  ? "bg-orange-500 text-white "
+                  : "text-white bg-black hover:bg-black hover:text-white  border-2 border-black"
+              }`}
               onClick={handleAddToCart}
             >
               Add To Cart

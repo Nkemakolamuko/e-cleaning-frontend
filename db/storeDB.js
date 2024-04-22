@@ -16,7 +16,7 @@ const data = [
     color: ["black"],
     size: ["44", "45", "46", "47"],
     category: "loafers",
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure placeat esse recusandae praesentium asperiores! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, laudantium.",
+    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure placeat esse recusandae praesentium asperiores! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, laudantium. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure placeat esse recusandae praesentium asperiores! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, laudantium. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure placeat esse recusandae praesentium asperiores! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, laudantium.",
   },
   {
     // id: uuid4(),

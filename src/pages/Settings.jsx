@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Title from "../components/Title";
 import user from "../assets/logo.jpg";
 import {
@@ -16,8 +16,10 @@ import ChangePassword from "../components/settings/ChangePassword";
 import ReadPrivacyPolicy from "../components/settings/ReadPrivacyPolicy";
 import { FaShareNodes } from "react-icons/fa6";
 import ShareApp from "../components/settings/ShareApp";
+import { BgContext } from "../App";
 
 const Settings = () => {
+  const { darkMode } = useContext(BgContext);
   const [show, setShow] = useState(null);
   const [user, setUser] = useState([]);
   const [userEmail, setUserEmail] = useState("");
@@ -71,11 +73,19 @@ const Settings = () => {
       </div>
 
       {/* Actions */}
-      <div className="grid grid-cols-1 md:grid-cols-2 max-w-[800px] mx-auto gap-4 mt-5">
+      <div
+        className={`grid grid-cols-1 md:grid-cols-2 max-w-[800px] mx-auto gap-4 mt-5 ${
+          darkMode ? "dark-mode" : ""
+        }`}
+      >
         <div className="mx-auto w-full">
           <ul className="flex flex-col gap-2 w-full">
             <li
-              className="p-3 group bg-white hover:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300"
+              className={`p-3 group bg-white hover:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
+                darkMode
+                  ? "dark-mode border-2 hover:bg-white hover:text-black rounded"
+                  : ""
+              }`}
               onClick={() => setShow("Payment")}
             >
               <p className="flex flex-col">
@@ -87,7 +97,11 @@ const Settings = () => {
               </p>
             </li>
             <li
-              className="p-3 bg-white hover:bg-slate-200 shadow-md hover:shadow-lg cursor-pointer group transition-all duration-300 flex items-center justify-between"
+              className={`p-3 group bg-white hover:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
+                darkMode
+                  ? "dark-mode border-2 hover:bg-white hover:text-black rounded"
+                  : ""
+              }`}
               onClick={() => {
                 setShow("Email");
                 const data = JSON.parse(localStorage.getItem("user"));
@@ -106,7 +120,11 @@ const Settings = () => {
               </p>
             </li>
             <li
-              className="p-3 bg-white hover:bg-slate-200 shadow-md hover:shadow-lg cursor-pointer group transition-all duration-300 flex items-center justify-between"
+              className={`p-3 group bg-white hover:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
+                darkMode
+                  ? "dark-mode border-2 hover:bg-white hover:text-black rounded"
+                  : ""
+              }`}
               onClick={() => setShow("Privacy")}
             >
               <p className="flex flex-col">
@@ -122,7 +140,11 @@ const Settings = () => {
         <div className="mx-auto w-full">
           <ul className="flex flex-col gap-2 w-full">
             <li
-              className="p-3 bg-white hover:bg-slate-200 shadow-md hover:shadow-lg cursor-pointer flex justify-between group items-center transition-all duration-300"
+              className={`p-3 group bg-white hover:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
+                darkMode
+                  ? "dark-mode border-2 hover:bg-white hover:text-black rounded"
+                  : ""
+              }`}
               onClick={() => {
                 setShow("Address");
                 const data = JSON.parse(localStorage.getItem("user"));
@@ -141,7 +163,11 @@ const Settings = () => {
               </p>
             </li>
             <li
-              className="p-3 group bg-white hover:bg-slate-200 shadow-md hover:shadow-lg cursor-pointer flex items-center justify-between transition-all duration-300"
+              className={`p-3 group bg-white hover:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
+                darkMode
+                  ? "dark-mode border-2 hover:bg-white hover:text-black rounded"
+                  : ""
+              }`}
               onClick={() => setShow("Password")}
             >
               <p className="flex flex-col">
@@ -153,7 +179,11 @@ const Settings = () => {
               </p>
             </li>
             <li
-              className="p-3 group bg-white hover:bg-slate-200 shadow-md hover:shadow-lg cursor-pointer flex items-center justify-between transition-all duration-300"
+              className={`p-3 group bg-white hover:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
+                darkMode
+                  ? "dark-mode border-2 hover:bg-white hover:text-black rounded"
+                  : ""
+              }`}
               onClick={() => setShow("Share")}
             >
               <p className="flex flex-col">

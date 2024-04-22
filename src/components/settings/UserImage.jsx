@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaCamera } from "react-icons/fa";
 import { FaPencil } from "react-icons/fa6";
+import { BgContext } from "../../App";
 
 const UserImage = ({ user }) => {
+  const { darkMode } = useContext(BgContext);
   const [userData, setUserData] = useState([]);
   const [username, setUsername] = useState("");
   const [showInput, setShowInput] = useState(false);
@@ -81,11 +83,13 @@ const UserImage = ({ user }) => {
         </p>
         {!showInput && (
           <div
-            className="flex items-center gap-2 md:gap-4 group hover:bg-slate-200 p-2 rounded cursor-pointer transition-all duration-300"
+            className={`flex items-center gap-2 md:gap-4 group hover:bg-slate-200 p-2 rounded cursor-pointer transition-all duration-300 ${
+              darkMode ? "dark-mode hover:text-black" : ""
+            }`}
             onClick={() => handleUpdate()}
           >
             {/* Name */}
-            <p className="text-base text-center md:text-lg tracking-widest font-semibold">
+            <p className="text-base text-center md:text-lg !tracking-widest font-semibold">
               {/* {userData?.name?.toUpperCase() || "Username"} */}
               {userData?.map((user) => user?.name?.toUpperCase()) || "Username"}
             </p>
@@ -102,7 +106,9 @@ const UserImage = ({ user }) => {
               onChange={(e) => {
                 setUsername(e.target.value);
               }}
-              className="tracking-widest max-w-[180px] md:max-w-full px-4 py-[10px] rounded-l bg-white border-y-2 border-l-2 border-r-0 border-y-slate-400 border-l-slate-400 outline-none"
+              className={`!tracking-widest max-w-[180px] md:max-w-full px-4 py-[10px] rounded-l bg-white border-y-2 border-l-2 border-r-0 border-y-slate-400 border-l-slate-400 outline-none ${
+                darkMode ? "dark-mode" : ""
+              }`}
             />
 
             {username.trim().length !== 0 ? (
