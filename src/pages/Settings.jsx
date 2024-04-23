@@ -14,12 +14,12 @@ import ChangeAddress from "../components/settings/ChangeAddress";
 import ChangeEmail from "../components/settings/ChangeEmail";
 import ChangePassword from "../components/settings/ChangePassword";
 import ReadPrivacyPolicy from "../components/settings/ReadPrivacyPolicy";
-import { FaShareNodes } from "react-icons/fa6";
+import { FaMoon, FaShareNodes, FaSun } from "react-icons/fa6";
 import ShareApp from "../components/settings/ShareApp";
 import { BgContext } from "../App";
 
 const Settings = () => {
-  const { darkMode } = useContext(BgContext);
+  const { darkMode, setDarkMode } = useContext(BgContext);
   const [show, setShow] = useState(null);
   const [user, setUser] = useState([]);
   const [userEmail, setUserEmail] = useState("");
@@ -65,9 +65,35 @@ const Settings = () => {
     setShow(false);
   };
 
+  // Theme
+  const toggleThemeDark = () => {
+    setDarkMode(true);
+  };
+
+  const toggleThemeLight = () => {
+    setDarkMode(false);
+  };
+
   return (
     <section className="relative mb-6 md:mb-0">
-      <Title title="Settings" />
+      <div className="flex items-center justify-between">
+        <Title title="Settings" />
+        <div className="px-4 md:px-4 lg:px-4 flex gap-2 items-center md:hidden">
+          <p
+            className="!bg-white text-yellow-400 border rounded-full cursor-pointer p-1 transition-all duration-300"
+            onClick={toggleThemeLight}
+          >
+            <FaSun />
+          </p>
+          <p className="tracking-tighter text-xs font-medium">THEME</p>
+          <p
+            className="border bg-neutral-900 rounded-full cursor-pointer p-1 text-white transition-all duration-300"
+            onClick={toggleThemeDark}
+          >
+            <FaMoon />
+          </p>
+        </div>
+      </div>
       <div className="mt-5 w-full flex items-center justify-center">
         <UserImage user={user} />
       </div>
