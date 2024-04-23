@@ -49,12 +49,10 @@ const Header = () => {
 
   const toggleThemeDark = () => {
     setDarkMode(true);
-    // console.log(darkMode);
   };
 
   const toggleThemeLight = () => {
     setDarkMode(false);
-    // console.log(darkMode);
   };
 
   const handleCartModal = () => {

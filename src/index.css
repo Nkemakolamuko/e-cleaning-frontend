@@ -103,10 +103,10 @@
 @keyframes feature {
   from {
     /* For the starting - I'd have to adjust it each time I add a feature - prolly by reducing it */
-    transform: translateX(-19%);
+    transform: translateX(3%);
   }
   to {
-    transform: translateX(-120%);
+    transform: translateX(-99%);
   }
 }
 
