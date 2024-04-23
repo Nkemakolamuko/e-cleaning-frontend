@@ -4,7 +4,15 @@ import { FaCartPlus, FaPlus } from "react-icons/fa6";
 import { BgContext } from "../../App";
 import data from "../../../db/storeDB";
 
-const StoreCards = ({ handleViewDetails, title, prevPrice, newPrice, id }) => {
+const StoreCards = ({
+  handleViewDetails,
+  title,
+  prevPrice,
+  newPrice,
+  id,
+  img,
+  reviews,
+}) => {
   const {
     cartModalCount,
     setCartModalCount,
@@ -40,7 +48,7 @@ const StoreCards = ({ handleViewDetails, title, prevPrice, newPrice, id }) => {
     // console.log(cartTotal);
   }, []);
 
-  const handleCartModalCount = (id) => {
+  const handleCartItemId = (id) => {
     setCartId(id);
   };
 
@@ -71,23 +79,29 @@ const StoreCards = ({ handleViewDetails, title, prevPrice, newPrice, id }) => {
     >
       <p
         className="right-2 top-2 absolute p-1 text-xs hover:bg-yellow-300 bg-yellow-400 text-slate-100 cursor-pointer shadow-md active:shadow-none active:scale-90 transition-all duration-300"
-        onClick={() => handleCartModalCount(id)}
+        onClick={() => handleCartItemId(id)}
       >
         <span>
           <FaCartPlus className="w-5 h-5" />
         </span>
       </p>
       <img
-        src={logo}
+        src={img ? img : logo}
         alt="Product Image"
         width={"30%"}
         height={"30%"}
         className="rounded-full"
       />
-      <div className="flex flex-col h-full justify-end mx-auto text-center w-[80%] items-center">
-        <p className="tracking-widest font-medium">{title}</p>
+      <div className="flex flex-col h-full justify-end mx-auto text-center w-[80%] items-center gap-2">
+        <p className="tracking-widest font-medium">
+          {title} - {reviews}
+        </p>
         <p className="flex items-center gap-4">
-          <span className="line-through text-rose-600 opacity-50">
+          <span
+            className={`line-through text-rose-600 px-2 ${
+              darkMode ? "!bg-white opacity-100" : "opacity-50"
+            }`}
+          >
             {prevPrice}
           </span>
           <span className="font-medium text-green-500">{newPrice}</span>

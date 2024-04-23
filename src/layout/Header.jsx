@@ -74,7 +74,7 @@ const Header = () => {
   return (
     <header
       className={`header shadow-md relative transition-all duration-300 bg-white ${
-        darkMode ? "dark-mode shadow-md shadow-white" : ""
+        darkMode ? "dark-mode for-header" : ""
       }`}
     >
       {showCartModal && <CartModal handleModalClose={handleModalClose} />}

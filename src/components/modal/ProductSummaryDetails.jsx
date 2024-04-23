@@ -12,13 +12,14 @@ const ProductSummaryDetails = ({
   newPrice,
   title,
   quantity,
+  star,
 }) => {
   const [disabled, setDisabled] = useState(false);
 
   return (
     <>
       <div
-        className="grid grid-cols-5 md:grid-cols-4 items-center justify-between w-full my-2 gap-6 px-2"
+        className="grid grid-cols-5 md:grid-cols-4 items-center justify-between w-full my-2 gap-6 px-2 cart-border pb-2"
         // key={product.id}
         // key={Math.random()}
       >
@@ -31,7 +32,9 @@ const ProductSummaryDetails = ({
             className="rounded-md"
           />
           <div className="flex flex-col">
-            <p className="font-medium md:text-base text-sm">{title}</p>
+            <p className="font-medium md:text-base text-sm">
+              {title} - {star}
+            </p>
             <p className="md:text-base text-sm">{newPrice}</p>
           </div>
         </div>
@@ -47,7 +50,6 @@ const ProductSummaryDetails = ({
             <FaMinus />
           </p>
           <p>{quantity}</p>
-          {/* <p>{i}</p> */}
           <p
             className="p-1 md:p-2 rounded-md bg-green-300 cursor-pointer text-white hover:bg-green-400  transition-all duration-300"
             onClick={handleIncrement}

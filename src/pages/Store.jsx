@@ -47,11 +47,11 @@ const Store = () => {
         <StoreCards
           key={id}
           id={id}
-          // img={img}
+          img={img}
           title={title}
           handleViewDetails={() => handleViewDetails(id)}
           // star={star}
-          // reviews={reviews}
+          reviews={reviews}
           newPrice={newPrice}
           prevPrice={prevPrice}
         />
@@ -106,16 +106,16 @@ const Store = () => {
                   Coffs
                 </span>
                 <span className="py-2 px-4 text-center border rounded cursor-pointer">
-                  Coffs
+                  Cap
                 </span>
                 <span className="py-2 px-4 text-center border rounded cursor-pointer">
-                  Coffs
+                  Socks
                 </span>
                 <span className="py-2 px-4 text-center border rounded cursor-pointer">
-                  Coffs
+                  Slippers
                 </span>
                 <span className="py-2 px-4 text-center border rounded cursor-pointer">
-                  Comb
+                  Spray-starch
                 </span>
               </p>
             </div>
@@ -126,13 +126,6 @@ const Store = () => {
                 setSearchProduct(true);
               }}
             >
-              {/* <div
-                className="rounded-full border text-slate-600 p-2"
-                onClick={() => {
-                  setSearchProduct(true);
-                }}
-              >
-              </div> */}
               <FaSearch />
               <span className="text-base text-slate-700">Search</span>
             </div>
@@ -149,14 +142,14 @@ const Store = () => {
                 <span className="py-2 px-4 border">All</span>
 
                 <span className="py-2 px-4 border">Tie</span>
-                <span className="py-2 px-4 border">Tie</span>
-                <span className="py-2 px-4 border">Below 10, 000</span>
-                <span className="py-2 px-4 border">Tie</span>
+                <span className="py-2 px-4 border">Above ₦ 10, 000</span>
+                <span className="py-2 px-4 border">Below ₦ 10, 000</span>
+                <span className="py-2 px-4 border">Cloths</span>
 
-                <span className="py-2 px-4 border">Tie</span>
-                <span className="py-2 px-4 border">Tie</span>
-                <span className="py-2 px-4 border">Tie</span>
-                <span className="py-2 px-4 border">Tie</span>
+                <span className="py-2 px-4 border">Shoes</span>
+                <span className="py-2 px-4 border">Promo Items</span>
+                <span className="py-2 px-4 border">Reviews - 50 and above</span>
+                <span className="py-2 px-4 border">Flats</span>
               </p>
             </div>
 
@@ -187,15 +180,6 @@ const Store = () => {
         </p>
       ) : (
         <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-[100%] place-content-center gap-4 border-t transition-all duration-300">
-          {/* {filteredProduct.map(({ title, prevPrice, newPrice, id }) => (
-          <StoreCards
-            handleViewDetails={() => handleViewDetails(id)}
-            title={title}
-            newPrice={newPrice}
-            prevPrice={prevPrice}
-            key={id}
-          />
-        ))} */}
           {result}
         </section>
       )}

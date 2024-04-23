@@ -1,13 +1,20 @@
 import React from "react";
 import Title from "../components/Title";
+import OngoingOrder from "../components/orders/OngoingOrder";
 
 const Orders = () => {
   return (
-    <div className="h-full w-full">
-      <Title title="Orders" />
+    <div className="h-full w-full mb-8">
+      <Title title="Ongoing Orders" />
 
-      <section className="flex h-full w-full items-center justify-center">
-        <p>You don't have any orders right now</p>
+      <h2 className="tracking-widest">24 HOURS DELIVERY GUARANTEED</h2>
+      <section className="grid h-[80vh] w-full md:w-[80%] grid-cols-1 mt-5 gap-6 md:gap-8">
+        <OngoingOrder />
+        <OngoingOrder />
+        <OngoingOrder />
+        <OngoingOrder />
+        <OngoingOrder />
+        <OngoingOrder />
       </section>
     </div>
   );

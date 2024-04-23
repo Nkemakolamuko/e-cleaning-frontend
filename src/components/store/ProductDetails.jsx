@@ -57,7 +57,7 @@ const ProductDetails = ({ handleCloseProduct }) => {
         >
           <p className="md:col-span-1 h-[200px] w-[200px] md:w-fit md:h-fit lg:w-[400px] lg:h-[400px] md:flex md:items-center md:justify-center">
             <img
-              src={logo}
+              src={currentProduct?.img ? currentProduct?.img : logo}
               alt="Product Image"
               // width={250}
               // height={250}
@@ -71,7 +71,8 @@ const ProductDetails = ({ handleCloseProduct }) => {
               </p>
             )}
             <span className="tracking-widest font-medium text-lg text-center md:text-start">
-              {currentProduct?.title || "Loading..."}
+              {currentProduct?.title + " - " + currentProduct?.reviews ||
+                "Loading..."}
             </span>
             <p className="flex flex-col">
               <span className="font-medium">Description</span>

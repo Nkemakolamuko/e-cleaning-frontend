@@ -24,7 +24,7 @@ const Dashboard = () => {
         to display our products - then maybe clicking it takes you to the Store
         page{" "}
       </p> */}
-      <div className="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row items-center gap-2 scale-100 lg:scale-95 md:scale-90">
+      <div className="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row items-center gap-2 scale-100 lg:scale-100 md:scale-90">
         {/* Turn these to individual components */}
         <div
           className={`!bg-white w-full h-fit lg:w-[33%] md:h-[210px] d-cards rounded-[4px] shadow-lg shadow-black/20 flex flex-col ${
@@ -61,7 +61,8 @@ const Dashboard = () => {
               <p className="font-semibold text-start text-sm">
                 Location:{" "}
                 <span className="text-xs font-normal">
-                  1st Floor Makazi Plaza, Area 2 by TZ Junction Owerri
+                  1st Floor Makazi Plaza, Area 2 by TZ Junction Owerri, Imo
+                  State
                 </span>
               </p>
 
@@ -96,7 +97,7 @@ const Dashboard = () => {
             {/* <ActionBTN text="Buy Now @ N14, 800" /> */}
             <a
               href="tel:+2347040876440"
-              className="bg-green-500 text-white text-sm py-2 font-semibold rounded-[3px] hover:bg-green-600 transition-all duration-300 mb-1 text-center cursor-pointer"
+              className="bg-green-500 text-white text-sm py-3 font-semibold rounded-[3px] hover:bg-green-600 transition-all duration-300 mb-1 text-center cursor-pointer"
             >
               Buy Now @ N14, 800
             </a>
@@ -107,16 +108,13 @@ const Dashboard = () => {
             darkMode ? "dark-mode !bg-white !text-black" : ""
           }`}
         >
-          <div className="flex flex-col px-2 !bg-slate-50 !tracking-widest h-full md:h-full items-center justify-center lg:text-2xl md:text-xl text-lg font-semibold">
+          <div className="flex flex-col px-2 !bg-green-500 !text-white !tracking-widest h-full md:h-full items-center justify-center lg:text-2xl md:text-xl text-lg font-bold rounded-tl rounded-bl">
             <p>P</p>
             <p>R</p>
             <p>0</p>
             <p>M</p>
             <p>0</p>
           </div>
-          {/* <p className="border-b-2 bg-slate-50 w-full text-center rounded-t-[4px] py-1 !tracking-widest">
-            Promo! Promo!! Promo!!!
-          </p> */}
           <div className="flex flex-col h-full w-full">
             <div className="flex flex-col px-2 pt-2 m-auto items-center pb-8 md:pb-2">
               <p className="">
@@ -131,7 +129,7 @@ const Dashboard = () => {
                 For Laundry Wash Above N5,000
               </p>
             </div>
-            <p className="bg-slate-50 w-full text-center rounded-b-[4px] py-1 text-xs bottom-0 absolute md:static lg:static">
+            <p className="bg-slate-50 w-full text-center rounded-b-[4px] py-2 text-xs bottom-0 absolute md:static lg:static overflow-hidden">
               Promo Last NOW till August 24th 2024
             </p>
           </div>

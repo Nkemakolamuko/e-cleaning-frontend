@@ -40,6 +40,39 @@
   box-shadow: 0px 0px 5px 1px aqua !important;
 }
 
+/* For modal */
+.dark-mode .cart-border {
+  border-bottom: 2px solid aqua !important;
+}
+
+/* For Orders */
+.dark-mode .order {
+  color: black !important;
+}
+
+/* For Orders */
+.dark-mode .order-card {
+  box-shadow: 0px 0px 5px 2px aqua !important;
+  border-radius: 4px !important;
+}
+
+.dark-mode .order-card:hover {
+  box-shadow: 0px 0px 10px 4px aqua !important;
+  border-radius: 4px !important;
+}
+
+/* For sidebar */
+.dark-mode .closed-sidebar {
+  border-right: 2px solid rgba(0, 255, 255, 0.616) !important;
+  /* box-shadow: 0px 0px 5px 1px aqua !important; */
+}
+
+/* For header */
+.dark-mode .for-header {
+  border-bottom: 2px solid rgba(0, 255, 255, 0.616) !important;
+  box-shadow: 0px 0px 5px 1px aqua !important;
+}
+
 .dark-mode .border {
   border: 2px solid;
   border-color: aqua !important;
