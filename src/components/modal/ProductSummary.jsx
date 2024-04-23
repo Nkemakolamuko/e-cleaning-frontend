@@ -136,7 +136,7 @@ const ProductSummary = () => {
   return (
     <div className="bg-transparent h-[80vh] w-full">
       <div
-        className={`max-w-fit md:max-w-full flex-col flex items-center justify-between h-[100%] overflow-auto bg-white shadow-xl shadow-black/20 transition-all duration-300 ease-in-out ${
+        className={`max-w-full md:max-w-full flex-col flex items-center justify-between h-[100%] overflow-auto bg-white shadow-xl shadow-black/20 transition-all duration-300 ease-in-out ${
           darkMode ? "dark-mode shadow shadow-white/50" : ""
         }`}
       >

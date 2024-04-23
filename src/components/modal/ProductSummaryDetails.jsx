@@ -32,9 +32,7 @@ const ProductSummaryDetails = ({
             className="rounded-md"
           />
           <div className="flex flex-col">
-            <p className="font-medium md:text-base text-sm">
-              {title} - {star}
-            </p>
+            <p className="font-medium md:text-base text-sm">{title}</p>
             <p className="md:text-base text-sm">{newPrice}</p>
           </div>
         </div>

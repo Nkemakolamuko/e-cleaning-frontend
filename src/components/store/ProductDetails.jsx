@@ -7,14 +7,29 @@ import CloseButton from "../CloseButton";
 
 const ProductDetails = ({ handleCloseProduct }) => {
   const { title, description, id } = data;
-  const { cartModalCount, setCartModalCount, darkMode } = useContext(BgContext);
+  const { cartModalCount, setCartModalCount, darkMode, cartItem, setCartItem } =
+    useContext(BgContext);
   const [cartSuccess, setCartSuccess] = useState(false);
   const [cartError, setCartError] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(null);
 
   const handleAddToCart = () => {
+    const descID = localStorage.getItem("store-id");
+    const foundProduct = data.find((product) => product.id == descID);
+
+    if (cartItem.includes(foundProduct)) {
+      setCartError(true);
+      setTimeout(() => {
+        setCartError(false);
+      }, 5000);
+      return;
+    }
     setCartModalCount(() => cartModalCount + 1);
     setCartSuccess(true);
+    setCartItem([...cartItem, foundProduct]);
+    setTimeout(() => {
+      setCartSuccess(false);
+    }, 5000);
   };
 
   useEffect(() => {
@@ -24,6 +39,13 @@ const ProductDetails = ({ handleCloseProduct }) => {
       const foundProduct = data.find((product) => product.id == descID); // We find a product based on the ID that matches the comparison ID
       // console.log(foundProduct);
       setCurrentProduct(foundProduct); // Then we set it to a null state variable
+      // if (cartItem.includes(foundProduct)) {
+      //   return;
+      // } else {
+      //   setCartItem([...cartItem, foundProduct]);
+      //   setCartModalCount(() => cartModalCount + 1);
+      //   setCartSuccess(true);
+      // }
     };
     setTimeout(() => {
       setCartSuccess(false);
@@ -129,7 +151,8 @@ const ProductDetails = ({ handleCloseProduct }) => {
             </button>
             {cartError && (
               <p className="text-rose-500 text-center bg-rose-50 rounded p-2">
-                Error while adding {currentProduct?.title} to cart - try again
+                Error while adding {currentProduct?.title} to cart - try again.
+                Or check if product is in Cart already.
               </p>
             )}
           </div>
