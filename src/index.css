@@ -245,7 +245,7 @@
   border-color: transparent rgba(0, 0, 0, 0.6) transparent transparent;
 }
 
-.tooltip .tooltiptext::after {
+.dark-mode .tooltip .tooltiptext::after {
   content: "";
   position: absolute;
   top: 50%;
