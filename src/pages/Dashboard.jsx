@@ -27,7 +27,7 @@ const Dashboard = () => {
       <div className="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row items-center gap-2 scale-100 lg:scale-95 md:scale-90">
         {/* Turn these to individual components */}
         <div
-          className={`!bg-white w-full h-fit lg:w-[33%] md:h-[210px] rounded-[4px] shadow-lg shadow-black/20 flex flex-col ${
+          className={`!bg-white w-full h-fit lg:w-[33%] md:h-[210px] d-cards rounded-[4px] shadow-lg shadow-black/20 flex flex-col ${
             darkMode ? "dark-mode !bg-white !text-black" : ""
           }`}
         >
@@ -70,7 +70,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div
-          className={`w-full h-fit lg:w-[33%] md:h-[210px] rounded-[4px] shadow-lg shadow-black/20 flex flex-col transition-all duration-300 ease-in-out ${
+          className={`w-full h-fit lg:w-[33%] md:h-[210px] d-cards rounded-[4px] shadow-lg shadow-black/20 flex flex-col transition-all duration-300 ease-in-out ${
             darkMode ? "dark-mode !bg-white !text-black" : ""
           }`}
         >
@@ -103,7 +103,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div
-          className={`!bg-white w-full h-fit lg:w-[33%] md:h-[210px] rounded-[4px] shadow-lg shadow-black/20 flex items-center ${
+          className={`!bg-white w-full h-fit lg:w-[33%] md:h-[210px] d-cards rounded-[4px] shadow-lg shadow-black/20 flex items-center ${
             darkMode ? "dark-mode !bg-white !text-black" : ""
           }`}
         >

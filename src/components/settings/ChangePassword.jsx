@@ -32,7 +32,9 @@ const ChangePassword = ({ handleClosePassword }) => {
         </div>
         <p
           onClick={toggleShowPasswords}
-          className="bg-neutral-800 text-white p-3  hover:bg-neutral-900 cursor-default text-center transition-all duration-300"
+          className={`bg-neutral-800 text-white p-3  hover:bg-neutral-900 cursor-pointer text-center transition-all duration-300 ${
+            darkMode ? "!bg-cyan-400 !text-neutral-900 hover:!bg-cyan-500" : ""
+          }`}
         >
           {showPasswords ? "Hide Passwords 🙈" : "Show Passwords 🙊"}
         </p>

@@ -35,8 +35,37 @@
 }
 
 .dark-mode .year {
-  border: 2px solid gray;
+  border: 2px solid aqua;
   border-radius: 4px;
+  box-shadow: 0px 0px 5px 1px aqua !important;
+}
+
+.dark-mode .border {
+  border: 2px solid;
+  border-color: aqua !important;
+  box-shadow: 0px 0px 5px 1px aqua !important;
+}
+
+.dark-mode .border-y {
+  border: 0px 2px solid;
+  border-color: aqua !important;
+  /* background-color: cyan !important; */
+  box-shadow: 0px 0px 20px 1px aqua !important;
+}
+
+.dark-mode .d-cards {
+  border: 1px solid;
+  border-color: aqua !important;
+  box-shadow: 0px 0px 10px 3px aqua !important; /* The second to last is the blur - The last digit gives it the wideness */
+}
+
+.dark-mode .shadow {
+  box-shadow: 0px 0px 5px 1px aqua !important;
+}
+
+.dark-mode .shadow:hover {
+  box-shadow: 0px 0px 10px 1px aqua !important;
+  transition: box-shadow 10s ease-in-out;
 }
 
 .grid-container {
@@ -68,12 +97,6 @@
   overflow-y: auto;
   padding: 10px;
   /* color: rgba(255, 255, 255, 0.95); */
-}
-
-.main-container-small {
-  grid-area: main;
-  display: hidden;
-  opacity: 0;
 }
 
 .header {
