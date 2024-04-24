@@ -98,8 +98,10 @@ const OngoingOrder = () => {
             Arrived at :
           </span>{" "}
           <span className="text-center font-semibold text-xl text-green-600 w-[60%] mx-auto flex flex-col md:flex-row md:gap-4 md:items-baseline">
-            <FaClock />
-            <span>12 : 02 : 15 PM</span>
+            <span className="flex items-center gap-2">
+              {" "}
+              <FaClock /> 12 : 02 : 15 PM
+            </span>
             <span className="text-sm text-slate-700">
               {new Date().toLocaleDateString()}
             </span>
@@ -121,16 +123,18 @@ const OngoingOrder = () => {
             </div>
           ) : (
             <span className="text-center font-semibold text-xl text-orange-500 w-[60%] mx-auto flex flex-col md:flex-row md:gap-4 md:items-baseline">
-              <FaHourglass />
-              <span>
-                {hour.toString().length < 2 ? "0" + hour + " h" : hour + " h"} :{" "}
+              <span className="flex items-center gap-2">
+                <FaHourglass />
+                {hour.toString().length < 2
+                  ? "0" + hour + " h"
+                  : hour + " h"} :{" "}
                 {minutes.toString().length < 2
-                  ? "0" + minutes + " mins"
-                  : minutes + " mins"}{" "}
+                  ? "0" + minutes + " m"
+                  : minutes + " m"}{" "}
                 :{" "}
                 {seconds.toString().length < 2
-                  ? "0" + seconds + " secs"
-                  : seconds + " secs"}
+                  ? "0" + seconds + " s"
+                  : seconds + " s"}
               </span>
               <span
                 className={`text-sm text-slate-700 ${
