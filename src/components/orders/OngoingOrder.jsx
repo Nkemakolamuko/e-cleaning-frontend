@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BgContext } from "../../App";
 import { FaMotorcycle } from "react-icons/fa";
+import { FaClock, FaHourglass } from "react-icons/fa6";
 
 const OngoingOrder = () => {
   const { darkMode } = useContext(BgContext);
@@ -97,6 +98,7 @@ const OngoingOrder = () => {
             Arrived at :
           </span>{" "}
           <span className="text-center font-semibold text-xl text-green-600 w-[60%] mx-auto flex flex-col md:flex-row md:gap-4 md:items-baseline">
+            <FaClock />
             <span>12 : 02 : 15 PM</span>
             <span className="text-sm text-slate-700">
               {new Date().toLocaleDateString()}
@@ -119,6 +121,7 @@ const OngoingOrder = () => {
             </div>
           ) : (
             <span className="text-center font-semibold text-xl text-orange-500 w-[60%] mx-auto flex flex-col md:flex-row md:gap-4 md:items-baseline">
+              <FaHourglass />
               <span>
                 {hour.toString().length < 2 ? "0" + hour + " h" : hour + " h"} :{" "}
                 {minutes.toString().length < 2
