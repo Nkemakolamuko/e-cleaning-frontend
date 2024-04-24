@@ -301,3 +301,17 @@
 .shadow-history {
   box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.6);
 }
+
+/* Orders */
+@keyframes delivery {
+  from {
+    transform: translateX(-48%);
+  }
+  to {
+    transform: translateX(75%);
+  }
+}
+
+.delivery {
+  animation: delivery 2s linear infinite;
+}
