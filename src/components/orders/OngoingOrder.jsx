@@ -48,19 +48,19 @@ const OngoingOrder = () => {
           <span className="font-semibold !tracking-widest w-[40%]  align-text-top">
             Arrived at :
           </span>{" "}
-          <span className="text-center font-semibold text-xl text-green-600 w-[60%] mx-auto">
-            12 : 02 : 15 PM
-            <span className="text-sm ml-4 text-slate-700">June 12, 2024</span>
+          <span className="text-center font-semibold text-xl text-green-600 w-[60%] mx-auto flex flex-col md:flex-row md:gap-4 md:items-baseline">
+            <span>12 : 02 : 15 PM</span>
+            <span className="text-sm text-slate-700">June 12, 2024</span>
           </span>{" "}
         </p>
         <p className="flex items-center gap-2 w-full border-b px-4 py-4 ">
           <span className="font-semibold !tracking-widest w-[40%] rounded-b">
             Countdown to delivery :
           </span>{" "}
-          <span className="text-center font-semibold text-xl text-orange-500 w-[60%] mx-auto">
-            3 : 42 : 33
+          <span className="text-center font-semibold text-xl text-orange-500 w-[60%] mx-auto flex flex-col md:flex-row md:gap-4 md:items-baseline">
+            <span>3 : 42 : 33</span>
             <span
-              className={`text-sm ml-4 text-slate-700 ${
+              className={`text-sm text-slate-700 ${
                 darkMode ? "!text-white" : ""
               }`}
             >
