@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Title from "../components/Title";
 import userImage from "../assets/userImage.jpg";
 import logo from "../assets/logo.jpg";
@@ -9,9 +9,90 @@ import DashboardHistory from "../components/DashboardHistory";
 import { Link } from "react-router-dom";
 import { FaGreaterThan } from "react-icons/fa";
 import { BgContext } from "../App";
+import AvailableCleaners from "../components/AvailableCleaners";
+
+const cleaners = [
+  {
+    name: "Ugo Best",
+    desc: "Details About them Lorem ipsum dolor sit amet, consectetur!",
+    id: 1,
+  },
+  {
+    name: "Tony Best",
+    desc: "Details About them Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, consequuntur!",
+    id: 2,
+  },
+  {
+    name: "Euvoria",
+    desc: "Details About them Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, consequuntur!",
+    id: 3,
+  },
+  {
+    name: "Nkem Best",
+    desc: "Details About them Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, consequuntur!",
+    id: 4,
+  },
+  {
+    name: "Sheri Best",
+    desc: "Details About them Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, consequuntur!",
+    id: 5,
+  },
+  {
+    name: "Anto Best",
+    desc: "Details About them Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, consequuntur!",
+    id: 6,
+  },
+  {
+    name: "Diamond Best",
+    desc: "Details About them Lorem ipsum dolor sit amet, consectetur!",
+    id: 7,
+  },
+  {
+    name: "Emma B",
+    desc: "Details About them Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, consequuntur!",
+    id: 8,
+  },
+  {
+    name: "Euvoria",
+    desc: "Details About them Lorem ipsum dolor sit amet, consectetur!",
+    id: 9,
+  },
+];
 
 const Dashboard = () => {
   const { darkMode } = useContext(BgContext);
+  const [startIndex, setStartIndex] = useState(0);
+  const itemsPerPage = 4;
+
+  const handleNext = () => {
+    setStartIndex((prevIndex) => {
+      const newIndex = prevIndex + itemsPerPage;
+      return newIndex >= cleaners.length ? 0 : newIndex;
+    });
+  };
+
+  const handlePrev = () => {
+    setStartIndex((prevIndex) => {
+      const newIndex = prevIndex - itemsPerPage;
+      return newIndex < 0 ? cleaners.length - itemsPerPage : newIndex;
+    });
+  };
+
+  const cleanersCount = cleaners.length;
+
+  const displayCleaners = Array.from({ length: itemsPerPage }, (_, index) => {
+    const memberIndex = (startIndex + index) % cleanersCount;
+    return cleaners[memberIndex];
+  });
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      handleNext();
+    }, 3000);
+
+    return () => clearInterval(intervalId);
+  }, [startIndex]);
+
   return (
     <section
       className={`flex flex-col align-center justify-between w-full overflow-hidden ${
@@ -135,7 +216,51 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+      {/*Available Cleaners*/}
+      <section className="mt-7 w-full flex flex-col overflow-auto">
+        <div className="flex items-center md:gap-4 w-full justify-between md:justify-normal md:mb-2">
+          <Title title="Available Cleaners" />
 
+          <select
+            name="location"
+            className="border rounded py-1 cursor-pointer mb-2"
+          >
+            <option value="Choose Location">Choose Location</option>
+            <option value="OgborHill">OgborHill</option>
+            <option value="Osisioma">Osisioma</option>
+            <option value="7UP">7UP</option>
+            <option value="PH Road">PH Road</option>
+            <option value="Federal">Federal</option>
+          </select>
+        </div>
+
+        <div className="w-full h-[300px] flex items-center gap-2 overflow-hidden relative">
+          {displayCleaners.map((cleaner) => {
+            return (
+              <AvailableCleaners
+                name={cleaner.name}
+                desc={cleaner.desc}
+                key={cleaner.id}
+              />
+            );
+          })}
+          <AvailableCleaners />
+          <div className="absolute flex items-center w-full h-full top-0 justify-between">
+            <p
+              className="cursor-pointer p-2 md:p-3 bg-yellow-400 text-white font-medium rounded-r hover:bg-yellow-500 active:scale-90 shadow-lg shadow-black/20"
+              onClick={handlePrev}
+            >
+              Prev
+            </p>
+            <p
+              className="cursor-pointer p-2 md:p-3 bg-yellow-400 text-white font-medium rounded-l hover:bg-yellow-500 active:scale-90 shadow-lg shadow-black/20"
+              onClick={handleNext}
+            >
+              Next
+            </p>
+          </div>
+        </div>
+      </section>
       {/* Features */}
       <section className="mt-7 w-full hidden md:flex">
         <LatestFeatures />
@@ -203,7 +328,6 @@ const Dashboard = () => {
           </p>
         </div>
       </section>
-
       {/* History */}
       <div
         className={`flex items-center justify-between mt-7 ${
