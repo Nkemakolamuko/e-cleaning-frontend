@@ -225,12 +225,12 @@ const Dashboard = () => {
             name="location"
             className="border rounded py-1 cursor-pointer mb-2"
           >
-            <option value="Choose Location">Choose Location</option>
-            <option value="OgborHill">OgborHill</option>
-            <option value="Osisioma">Osisioma</option>
-            <option value="7UP">7UP</option>
-            <option value="PH Road">PH Road</option>
-            <option value="Federal">Federal</option>
+            <option value="Choose Location">----Choose Location----</option>
+            <option value="OgborHill" onClick={()=> alert("Make Api Call to replace the details in the card for each location. Probably by setting ID or some condition")}>OgborHill</option>
+            <option value="Osisioma" onClick={()=> alert("Make Api Call to replace the details in the card for each location. Probably by setting ID or some condition")}>Osisioma</option>
+            <option value="7UP" onClick={()=> alert("Make Api Call to replace the details in the card for each location. Probably by setting ID or some condition")}>7UP</option>
+            <option value="PH Road" onClick={()=> alert("Make Api Call to replace the details in the card for each location. Probably by setting ID or some condition")}>PH Road</option>
+            <option value="Federal" onClick={()=> alert("Make Api Call to replace the details in the card for each location. Probably by setting ID or some condition")}>Federal</option>
           </select>
         </div>
 

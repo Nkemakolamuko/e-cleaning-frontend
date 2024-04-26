@@ -13,6 +13,7 @@ const ProductSummaryDetails = ({
   title,
   quantity,
   star,
+  img
 }) => {
   const [disabled, setDisabled] = useState(false);
 
@@ -25,7 +26,7 @@ const ProductSummaryDetails = ({
       >
         <div className="flex items-center w-fit gap-4 md:col-span-2 col-span-3">
           <img
-            src={logo}
+            src={img}
             alt="CartImage"
             width={"60rem"}
             height={"60rem"}

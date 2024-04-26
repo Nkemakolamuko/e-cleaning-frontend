@@ -90,7 +90,7 @@ const StoreCards = ({
         alt="Product Image"
         width={"30%"}
         height={"30%"}
-        className="rounded-full"
+        className=""
       />
       <div className="flex flex-col h-full justify-end mx-auto text-center w-[80%] items-center gap-2">
         <p className="tracking-widest font-medium">

@@ -142,7 +142,7 @@ const ProductSummary = () => {
       >
         <div className={`w-full px-2 ${darkMode ? "dark-mode" : ""}`}>
           {cartItem &&
-            cartItem?.map(({ title, newPrice, id, quantity }) => (
+            cartItem?.map(({ title, newPrice, id, quantity, img }) => (
               <ProductSummaryDetails
                 handleDeleteFromCart={() => handleDeleteFromCart(id)}
                 handleIncrement={() => handleIncrement(id)}
@@ -152,6 +152,7 @@ const ProductSummary = () => {
                 newPrice={newPrice}
                 key={id}
                 quantity={quantity}
+                img={img}
               />
             ))}
         </div>
