@@ -84,7 +84,7 @@ const Store = () => {
               <div className="flex items-center lg:hidden gap-3 mb-2">
                 <p className="lg:hidden">Available Products: </p>
                 <div
-                  className="hover:rounded-lg rounded-md py-2 px-4 lg:hidden border text-slate-600 hover:bg-slate-100 w-fit cursor-pointer transition-all duration-300"
+                  className="hover:rounded-lg rounded-md py-2 px-4 lg:hidden border text-slate-600 hover:text-black active:text-black hover:bg-slate-100 active:bg-slate-100 w-fit cursor-pointer transition-all duration-300"
                   onClick={() => {
                     setSearchProduct(true);
                   }}
@@ -92,7 +92,7 @@ const Store = () => {
                   <FaSearch />
                 </div>
               </div>
-              <p className="flex items-center gap-2 overflow-auto">
+              <p className="flex items-center gap-2 overflow-auto scroll text-nowrap">
                 <span className="py-2 px-4 text-center border rounded cursor-pointer">
                   Tie
                 </span>
@@ -138,7 +138,7 @@ const Store = () => {
           <div className="flex flex-col lg:grid lg:grid-cols-4 lg:items-center gap-2 mb-4 w-full">
             <div className="flex items-center md:justify-between md:w-full gap-2 md:gap-0 lg:gap-2 lg:col-span-3">
               <p className="md:w-[20%]">Search Keywords: </p>
-              <p className="flex items-center gap-2 text-nowrap overflow-auto w-full mt-1 scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-track-transparent scrollbar-thumb-transparent scrollbar-thin md:w-[80%]">
+              <p className="flex items-center gap-2 text-nowrap overflow-auto w-full mt-1 md:w-[80%] scroll">
                 <span className="py-2 px-4 border">All</span>
 
                 <span className="py-2 px-4 border">Tie</span>
@@ -165,6 +165,7 @@ const Store = () => {
                 className="p-3 lg:p-1 rounded-full text-rose-500 hover:bg-rose-500 hover:text-white cursor-pointer hover:border-rose-500 transition-all duration-300"
                 onClick={() => {
                   setSearchProduct(false);
+                  setSearch("");
                 }}
               >
                 <FaTimes className="lg:w-6 lg:h-6" />

@@ -13,7 +13,7 @@ const ProductSummaryDetails = ({
   title,
   quantity,
   star,
-  img
+  img,
 }) => {
   const [disabled, setDisabled] = useState(false);
 
@@ -34,7 +34,7 @@ const ProductSummaryDetails = ({
           />
           <div className="flex flex-col">
             <p className="font-medium md:text-base text-sm">{title}</p>
-            <p className="md:text-base text-sm">{newPrice}</p>
+            <p className="md:text-base text-sm">₦ {newPrice}</p>
           </div>
         </div>
         <div className="flex items-center gap-3 col-span-1 text-sm md:text-base">

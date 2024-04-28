@@ -41,12 +41,12 @@ const ChangePassword = ({ handleClosePassword }) => {
         <form
           action="/dashboard/settings"
           method="post"
-          className="flex flex-col gap-3 px-2 md:px-4 py-3 md:py-6"
+          className="flex flex-col gap-3 px-2 md:px-4 py-3 md:py-6 it"
         >
           <p className="flex flex-col">
             <label
               htmlFor="oldPassword"
-              className="py-2 !tracking-widest font-medium"
+              className="py-2 !tracking-widest font-medium text-start"
             >
               Enter Old Password
             </label>
@@ -65,7 +65,7 @@ const ChangePassword = ({ handleClosePassword }) => {
           <p className="flex flex-col">
             <label
               htmlFor="newPassword"
-              className="py-2 !tracking-widest font-medium"
+              className="py-2 !tracking-widest font-medium text-start"
             >
               Enter New Password
             </label>

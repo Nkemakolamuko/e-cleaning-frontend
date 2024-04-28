@@ -105,7 +105,7 @@ const Dashboard = () => {
         to display our products - then maybe clicking it takes you to the Store
         page{" "}
       </p> */}
-      <div className="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row items-center gap-2 scale-100 lg:scale-100 md:scale-90">
+      <div className="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row items-center gap-2 scale-100 lg:scale-100 md:scale-90 px-2">
         {/* Turn these to individual components */}
         <div
           className={`!bg-white w-full h-fit lg:w-[33%] md:h-[210px] d-cards rounded-[4px] shadow-lg shadow-black/20 flex flex-col ${
@@ -120,9 +120,9 @@ const Dashboard = () => {
               <img
                 src={userImage}
                 alt="User Image"
-                width={"180rem"}
-                height={"180rem"}
-                className="rounded-[4px] border-4 border-cyan-200"
+                // width={"180rem"}
+                // height={"180rem"}
+                className="rounded-[4px] border-4 border-cyan-200 w-[250px] md:h-[150px]"
               />
             </div>
             <div className="flex flex-col gap-1">
@@ -152,7 +152,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div
-          className={`w-full h-fit lg:w-[33%] md:h-[210px] d-cards rounded-[4px] shadow-lg shadow-black/20 flex flex-col transition-all duration-300 ease-in-out ${
+          className={`w-full h-fit lg:w-[33%] md:h-[220px] d-cards rounded-[4px] shadow-lg shadow-black/20 flex flex-col transition-all duration-300 ease-in-out ${
             darkMode ? "dark-mode !bg-white !text-black" : ""
           }`}
         >
@@ -189,14 +189,14 @@ const Dashboard = () => {
             darkMode ? "dark-mode !bg-white !text-black" : ""
           }`}
         >
-          <div className="flex flex-col px-2 !bg-green-500 !text-white !tracking-widest h-full md:h-full items-center justify-center lg:text-2xl md:text-xl text-lg font-bold rounded-tl rounded-bl">
+          <div className="flex flex-col px-2 !bg-green-500 !text-white !tracking-widest h-[210px] items-center justify-center lg:text-2xl md:text-xl text-lg font-bold rounded-tl rounded-bl">
             <p>P</p>
             <p>R</p>
             <p>0</p>
             <p>M</p>
             <p>0</p>
           </div>
-          <div className="flex flex-col h-full w-full">
+          <div className="flex flex-col justify-between h-[210px] w-full">
             <div className="flex flex-col px-2 pt-2 m-auto items-center pb-8 md:pb-2">
               <p className="">
                 <span className="text-green-500 md:text-8xl text-7xl !tracking-tighter font-bold">
@@ -210,7 +210,7 @@ const Dashboard = () => {
                 For Laundry Wash Above N5,000
               </p>
             </div>
-            <p className="bg-slate-50 w-full text-center rounded-b-[4px] py-2 text-xs bottom-0 absolute md:static lg:static overflow-hidden">
+            <p className="bg-slate-50 text-center rounded-b-[4px] py-2 text-xs">
               Promo Last NOW till August 24th 2024
             </p>
           </div>
@@ -223,14 +223,59 @@ const Dashboard = () => {
 
           <select
             name="location"
-            className="border rounded py-1 cursor-pointer mb-2"
+            className="border rounded py-1 cursor-pointer mb-2 !text-black"
           >
             <option value="Choose Location">----Choose Location----</option>
-            <option value="OgborHill" onClick={()=> alert("Make Api Call to replace the details in the card for each location. Probably by setting ID or some condition")}>OgborHill</option>
-            <option value="Osisioma" onClick={()=> alert("Make Api Call to replace the details in the card for each location. Probably by setting ID or some condition")}>Osisioma</option>
-            <option value="7UP" onClick={()=> alert("Make Api Call to replace the details in the card for each location. Probably by setting ID or some condition")}>7UP</option>
-            <option value="PH Road" onClick={()=> alert("Make Api Call to replace the details in the card for each location. Probably by setting ID or some condition")}>PH Road</option>
-            <option value="Federal" onClick={()=> alert("Make Api Call to replace the details in the card for each location. Probably by setting ID or some condition")}>Federal</option>
+            <option
+              value="OgborHill"
+              onClick={() =>
+                alert(
+                  "Make Api Call to replace the details in the card for each location. Probably by setting ID or some condition"
+                )
+              }
+            >
+              OgborHill
+            </option>
+            <option
+              value="Osisioma"
+              onClick={() =>
+                alert(
+                  "Make Api Call to replace the details in the card for each location. Probably by setting ID or some condition"
+                )
+              }
+            >
+              Osisioma
+            </option>
+            <option
+              value="7UP"
+              onClick={() =>
+                alert(
+                  "Make Api Call to replace the details in the card for each location. Probably by setting ID or some condition"
+                )
+              }
+            >
+              7UP
+            </option>
+            <option
+              value="PH Road"
+              onClick={() =>
+                alert(
+                  "Make Api Call to replace the details in the card for each location. Probably by setting ID or some condition"
+                )
+              }
+            >
+              PH Road
+            </option>
+            <option
+              value="Federal"
+              onClick={() =>
+                alert(
+                  "Make Api Call to replace the details in the card for each location. Probably by setting ID or some condition"
+                )
+              }
+            >
+              Federal
+            </option>
           </select>
         </div>
 
@@ -330,7 +375,7 @@ const Dashboard = () => {
       </section>
       {/* History */}
       <div
-        className={`flex items-center justify-between mt-7 ${
+        className={`flex items-center md:gap-3 md:justify-start justify-between mt-7 ${
           darkMode ? "dark-mode" : ""
         }`}
       >
@@ -344,7 +389,7 @@ const Dashboard = () => {
 
         <Link
           to="/dashboard/history"
-          className="w-fit flex items-center justify-end font-medium gap-2 py-2 px-4 bg-green-50 text-green-500 rounded ml-auto hover:bg-green-100 hover:underline hover:underline-offset-1 text-xs md:text-base transition-all duration-300"
+          className="w-fit flex items-center justify-end font-medium gap-2 py-2 px-4 bg-green-50 md:bg-white md:hover:bg-green-50 text-green-500 rounded ml-auto md:ml-0 hover:bg-green-100 hover:underline hover:underline-offset-1 text-xs md:text-base transition-all duration-300"
         >
           <span>View All</span>
           <span>

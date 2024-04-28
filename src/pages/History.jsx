@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Title from "../components/Title";
 import History23 from "../components/history/history23/History23";
 import History24 from "../components/history/history24/History24";
 import History25 from "../components/history/history25/History25";
 import History26 from "../components/history/history26/History26";
+import { BgContext } from "../App";
 
 const History = () => {
+  const { darkMode } = useContext(BgContext);
   const [active, setActive] = useState("2024");
   return (
     <div className="flex flex-col w-full h-screen">
@@ -22,7 +24,11 @@ const History = () => {
           {active === "2025" && <History25 />}
           {active === "2026" && <History26 />}
         </aside>
-        <aside className="flex flex-row md:flex-col gap-3 md:w-[20%] text-center h-fit md:h-full top-32 overflow-auto md:right-6 fixed z-50 bg-green-50 p-2 md:bg-transparent md-p-0">
+        <aside
+          className={`flex flex-row w-[85%] right-0 justify-between md:justify-normal md:flex-col gap-3 md:w-[20%] text-center h-fit md:h-full top-28 md:top-32 overflow-auto md:right-6 fixed z-50 bg-green-50 p-2 md:bg-transparent md-p-0 ${
+            darkMode ? "dark-mode" : ""
+          }`}
+        >
           <p className="font-semibold tracking-widest hidden md:block">
             Select Year
           </p>
@@ -52,7 +58,10 @@ const History = () => {
                 ? "bg-green-300 text-white !border-green-300"
                 : "bg-white"
             } transition-all duration-300 cursor-pointer`}
-            onClick={() => setActive("2025")}
+            onClick={() => {
+              // setActive("2025");
+              alert("Coming soon...");
+            }}
           >
             2025
           </p>
@@ -62,7 +71,10 @@ const History = () => {
                 ? "bg-green-300 text-white !border-green-300"
                 : "bg-white"
             } transition-all duration-300 cursor-pointer`}
-            onClick={() => setActive("2026")}
+            onClick={() => {
+              // setActive("2026");
+              alert("Coming soon...");
+            }}
           >
             2026
           </p>

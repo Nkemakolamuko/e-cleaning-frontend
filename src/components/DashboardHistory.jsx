@@ -6,12 +6,12 @@ const DashboardHistory = () => {
   return (
     <>
       <table
-        className={`table-auto shadow-history border border-green-50 mt-2 rounded bg-white border-separate border-spacing-y-1 text-nowrap text-xs md:text-sm overflow-auto ${
+        className={`table-auto shadow-history border border-green-50 mt-2 rounded !bg-white border-separate border-spacing-y-1 text-nowrap text-xs md:text-sm overflow-auto scroll ${
           darkMode ? "dark-mode" : ""
         }`}
       >
         <thead
-          className={`text-left tracking-wider text-gray-700 ${
+          className={`text-left text-base tracking-wider text-gray-700 ${
             darkMode ? "dark-mode" : ""
           }`}
         >

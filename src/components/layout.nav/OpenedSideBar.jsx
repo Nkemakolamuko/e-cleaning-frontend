@@ -58,7 +58,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           <span className="tooltiptext rounded">Close Menu</span>
         </p>
       </div>
-      <ul className="flex flex-col gap-1 my-4 text-green-900 overflow-auto md:overflow-hidden md:hover:overflow-auto transition-all duration-300">
+      <ul className="flex flex-col gap-1 my-4 text-green-900 overflow-auto scroll transition-all duration-300">
         <Link to="/dashboard" onClick={() => handleActiveLink("/dashboard")}>
           <li
             className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${

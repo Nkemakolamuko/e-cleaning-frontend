@@ -53,24 +53,7 @@ const January23 = ({ handleNextMonthR, handleNextMonthL }) => {
             <td className="p-4">Owerri</td>
             <td className="p-4">N 6,700</td>
           </tr>
-          <tr className="bg-card rounded text-gray-800 bg-slate-100">
-            <td className="p-4">{date.toDateString()}</td>
-            <td className="p-4">Ugo Best</td>
-            <td className="p-4">Owerri</td>
-            <td className="p-4">N 6,700</td>
-          </tr>
-          <tr className="bg-card rounded text-gray-800 bg-slate-100">
-            <td className="p-4">{date.toDateString()}</td>
-            <td className="p-4">Ugo Best</td>
-            <td className="p-4">Owerri</td>
-            <td className="p-4">N 6,700</td>
-          </tr>
-          <tr className="bg-card rounded text-gray-800 bg-slate-100">
-            <td className="p-4">{date.toDateString()}</td>
-            <td className="p-4">Ugo Best</td>
-            <td className="p-4">Owerri</td>
-            <td className="p-4">N 6,700</td>
-          </tr>
+
           <tr className="bg-card rounded text-gray-800 bg-slate-100">
             <td className="p-4">{date.toDateString()}</td>
             <td className="p-4">Ugo Best</td>

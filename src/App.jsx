@@ -15,6 +15,7 @@ import Register from "./pages/authPages/Register";
 import Login from "./pages/authPages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import CartModal from "./components/modal/CartModal";
+import Checkout from "./pages/Checkout";
 
 export const BgContext = createContext(null);
 
@@ -161,6 +162,7 @@ function App() {
               </MainNav>
             }
           />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </BrowserRouter>
     </BgContext.Provider>

@@ -107,9 +107,9 @@ const Settings = () => {
         <div className="mx-auto w-full">
           <ul className="flex flex-col gap-2 w-full">
             <li
-              className={`p-3 group bg-white hover:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
+              className={`p-3 group bg-white hover:bg-slate-200 active:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
                 darkMode
-                  ? "dark-mode border-2 hover:bg-white hover:text-black rounded"
+                  ? "dark-mode border-2 hover:bg-white active:bg-white active:text-black hover:text-black rounded"
                   : ""
               }`}
               onClick={() => setShow("Payment")}
@@ -123,9 +123,9 @@ const Settings = () => {
               </p>
             </li>
             <li
-              className={`p-3 group bg-white hover:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
+              className={`p-3 group bg-white hover:bg-slate-200 active:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
                 darkMode
-                  ? "dark-mode border-2 hover:bg-white hover:text-black rounded"
+                  ? "dark-mode border-2 hover:bg-white active:bg-white active:text-black hover:text-black rounded"
                   : ""
               }`}
               onClick={() => {
@@ -146,9 +146,9 @@ const Settings = () => {
               </p>
             </li>
             <li
-              className={`p-3 group bg-white hover:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
+              className={`p-3 group bg-white hover:bg-slate-200 active:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
                 darkMode
-                  ? "dark-mode border-2 hover:bg-white hover:text-black rounded"
+                  ? "dark-mode border-2 hover:bg-white active:bg-white active:text-black hover:text-black rounded"
                   : ""
               }`}
               onClick={() => setShow("Privacy")}
@@ -166,9 +166,9 @@ const Settings = () => {
         <div className="mx-auto w-full">
           <ul className="flex flex-col gap-2 w-full">
             <li
-              className={`p-3 group bg-white hover:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
+              className={`p-3 group bg-white hover:bg-slate-200 active:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
                 darkMode
-                  ? "dark-mode border-2 hover:bg-white hover:text-black rounded"
+                  ? "dark-mode border-2 hover:bg-white active:bg-white active:text-black hover:text-black rounded"
                   : ""
               }`}
               onClick={() => {
@@ -189,9 +189,9 @@ const Settings = () => {
               </p>
             </li>
             <li
-              className={`p-3 group bg-white hover:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
+              className={`p-3 group bg-white hover:bg-slate-200 active:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
                 darkMode
-                  ? "dark-mode border-2 hover:bg-white hover:text-black rounded"
+                  ? "dark-mode border-2 hover:bg-white active:bg-white active:text-black hover:text-black rounded"
                   : ""
               }`}
               onClick={() => setShow("Password")}
@@ -205,9 +205,9 @@ const Settings = () => {
               </p>
             </li>
             <li
-              className={`p-3 group bg-white hover:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
+              className={`p-3 group bg-white hover:bg-slate-200 active:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
                 darkMode
-                  ? "dark-mode border-2 hover:bg-white hover:text-black rounded"
+                  ? "dark-mode border-2 hover:bg-white active:bg-white active:text-black hover:text-black rounded"
                   : ""
               }`}
               onClick={() => setShow("Share")}

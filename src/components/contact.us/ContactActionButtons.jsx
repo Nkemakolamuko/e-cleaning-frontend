@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const ActionButtons = ({ text, logo, bg, bgHover, handleClick, to }) => {
   return (
-    <a href={to}>
+    <a href={to} target="_blank">
       <li
         className={`${bg} text-white p-3 rounded ${bgHover}  w-full flex items-center cursor-pointer gap-2 truncate transition-all duration-300`}
         onClick={handleClick}

@@ -11,6 +11,7 @@ import CartModal from "../components/modal/CartModal";
 import NotificationModal from "../components/notification/NotificationModal";
 import { SideBarContext } from "./MainNav";
 import notificationDb from "../../db/notificationDb";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const Header = () => {
   const {
@@ -73,7 +74,7 @@ const Header = () => {
 
   return (
     <header
-      className={`header shadow-md relative transition-all duration-300 bg-white ${
+      className={`header shadow-md relative w-full transition-all duration-300 bg-white ${
         darkMode ? "dark-mode for-header" : ""
       }`}
     >
@@ -86,14 +87,17 @@ const Header = () => {
       )}
 
       <p
-        className="font-semibold truncate"
+        className="font-semibold truncate flex items-center gap-1 w-[50%]"
         // contentEditable
       >
+        {/* <GiHamburgerMenu className="w-6 h-6 md:hidden" /> */}
         👋 Hi,{" "}
-        {user?.name?.split(" ")[0].charAt(0).toUpperCase() +
-          user?.name?.slice(1).split(" ")[0] ||
-          user?.name?.charAt(0).toUpperCase() ||
-          "Buddy"}
+        <span className="truncate">
+          {user?.name?.split(" ")[0].charAt(0).toUpperCase() +
+            user?.name?.slice(1).split(" ")[0].toLowerCase() ||
+            user?.name?.charAt(0).toUpperCase() ||
+            "Buddy"}
+        </span>
       </p>
 
       <div className="hidden md:flex items-center gap-2">

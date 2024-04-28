@@ -69,7 +69,7 @@ const UserImage = ({ user }) => {
             className="rounded-full max-w-[200px] max-h-[150px]"
           />
         </p>
-        <p className="absolute top-32 rounded-full bg-slate-200/35 p-1 hover:p-2 group-hover:bg-slate-200/75 cursor-pointer opacity-30 group-hover:opacity-100 transition-all duration-300">
+        <p className="absolute top-32 rounded-full bg-slate-200/35 p-2 group-hover:bg-slate-200/75 cursor-pointer opacity-30 group-hover:opacity-100 transition-all duration-300">
           <label htmlFor="image">
             <input
               type="file"
