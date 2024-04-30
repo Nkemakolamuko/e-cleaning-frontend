@@ -62,18 +62,12 @@ const Store = () => {
 
   return (
     <div className={`relative ${darkMode ? "dark-mode" : ""}`}>
-      <Title title="Our Store" />
-      {cartExistErr ? (
-        <p className="p-3 text-rose-600 bg-rose-50 text-center rounded">
-          An error occurred or product exist
+      {cartAdded && (
+        <p className="p-3 text-green-800 bg-white text-center rounded-md w-full md:w-1/3 ml-auto md:right-0 h-full transition-all duration-300 sticky top-0 right-0 z-[9999] shadow-2xl border-t border-t-green-500">
+          Added to cart!
         </p>
-      ) : cartAdded ? (
-        <p className="p-3 text-green-800 bg-green-50 text-center rounded">
-          Product added
-        </p>
-      ) : (
-        ""
       )}
+      <Title title="Our Store" />
 
       <section className="mb-4 mt-2 lg:mt-4 lg:mb-8">
         {/* Available Products */}

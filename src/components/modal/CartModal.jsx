@@ -46,7 +46,7 @@ const CartModal = ({ handleModalClose }) => {
         <>
           <div
             className={`pb-1 pt-1 md:py-0 flex flex-col w-full md:w-1/2 bg-white fixed top-0 left-0 z-[999] ${
-              darkMode ? "dark-mode" : ""
+              darkMode ? "dark-mode shadow" : ""
             }`}
           >
             <div className="w-full flex items-center justify-between pl-4 border-b">

@@ -40,14 +40,14 @@ const Checkout = () => {
     setShowAddr(false);
   };
   return (
-    <div className="container mx-auto md:max-w-[800px] h-full flex justify-center flex-col px-2 mb-8 shadow-2xl rounded shadow-black/10">
-      <div className="flex items-center justify-between md:justify-normal md:gap-4 py-2">
+    <div className="container mx-auto md:max-w-[800px] h-full flex justify-center flex-col px-2 mb-8 shadow-2xl rounded shadow-black/10 pb-2">
+      <div className="flex items-center justify-between py-2">
         <div className="">
           <Title title="Checkout Page" />
         </div>
         <Link
           to="/dashboard/store"
-          className="underline underline-offset-1 pt-2 pb-4 hover:bg-green-100 bg-green-50 active:bg-green-100 flex items-center gap-2 px-2 rounded transition-all duration-300"
+          className="underline underline-offset-1 pt-2 pb-4 hover:bg-green-100 bg-green-50 active:bg-green-100 flex items-center gap-2 px-2 text-slate-500 rounded transition-all duration-300"
         >
           <span>
             <FaAngleLeft />
@@ -55,26 +55,21 @@ const Checkout = () => {
           <span>Back to store</span>
         </Link>
       </div>
-      {/* <p>
-        Checkout page which will have a place for user to enter address - then a
-        proceed to payment button for them to select payment provider option --
-        Bank transfer -- Paystack -- and so on...
-      </p> */}
 
       {cartItem.map((product) => {
         return (
           <div
             key={product.id}
-            className="flex items-center justify-between py-2 border-b gap-2"
+            className="flex items-center justify-between py-3 md:py-6 border-b gap-2"
           >
             <p className="w-[20%] h-[20%] rounded">
               <img src={product.img} alt="Product Image" />
             </p>
-            <p className="flex flex-col">
+            <p className="flex flex-col w-[50%]">
               <span className="text-base text-nowrap">{product.title}</span>
               <span className="text-lg font-semibold">{product.quantity}</span>
             </p>
-            <span className="!tracking-widest font-medium">
+            <span className="!tracking-widest font-medium w-[20%]">
               ₦
               {Number(product.newPrice.split("₦")[1].split(",").join("")) *
                 product.quantity}
@@ -83,10 +78,10 @@ const Checkout = () => {
         );
       })}
 
-      <p className="mt-2">Shipping Address :</p>
+      <p className="mt-6 font-medium">Shipping Address :</p>
       {!showAddr && (
         <div
-          className="py-2 flex items-center gap-2 justify-between hover:bg-slate-100 active:bg-slate-100 hover:px-2 cursor-pointer transition-all duration-300"
+          className="py-2 flex items-center gap-2 justify-between bg-slate-50 hover:bg-slate-100 active:bg-slate-100 px-2 cursor-pointer transition-all duration-300"
           onClick={handleShowUpdate}
         >
           <p>{userAddr || "Click to enter Delivery Address."}</p>
@@ -112,11 +107,17 @@ const Checkout = () => {
       )}
       <p>Shipping fee : ₦ {shipping}</p>
 
-      <Link to="/payment" className="my-2">
-        <button className="w-full py-4 rounded bg-black font-medium text-white">
-          Proceed to pay ₦ {total + shipping}
+      {cartItem.length !== 0 ? (
+        <Link to="/payment" className="my-2">
+          <button className="w-full py-4 rounded bg-black font-medium text-white cursor-pointer">
+            Proceed to pay ₦ {total + shipping}
+          </button>
+        </Link>
+      ) : (
+        <button className="w-full py-4 rounded bg-black/10 font-medium text-neutral-700 cursor-not-allowed my-2">
+          Can't proceed on an empty cart!!
         </button>
-      </Link>
+      )}
     </div>
   );
 };

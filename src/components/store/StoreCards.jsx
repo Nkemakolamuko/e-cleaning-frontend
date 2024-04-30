@@ -20,6 +20,7 @@ const StoreCards = ({
     setCartId,
     cartExistErr,
     setCartExistErr,
+    cartAdded,
     setCartAdded,
     setCartItem,
     cartItem,
@@ -73,7 +74,7 @@ const StoreCards = ({
 
   return (
     <div
-      className={` h-full flex flex-col md:shadow-lg shadow-lg md:hover:shadow-lg items-center p-2 rounded scale-95 md:scale-100 transition-all duration-300 relative ${
+      className={`h-full flex flex-col md:shadow-lg shadow-lg md:hover:shadow-lg items-center p-2 rounded scale-95 md:scale-100 transition-all duration-300 relative ${
         darkMode ? "dark-mode border-2 border-white" : ""
       }`}
     >

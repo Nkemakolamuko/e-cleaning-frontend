@@ -62,7 +62,18 @@ const cleaners = [
 const Dashboard = () => {
   const { darkMode } = useContext(BgContext);
   const [startIndex, setStartIndex] = useState(0);
-  const itemsPerPage = 4;
+  let itemsPerPage = 4;
+  if (window.innerWidth < 767) {
+    itemsPerPage = 1;
+  }
+
+  if (window.innerWidth > 768) {
+    itemsPerPage = 2;
+  }
+
+  if (window.innerWidth > 1020) {
+    itemsPerPage = 4;
+  }
 
   const handleNext = () => {
     setStartIndex((prevIndex) => {
@@ -226,54 +237,19 @@ const Dashboard = () => {
             className="border rounded py-1 cursor-pointer mb-2 !text-black"
           >
             <option value="Choose Location">----Choose Location----</option>
-            <option
-              value="OgborHill"
-              onClick={() =>
-                alert(
-                  "Make Api Call to replace the details in the card for each location. Probably by setting ID or some condition"
-                )
-              }
-            >
+            <option value="OgborHill" onClick={() => alert("Working on it...")}>
               OgborHill
             </option>
-            <option
-              value="Osisioma"
-              onClick={() =>
-                alert(
-                  "Make Api Call to replace the details in the card for each location. Probably by setting ID or some condition"
-                )
-              }
-            >
+            <option value="Osisioma" onClick={() => alert("Working on it...")}>
               Osisioma
             </option>
-            <option
-              value="7UP"
-              onClick={() =>
-                alert(
-                  "Make Api Call to replace the details in the card for each location. Probably by setting ID or some condition"
-                )
-              }
-            >
+            <option value="7UP" onClick={() => alert("Working on it...")}>
               7UP
             </option>
-            <option
-              value="PH Road"
-              onClick={() =>
-                alert(
-                  "Make Api Call to replace the details in the card for each location. Probably by setting ID or some condition"
-                )
-              }
-            >
+            <option value="PH Road" onClick={() => alert("Working on it...")}>
               PH Road
             </option>
-            <option
-              value="Federal"
-              onClick={() =>
-                alert(
-                  "Make Api Call to replace the details in the card for each location. Probably by setting ID or some condition"
-                )
-              }
-            >
+            <option value="Federal" onClick={() => alert("Working on it...")}>
               Federal
             </option>
           </select>
