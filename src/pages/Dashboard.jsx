@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import Title from "../components/Title";
-import userImage from "../assets/userImage.jpg";
+// import userImage from "../assets/userImage.jpg";
 import logo from "../assets/logo.jpg";
+import userImage from "../assets/ugo-best.jpg";
 import { FaCircleExclamation, FaStar, FaStarHalf } from "react-icons/fa6";
 import ActionBTN from "../components/ActionBTN";
 import LatestFeatures from "../components/LatestFeatures";
@@ -63,16 +64,20 @@ const Dashboard = () => {
   const { darkMode } = useContext(BgContext);
   const [startIndex, setStartIndex] = useState(0);
   let itemsPerPage = 4;
+  let time = 3000;
   if (window.innerWidth < 767) {
     itemsPerPage = 1;
+    time = 3000;
   }
 
   if (window.innerWidth > 768) {
     itemsPerPage = 2;
+    time = 3000;
   }
 
   if (window.innerWidth > 1020) {
     itemsPerPage = 4;
+    time = 5000;
   }
 
   const handleNext = () => {
@@ -99,7 +104,7 @@ const Dashboard = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       handleNext();
-    }, 3000);
+    }, time);
 
     return () => clearInterval(intervalId);
   }, [startIndex]);
@@ -133,10 +138,10 @@ const Dashboard = () => {
                 alt="User Image"
                 // width={"180rem"}
                 // height={"180rem"}
-                className="rounded-[4px] border-4 border-cyan-200 w-[250px] md:h-[150px]"
+                className="rounded-[4px] w-[250px] md:h-[150px]"
               />
             </div>
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-1 md:h-[150px] md:justify-between">
               <p className="font-semibold text-green-600 text-nowrap">
                 Ugo Best And Sons
               </p>
@@ -365,7 +370,7 @@ const Dashboard = () => {
 
         <Link
           to="/dashboard/history"
-          className="w-fit flex items-center justify-end font-medium gap-2 py-2 px-4 bg-green-50 md:bg-white md:hover:bg-green-50 text-green-500 rounded ml-auto md:ml-0 hover:bg-green-100 hover:underline hover:underline-offset-1 text-xs md:text-base transition-all duration-300"
+          className="w-fit flex items-center justify-end font-medium gap-2 py-2 md:py-1 px-4 bg-green-50 md:bg-white md:hover:bg-green-50 text-green-500 rounded ml-auto md:ml-0 hover:bg-green-100 hover:underline hover:underline-offset-1 text-xs md:text-sm transition-all duration-300"
         >
           <span>View All</span>
           <span>

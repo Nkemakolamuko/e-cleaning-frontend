@@ -20,9 +20,9 @@ const NotificationModal = ({ handleCloseNotificationModal }) => {
   };
 
   return (
-    <div className="max-w-[300px] h-fit !bg-white flex items-center flex-col justify-center absolute top-2 right-16 z-[999] shadow-lg shadow-black/20 rounded transition-all duration-300">
+    <div className="max-w-[300px] h-fit !bg-white flex items-center flex-col justify-center absolute top-14 right-16 z-[999] shadow-lg shadow-black/20 rounded transition-all duration-300">
       <div
-        className={`w-full flex items-center justify-between p-2 ${
+        className={`w-full flex items-center justify-between px-2 pt-2 ${
           darkMode ? "dark-mode border-2 rounded-t border-green-200" : ""
         }`}
       >
