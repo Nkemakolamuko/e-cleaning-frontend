@@ -70,9 +70,10 @@ const Checkout = () => {
               <span className="text-lg font-semibold">{product.quantity}</span>
             </p>
             <span className="!tracking-widest font-medium w-[20%]">
-              ₦
-              {Number(product.newPrice.split("₦")[1].split(",").join("")) *
-                product.quantity}
+              {/* ₦ */}
+              {/* {Number(product.newPrice.split("₦")[1].split(",").join("")) *
+                product.quantity} */}
+              {product.newPrice}
             </span>
           </div>
         );
