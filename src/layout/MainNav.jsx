@@ -27,7 +27,7 @@ const MainNav = ({ children }) => {
         <NavigationBar />
         <Header />
         <main
-          className={`${
+          className={`scroll ${
             smallScreenSideBar
               ? "opacity-0 md:!opacity-100 main-container"
               : "main-container bg-white opacity-100"

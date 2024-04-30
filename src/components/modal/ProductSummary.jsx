@@ -155,9 +155,10 @@ const ProductSummary = () => {
                 handleDecrement={() => handleDecrement(id)}
                 id={id}
                 title={title}
-                newPrice={
-                  Number(newPrice.split("₦")[1].split(",").join("")) * quantity
-                }
+                // newPrice={
+                //   Number(newPrice.split("₦")[1].split(",").join("")) * quantity
+                // }
+                newPrice={newPrice}
                 key={id}
                 quantity={quantity}
                 img={img}
