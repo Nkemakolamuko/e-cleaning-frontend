@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const ProductSummary = () => {
   const {
     cartId,
+    setCartId,
     cartItem,
     setCartItem,
     cartExistErr,
@@ -99,12 +100,16 @@ const ProductSummary = () => {
   // Delete from cart
   const handleDeleteFromCart = (id) => {
     const youSure = confirm("Are you sure?");
-    youSure &&
+    if (youSure && cartItem.length == 1) {
+      setCartItem([]);
+      setCartId(null);
+    } else {
       setCartItem(
         cartItem.filter((product) => {
           return product.id !== id;
         })
       );
+    }
 
     youSure && setCartModalCount(cartModalCount - 1);
   };
