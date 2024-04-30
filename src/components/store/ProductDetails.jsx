@@ -7,30 +7,58 @@ import CloseButton from "../CloseButton";
 
 const ProductDetails = ({ handleCloseProduct }) => {
   const { title, description, id } = data;
-  const { cartModalCount, setCartModalCount, darkMode, cartItem, setCartItem } =
-    useContext(BgContext);
+  const {
+    cartModalCount,
+    setCartModalCount,
+    darkMode,
+    cartItem,
+    setCartItem,
+    cartId,
+    setCartId,
+  } = useContext(BgContext);
   const [cartSuccess, setCartSuccess] = useState(false);
   const [cartError, setCartError] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(null);
 
-  const handleAddToCart = () => {
-    const descID = localStorage.getItem("store-id");
-    const foundProduct = data.find((product) => product.id == descID);
+  const addedProduct = data?.find((product) => {
+    return product.id == cartId;
+  });
 
-    if (cartItem.includes(foundProduct)) {
-      setCartError(true);
-      setTimeout(() => {
-        setCartError(false);
-      }, 5000);
-      return;
-    }
-    setCartModalCount(() => cartModalCount + 1);
-    setCartSuccess(true);
-    setCartItem([...cartItem, foundProduct]);
-    setTimeout(() => {
-      setCartSuccess(false);
-    }, 5000);
+  // To update cartTotal on load
+  // useEffect(() => {
+  //   if (cartItem.includes(addedProduct) || addedProduct == undefined) {
+  //     return;
+  //   } else {
+  //     setCartAdded(true);
+  //     setCartModalCount(cartModalCount + 1);
+  //     setCartItem([...cartItem, addedProduct]);
+  //   }
+  // }, []);
+
+  const handleCartItemId = (id) => {
+    setCartId(id);
   };
+
+  useEffect(() => {
+    const handleAddToCart = () => {
+      if (cartItem.includes(addedProduct) || addedProduct == undefined) {
+        // setCartError(true);
+        // setTimeout(() => {
+        //   setCartError(false);
+        // }, 5000);
+        return;
+      } else {
+        setCartSuccess(true);
+        setCartItem([...cartItem, addedProduct]);
+        setTimeout(() => {
+          setCartSuccess(false);
+        }, 5000);
+        setCartModalCount(cartModalCount + 1);
+      }
+    };
+
+    handleAddToCart();
+  }, [cartId]);
 
   useEffect(() => {
     const descID = localStorage.getItem("store-id"); // We have our particular product ID
@@ -39,13 +67,6 @@ const ProductDetails = ({ handleCloseProduct }) => {
       const foundProduct = data.find((product) => product.id == descID); // We find a product based on the ID that matches the comparison ID
       // console.log(foundProduct);
       setCurrentProduct(foundProduct); // Then we set it to a null state variable
-      // if (cartItem.includes(foundProduct)) {
-      //   return;
-      // } else {
-      //   setCartItem([...cartItem, foundProduct]);
-      //   setCartModalCount(() => cartModalCount + 1);
-      //   setCartSuccess(true);
-      // }
     };
     setTimeout(() => {
       setCartSuccess(false);
@@ -145,7 +166,7 @@ const ProductDetails = ({ handleCloseProduct }) => {
                   ? "bg-orange-500 text-white "
                   : "text-white bg-black hover:bg-black hover:text-white  border-2 border-black"
               }`}
-              onClick={handleAddToCart}
+              onClick={() => handleCartItemId(currentProduct?.id)}
             >
               Add To Cart
             </button>
