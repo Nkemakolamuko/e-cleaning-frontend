@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Title from "../components/Title";
 import { FaQuestion } from "react-icons/fa6";
 import FAQCards from "../components/faq/FAQCards";
+import { BgContext } from "../App";
 
 const FAQ = () => {
+  const { darkMode } = useContext(BgContext);
   return (
     <div className="h-[80vh]">
       <Title title="Frequently Asked Questions" />
@@ -21,8 +23,14 @@ const FAQ = () => {
           <FAQCards />
           <FAQCards />
         </div>
-        <div className="sticky top-12 w-full h-[80vh] hidden md:flex items-center justify-center bg-cyan-50 group">
-          <FaQuestion className="w-[300px] h-[300px] text-cyan-500 shadow-2xl shadow-cyan-100 group-hover:shadow-cyan-300 group-hover:rounded transition-all duration-300" />
+        <div
+          className={`sticky top-12 w-full h-[80vh] hidden md:flex items-center justify-center bg-cyan-50 group ${
+            darkMode ? "dark-mode" : ""
+          }`}
+        >
+          <FaQuestion
+            className={`w-[300px] h-[300px] text-cyan-500 shadow-2xl shadow-cyan-100 group-hover:shadow-cyan-300 group-hover:rounded transition-all duration-300`}
+          />
         </div>
       </section>
     </div>

@@ -75,7 +75,7 @@ const Header = () => {
   return (
     <header
       className={`header shadow-md relative w-full transition-all duration-300 bg-white ${
-        darkMode ? "dark-mode for-header" : ""
+        darkMode ? "dark-mode for-header shadow- shadow-white/40" : ""
       }`}
     >
       {showCartModal && <CartModal handleModalClose={handleModalClose} />}
@@ -105,7 +105,7 @@ const Header = () => {
           href="tel:+2347040876440"
           target="_blank"
           className={`p-2 border bg-black/90 rounded hover:bg-black text-white hover:rounded-md text-sm cursor-pointer font-semibold flex items-center gap-3 tooltip-hot transition-all duration-300 ${
-            darkMode ? "dark-mode !bg-yellow-500" : ""
+            darkMode ? "dark-mode !bg-yellow-400" : ""
           }`}
         >
           <span className={`text-yellow-300 ${darkMode ? "!text-white" : ""}`}>
@@ -170,9 +170,11 @@ const Header = () => {
         <a
           href="tel:+2347040876440"
           target="_blank"
-          className="p-2 border bg-black/90 rounded hover:bg-black text-white hover:rounded-md text-sm cursor-pointer font-semibold flex items-center gap-3 tooltip-hot transition-all duration-300 md:hidden"
+          className={`p-2 border bg-black/90 rounded hover:bg-black text-white hover:rounded-md text-sm cursor-pointer font-semibold flex items-center gap-3 tooltip-hot transition-all duration-300 md:hidden ${
+            darkMode ? "dark-mode !bg-yellow-400" : ""
+          }`}
         >
-          <span className="text-yellow-300">
+          <span className={`text-yellow-300 ${darkMode ? "!text-white" : ""}`}>
             <FaFire />
           </span>
           <span>Hotline</span>

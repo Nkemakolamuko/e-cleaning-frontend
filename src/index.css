@@ -14,101 +14,101 @@ body {
 }
 
 .dark-mode {
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgb(31, 29, 29);
 }
 
 .dark-mode .rounded-tl-md {
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgb(31, 29, 29);
 }
 
 .dark-mode .rounded-tr-md {
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgb(31, 29, 29);
 }
 
 .dark-mode .tracking-widest {
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgb(31, 29, 29);
 }
 
-.dark-mode .bg-white {
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
-}
+/* .dark-mode .bg-white {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgb(31, 29, 29);
+} */
 
 .dark-mode table tr {
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgb(31, 29, 29);
 }
 
-.dark-mode .year {
+/* .dark-mode .year {
   border: 2px solid aqua;
   border-radius: 4px;
   box-shadow: 0px 0px 5px 1px aqua !important;
-}
+} */
 
 /* For modal */
-.dark-mode .cart-border {
+/* .dark-mode .cart-border {
   border-bottom: 2px solid aqua !important;
-}
+} */
 
 /* For Orders */
-.dark-mode .order {
-  color: black !important;
-}
+/* .dark-mode .order {
+  color: rgba(0, 0, 0, 0.822) !important;
+} */
 
 /* For Orders */
-.dark-mode .order-card {
+/* .dark-mode .order-card {
   box-shadow: 0px 0px 5px 2px aqua !important;
   border-radius: 4px !important;
-}
+} */
 
-.dark-mode .order-card:hover {
+/* .dark-mode .order-card:hover {
   box-shadow: 0px 0px 10px 4px aqua !important;
   border-radius: 4px !important;
-}
+} */
 
 /* For sidebar */
-.dark-mode .closed-sidebar {
-  border-right: 2px solid rgba(0, 255, 255, 0.616) !important;
-  /* box-shadow: 0px 0px 5px 1px aqua !important; */
-}
+/* .dark-mode .closed-sidebar {
+  border-right: 2px solid rgba(0, 255, 255, 0.616) !important; */
+/* box-shadow: 0px 0px 5px 1px aqua !important; */
+/* } */
 
 /* For header */
-.dark-mode .for-header {
+/* .dark-mode .for-header {
   border-bottom: 2px solid rgba(0, 255, 255, 0.616) !important;
   box-shadow: 0px 0px 5px 1px aqua !important;
-}
+} */
 
-.dark-mode .border {
+/* .dark-mode .border {
   border: 2px solid;
   border-color: aqua !important;
   box-shadow: 0px 0px 5px 1px aqua !important;
-}
+} */
 
-.dark-mode .border-y {
+/* .dark-mode .border-y {
   border: 0px 2px solid;
   border-color: aqua !important;
   /* background-color: cyan !important; */
-  box-shadow: 0px 0px 20px 1px aqua !important;
-}
+/* box-shadow: 0px 0px 20px 1px aqua !important; */
+/* } */
 
-.dark-mode .d-cards {
+/* .dark-mode .d-cards {
   border: 1px solid;
   border-color: aqua !important;
   box-shadow: 0px 0px 10px 3px aqua !important; /* The second to last is the blur - The last digit gives it the wideness */
-}
+/* } */
 
-.dark-mode .shadow {
+/* .dark-mode .shadow {
   box-shadow: 0px 0px 5px 1px aqua !important;
-}
+} */
 
-.dark-mode .shadow:hover {
+/* .dark-mode .shadow:hover {
   box-shadow: 0px 0px 10px 1px aqua !important;
   transition: box-shadow 10s ease-in-out;
-}
+} */
 
 .grid-container {
   display: grid;
@@ -175,7 +175,7 @@ body {
   position: absolute;
   height: fit-content;
   width: fit-content;
-  background-color: gray;
+  background-color: rgb(31, 29, 29);
 }
 
 @keyframes feature {
@@ -215,7 +215,7 @@ body {
   box-shadow: none;
 }
 
-/* Tootip */
+/* Tooltip */
 .tooltip,
 .tooltip-hot {
   position: relative;

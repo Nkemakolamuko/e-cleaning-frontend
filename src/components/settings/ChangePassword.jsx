@@ -17,7 +17,7 @@ const ChangePassword = ({ handleClosePassword }) => {
     <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center absolute top-0 p-[10px] md:p-[200px] flex-col">
       <div
         className={`w-full rounded-md flex flex-col gap-2 bg-white text-center ${
-          darkMode ? "border-2" : ""
+          darkMode ? "dark-mode border-2" : ""
         }`}
       >
         <div

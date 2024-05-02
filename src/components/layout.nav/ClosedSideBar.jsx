@@ -49,7 +49,9 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
        ${
          window.innerHeight < 500 && "overflow-y-auto"
          // The height thing is I can add a scroll for the sidebar on smaller devices - but with the overflow-y-auto enabled, the tooltip hides - so that's why I don't want to enable it globally
-       } ${darkMode ? "dark-mode closed-sidebar" : ""}`}
+       } ${
+        darkMode ? "dark-mode closed-sidebar border-r border-r-slate-500" : ""
+      }`}
     >
       {/* <p className="text-lg font-bold">Clean-Off Agency</p> */}
       <div className="px-1 py-[5px] tooltip">

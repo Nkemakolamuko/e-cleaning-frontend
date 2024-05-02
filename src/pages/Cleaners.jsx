@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Title from "../components/Title";
 import CleanersCard from "../components/cleanersNearby/CleanersCard";
 import FavoriteCleaners from "../components/cleanersNearby/FavoriteCleaners";
+import { BgContext } from "../App";
 
 // Still on this -- the favorite stuff -- I need it to remain true when set to true and be unable to add it to favorites if it's true -- I want to add toggle option as well
 
@@ -43,6 +44,7 @@ const names = [
   },
 ];
 const Cleaners = () => {
+  const { darkMode } = useContext(BgContext);
   const [border, setBorder] = useState("All");
   const [favHandler, setFavHandler] = useState(false);
   const [forFavNames, setForFavNames] = useState(names);
@@ -74,7 +76,11 @@ const Cleaners = () => {
 
   return (
     <div>
-      <section className="top-0 sticky z-50 bg-white cleaners">
+      <section
+        className={`-top-[10px] sticky z-50 bg-white ${
+          darkMode ? "dark-mode" : ""
+        }`}
+      >
         <Title title="Dry Cleaners Nearby" />
 
         {/* Nav */}

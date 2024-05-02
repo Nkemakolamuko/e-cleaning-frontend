@@ -29,12 +29,18 @@ const NotificationPageCard = ({
     <>
       {!deleteNoti ? (
         <div
-          className={`md:max:-w-[90%] w-full shadow-md rounded flex-flex-col h-fit gap-3 border-t !bg-white border-t-slate-100 transition-all duration-300 ${
-            darkMode ? "shadow-white" : ""
+          className={`md:max:-w-[90%] w-full shadow-md rounded flex-flex-col h-fit gap-3 border-2 bg-white border-t-slate-100 transition-all duration-300 ${
+            darkMode ? "dark-mode border-2" : ""
           }`}
         >
           <div className="flex items-center justify-between px-4 py-2">
-            <p className="tracking-wider font-medium text-slate-700">{title}</p>
+            <p
+              className={`tracking-wider font-medium text-slate-700 ${
+                darkMode ? "!text-slate-200" : ""
+              }`}
+            >
+              {title}
+            </p>
             <div className="flex flex-col cursor-pointer transition-all duration-300">
               <p
                 className={`flex justify-between items-center bg-green-50 text-green-500 text-sm w-[85px] px-2 py-1 gap-2 hover:bg-green-100 hover:shadow ${
@@ -87,7 +93,13 @@ const NotificationPageCard = ({
               <div className="p-2 bg-cyan-50 text-cyan-500 rounded-full">
                 <FaBell className="w-8 h-8" />
               </div>
-              <div className="text-sm p-2 text-slate-700">{desc}</div>
+              <div
+                className={`text-sm p-2 text-slate-700 ${
+                  darkMode ? "!text-slate-200" : ""
+                }`}
+              >
+                {desc}
+              </div>
             </div>
           ) : (
             <div className="flex items-center justify-start pl-4 pb-2 transition-all duration-300">

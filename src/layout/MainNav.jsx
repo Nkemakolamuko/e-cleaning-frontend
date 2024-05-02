@@ -31,7 +31,7 @@ const MainNav = ({ children }) => {
             smallScreenSideBar
               ? "opacity-0 md:!opacity-100 main-container"
               : "main-container bg-white opacity-100"
-          } ${darkMode ? "dark-mode mx-2" : ""}`}
+          } ${darkMode ? "dark-mode" : ""}`}
         >
           {children}
         </main>

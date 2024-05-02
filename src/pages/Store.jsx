@@ -63,7 +63,7 @@ const Store = () => {
   return (
     <div className={`relative ${darkMode ? "dark-mode" : ""}`}>
       {cartAdded && (
-        <p className="p-3 text-green-800 bg-white text-center rounded-md w-full md:w-1/3 ml-auto md:right-0 h-full transition-all duration-300 sticky top-0 right-0 z-[9999] shadow-2xl border-t border-t-green-500">
+        <p className="p-3 text-green-800 bg-white text-center rounded-full-md w-full md:w-1/3 ml-auto md:right-0 h-full transition-all duration-300 sticky top-0 right-0 z-[9999] shadow-2xl border-t border-t-green-500">
           Added to cart!
         </p>
       )}
@@ -87,28 +87,28 @@ const Store = () => {
                 </div>
               </div>
               <p className="flex items-center gap-2 overflow-auto scroll text-nowrap">
-                <span className="py-2 px-4 text-center border rounded cursor-pointer">
+                <span className="py-2 px-4 text-center border rounded-full cursor-pointer text-sm">
                   Tie
                 </span>
-                <span className="py-2 px-4 text-center border rounded cursor-pointer">
+                <span className="py-2 px-4 text-center border rounded-full cursor-pointer text-sm">
                   Shoes
                 </span>
-                <span className="py-2 px-4 text-center border rounded cursor-pointer">
+                <span className="py-2 px-4 text-center border rounded-full cursor-pointer text-sm">
                   Shirts
                 </span>
-                <span className="py-2 px-4 text-center border rounded cursor-pointer">
+                <span className="py-2 px-4 text-center border rounded-full cursor-pointer text-sm">
                   Coffs
                 </span>
-                <span className="py-2 px-4 text-center border rounded cursor-pointer">
+                <span className="py-2 px-4 text-center border rounded-full cursor-pointer text-sm">
                   Cap
                 </span>
-                <span className="py-2 px-4 text-center border rounded cursor-pointer">
+                <span className="py-2 px-4 text-center border rounded-full cursor-pointer text-sm">
                   Socks
                 </span>
-                <span className="py-2 px-4 text-center border rounded cursor-pointer">
+                <span className="py-2 px-4 text-center border rounded-full cursor-pointer text-sm">
                   Slippers
                 </span>
-                <span className="py-2 px-4 text-center border rounded cursor-pointer">
+                <span className="py-2 px-4 text-center border rounded-full cursor-pointer text-sm">
                   Spray-starch
                 </span>
               </p>
@@ -133,17 +133,35 @@ const Store = () => {
             <div className="flex items-center md:justify-between md:w-full gap-2 md:gap-0 lg:gap-2 lg:col-span-3">
               <p className="md:w-[20%]">Search Keywords: </p>
               <p className="flex items-center gap-2 text-nowrap overflow-auto w-full mt-1 md:w-[80%] scroll">
-                <span className="py-2 px-4 border">All</span>
+                <span className="py-2 px-4 border rounded-full text-sm">
+                  All
+                </span>
 
-                <span className="py-2 px-4 border">Tie</span>
-                <span className="py-2 px-4 border">Above ₦ 10, 000</span>
-                <span className="py-2 px-4 border">Below ₦ 10, 000</span>
-                <span className="py-2 px-4 border">Cloths</span>
+                <span className="py-2 px-4 border rounded-full text-sm">
+                  Tie
+                </span>
+                <span className="py-2 px-4 border rounded-full text-sm">
+                  Above ₦ 10, 000
+                </span>
+                <span className="py-2 px-4 border rounded-full text-sm">
+                  Below ₦ 10, 000
+                </span>
+                <span className="py-2 px-4 border rounded-full text-sm">
+                  Cloths
+                </span>
 
-                <span className="py-2 px-4 border">Shoes</span>
-                <span className="py-2 px-4 border">Promo Items</span>
-                <span className="py-2 px-4 border">Reviews - 50 and above</span>
-                <span className="py-2 px-4 border">Flats</span>
+                <span className="py-2 px-4 border rounded-full text-sm">
+                  Shoes
+                </span>
+                <span className="py-2 px-4 border rounded-full text-sm">
+                  Promo Items
+                </span>
+                <span className="py-2 px-4 border rounded-full text-sm">
+                  Reviews - 50 and above
+                </span>
+                <span className="py-2 px-4 border rounded-full text-sm">
+                  Flats
+                </span>
               </p>
             </div>
 
@@ -162,7 +180,7 @@ const Store = () => {
                   setSearch("");
                 }}
               >
-                <FaTimes className="lg:w-6 lg:h-6" />
+                <FaTimes className="md:w-6 md:h-6" />
               </p>
             </div>
           </div>
@@ -174,7 +192,7 @@ const Store = () => {
           Product not found or unavailable.
         </p>
       ) : (
-        <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-[100%] place-content-center gap-4 border-t transition-all duration-300">
+        <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-[100%] place-content-center gap-4 transition-all duration-300">
           {result}
         </section>
       )}

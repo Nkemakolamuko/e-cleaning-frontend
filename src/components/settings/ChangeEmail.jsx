@@ -14,7 +14,7 @@ const ChangeEmail = ({
     <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center absolute top-0 p-[10px] md:p-[200px] lg:p-[300px] flex-col">
       <div
         className={`w-full rounded-md flex flex-col gap-2 bg-white text-center ${
-          darkMode ? "border-2" : ""
+          darkMode ? "dark-mode border-2" : ""
         }`}
       >
         <div
@@ -33,7 +33,10 @@ const ChangeEmail = ({
           method="post"
           className="flex flex-col gap-3 px-2 py-3 md:px-4 md:py-6 "
         >
-          <label htmlFor="email" className="pt-2 !tracking-widest font-medium">
+          <label
+            htmlFor="email"
+            className="pt-2 !tracking-widest font-medium text-start"
+          >
             Enter New Email
           </label>
           <input

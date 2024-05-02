@@ -57,7 +57,7 @@ const ShareApp = ({ handleCloseShare }) => {
     >
       <div
         className={`w-full rounded-md flex flex-col gap-2 bg-white text-center ${
-          darkMode ? "border-2" : ""
+          darkMode ? "dark-mode border-2" : ""
         }`}
       >
         <div

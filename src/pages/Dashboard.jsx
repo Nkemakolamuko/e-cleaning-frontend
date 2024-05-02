@@ -121,7 +121,7 @@ const Dashboard = () => {
         to display our products - then maybe clicking it takes you to the Store
         page{" "}
       </p> */}
-      <div className="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row items-center gap-2 scale-100 lg:scale-100 md:scale-90 px-2">
+      <div className="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row items-center gap-2 scale-100 lg:scale-100 md:scale-100 px-2">
         {/* Turn these to individual components */}
         <div
           className={`!bg-white w-full h-fit lg:w-[33%] md:h-[210px] d-cards rounded-[4px] shadow-lg shadow-black/20 flex flex-col ${
@@ -299,7 +299,11 @@ const Dashboard = () => {
         >
           Latest Features And Updates
         </h2>
-        <div className="flex items-center py-3 gap-4 overflow-hidden w-full text-nowrap border-y">
+        <div
+          className={`flex items-center py-3 gap-4 overflow-hidden w-full text-nowrap border-y ${
+            darkMode ? "dark-mode" : ""
+          }`}
+        >
           <p className="flex items-center update-small gap-4">
             <div className="flex items-center gap-2 w-fit text-nowrap">
               <FaCircleExclamation className="text-[#FFC83D]" />

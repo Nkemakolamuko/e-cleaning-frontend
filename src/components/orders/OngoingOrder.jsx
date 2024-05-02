@@ -61,8 +61,8 @@ const OngoingOrder = () => {
 
   return (
     <div
-      className={`h-fit w-full rounded shadow-lg ${
-        darkMode ? "dark-mode order-card rounded" : ""
+      className={`h-fit w-full border-2 rounded shadow-lg ${
+        darkMode ? "dark-mode rounded border-2" : ""
       }`}
     >
       <div
@@ -70,7 +70,11 @@ const OngoingOrder = () => {
           darkMode ? "dark-mode rounded" : ""
         }`}
       >
-        <p className="flex items-center gap-2 w-full border-b px-4 py-4 bg-cyan-50 order rounded-t">
+        <p
+          className={`flex items-center gap-2 w-full border-b px-4 py-4 bg-cyan-50 order rounded-t ${
+            darkMode ? "dark-mode" : ""
+          }`}
+        >
           <span className="font-semibold !tracking-widest w-[40%] text-sm md:text-base">
             Cleaners Detail :
           </span>{" "}
@@ -109,7 +113,11 @@ const OngoingOrder = () => {
             </li>
           </ul>
         </p>
-        <p className="flex items-center gap-2 w-full border-b px-4 py-4 bg-cyan-50 order">
+        <p
+          className={`flex items-center gap-2 w-full border-b px-4 py-4 bg-cyan-50 order rounded-t ${
+            darkMode ? "dark-mode" : ""
+          }`}
+        >
           <span className="font-semibold !tracking-widest w-[40%] text-sm md:text-base align-text-top">
             Arrived at :
           </span>{" "}

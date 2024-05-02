@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../../assets/logo.jpg";
 import {
   FaBook,
@@ -6,10 +6,16 @@ import {
   FaBookmark,
   FaRegBookmark,
 } from "react-icons/fa6";
+import { BgContext } from "../../App";
 
 const CleanersCard = ({ fav, handleFav, name }) => {
+  const { darkMode } = useContext(BgContext);
   return (
-    <div className="px-2 pt-2 pb-3 rounded h-fit flex flex-col md:shadow-lg shadow-lg hover:shadow-lg w-full items-center !bg-white border border-green-100 to-white relative transition-all duration-300">
+    <div
+      className={`px-2 pt-2 pb-3 rounded h-fit flex flex-col md:shadow-lg shadow-lg hover:shadow-lg w-full items-center bg-white border border-green-100 to-white relative transition-all duration-300 ${
+        darkMode ? "dark-mode" : ""
+      }`}
+    >
       <p
         className="absolute right-2 top-0 flex flex-col items-center cursor-pointer transition-all duration-300"
         onClick={handleFav}
@@ -28,11 +34,19 @@ const CleanersCard = ({ fav, handleFav, name }) => {
         className="rounded-full mx-auto"
       />
       <div className="flex flex-col w-full text-slate-800 gap-2 mt-2">
-        <p className="text-center text-base md:text-lg font-medium !tracking-widest text-green-700">
+        <p
+          className={`text-center text-base md:text-lg font-medium !tracking-widest text-green-700 ${
+            darkMode ? "!text-green-500" : ""
+          }`}
+        >
           {name || "Tony Best"}
         </p>
 
-        <p className="text-xs lg:text-sm text-slate-700 text-center">
+        <p
+          className={`text-xs lg:text-sm text-slate-700 text-center ${
+            darkMode ? "!text-slate-200" : ""
+          }`}
+        >
           Details About them Lorem ipsum dolor sit amet, consectetur adipisicing
           elit. Sint, consequuntur!
         </p>

@@ -33,30 +33,30 @@ const History = () => {
             Select Year
           </p>
           <p
-            className={`p-2 border-2 border-black/50 year rounded tracking-wide font-medium hover:bg-green-300 hover:text-white hover:border-green-300 ${
+            className={`p-2 border-2 rounded tracking-wide font-medium hover:bg-green-300 hover:text-white hover:border-green-300 ${
               active === "2023"
                 ? "bg-green-300 text-white !border-green-300"
-                : "bg-white"
+                : "bg-white text-black"
             } transition-all duration-300 cursor-pointer`}
             onClick={() => setActive("2023")}
           >
             2023
           </p>
           <p
-            className={`p-2 border-2 border-black/50 year rounded tracking-wide font-medium hover:bg-green-300 hover:text-white hover:border-green-300 ${
+            className={`p-2 border-2 rounded tracking-wide font-medium hover:bg-green-300 hover:text-white hover:border-green-300 ${
               active === "2024"
                 ? "bg-green-300 text-white !border-green-300"
-                : "bg-white"
+                : "bg-white text-black"
             } transition-all duration-300 cursor-pointer`}
             onClick={() => setActive("2024")}
           >
             2024
           </p>
           <p
-            className={`p-2 border-2 border-black/50 year rounded tracking-wide font-medium hover:bg-green-300 hover:text-white hover:border-green-300 ${
+            className={`p-2 border-2 rounded tracking-wide font-medium hover:bg-green-300 hover:text-white hover:border-green-300 ${
               active === "2025"
                 ? "bg-green-300 text-white !border-green-300"
-                : "bg-white"
+                : "bg-white text-black"
             } transition-all duration-300 cursor-pointer`}
             onClick={() => {
               // setActive("2025");
@@ -66,10 +66,10 @@ const History = () => {
             2025
           </p>
           <p
-            className={`p-2 border-2 border-black/50 year rounded tracking-wide font-medium hover:bg-green-300 hover:text-white hover:border-green-300 ${
+            className={`p-2 border-2 rounded tracking-wide font-medium hover:bg-green-300 hover:text-white hover:border-green-300 ${
               active === "2026"
                 ? "bg-green-300 text-white !border-green-300"
-                : "bg-white"
+                : "bg-white text-black"
             } transition-all duration-300 cursor-pointer`}
             onClick={() => {
               // setActive("2026");
