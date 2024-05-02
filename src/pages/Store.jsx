@@ -115,13 +115,23 @@ const Store = () => {
             </div>
 
             <div
-              className="hidden lg:flex w-fit cursor-pointer lg:flex-row lg:py-3 lg:px-12 lg:text-center lg:justify-center lg:gap-2 lg:rounded lg:hover:bg-cyan-200 lg:items-center lg:pl-4 lg:bg-cyan-100 lg:border transition-all duration-300"
+              className={`hidden lg:flex w-fit cursor-pointer lg:flex-row lg:py-3 lg:px-12 lg:text-center lg:justify-center group lg:gap-2 lg:rounded lg:hover:bg-cyan-200 lg:items-center lg:pl-4 lg:bg-cyan-100 lg:border transition-all duration-300 ${
+                darkMode
+                  ? "lg:dark-mode lg:border lg:bg-inherit lg:!text-slate-200 lg:hover:bg-slate-50 lg:hover:!text-slate-800"
+                  : ""
+              }`}
               onClick={() => {
                 setSearchProduct(true);
               }}
             >
               <FaSearch />
-              <span className="text-base text-slate-700">Search</span>
+              <span
+                className={`text-base text-slate-700 ${
+                  darkMode ? "!text-slate-200 group-hover:!text-slate-800" : ""
+                }`}
+              >
+                Search
+              </span>
             </div>
           </div>
         )}

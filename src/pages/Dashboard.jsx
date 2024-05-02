@@ -3,7 +3,13 @@ import Title from "../components/Title";
 // import userImage from "../assets/userImage.jpg";
 import logo from "../assets/logo.jpg";
 import userImage from "../assets/ugo-best.jpg";
-import { FaCircleExclamation, FaStar, FaStarHalf } from "react-icons/fa6";
+import {
+  FaAngleLeft,
+  FaAngleRight,
+  FaCircleExclamation,
+  FaStar,
+  FaStarHalf,
+} from "react-icons/fa6";
 import ActionBTN from "../components/ActionBTN";
 import LatestFeatures from "../components/LatestFeatures";
 import DashboardHistory from "../components/DashboardHistory";
@@ -124,11 +130,15 @@ const Dashboard = () => {
       <div className="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row items-center gap-2 scale-100 lg:scale-100 md:scale-100 px-2">
         {/* Turn these to individual components */}
         <div
-          className={`!bg-white w-full h-fit lg:w-[33%] md:h-[210px] d-cards rounded-[4px] shadow-lg shadow-black/20 flex flex-col ${
-            darkMode ? "dark-mode !bg-white !text-black" : ""
+          className={`bg-white w-full h-fit lg:w-[33%] md:h-[210px] d-cards rounded-[4px] shadow-lg shadow-black/20 flex flex-col ${
+            darkMode ? "dark-mode border" : ""
           }`}
         >
-          <p className="border-b-2 bg-slate-50 w-full text-center rounded-t-[4px] py-1 !tracking-wider px-2">
+          <p
+            className={`border-b-2 bg-slate-50 w-full text-center rounded-t-[4px] py-1 !tracking-wider px-2 ${
+              darkMode ? "!text-slate-800" : ""
+            }`}
+          >
             Weekly Top Rated Cleaner
           </p>
           <div className="flex flex-col md:flex-row items-center md:items-center text-center mx-auto md:mx-0 md:text-start gap-2 w-full md:w-full h-full md:h-full p-2 justify-between">
@@ -169,7 +179,7 @@ const Dashboard = () => {
         </div>
         <div
           className={`w-full h-fit lg:w-[33%] md:h-[220px] d-cards rounded-[4px] shadow-lg shadow-black/20 flex flex-col transition-all duration-300 ease-in-out ${
-            darkMode ? "dark-mode !bg-white !text-black" : ""
+            darkMode ? "dark-mode border" : ""
           }`}
         >
           <p className="bg-[#FFC83D] text-white w-full text-center rounded-t-[4px] py-[2px] text-xl !tracking-widest">
@@ -201,11 +211,11 @@ const Dashboard = () => {
           </div>
         </div>
         <div
-          className={`!bg-white w-full h-fit lg:w-[33%] md:h-[210px] d-cards rounded-[4px] shadow-lg shadow-black/20 flex items-center ${
-            darkMode ? "dark-mode !bg-white !text-black" : ""
+          className={`bg-white w-full h-fit lg:w-[33%] md:h-[210px] d-cards rounded-[4px] shadow-lg shadow-black/20 flex items-center ${
+            darkMode ? "dark-mode border" : ""
           }`}
         >
-          <div className="flex flex-col px-2 !bg-green-500 !text-white !tracking-widest h-[210px] items-center justify-center lg:text-2xl md:text-xl text-lg font-bold rounded-tl rounded-bl">
+          <div className="flex flex-col px-2 !bg-green-500 !text-white !tracking-widest h-[208px] items-center justify-center lg:text-2xl md:text-xl text-lg font-bold rounded-tl rounded-bl">
             <p>P</p>
             <p>R</p>
             <p>0</p>
@@ -226,7 +236,11 @@ const Dashboard = () => {
                 For Laundry Wash Above N5,000
               </p>
             </div>
-            <p className="bg-slate-50 text-center rounded-b-[4px] py-2 text-xs">
+            <p
+              className={`bg-slate-50 text-center rounded-b-r-[4px] py-2 text-xs ${
+                darkMode ? "dark-mode border-y rounded-b-r-[4px]" : ""
+              }`}
+            >
               Promo Last NOW till August 24th 2024
             </p>
           </div>
@@ -239,7 +253,9 @@ const Dashboard = () => {
 
           <select
             name="location"
-            className="border rounded py-1 cursor-pointer mb-2 !text-black"
+            className={`border rounded py-1 cursor-pointer mb-2 text-black ${
+              darkMode ? "dark-mode" : ""
+            }`}
           >
             <option value="Choose Location">----Choose Location----</option>
             <option value="OgborHill" onClick={() => alert("Working on it...")}>
@@ -273,16 +289,18 @@ const Dashboard = () => {
           <AvailableCleaners />
           <div className="absolute flex items-center w-full h-full top-0 justify-between">
             <p
-              className="cursor-pointer p-2 md:p-3 bg-yellow-400 text-white font-medium rounded-r hover:bg-yellow-500 active:scale-90 shadow-lg shadow-black/20"
+              className="cursor-pointer p-2 md:p-3 bg-yellow-400 text-white font-medium rounded-r hover:bg-yellow-500 active:scale-90 shadow-lg shadow-black/20 flex items-center justify-between"
               onClick={handlePrev}
             >
-              Prev
+              <FaAngleLeft />
+              <span>Prev</span>
             </p>
             <p
-              className="cursor-pointer p-2 md:p-3 bg-yellow-400 text-white font-medium rounded-l hover:bg-yellow-500 active:scale-90 shadow-lg shadow-black/20"
+              className="cursor-pointer p-2 md:p-3 bg-yellow-400 text-white font-medium rounded-l hover:bg-yellow-500 active:scale-90 shadow-lg shadow-black/20 flex items-center justify-between"
               onClick={handleNext}
             >
-              Next
+              <span>Next</span>
+              <FaAngleRight />
             </p>
           </div>
         </div>

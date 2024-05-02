@@ -76,11 +76,7 @@ const Cleaners = () => {
 
   return (
     <div>
-      <section
-        className={`-top-[10px] sticky z-50 bg-white ${
-          darkMode ? "dark-mode" : ""
-        }`}
-      >
+      <section className={`bg-white ${darkMode ? "dark-mode" : ""}`}>
         <Title title="Dry Cleaners Nearby" />
 
         {/* Nav */}
