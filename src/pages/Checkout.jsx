@@ -40,7 +40,7 @@ const Checkout = () => {
     setShowAddr(false);
   };
   return (
-    <div className="container mx-auto md:max-w-[800px] h-full flex justify-center flex-col px-2 mb-8 shadow-2xl rounded shadow-black/10 pb-2">
+    <div className="container mx-auto md:max-w-[800px] h-full flex justify-center flex-col px-4 mb-8 shadow-2xl rounded shadow-black/20 pb-2">
       <div className="flex items-center justify-between py-2">
         <div className="">
           <Title title="Checkout Page" />
@@ -60,16 +60,23 @@ const Checkout = () => {
         return (
           <div
             key={product.id}
-            className="flex items-center justify-between py-3 md:py-6 border-b gap-2"
+            className="flex items-center justify-between py-3 md:py-6 border-b gap-2 w-full"
           >
             <p className="w-[20%] h-[20%] rounded">
               <img src={product.img} alt="Product Image" />
             </p>
-            <p className="flex flex-col w-[50%]">
-              <span className="text-base text-nowrap">{product.title}</span>
-              <span className="text-lg font-semibold">{product.quantity}</span>
+            <p className="flex flex-col w-[50%] md:w-[60%]">
+              <span className="flex items-center">
+                <span>Qty : </span>
+                <span className="text-lg font-semibold ml-2 text-green-500">
+                  {product.quantity}
+                </span>
+              </span>
+              <span className="text-base text-nowrap font-medium">
+                {product.title}
+              </span>
             </p>
-            <span className="!tracking-widest font-medium w-[20%]">
+            <span className="!tracking-widest font-medium w-[20%] md:w-[10%]">
               {/* ₦ */}
               {/* {Number(product.newPrice.split("₦")[1].split(",").join("")) *
                 product.quantity} */}

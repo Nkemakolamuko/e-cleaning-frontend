@@ -181,7 +181,9 @@ const ProductSummary = () => {
             }`}
           >
             <p className="font-medium !tracking-widest">Total</p>
-            <p className="font-medium !tracking-widest">₦{total || " "}</p>
+            <code className="font-medium !tracking-widest">
+              ₦{total || " "}
+            </code>
           </div>
           <p
             className={`flex flex-row items-center py-2 gap-2 w-full ${

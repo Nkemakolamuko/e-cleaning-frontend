@@ -17,19 +17,19 @@ const Home = () => {
           started.
         </p>
         <Link
-          to="/login"
-          className="w-full text-center  shadow-md hover:shadow-lg"
-        >
-          <p className="hover:text-white p-2  bg-blue-500 border-2 border-blue-500 hover:border-blue-600 hover:bg-blue-600 font-medium text-white tracking-widest rounded w-full mt-2 cursor-pointer transition-all duration-300">
-            Login
-          </p>
-        </Link>
-        <Link
           to="/register"
           className="w-full text-center  shadow-md hover:shadow-lg"
         >
           <p className="hover:text-white p-2  bg-green-500 border-2 border-green-500 hover:border-green-600 hover:bg-green-600 font-medium text-white tracking-widest rounded w-full mt-2 cursor-pointer transition-all duration-300">
             Register
+          </p>
+        </Link>
+        <Link
+          to="/login"
+          className="w-full text-center  shadow-md hover:shadow-lg"
+        >
+          <p className="p-2 border-2 border-blue-500 hover:border-blue-600 font-medium text-blue-700 tracking-widest rounded w-full mt-2 cursor-pointer transition-all duration-300">
+            Login
           </p>
         </Link>
         {/* <img

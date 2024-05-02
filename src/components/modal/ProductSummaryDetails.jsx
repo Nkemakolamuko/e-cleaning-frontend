@@ -29,7 +29,7 @@ const ProductSummaryDetails = ({
       >
         <div className="flex items-center w-fit gap-4 md:col-span-2 col-span-3">
           <img
-            src={img}
+            src={img || logo}
             alt="CartImage"
             width={"60rem"}
             height={"60rem"}
