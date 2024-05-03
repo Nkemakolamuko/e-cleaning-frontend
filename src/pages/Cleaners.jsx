@@ -80,7 +80,7 @@ const Cleaners = () => {
         <Title title="Dry Cleaners Nearby" />
 
         {/* Nav */}
-        <section className="flex items-center gap-6 md:gap-28 w-full h-fit border-b text-nowrap shadow-lg md:shadow-lg">
+        <section className="flex items-center gap-6 md:gap-28 w-full h-fit border-b text-nowrap">
           <div
             className="flex flex-col group cursor-pointer transition-all duration-300"
             onClick={() => setBorder("Favorite")}

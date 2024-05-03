@@ -15,6 +15,7 @@ const ProductDetails = ({ handleCloseProduct }) => {
     setCartItem,
     cartId,
     setCartId,
+    setCartExistErr,
   } = useContext(BgContext);
   const [cartSuccess, setCartSuccess] = useState(false);
   const [cartError, setCartError] = useState(false);
@@ -37,15 +38,10 @@ const ProductDetails = ({ handleCloseProduct }) => {
 
   const handleCartItemId = (id) => {
     setCartId(id);
-  };
-
-  useEffect(() => {
     const handleAddToCart = () => {
       if (cartItem.includes(addedProduct) || addedProduct == undefined) {
-        // setCartError(true);
-        // setTimeout(() => {
-        //   setCartError(false);
-        // }, 5000);
+        // setCartError(true); // local
+        setCartExistErr(true); // context
         return;
       } else {
         setCartSuccess(true);
@@ -56,9 +52,29 @@ const ProductDetails = ({ handleCloseProduct }) => {
         setCartModalCount(cartModalCount + 1);
       }
     };
-
     handleAddToCart();
-  }, [cartId]);
+  };
+
+  // useEffect(() => {
+  //   const handleAddToCart = () => {
+  //     if (cartItem.includes(addedProduct) || addedProduct == undefined) {
+  //       // setCartError(true);
+  //       // setTimeout(() => {
+  //       //   setCartError(false);
+  //       // }, 5000);
+  //       return;
+  //     } else {
+  //       setCartSuccess(true);
+  //       setCartItem([...cartItem, addedProduct]);
+  //       setTimeout(() => {
+  //         setCartSuccess(false);
+  //       }, 5000);
+  //       setCartModalCount(cartModalCount + 1);
+  //     }
+  //   };
+
+  //   handleAddToCart();
+  // }, [cartId]);
 
   useEffect(() => {
     const descID = localStorage.getItem("store-id"); // We have our particular product ID

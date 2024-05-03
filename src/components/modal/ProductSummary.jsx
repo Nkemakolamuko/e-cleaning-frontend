@@ -112,6 +112,8 @@ const ProductSummary = () => {
     }
 
     youSure && setCartModalCount(cartModalCount - 1);
+
+    // I need to use maybe Swal here, because the above doesn't work as expected - for cancel especially
   };
 
   // Increment

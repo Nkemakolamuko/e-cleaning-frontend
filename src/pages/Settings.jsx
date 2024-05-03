@@ -14,9 +14,11 @@ import ChangeAddress from "../components/settings/ChangeAddress";
 import ChangeEmail from "../components/settings/ChangeEmail";
 import ChangePassword from "../components/settings/ChangePassword";
 import ReadPrivacyPolicy from "../components/settings/ReadPrivacyPolicy";
-import { FaMoon, FaShareNodes, FaSun } from "react-icons/fa6";
+import { FaMoon, FaShareNodes, FaSun, FaUserPlus } from "react-icons/fa6";
 import ShareApp from "../components/settings/ShareApp";
 import { BgContext } from "../App";
+import SettingsCard from "../components/settings/SettingsCard";
+import BecomeCleaner from "../components/settings/BecomeCleaner";
 
 const Settings = () => {
   const { darkMode, setDarkMode } = useContext(BgContext);
@@ -105,124 +107,88 @@ const Settings = () => {
         }`}
       >
         <div className="mx-auto w-full">
-          <ul className="flex flex-col gap-2 w-full">
-            <li
-              className={`p-3 group bg-white hover:bg-slate-200 active:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
-                darkMode
-                  ? "dark-mode border-2 hover:bg-white active:bg-white active:text-black hover:text-black rounded"
-                  : ""
-              }`}
-              onClick={() => setShow("Payment")}
-            >
-              <p className="flex flex-col">
-                <span className="font-medium">Make Payments</span>
-                <span className="text-xs">Click to select</span>
-              </p>
-              <p>
+          <div className="flex flex-col gap-2 w-full">
+            <SettingsCard
+              handleClick={() => setShow("Payment")}
+              title={"Make Payments"}
+              desc={"Click to select"}
+              icon={
                 <FaDollarSign className="md:w-8 md:h-8 w-6 h-6 text-green-600 group-text-green-700" />
-              </p>
-            </li>
-            <li
-              className={`p-3 group bg-white hover:bg-slate-200 active:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
-                darkMode
-                  ? "dark-mode border-2 hover:bg-white active:bg-white active:text-black hover:text-black rounded"
-                  : ""
-              }`}
-              onClick={() => {
+              }
+            />
+
+            <SettingsCard
+              handleClick={() => {
                 setShow("Email");
                 const data = JSON.parse(localStorage.getItem("user"));
                 setUser(data[0]);
                 setUserEmail(user?.email);
               }}
-            >
-              <p className="flex flex-col">
-                <span className="font-medium">
-                  {user?.email || "loading..."}
-                </span>{" "}
-                <span className="text-xs">Click to change</span>
-              </p>
-              <p>
+              title={user?.email || "loading..."}
+              desc={"Click to change"}
+              icon={
                 <FaCheckDouble className="md:w-8 md:h-8 w-6 h-6 text-green-500 group-hover:text-green-600" />
-              </p>
-            </li>
-            <li
-              className={`p-3 group bg-white hover:bg-slate-200 active:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
-                darkMode
-                  ? "dark-mode border-2 hover:bg-white active:bg-white active:text-black hover:text-black rounded"
-                  : ""
-              }`}
-              onClick={() => setShow("Privacy")}
-            >
-              <p className="flex flex-col">
-                <span className="font-medium">Privacy Policy</span>{" "}
-                <span className="text-xs">Click to read</span>
-              </p>
-              <p>
+              }
+            />
+            <SettingsCard
+              handleClick={() => setShow("Privacy")}
+              title={"Privacy Policy"}
+              desc={"Click to read"}
+              icon={
                 <FaUserShield className="md:w-8 md:h-8 w-6 h-6 text-slate-500 group-hover:text-slate-600" />
-              </p>
-            </li>
-          </ul>
+              }
+            />
+
+            <SettingsCard
+              handleClick={() => setShow("Cleaner")}
+              title={"Become A Cleaner"}
+              desc={"Click to fill out form"}
+              icon={
+                <FaUserPlus className="md:w-8 md:h-8 w-6 h-6 text-slate-500 group-hover:text-slate-600" />
+              }
+            />
+          </div>
         </div>
         <div className="mx-auto w-full">
-          <ul className="flex flex-col gap-2 w-full">
-            <li
-              className={`p-3 group bg-white hover:bg-slate-200 active:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
-                darkMode
-                  ? "dark-mode border-2 hover:bg-white active:bg-white active:text-black hover:text-black rounded"
-                  : ""
-              }`}
-              onClick={() => {
+          <div className="flex flex-col gap-2 w-full">
+            <SettingsCard
+              handleClick={() => {
                 setShow("Address");
                 const data = JSON.parse(localStorage.getItem("user"));
                 setUser(data[0]);
                 setUserAddress(user?.address);
               }}
-            >
-              <p className="flex flex-col w-[91%]">
-                <span className="font-medium">Change Address</span>{" "}
-                <span className="text-xs truncate w-[90%]">
-                  {user?.address || "Address for delivery"}
+              title={"Change Address"}
+              desc={user?.address || "Click to enter address for delivery"}
+              icon={
+                <span className="w-[9%]">
+                  <FaHome className="md:w-8 md:h-8 w-6 h-6 text-neutral-700 group-hover:text-neutral-900" />
                 </span>
-              </p>
-              <p className="w-[9%]">
-                <FaHome className="md:w-8 md:h-8 w-6 h-6 text-neutral-700 group-hover:text-neutral-900" />
-              </p>
-            </li>
-            <li
-              className={`p-3 group bg-white hover:bg-slate-200 active:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
-                darkMode
-                  ? "dark-mode border-2 hover:bg-white active:bg-white active:text-black hover:text-black rounded"
-                  : ""
-              }`}
-              onClick={() => setShow("Password")}
-            >
-              <p className="flex flex-col">
-                <span className="font-medium">Change Password</span>{" "}
-                <span className="text-xs">***********</span>
-              </p>
-              <p>
+              }
+            />
+
+            <SettingsCard
+              handleClick={() => {
+                setShow("Password");
+              }}
+              title={"Change Password"}
+              desc={"***********"}
+              icon={
                 <FaLock className="md:w-8 md:h-8 w-6 h-6 text-yellow-500 group-hover:text-yellow-600" />
-              </p>
-            </li>
-            <li
-              className={`p-3 group bg-white hover:bg-slate-200 active:bg-slate-200 shadow hover:shadow-lg cursor-pointer flex justify-between items-center transition-all duration-300 ${
-                darkMode
-                  ? "dark-mode border-2 hover:bg-white active:bg-white active:text-black hover:text-black rounded"
-                  : ""
-              }`}
-              onClick={() => setShow("Share")}
-            >
-              <p className="flex flex-col">
-                <span className="font-medium">Share App</span>{" "}
-                <span className="text-xs">
-                  Click to invite your friends and family.
-                </span>
-              </p>
-              <p>
+              }
+            />
+
+            <SettingsCard
+              handleClick={() => {
+                setShow("Share");
+              }}
+              title={"Share App"}
+              desc={"Click to invite friends and family"}
+              icon={
                 <FaShareNodes className="md:w-8 md:h-8 w-6 h-6 text-cyan-400 group-hover:text-cyan-500" />
-              </p>
-            </li>
-          </ul>
+              }
+            />
+          </div>
         </div>
       </div>
 
@@ -269,6 +235,10 @@ const Settings = () => {
 
         {show === "Share" && (
           <ShareApp handleCloseShare={() => setShow(null)} />
+        )}
+
+        {show === "Cleaner" && (
+          <BecomeCleaner handleCloseCleaner={() => setShow(null)} />
         )}
       </div>
     </section>

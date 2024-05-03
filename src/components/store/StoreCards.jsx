@@ -3,6 +3,8 @@ import logo from "../../assets/logo.jpg";
 import { FaCartPlus, FaPlus } from "react-icons/fa6";
 import { BgContext } from "../../App";
 import data from "../../../db/storeDB";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const StoreCards = ({
   handleViewDetails,
@@ -51,26 +53,36 @@ const StoreCards = ({
 
   const handleCartItemId = (id) => {
     setCartId(id);
-  };
-
-  useEffect(() => {
     const addToCartFn = () => {
-      // console.log("After Cart Item: ", cartItem);
       if (cartItem.includes(addedProduct) || addedProduct == undefined) {
+        setCartExistErr(true);
         return;
       } else {
         setCartAdded(true);
-        // console.log("True From card add");
         setCartModalCount(cartModalCount + 1);
 
         setCartItem([...cartItem, addedProduct]);
         // setCartTotal(cartItem);
       }
-      // console.log(cartTotal);
     };
     addToCartFn();
-    // console.log(cartItem);
-  }, [cartId]);
+  };
+
+  // I used this useEffect method before - but it causes error to be true each time page loads
+  // useEffect(() => {
+  // const addToCartFn = () => {
+  //   if (cartItem.includes(addedProduct) || addedProduct == undefined) {
+  //     setCartExistErr(true);
+  //     return;
+  //   } else {
+  //     setCartAdded(true);
+  //     setCartModalCount(cartModalCount + 1);
+  //     setCartItem([...cartItem, addedProduct]);
+  //     // setCartTotal(cartItem);
+  //   }
+  // };
+  // addToCartFn();
+  // }, [cartId]);
 
   return (
     <div

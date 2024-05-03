@@ -5,6 +5,8 @@ import ProductDetails from "../components/store/ProductDetails";
 import { FaSearch, FaTimes } from "react-icons/fa";
 import data from "../../db/storeDB";
 import { BgContext } from "../App";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Store = () => {
   const { cartExistErr, cartAdded, darkMode } = useContext(BgContext);
@@ -60,16 +62,28 @@ const Store = () => {
   }
   const result = filteredData(data, selectedCategory, search);
 
+  // To reveal toast conditionally and putting it here instead of inside jsx fixed the digits that kept appearing on the screen
+  cartAdded
+    ? toast.success("Added to cart!", {
+        autoClose: 2000,
+      })
+    : cartExistErr
+    ? toast.error("Item exist in cart already - or network error, try again!", {
+        position: "bottom-left",
+        autoClose: 3000,
+      })
+    : "";
+
   return (
     <div className={`relative ${darkMode ? "dark-mode" : ""}`}>
-      {cartAdded && (
+      {/* {cartAdded && (
         <p className="p-3 text-green-800 bg-white text-center rounded-full-md w-full md:w-1/3 ml-auto md:right-0 h-full transition-all duration-300 sticky top-0 right-0 z-[9999] shadow-2xl border-t border-t-green-500">
           Added to cart!
         </p>
-      )}
+      )} */}
       <Title title="Our Store" />
-
       <section className="mb-4 mt-2 lg:mt-4 lg:mb-8">
+        <ToastContainer />
         {/* Available Products */}
         {!searchProduct && (
           <div className="flex items-start lg:items-center justify-between lg:justify-normal">
@@ -196,7 +210,6 @@ const Store = () => {
           </div>
         )}
       </section>
-
       {result.length === 0 ? (
         <p className="text-center mt-[40px] text-lg text-slate-600">
           Product not found or unavailable.
@@ -206,7 +219,6 @@ const Store = () => {
           {result}
         </section>
       )}
-
       {/* Details PopUp */}
       <div className="fixed w-full top-0 left-0 z-[999]">
         {viewProducts && (
