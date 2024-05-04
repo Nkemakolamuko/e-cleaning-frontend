@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 // import logo from "../../assets/logo.jpg";
 import logo from "../../assets/ugo-best.jpg";
 import {
@@ -15,9 +15,11 @@ import {
 import { BgContext } from "../../App";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import LocateActions from "./LocateActions";
 
 const FavoriteCleaners = ({ fav, handleFavRemove, name }) => {
   const { darkMode } = useContext(BgContext);
+  const [direction, setDirection] = useState(false);
   return (
     <div
       className={`px-2 pt-2 pb-3 rounded h-fit flex flex-col md:shadow-lg shadow-lg hover:shadow-lg w-full items-center bg-white border border-green-100 to-white relative transition-all duration-300 ${
@@ -26,11 +28,12 @@ const FavoriteCleaners = ({ fav, handleFavRemove, name }) => {
     >
       {/* <ToastContainer /> */}
       <p
-        className="absolute left-4 bg-slate-800/70 top-5 rounded-md p-2 shadow-lg active:scale-95 text-slate-200 flex items-center gap-2 group cursor-pointer transition-all duration-300"
+        className="absolute left-4 bg-black/70 top-5 rounded-md p-2 shadow-lg active:scale-95 text-slate-200 flex items-center gap-2 group cursor-pointer transition-all duration-300"
         onClick={() =>
-          toast.success(
-            "Working on it - call instead if description ain't good enough!"
-          )
+          // toast.success(
+          //   "Working on it - call instead if description ain't good enough!"
+          // )
+          setDirection(!direction)
         }
       >
         {/* Click and it will show you google map address and direction of the shop */}
@@ -41,15 +44,12 @@ const FavoriteCleaners = ({ fav, handleFavRemove, name }) => {
           </span>
         </span>
       </p>
-      {/* <p
-        className="absolute right-2 top-0 flex flex-col items-center cursor-pointer transition-all duration-300"
-        //   onClick={handleFavRemove}
-      >
-        <span className="text-green-500">
-          <FaBookmark className="w-6 h-6" />
-        </span>
-        <span className="text-xs text-green-500">favorite</span>
-      </p> */}
+      {direction && (
+        <LocateActions
+          setDirection={() => setDirection(false)}
+          handleClose={() => setDirection(false)}
+        />
+      )}
 
       <div className="h-[200px] w-full">
         <img
@@ -100,7 +100,7 @@ const FavoriteCleaners = ({ fav, handleFavRemove, name }) => {
           </button>
         </a> */}
         <h1 className="w-full text-center tracking-widest font-medium mt-2">
-          Contact Cleaner
+          Contact Cleaner Using :
         </h1>
         <div className="flex flex-wrap md:w-[70%] mx-auto w-full gap-2 items-center justify-center">
           <a

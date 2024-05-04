@@ -43,7 +43,7 @@ const Contact = () => {
             to="mailto:e-laundry@gmail.com"
             text="Email"
             logo={<FaEnvelope className="w-5 h-5" />}
-            bg="shadow-lg shadow-black/10 bg-neutral-950 md:bg-neutral-900"
+            bg="shadow-lg shadow-black/10 bg-neutral-950 md:bg-neutral-900 border"
             bgHover="hover:shadow-xl hover:shadow-black/20 md:hover:bg-neutral-950"
             handleClick={() => handleClick("Email")}
           />
@@ -53,6 +53,7 @@ const Contact = () => {
             bg="shadow-lg shadow-black/10 bg-blue-700 md:bg-blue-600"
             bgHover="hover:shadow-xl hover:shadow-black/20 md:hover:bg-blue-700"
             handleClick={() => handleClick("Twitter")}
+            // to={}
           />
         </ul>
 
@@ -72,9 +73,12 @@ const Contact = () => {
             bg="shadow-lg shadow-black/10 bg-blue-500 md:bg-blue-400"
             bgHover="hover:shadow-xl hover:shadow-black/20 md:hover:bg-blue-500"
             handleClick={() => handleClick("LinkedIn")}
+            // to={}
           />
 
           <ActionButtons
+            // I'd check for a live chat Saas
+            // to={}
             text="Start Live Chat - tawk.to will do here"
             logo={<GiChatBubble className="w-5 h-5" />}
             bg="shadow-lg shadow-black/10 bg-green-400"

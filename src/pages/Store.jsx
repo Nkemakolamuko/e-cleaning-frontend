@@ -62,18 +62,6 @@ const Store = () => {
   }
   const result = filteredData(data, selectedCategory, search);
 
-  // To reveal toast conditionally and putting it here instead of inside jsx fixed the digits that kept appearing on the screen and duplicates
-  // cartAdded
-  //   ? toast.success("Added to cart!", {
-  //       autoClose: 2000,
-  //     })
-  //   : cartExistErr
-  //   ? toast.error("Item exist in cart already - or network error, try again!", {
-  //       position: "bottom-left",
-  //       autoClose: 3000,
-  //     })
-  //   : "";
-
   useEffect(() => {
     if (cartAdded) {
       toast.success("Added to cart!", {
@@ -91,11 +79,6 @@ const Store = () => {
 
   return (
     <div className={`relative ${darkMode ? "dark-mode" : ""}`}>
-      {/* {cartAdded && (
-        <p className="p-3 text-green-800 bg-white text-center rounded-full-md w-full md:w-1/3 ml-auto md:right-0 h-full transition-all duration-300 sticky top-0 right-0 z-[9999] shadow-2xl border-t border-t-green-500">
-          Added to cart!
-        </p>
-      )} */}
       <Title title="Our Store" />
       <section className="mb-4 mt-2 lg:mt-4 lg:mb-8">
         <ToastContainer />
@@ -213,7 +196,7 @@ const Store = () => {
                 onChange={handleSearchChange}
               />
               <p
-                className="border-y border-r p-3 lg:p-1 rounded-r text-rose-500 active:bg-rose-500 active:text-white hover:bg-rose-500 hover:text-white cursor-pointer hover:border-rose-500 transition-all duration-300"
+                className="border-y border-r p-3 lg:p-3 rounded-r text-rose-500 active:bg-rose-500 active:text-white hover:bg-rose-500 hover:text-white cursor-pointer hover:border-rose-500 transition-all duration-300"
                 onClick={() => {
                   setSearchProduct(false);
                   setSearch("");

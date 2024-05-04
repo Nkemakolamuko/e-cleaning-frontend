@@ -81,6 +81,11 @@ const Dashboard = () => {
     time = 3000;
   }
 
+  if (window.innerWidth > 870) {
+    itemsPerPage = 3;
+    time = 3000;
+  }
+
   if (window.innerWidth > 1020) {
     itemsPerPage = 4;
     time = 5000;
@@ -122,6 +127,7 @@ const Dashboard = () => {
       }`}
     >
       <Title title="Dashboard" />
+
       {/* <p className="text-slate-300">
         Instead of these kinda cards to come first - I'd create an auto slider
         to display our products - then maybe clicking it takes you to the Store
@@ -246,65 +252,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      {/*Available Cleaners*/}
-      <section className="mt-7 w-full flex flex-col overflow-auto">
-        <div className="flex items-center md:gap-4 w-full justify-between md:justify-normal md:mb-2">
-          <Title title="Available Cleaners" />
 
-          <select
-            name="location"
-            className={`border rounded py-1 cursor-pointer mb-2 text-black ${
-              darkMode ? "dark-mode" : ""
-            }`}
-          >
-            <option value="Choose Location">----Choose Location----</option>
-            <option value="OgborHill" onClick={() => alert("Working on it...")}>
-              OgborHill
-            </option>
-            <option value="Osisioma" onClick={() => alert("Working on it...")}>
-              Osisioma
-            </option>
-            <option value="7UP" onClick={() => alert("Working on it...")}>
-              7UP
-            </option>
-            <option value="PH Road" onClick={() => alert("Working on it...")}>
-              PH Road
-            </option>
-            <option value="Federal" onClick={() => alert("Working on it...")}>
-              Federal
-            </option>
-          </select>
-        </div>
-
-        <div className="w-full h-[300px] flex items-center gap-2 overflow-hidden relative">
-          {displayCleaners.map((cleaner) => {
-            return (
-              <AvailableCleaners
-                name={cleaner.name}
-                desc={cleaner.desc}
-                key={cleaner.id}
-              />
-            );
-          })}
-          <AvailableCleaners />
-          <div className="absolute flex items-center w-full h-full top-0 justify-between">
-            <p
-              className="cursor-pointer p-2 md:p-3 bg-yellow-400 text-white font-medium rounded-r hover:bg-yellow-500 active:scale-90 shadow-lg shadow-black/20 flex items-center justify-between"
-              onClick={handlePrev}
-            >
-              <FaAngleLeft />
-              <span>Prev</span>
-            </p>
-            <p
-              className="cursor-pointer p-2 md:p-3 bg-yellow-400 text-white font-medium rounded-l hover:bg-yellow-500 active:scale-90 shadow-lg shadow-black/20 flex items-center justify-between"
-              onClick={handleNext}
-            >
-              <span>Next</span>
-              <FaAngleRight />
-            </p>
-          </div>
-        </div>
-      </section>
       {/* Features */}
       <section className="mt-7 w-full hidden md:flex">
         <LatestFeatures />
@@ -376,6 +324,67 @@ const Dashboard = () => {
           </p>
         </div>
       </section>
+
+      {/*Available Cleaners*/}
+      <section className="mt-7 w-full flex flex-col overflow-auto">
+        <div className="flex items-center md:gap-4 w-full justify-between md:justify-normal md:mb-2">
+          <Title title="Available Cleaners" />
+
+          <select
+            name="location"
+            className={`border rounded py-1 cursor-pointer mb-2 text-black ${
+              darkMode ? "dark-mode" : ""
+            }`}
+          >
+            <option value="Choose Location">----Choose Location----</option>
+            <option value="OgborHill" onClick={() => alert("Working on it...")}>
+              OgborHill
+            </option>
+            <option value="Osisioma" onClick={() => alert("Working on it...")}>
+              Osisioma
+            </option>
+            <option value="7UP" onClick={() => alert("Working on it...")}>
+              7UP
+            </option>
+            <option value="PH Road" onClick={() => alert("Working on it...")}>
+              PH Road
+            </option>
+            <option value="Federal" onClick={() => alert("Working on it...")}>
+              Federal
+            </option>
+          </select>
+        </div>
+
+        <div className="w-full h-fit flex items-center gap-2 overflow-hidden relative">
+          {displayCleaners.map((cleaner) => {
+            return (
+              <AvailableCleaners
+                name={cleaner.name}
+                desc={cleaner.desc}
+                key={cleaner.id}
+              />
+            );
+          })}
+          <AvailableCleaners />
+          <div className="absolute flex items-center w-full h-full top-0 justify-between">
+            <p
+              className="cursor-pointer p-2 md:p-3 bg-yellow-400 text-white font-medium rounded-r hover:bg-yellow-500 active:scale-90 shadow-lg shadow-black/20 flex items-center justify-between"
+              onClick={handlePrev}
+            >
+              <FaAngleLeft />
+              <span>Prev</span>
+            </p>
+            <p
+              className="cursor-pointer p-2 md:p-3 bg-yellow-400 text-white font-medium rounded-l hover:bg-yellow-500 active:scale-90 shadow-lg shadow-black/20 flex items-center justify-between"
+              onClick={handleNext}
+            >
+              <span>Next</span>
+              <FaAngleRight />
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* History */}
       <div
         className={`flex items-center md:gap-3 md:justify-start justify-between mt-7 ${

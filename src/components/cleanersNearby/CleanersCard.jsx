@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 // import logo from "../../assets/logo.jpg";
 import logo from "../../assets/ugo-best.jpg";
 import {
+  FaAngleRight,
   FaBook,
   FaBookBookmark,
   FaBookmark,
@@ -15,22 +16,26 @@ import {
 import { BgContext } from "../../App";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import LocateActions from "./LocateActions";
 
 const CleanersCard = ({ fav, handleFav, name, addedToFavorite }) => {
   const { darkMode } = useContext(BgContext);
+  const [direction, setDirection] = useState(false);
   return (
     <div
       className={`px-2 pt-2 pb-3 rounded h-fit flex flex-col md:shadow-lg shadow-lg hover:shadow-lg w-full items-center bg-white border border-green-100 to-white relative transition-all duration-300 ${
         darkMode ? "dark-mode" : ""
       }`}
+      // onClick={() => setDirection(false)}
     >
       {/* <ToastContainer /> */}
       <p
-        className="absolute left-4 bg-slate-800/70 top-5 rounded-md p-2 shadow-lg active:scale-95 text-slate-200 flex items-center gap-2 group cursor-pointer transition-all duration-300"
+        className="absolute left-4 bg-black/70 backdrop-blur top-5 rounded-md p-2 shadow-lg active:scale-95 text-slate-200 flex items-center gap-2 group cursor-pointer transition-all duration-300"
         onClick={() =>
-          toast.success(
-            "Working on it - call instead if description ain't good enough!"
-          )
+          // toast.success(
+          //   "Working on it - call instead if description ain't good enough!"
+          // )
+          setDirection(!direction)
         }
       >
         {/* Click and it will show you google map address and direction of the shop */}
@@ -41,6 +46,12 @@ const CleanersCard = ({ fav, handleFav, name, addedToFavorite }) => {
           </span>
         </span>
       </p>
+      {direction && (
+        <LocateActions
+          setDirection={() => setDirection(false)}
+          handleClose={() => setDirection(false)}
+        />
+      )}
       <div className="h-[200px] w-full">
         <img
           src={logo}
