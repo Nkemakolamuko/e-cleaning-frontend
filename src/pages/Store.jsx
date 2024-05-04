@@ -62,17 +62,32 @@ const Store = () => {
   }
   const result = filteredData(data, selectedCategory, search);
 
-  // To reveal toast conditionally and putting it here instead of inside jsx fixed the digits that kept appearing on the screen
-  cartAdded
-    ? toast.success("Added to cart!", {
+  // To reveal toast conditionally and putting it here instead of inside jsx fixed the digits that kept appearing on the screen and duplicates
+  // cartAdded
+  //   ? toast.success("Added to cart!", {
+  //       autoClose: 2000,
+  //     })
+  //   : cartExistErr
+  //   ? toast.error("Item exist in cart already - or network error, try again!", {
+  //       position: "bottom-left",
+  //       autoClose: 3000,
+  //     })
+  //   : "";
+
+  useEffect(() => {
+    if (cartAdded) {
+      toast.success("Added to cart!", {
         autoClose: 2000,
-      })
-    : cartExistErr
-    ? toast.error("Item exist in cart already - or network error, try again!", {
+      });
+    }
+    // Show toast for cart existence error
+    else if (cartExistErr) {
+      toast.error("Item exist in cart already - or network error, try again!", {
         position: "bottom-left",
         autoClose: 3000,
-      })
-    : "";
+      });
+    }
+  }, [cartAdded, cartExistErr]); // Only re-run the effect if these values change
 
   return (
     <div className={`relative ${darkMode ? "dark-mode" : ""}`}>
