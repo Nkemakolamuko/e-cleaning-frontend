@@ -82,7 +82,9 @@ const OngoingOrder = () => {
             <span className="w-[100%] md:w-[30%]">Ugo Best</span>
             <a
               href="tel:+2347049876440"
-              className="bg-cyan-500 text-white text-sm py-3 px-4 w-[100%] md:w-[70%] font-semibold rounded-[3px] hover:bg-cyan-600 cursor-pointer text-center transition-all duration-300"
+              className={`bg-cyan-500 text-white text-sm py-3 px-4 w-[100%] md:w-[70%] font-semibold rounded-[3px] hover:bg-cyan-600 cursor-pointer text-center transition-all duration-300 ${
+                darkMode ? "!bg-green-500" : ""
+              }`}
             >
               Contact
             </a>

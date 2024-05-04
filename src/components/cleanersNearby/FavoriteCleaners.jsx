@@ -1,17 +1,22 @@
 import React, { useContext } from "react";
-import logo from "../../assets/logo.jpg";
+// import logo from "../../assets/logo.jpg";
+import logo from "../../assets/ugo-best.jpg";
 import {
   FaBook,
   FaBookBookmark,
   FaBookmark,
   FaEnvelope,
+  FaLocationDot,
+  FaMapLocationDot,
   FaPhone,
   FaRegBookmark,
   FaWhatsapp,
 } from "react-icons/fa6";
 import { BgContext } from "../../App";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const FavoriteCleaners = ({ fav, handleFav, name }) => {
+const FavoriteCleaners = ({ fav, handleFavRemove, name }) => {
   const { darkMode } = useContext(BgContext);
   return (
     <div
@@ -19,9 +24,26 @@ const FavoriteCleaners = ({ fav, handleFav, name }) => {
         darkMode ? "dark-mode" : ""
       }`}
     >
+      {/* <ToastContainer /> */}
+      <p
+        className="absolute left-4 bg-slate-800/70 top-5 rounded-md p-2 shadow-lg active:scale-95 text-slate-200 flex items-center gap-2 group cursor-pointer transition-all duration-300"
+        onClick={() =>
+          toast.success(
+            "Working on it - call instead if description ain't good enough!"
+          )
+        }
+      >
+        {/* Click and it will show you google map address and direction of the shop */}
+        <span className="flex items-center gap-2 transition-all duration-300">
+          <FaLocationDot className="w-4 h-4" />
+          <span className="text-xs group-hover:flex hidden transition-all duration-300 text-slate-100">
+            Find Location
+          </span>
+        </span>
+      </p>
       {/* <p
         className="absolute right-2 top-0 flex flex-col items-center cursor-pointer transition-all duration-300"
-        //   onClick={handleFav}
+        //   onClick={handleFavRemove}
       >
         <span className="text-green-500">
           <FaBookmark className="w-6 h-6" />
@@ -48,12 +70,12 @@ const FavoriteCleaners = ({ fav, handleFav, name }) => {
             {name || "Tony Best"}
           </p>
           <div className="flex items-center gap-2 w-1/2 mx-auto">
-            <p className="border rounded px-2 py-1 bg-green-500 text-white text-sm text-center w-fit mx-auto">
+            <p className="border-b px-2 py-1 border-b-green-500 text-green-500 text-sm text-center w-fit mx-auto">
               Favorite
             </p>
             <p
-              className="border rounded px-2 py-1 bg-rose-500 text-white text-sm text-center w-fit mx-auto cursor-pointer"
-              onClick={handleFav}
+              className="border rounded px-2 py-1 bg-rose-500 text-white text-sm text-center w-fit mx-auto cursor-pointer shadow-md active:scale-95"
+              onClick={handleFavRemove}
             >
               Remove
             </p>
@@ -65,8 +87,7 @@ const FavoriteCleaners = ({ fav, handleFav, name }) => {
             darkMode ? "!text-slate-200" : ""
           }`}
         >
-          Details About them Lorem ipsum dolor sit amet, consectetur adipisicing
-          elit. Sint, consequuntur!
+          Located at Shop 12 Sazodo Plaza, by NOWAS junction, Trans-Ekulu Enugu.
         </p>
 
         {/* <a
@@ -82,23 +103,29 @@ const FavoriteCleaners = ({ fav, handleFav, name }) => {
           Contact Cleaner
         </h1>
         <div className="flex flex-wrap md:w-[70%] mx-auto w-full gap-2 items-center justify-center">
-          <p className="rounded-full shadow-lg cursor-pointer bg-green-400 p-2 text-white">
+          <a
+            href="https://www.whatsapp.com"
+            target="_blank"
+            className={`rounded-full shadow-lg cursor-pointer border border-green-400 bg-green-400 p-2 text-white active:scale-95`}
+          >
             <FaWhatsapp className="w-7 h-7" />
-          </p>
-          <p
-            className={`rounded-full shadow-lg cursor-pointer bg-white border p-2 text-slate-800 ${
+          </a>
+          <a
+            href="tel:+2347040876440" // I'd use user number
+            className={`rounded-full shadow-lg cursor-pointer bg-white border p-2 text-slate-800 active:scale-95 ${
               darkMode ? "dark-mode !text-slate-100" : ""
             }`}
           >
             <FaPhone className="w-7 h-7" />
-          </p>
-          <p
-            className={`rounded-full shadow-lg cursor-pointer bg-white border p-2 text-slate-800 ${
+          </a>
+          <a
+            href="mailto:vintio234@gmail.com" // I'd use the user email
+            className={`rounded-full shadow-lg cursor-pointer bg-white border p-2 text-slate-800 active:scale-95 ${
               darkMode ? "dark-mode !text-slate-100" : ""
             }`}
           >
             <FaEnvelope className="w-7 h-7" />
-          </p>
+          </a>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Title from "../components/Title";
 import CleanersCard from "../components/cleanersNearby/CleanersCard";
 import FavoriteCleaners from "../components/cleanersNearby/FavoriteCleaners";
@@ -51,26 +51,59 @@ const Cleaners = () => {
   const [favHandler, setFavHandler] = useState(false);
   const [forFavNames, setForFavNames] = useState(names);
   const [yourFavorites, setYourFavorites] = useState([]);
+  const [favId, setFavId] = useState(null);
 
   const handleFav = (id) => {
+    setFavId(id);
     setForFavNames(
       names.map((val) =>
-        val.id === id ? { ...val, favorite: !val.favorite } : val
+        val.id === id ? { ...val, favorite: !val?.favorite } : val
       )
     );
-    const favFound = forFavNames.find((val) => val.id == id);
+  };
 
-    if (yourFavorites.includes(favFound)) {
-      toast.error("Cleaner exist in favorite!", {
+  useEffect(() => {
+    const addedToFav = () => {
+      // This one negates the favorite to false
+      setForFavNames(
+        names.map((val) =>
+          val.id === favId ? { ...val, favorite: !val?.favorite } : val
+        )
+      );
+      const favFound = forFavNames.find((val) => val.id == favId);
+
+      if (yourFavorites.includes(favFound) || favId == null) {
+        // toast.error("Cleaner exist in favorite or network error - try again!", {
+        //   position: "bottom-left",
+        // });
+        // console.log("Exist");
+        return;
+      } else {
+        setYourFavorites([
+          ...yourFavorites,
+          { ...favFound, favorite: !favFound?.favorite },
+        ]);
+        toast.success("Cleaner added to favorite!", {
+          autoClose: 2000,
+        });
+      }
+    };
+    addedToFav();
+  }, [favId]);
+
+  const handleFavRemove = (id) => {
+    const youSure = window.confirm("Are you sure?");
+    if (youSure) {
+      setYourFavorites(yourFavorites.filter((fav) => fav.id !== id));
+      toast.success("Cleaner removed from favorite!", {
+        autoClose: 2000,
+      });
+    } else {
+      toast.error("Cancelled", {
+        autoClose: 1000,
         position: "bottom-left",
       });
       return;
-    } else {
-      setYourFavorites([
-        ...yourFavorites,
-        { ...favFound, favorite: !favFound.favorite },
-      ]);
-      toast.success("Cleaner added to favorite!");
     }
   };
 
@@ -90,7 +123,9 @@ const Cleaners = () => {
               className={`${
                 border === "Favorite"
                   ? "!tracking-widest px-1 md:px-3"
-                  : "!tracking-widest text-slate-400 group-hover:text-slate-800 px-1 md:px-3 scale-90"
+                  : `!tracking-widest text-slate-400 group-hover:text-slate-800 px-1 md:px-3 scale-90 ${
+                      darkMode ? "group-hover:!text-slate-200" : ""
+                    }`
               }`}
             >
               Favorite
@@ -111,7 +146,9 @@ const Cleaners = () => {
               className={`${
                 border === "Area"
                   ? "!tracking-widest px-1 md:px-3"
-                  : "!tracking-widest text-slate-400   group-hover:text-slate-800 px-1 md:px-3 scale-90"
+                  : `!tracking-widest text-slate-400 group-hover:text-slate-800 px-1 md:px-3 scale-90 ${
+                      darkMode ? "group-hover:!text-slate-200" : ""
+                    }`
               }`}
             >
               Your Area
@@ -132,7 +169,9 @@ const Cleaners = () => {
               className={`${
                 border === "All"
                   ? "!tracking-widest px-1 md:px-3"
-                  : "!tracking-widest text-slate-400 group-hover:text-slate-800 px-1 md:px-3 scale-90"
+                  : `!tracking-widest text-slate-400 group-hover:text-slate-800 px-1 md:px-3 scale-90 ${
+                      darkMode ? "group-hover:!text-slate-200" : ""
+                    }`
               }`}
             >
               All
@@ -157,7 +196,7 @@ const Cleaners = () => {
                 <FavoriteCleaners
                   name={name.name}
                   key={name.id}
-                  // handleFav={() => handleFav(name.id)}
+                  handleFavRemove={() => handleFavRemove(name.id)}
                   // fav={name.favorite}
                 />
               ))
@@ -174,6 +213,7 @@ const Cleaners = () => {
                 name={name.name}
                 key={name.id}
                 handleFav={() => handleFav(name.id)}
+                addedToFavorite={name.favorite}
                 fav={name.favorite}
               />
             ))}
@@ -187,6 +227,7 @@ const Cleaners = () => {
                 name={name.name}
                 key={name.id}
                 handleFav={() => handleFav(name.id)}
+                addedToFavorite={name.favorite}
                 fav={name.favorite}
               />
             ))}

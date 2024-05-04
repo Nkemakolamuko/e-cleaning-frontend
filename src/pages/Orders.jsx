@@ -8,7 +8,7 @@ const Orders = () => {
       <Title title="Ongoing Orders" />
 
       <h2 className="tracking-widest">24 HOURS DELIVERY GUARANTEED</h2>
-      <section className="grid h-[80vh] w-full md:w-[80%] grid-cols-1 mt-5 gap-6 md:gap-8">
+      <section className="grid h-[80vh] w-full grid-cols-1 md:grid-cols-2 mt-5 gap-6 md:gap-8">
         <OngoingOrder />
         <OngoingOrder />
         <OngoingOrder />
