@@ -5,12 +5,15 @@ import History24 from "../components/history/history24/History24";
 import History25 from "../components/history/history25/History25";
 import History26 from "../components/history/history26/History26";
 import { BgContext } from "../App";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const History = () => {
   const { darkMode } = useContext(BgContext);
   const [active, setActive] = useState("2024");
   return (
     <div className="flex flex-col w-full h-screen">
+      <ToastContainer />
       <div className="fixed top-16 sticky-z-50 bg-green-50 w-full md:hidden">
         <Title title="Cleaning History" />
       </div>
@@ -60,7 +63,7 @@ const History = () => {
             } transition-all duration-300 cursor-pointer`}
             onClick={() => {
               // setActive("2025");
-              alert("Coming soon...");
+              toast("Coming soon...", { autoClose: 2000 });
             }}
           >
             2025
@@ -73,7 +76,7 @@ const History = () => {
             } transition-all duration-300 cursor-pointer`}
             onClick={() => {
               // setActive("2026");
-              alert("Coming soon...");
+              toast("Coming soon...", { autoClose: 2000 });
             }}
           >
             2026
