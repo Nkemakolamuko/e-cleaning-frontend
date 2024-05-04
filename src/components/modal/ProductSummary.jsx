@@ -192,7 +192,7 @@ const ProductSummary = () => {
         >
           <div
             className={`flex items-center justify-between w-full bg-slate-100 px-2 py-3 rounded-md transition-all duration-300 ${
-              darkMode ? "dark-mode !bg-white !text-black" : ""
+              darkMode ? "dark-mode border-y" : ""
             }`}
           >
             <p className="font-medium !tracking-widest">Total</p>
@@ -206,7 +206,7 @@ const ProductSummary = () => {
             }`}
           >
             <span
-              className={`text-slate-700 w-[30%] text-sm ${
+              className={`text-slate-700 w-[30%] text-base ${
                 darkMode ? "dark-mode" : ""
               }`}
             >
@@ -214,7 +214,9 @@ const ProductSummary = () => {
             </span>
             <input
               type="text"
-              className="py-2 md:py-3 px-2 text-slate-600 border-2 border-orange-500/80 rounded outline-none w-[70%]"
+              className={`py-2 md:py-2 px-2 text-slate-600 border-2 border-orange-500/80 rounded outline-none w-[70%] ${
+                darkMode ? "bg-inherit" : ""
+              }`}
               placeholder="(Optional)"
             />
           </p>
