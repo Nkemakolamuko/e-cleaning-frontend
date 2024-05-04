@@ -355,7 +355,7 @@ const Dashboard = () => {
           </select>
         </div>
 
-        <div className="w-full h-fit flex items-center gap-2 overflow-hidden relative">
+        <div className="w-full h-[450px] flex items-center gap-2 overflow-hidden relative">
           {displayCleaners.map((cleaner) => {
             return (
               <AvailableCleaners

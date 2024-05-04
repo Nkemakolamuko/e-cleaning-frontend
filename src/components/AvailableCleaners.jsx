@@ -7,7 +7,7 @@ import { FaEnvelope, FaPhone, FaWhatsapp } from "react-icons/fa6";
 const AvailableCleaners = ({ name, desc, handleNext, handlePrev }) => {
   const { darkMode } = useContext(BgContext);
   return (
-    <div className={`${darkMode && "dark-mode"} h-[400px]`}>
+    <div className={`${darkMode && "dark-mode"} h-[450px]`}>
       <div
         className={`px-2 pt-2 pb-3 rounded h-full flex flex-col md:shadow-lg shadow-lg hover:shadow-lg w-[250px] md:w-[300px] items-center bg-white border border-green-100 to-white transition-all duration-300 ${
           darkMode ? "dark-mode" : ""
@@ -19,7 +19,7 @@ const AvailableCleaners = ({ name, desc, handleNext, handlePrev }) => {
             alt="Cleaner Image"
             // height={"80rem"}
             // width={"80rem"}
-            className="rounded mx-auto w-full h-full"
+            className="rounded-t mx-auto w-full h-[200px]"
           />
         </div>
         <div className="flex flex-col justify-between h-[50%] w-full text-slate-800 gap-2 mt-2">
