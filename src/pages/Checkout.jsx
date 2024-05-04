@@ -115,7 +115,7 @@ const Checkout = () => {
       )}
       <p>Shipping fee : ₦ {shipping}</p>
 
-      {cartItem.length !== 0 && address !== "" ? (
+      {cartItem.length !== 0 && address.trim() !== "" ? (
         <Link to="/payment" className="my-2">
           <button className="w-full py-4 rounded bg-black font-medium text-white cursor-pointer">
             Proceed to pay ₦ {total + shipping}
