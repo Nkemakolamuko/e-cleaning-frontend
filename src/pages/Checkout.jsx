@@ -115,7 +115,7 @@ const Checkout = () => {
       )}
       <p>Shipping fee : ₦ {shipping}</p>
 
-      {cartItem.length !== 0 ? (
+      {cartItem.length !== 0 && address !== "" ? (
         <Link to="/payment" className="my-2">
           <button className="w-full py-4 rounded bg-black font-medium text-white cursor-pointer">
             Proceed to pay ₦ {total + shipping}
@@ -123,7 +123,7 @@ const Checkout = () => {
         </Link>
       ) : (
         <button className="w-full py-4 rounded bg-black/10 font-medium text-neutral-700 cursor-not-allowed my-2">
-          Can't proceed on an empty cart!!
+          Can't proceed on an empty cart or empty address!!
         </button>
       )}
     </div>
