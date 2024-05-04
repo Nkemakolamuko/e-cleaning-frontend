@@ -189,16 +189,16 @@ const Store = () => {
               </p>
             </div>
 
-            <div className="flex items-center gap-2 w-full md:w-[60%] lg:w-[100%] lg:col-span-1 lg:pl-4 md:container md:mx-auto">
+            <div className="flex items-center w-full md:w-[60%] lg:w-[100%] lg:col-span-1 lg:pl-4 md:container md:mx-auto">
               <input
                 type="text"
-                className="border border-cyan-400 rounded px-2 py-3 lg:py-3 text-sky-500 w-full outline-none caret-sky-500"
+                className="border rounded-l px-2 py-2 md:py-3 text-sky-500 w-full outline-none caret-sky-500 bg-inherit"
                 placeholder="Search for product"
                 value={search}
                 onChange={handleSearchChange}
               />
               <p
-                className="p-3 lg:p-1 rounded-full text-rose-500 hover:bg-rose-500 hover:text-white cursor-pointer hover:border-rose-500 transition-all duration-300"
+                className="border-y border-r p-3 lg:p-1 rounded-r text-rose-500 active:bg-rose-500 active:text-white hover:bg-rose-500 hover:text-white cursor-pointer hover:border-rose-500 transition-all duration-300"
                 onClick={() => {
                   setSearchProduct(false);
                   setSearch("");

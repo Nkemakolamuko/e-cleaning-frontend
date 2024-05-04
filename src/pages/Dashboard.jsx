@@ -136,7 +136,7 @@ const Dashboard = () => {
         >
           <p
             className={`border-b-2 bg-slate-50 w-full text-center rounded-t-[4px] py-1 !tracking-wider px-2 ${
-              darkMode ? "!text-slate-800" : ""
+              darkMode ? "dark-mode" : ""
             }`}
           >
             Weekly Top Rated Cleaner
