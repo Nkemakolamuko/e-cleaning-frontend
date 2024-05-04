@@ -4,7 +4,11 @@ import {
   FaBook,
   FaBookBookmark,
   FaBookmark,
+  FaEnvelope,
+  FaPhone,
+  FaPlus,
   FaRegBookmark,
+  FaWhatsapp,
 } from "react-icons/fa6";
 import { BgContext } from "../../App";
 
@@ -16,7 +20,7 @@ const CleanersCard = ({ fav, handleFav, name }) => {
         darkMode ? "dark-mode" : ""
       }`}
     >
-      <p
+      {/* <p
         className="absolute right-2 top-0 flex flex-col items-center cursor-pointer transition-all duration-300"
         onClick={handleFav}
       >
@@ -25,25 +29,37 @@ const CleanersCard = ({ fav, handleFav, name }) => {
         </span>
         <span className="text-xs text-slate-500">Add to</span>
         <span className="text-xs text-slate-500">favorite</span>
-      </p>
-      <img
-        src={logo}
-        alt="Cleaner Image"
-        height={"80rem"}
-        width={"80rem"}
-        className="rounded-full mx-auto"
-      />
+      </p> */}
+      <div className="h-[200px] w-full">
+        <img
+          src={logo}
+          alt="Cleaner Image"
+          // height={"80rem"}
+          // width={"80rem"}
+          className="rounded mx-auto w-full h-full"
+        />
+      </div>
       <div className="flex flex-col w-full text-slate-800 gap-2 mt-2">
-        <p
-          className={`text-center text-base md:text-lg font-medium !tracking-widest text-green-700 ${
-            darkMode ? "!text-green-500" : ""
-          }`}
-        >
-          {name || "Tony Best"}
-        </p>
+        <div className="flex items-center flex-col">
+          <p
+            className={`text-center text-base md:text-lg font-medium !tracking-widest text-green-700 ${
+              darkMode ? "!text-green-500" : ""
+            }`}
+          >
+            {name || "Tony Best"}
+          </p>
+          <p
+            onClick={handleFav}
+            className={`flex items-center text-xs gap-2 text-center border rounded px-2 py-1 cursor-pointer hover:bg-cyan-100 transition-all duration-300 active:scale-95 ${
+              darkMode ? "dark-mode" : ""
+            }`}
+          >
+            <FaPlus /> Add to favorite
+          </p>
+        </div>
 
         <p
-          className={`text-xs lg:text-sm text-slate-700 text-center ${
+          className={`text-xs lg:text-sm text-slate-700 text-center mt-2 ${
             darkMode ? "!text-slate-200" : ""
           }`}
         >
@@ -51,15 +67,39 @@ const CleanersCard = ({ fav, handleFav, name }) => {
           elit. Sint, consequuntur!
         </p>
 
-        <a
+        {/* <a
           href="tel:+2347040876440"
           target="_blank"
           className="md:w-[70%] mx-auto w-full"
         >
           <button className="p-3 md:p-3 !bg-cyan-700 text-white hover:bg-cyan-800 font-medium tracking-widest rounded text-xs md:text-sm active:scale-90 md:w-full w-full transition-all duration-300">
-            Call Now!
+            Contact Now!
           </button>
-        </a>
+        </a> */}
+        <h1 className="w-full text-center tracking-widest font-medium mt-2">
+          Contact Cleaner
+        </h1>
+        <div className="flex flex-wrap md:w-[70%] mx-auto w-full gap-2 items-center justify-center">
+          <p
+            className={`rounded-full shadow-lg cursor-pointer bg-green-400 p-2 text-white`}
+          >
+            <FaWhatsapp className="w-7 h-7" />
+          </p>
+          <p
+            className={`rounded-full shadow-lg cursor-pointer bg-white border p-2 text-slate-800 ${
+              darkMode ? "dark-mode !text-slate-100" : ""
+            }`}
+          >
+            <FaPhone className="w-7 h-7" />
+          </p>
+          <p
+            className={`rounded-full shadow-lg cursor-pointer bg-white border p-2 text-slate-800 ${
+              darkMode ? "dark-mode !text-slate-100" : ""
+            }`}
+          >
+            <FaEnvelope className="w-7 h-7" />
+          </p>
+        </div>
       </div>
     </div>
   );

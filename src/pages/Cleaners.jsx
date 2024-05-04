@@ -3,6 +3,8 @@ import Title from "../components/Title";
 import CleanersCard from "../components/cleanersNearby/CleanersCard";
 import FavoriteCleaners from "../components/cleanersNearby/FavoriteCleaners";
 import { BgContext } from "../App";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Still on this -- the favorite stuff -- I need it to remain true when set to true and be unable to add it to favorites if it's true -- I want to add toggle option as well
 
@@ -59,23 +61,22 @@ const Cleaners = () => {
     const favFound = forFavNames.find((val) => val.id == id);
 
     if (yourFavorites.includes(favFound)) {
-      console.log("Exist");
-      alert("Exist");
+      toast.error("Cleaner exist in favorite!", {
+        position: "bottom-left",
+      });
       return;
     } else {
       setYourFavorites([
         ...yourFavorites,
         { ...favFound, favorite: !favFound.favorite },
       ]);
-      console.log("Else block ", yourFavorites);
-      alert("Added to favorite!");
+      toast.success("Cleaner added to favorite!");
     }
   };
 
-  // console.log(yourFavorites);
-
   return (
     <div>
+      <ToastContainer />
       <section className={`bg-white ${darkMode ? "dark-mode" : ""}`}>
         <Title title="Dry Cleaners Nearby" />
 
