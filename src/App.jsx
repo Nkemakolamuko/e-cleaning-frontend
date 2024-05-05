@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import MainNav from "./layout/MainNav";
@@ -17,6 +17,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import CartModal from "./components/modal/CartModal";
 import Checkout from "./pages/Checkout";
 import Payment from "./pages/Payment";
+import NewNotificationDetailsPage from "./components/notification/NewNotificationDetailsPage";
 
 export const BgContext = createContext(null);
 
@@ -37,13 +38,18 @@ function App() {
   const [notification, setNotification] = useState([]);
   const [quantity, setQuantity] = useState(1);
 
-  setTimeout(() => {
-    setCartExistErr(false);
-  }, 5000);
-
-  setTimeout(() => {
-    setCartAdded(false);
-  }, 5000);
+  useEffect(() => {
+    if (cartExistErr) {
+      setTimeout(() => {
+        setCartExistErr(false);
+      }, 2000);
+    }
+    if (cartAdded) {
+      setTimeout(() => {
+        setCartAdded(false);
+      }, 2000);
+    }
+  }, [cartAdded, cartExistErr]);
 
   return (
     // There'd be Cart Count and Checking Items In It All That
@@ -154,6 +160,10 @@ function App() {
                 <Notifications />
               </MainNav>
             }
+          />
+          <Route
+            path="/dashboard/notifications/:notiId"
+            element={<NewNotificationDetailsPage />}
           />
           <Route
             path="/dashboard/settings"
