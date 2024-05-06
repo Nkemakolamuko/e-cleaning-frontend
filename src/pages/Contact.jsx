@@ -115,7 +115,9 @@ const Contact = () => {
               logo={
                 !showChat ? <GiChatBubble className="w-5 h-5" /> : <FaTimes />
               }
-              bg="shadow-lg shadow-black/10 bg-green-400"
+              bg={`shadow-lg shadow-black/10 ${
+                showChat ? "bg-rose-500" : "bg-green-400"
+              }`}
               bgHover="hover:shadow-xl hover:shadow-black/20 md:hover:bg-green-500"
               handleClick={() => {
                 handleClick("Live-Chat");
