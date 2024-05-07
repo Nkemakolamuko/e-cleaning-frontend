@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import lottie from "lottie-web";
+import loginAnimation from "../../animations/loginAnimation.json";
+import loginLogo from "../../animations/loginLogo.json";
 import logo from "../../assets/logo.jpg";
 import {
   FaEye,
@@ -9,13 +12,33 @@ import {
 } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
+  const container = useRef(null);
+  const loginLogoContainer = useRef(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [userDetail, setUserDetail] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    lottie.loadAnimation({
+      container: container.current,
+      animationData: loginAnimation,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+    });
+    lottie.loadAnimation({
+      container: loginLogoContainer.current,
+      animationData: loginLogo,
+      renderer: "svg", // You can choose 'svg', 'canvas', or 'html' based on your preference
+      loop: true,
+      autoplay: true,
+    });
+  }, []);
 
   useEffect(() => {
     const userDetails = JSON.parse(localStorage.getItem("user"));
@@ -40,36 +63,48 @@ const Login = () => {
     // console.log(userDetail);
 
     if (
+      user.email.trim() === "ultimateadminidan@gmail.com" &&
+      user.password.trim() === "@OmolaDe2521"
+    ) {
+      toast.success("Admin login successful");
+      setTimeout(() => {
+        window.location.href = "/admin-dashboard2521";
+      }, 1000);
+    } else if (
       user.email.trim() === userDetail.email &&
       user.password.trim() === userDetail.password
     ) {
-      alert("Login Successful");
+      toast.success("User login successful.");
       setTimeout(() => {
-        // window.location.href = "/dashboard";
-        navigate("/dashboard/settings");
+        window.location.href = "/dashboard/settings";
       }, 1000);
     } else {
-      alert("Incorrect user details.");
+      toast.error("Incorrect login details", { position: "top-right" });
     }
   };
   return (
     <section className="w-full h-screen bg-white md:flex md:flex-row md:items-center">
-      <div className="w-[50%] h-screen hidden md:block overflow-hidden">
-        <img src={logo} alt="Login Image" className="h-full" />
+      <ToastContainer />
+      <div className="w-[50%] h-screen hidden md:flex overflow-hidden">
+        {/* <img src={logo} alt="Login Image" className="h-full" /> */}
+        <div ref={container} />
       </div>
 
       {/* max-w-[410px] */}
       <div className="md:max-w-[50%] h-full flex flex-col items-center justify-center md:justify-center container mx-auto lg:px-20 md:py-8 md:px-6 p-2 overflow-auto">
-        <img
-          src={logo}
-          alt="Our Logo"
-          width="100rem"
-          height="100rem"
-          className="rounded-full"
-        />
+        <div className="w-[20%] h-[20%]">
+          {/* <img
+            src={logo}
+            alt="Our Logo"
+            // width="100rem"
+            // height="100rem"
+            className="rounded-full w-full h-full"
+          /> */}
+          <div ref={loginLogoContainer} />
+        </div>
 
         <p className="tracking-widest font-semibold text-lg mt-2">
-          Welcome, Login
+          Welcome back, Login
         </p>
 
         <form
@@ -88,7 +123,7 @@ const Login = () => {
               placeholder="user@gmail.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="p-2 text-slate-700 outline-slate-500  border-2 rounded transition-all duration-300 w-full"
+              className="p-2 md:py-3 text-slate-700 outline-slate-500  border-2 rounded transition-all duration-300 w-full"
             />
           </p>
           <div className="flex flex-col w-full">
@@ -102,7 +137,7 @@ const Login = () => {
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="p-2 border-none bg-white outline-none w-[90%]"
+                className="p-2 md:py-3 border-none bg-white outline-none w-[90%]"
               />
               <p
                 className="p-2 w-[10%] cursor-pointer"
@@ -113,7 +148,7 @@ const Login = () => {
             </div>
           </div>
           <button
-            className="p-2 md:p-3 bg-green-500 hover:bg-green-600 text-white font-medium tracking-widest rounded w-full mt-2  transition-all duration-300"
+            className="p-2 md:p-4 bg-green-500 hover:bg-green-600 text-white font-medium tracking-widest rounded w-full mt-2  transition-all duration-300"
             onClick={handleSubmit}
           >
             Login
@@ -139,24 +174,24 @@ const Login = () => {
         </div>
 
         <div className="flex items-center justify-between gap-1 mt-3 w-full">
-          <p className="border-slate-500 border w-full"></p>
-          <p>OR</p>
-          <p className="border-slate-500 border w-full"></p>
+          <p className="border-slate-300 border w-full"></p>
+          <p>or</p>
+          <p className="border-slate-300 border w-full"></p>
         </div>
 
         {/* Other Methods */}
         <div className="flex flex-col w-full gap-1 transition-all duration-300">
-          <p className="p-2 bg-black text-white border-2 border-black font-medium tracking-widest rounded w-full mt-2 flex items-center justify-center cursor-pointer gap-4 group transition-all duration-300">
+          <p className="p-2 md:py-3 bg-black text-white border-2 border-black font-medium tracking-widest rounded w-full mt-2 flex items-center justify-center cursor-pointer gap-4 group transition-all duration-300">
             <FcGoogle className="w-6 h-6" />
 
             <span className="">Google</span>
           </p>
-          <p className="p-2 bg-blue-500 border-2 border-blue-500 hover:border-blue-600 hover:bg-blue-600 font-medium text-white tracking-widest rounded w-full mt-2 flex items-center justify-center cursor-pointer gap-4 transition-all duration-300">
+          <p className="p-2 md:py-3 bg-blue-500 border-2 border-blue-500 hover:border-blue-600 hover:bg-blue-600 font-medium text-white tracking-widest rounded w-full mt-2 flex items-center justify-center cursor-pointer gap-4 transition-all duration-300">
             <FaFacebook className="w-6 h-6" />
 
             <span className=" text-white">Facebook</span>
           </p>
-          <p className="p-2 bg-neutral-900 border-2 border-neutral-900 hover:bg-neutral-950 hover:border-neutral-950text-white font-medium tracking-widest rounded w-full mt-2 flex items-center justify-center cursor-pointer text-white gap-4 transition-all duration-300">
+          <p className="p-2 md:py-3 bg-neutral-900 border-2 border-neutral-900 hover:bg-neutral-950 hover:border-neutral-950text-white font-medium tracking-widest rounded w-full mt-2 flex items-center justify-center cursor-pointer text-white gap-4 transition-all duration-300">
             <FaXTwitter className="w-6 h-6" />
 
             <span className=" text-white">Twitter ( X )</span>
