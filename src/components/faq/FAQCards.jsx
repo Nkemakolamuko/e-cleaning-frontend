@@ -13,19 +13,27 @@ const FAQCards = () => {
       }`}
     >
       <div
-        className={`flex items-center justify-between pb-2 bg-slate-50 px-2 pt-2 group hover:bg-slate-100 cursor-pointer transition-all duration-300 ${
-          darkMode ? "dark-mode" : ""
-        }`}
+        className={`flex items-center justify-between px-2 py-4 ${
+          showQuestion && "bg-slate-50"
+        } group hover:bg-slate-50 text-base cursor-pointer transition-all duration-300 ${
+          darkMode
+            ? `dark-mode hover:bg-slate-400 group-hover:!text-slate-200`
+            : ""
+        } ${darkMode && showQuestion ? "!bg-slate-400" : ""}`}
         onClick={() => setShowQuestion(!showQuestion)}
       >
         <p
           className={`!tracking-widest font-medium text-slate-800 ${
-            darkMode ? "!text-slate-200 group-hover:!text-slate-800" : ""
+            darkMode ? "!text-slate-200" : ""
           }`}
         >
           Question
         </p>
-        <p className="rounded-full border p-2 text-slate-600 group-hover:text-slate-700 group-hover:bg-slate-200 transition-all duration-300">
+        <p
+          className={`rounded-full p-2 text-slate-600 transition-all duration-300 ${
+            darkMode ? "!text-slate-200" : ""
+          }`}
+        >
           {showQuestion ? <FaAngleUp /> : <FaAngleDown />}
         </p>
       </div>
@@ -35,8 +43,10 @@ const FAQCards = () => {
             darkMode ? "!text-slate-200" : ""
           }`}
         >
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis,
-          voluptatibus.
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam,
+          corrupti sunt. Iusto, labore? Suscipit animi incidunt corporis omnis,
+          nesciunt assumenda. Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Repellendus, veniam.
         </p>
       )}
     </div>
