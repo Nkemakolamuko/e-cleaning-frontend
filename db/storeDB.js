@@ -1,7 +1,24 @@
 // import { AiFillStar } from "react-icons/ai";
 // import uuid4 from "uuid4";
+import download from "../src/assets/download.jpg";
 
 const data = [
+  {
+    // id: uuid4(),
+    id: Math.random(),
+    quantity: 1,
+    img: download,
+    title: "Spray Starch",
+    // star: <AiFillStar className="rating-star" />,
+    reviews: "(173 reviews)",
+    prevPrice: "₦4, 800",
+    newPrice: "₦3,300",
+    company: "Easy On",
+    color: [null],
+    size: ["300ml", "450ml", "500ml", "1litre"],
+    category: "starch",
+    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure placeat esse recusandae praesentium asperiores! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, laudantium. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure placeat esse recusandae praesentium asperiores! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, laudantium. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure placeat esse recusandae praesentium asperiores! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, laudantium.",
+  },
   {
     // id: uuid4(),
     id: Math.random(),

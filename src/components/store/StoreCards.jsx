@@ -41,35 +41,16 @@ const StoreCards = ({
       return;
     } else {
       setCartAdded(true);
-      // console.log("True From card add");
       setCartModalCount(cartModalCount + 1);
 
       setCartItem([...cartItem, addedProduct]);
-      // setCartTotal(cartItem);
     }
-    // console.log(cartItem);
-    // console.log(cartTotal);
   }, []);
 
   const handleCartItemId = (id) => {
     setCartId(id);
-    const addToCartFn = () => {
-      if (cartItem.includes(addedProduct) || addedProduct == undefined) {
-        setCartExistErr(true);
-        return;
-      } else {
-        setCartAdded(true);
-        setCartModalCount(cartModalCount + 1);
-
-        setCartItem([...cartItem, addedProduct]);
-        // setCartTotal(cartItem);
-      }
-    };
-    addToCartFn();
   };
 
-  // I used this useEffect method before - but it causes error to be true each time page loads
-  // useEffect(() => {
   // const addToCartFn = () => {
   //   if (cartItem.includes(addedProduct) || addedProduct == undefined) {
   //     setCartExistErr(true);
@@ -77,12 +58,29 @@ const StoreCards = ({
   //   } else {
   //     setCartAdded(true);
   //     setCartModalCount(cartModalCount + 1);
+
   //     setCartItem([...cartItem, addedProduct]);
   //     // setCartTotal(cartItem);
   //   }
   // };
-  // addToCartFn();
-  // }, [cartId]);
+
+  // I used this useEffect method before - but it causes error to be true each time page loads
+  useEffect(() => {
+    const addToCartFn = () => {
+      if (cartItem.includes(addedProduct) || addedProduct == undefined) {
+        setCartExistErr(true);
+        return;
+      } else {
+        setCartAdded(true);
+        setCartModalCount(cartModalCount + 1);
+        setCartItem([...cartItem, addedProduct]);
+      }
+    };
+    if (cartId) {
+      addToCartFn();
+      setCartId("");
+    }
+  }, [cartId]);
 
   return (
     <div
@@ -92,7 +90,10 @@ const StoreCards = ({
     >
       <p
         className="right-2 top-2 absolute p-1 text-xs hover:bg-yellow-300 bg-yellow-400 text-slate-100 cursor-pointer shadow-md active:shadow-none active:scale-90 transition-all duration-300"
-        onClick={() => handleCartItemId(id)}
+        onClick={() => {
+          handleCartItemId(id);
+          // addToCartFn();
+        }}
       >
         <span>
           <FaCartPlus className="w-5 h-5" />
@@ -101,8 +102,8 @@ const StoreCards = ({
       <img
         src={img ? img : logo}
         alt="Product Image"
-        width={"30%"}
-        height={"30%"}
+        width={"50%"}
+        height={"50%"}
         className=""
       />
       <div className="flex flex-col h-full justify-end mx-auto text-center w-[80%] items-center gap-2">
