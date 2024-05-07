@@ -89,7 +89,7 @@ const Login = () => {
       </div>
 
       {/* max-w-[410px] */}
-      <div className="md:max-w-[50%] h-full flex flex-col items-center justify-center md:justify-center container mx-auto lg:px-20 md:py-8 md:px-6 p-2 overflow-auto">
+      <div className="md:max-w-[50%] h-full flex flex-col items-center justify-center md:justify-center container mx-auto lg:px-20 md:py-8 md:px-6 p-2 overflow-auto scroll">
         <div className="w-[20%] h-[20%]">
           {/* <img
             src={logo}

@@ -79,7 +79,7 @@ const Register = () => {
       </div>
 
       {/* max-w-[410px] */}
-      <div className="md:max-w-[50%] h-full flex flex-col items-center justify-center md:justify-normal  container mx-auto lg:px-20 md:py-8 md:px-6 px-2 pb-2 pt-24 overflow-auto">
+      <div className="md:max-w-[50%] h-full flex flex-col items-center justify-center md:justify-normal  container mx-auto lg:px-20 md:py-8 md:px-6 px-2 pb-2 pt-24 overflow-auto scroll">
         <div className="w-[20%] h-[20%]">
           <div ref={loginLogoContainer} />
         </div>
