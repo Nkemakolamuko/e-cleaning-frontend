@@ -45,8 +45,6 @@ const Login = () => {
     // console.log(userDetails);
     // setUserDetail([...userDetail, userDetails]);
     userDetails.map((user) => setUserDetail(user));
-    // console.log(user);
-    // console.log(userDetail);
   }, []);
 
   const handleSubmit = (e) => {
