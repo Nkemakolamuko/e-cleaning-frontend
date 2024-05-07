@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import Swal from "sweetalert2";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaSignOutAlt } from "react-icons/fa";
 import {
@@ -33,13 +34,25 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
 
   // Handle Logout
   const handleLogout = () => {
-    // I'd use -sign in- page here
-    // window.location.replace("/dashboard");
-    const confirmLogOut = confirm("Are you sure?");
-    if (confirmLogOut) {
-      // window.location.href = "/login";
-      navigate("/login");
-    }
+    // // window.location.replace("/login");
+    // const confirmLogOut = confirm("Are you sure?");
+    // if (confirmLogOut) {
+    //   // window.location.href = "/login";
+    //   navigate("/login");
+    // }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You will have to login again!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "green",
+      cancelButtonColor: "#EC4899",
+      confirmButtonText: "Yes, logout!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "/login";
+      }
+    });
   };
 
   return (

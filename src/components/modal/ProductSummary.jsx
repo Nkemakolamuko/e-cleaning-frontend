@@ -3,6 +3,8 @@ import ProductSummaryDetails from "./ProductSummaryDetails";
 import { BgContext } from "../../App";
 import data from "../../../db/storeDB";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const ProductSummary = () => {
   const {
@@ -116,17 +118,36 @@ const ProductSummary = () => {
   //   // I need to use maybe Swal here, because the above doesn't work as expected - for cancel especially
   // };
   const handleDeleteFromCart = (id) => {
-    const youSure = window.confirm("Are you sure?");
-    if (youSure) {
-      // If user confirms deletion
-      const updatedCart = cartItem.filter((product) => product.id !== id);
-      setCartItem(updatedCart);
-      setCartModalCount(cartModalCount - 1);
-      if (updatedCart.length === 0) {
-        // If cart becomes empty after deletion
-        setCartId(null);
+    // const youSure = window.confirm("Are you sure?");
+    // if (youSure) {
+    //   // If user confirms deletion
+    //   const updatedCart = cartItem.filter((product) => product.id !== id);
+    //   setCartItem(updatedCart);
+    //   setCartModalCount(cartModalCount - 1);
+    //   if (updatedCart.length === 0) {
+    //     // If cart becomes empty after deletion
+    //     setCartId(null);
+    //   }
+    // }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You will have to add it again!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "green",
+      cancelButtonColor: "#EC4899",
+      confirmButtonText: "Yes, delete product!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const updatedCart = cartItem.filter((product) => product.id !== id);
+        setCartItem(updatedCart);
+        setCartModalCount(cartModalCount - 1);
+        if (updatedCart.length === 0) {
+          // If cart becomes empty after deletion
+          setCartId(null);
+        }
       }
-    }
+    });
   };
 
   // Increment
@@ -148,7 +169,7 @@ const ProductSummary = () => {
       return product.id === id;
     });
     if (foundProduct.quantity < 2) {
-      alert("Delete instead");
+      toast("Delete item instead.");
       return;
     }
     foundProduct.quantity && foundProduct.quantity--;
@@ -161,6 +182,7 @@ const ProductSummary = () => {
 
   return (
     <div className="bg-transparent h-[80vh] w-full">
+      <ToastContainer />
       <div
         className={`max-w-full md:max-w-full flex-col flex items-center justify-between h-[100%] overflow-auto bg-white shadow-2xl shadow-black/50 transition-all duration-300 ease-in-out ${
           darkMode ? "dark-mode shadow shadow-white/50" : ""

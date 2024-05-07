@@ -31,8 +31,10 @@ const StoreCards = ({
     darkMode,
   } = useContext(BgContext);
 
+  const [newCartId, setNewCartId] = useState("");
+
   const addedProduct = data?.find((product) => {
-    return product.id == cartId;
+    return product.id == newCartId;
   });
 
   // To update cartTotal on load
@@ -48,7 +50,8 @@ const StoreCards = ({
   }, []);
 
   const handleCartItemId = (id) => {
-    setCartId(id);
+    setCartId(id); // The reason I didn't use the original cartId is because it is accessed elsewhere, and in our addToCart function, we set it back to an empty string to remove the toast error that keeps showing up each time we load up our page - so now, we are using a temporary id, which is modified it's effect stays locally
+    setNewCartId(id);
   };
 
   // const addToCartFn = () => {
@@ -64,7 +67,6 @@ const StoreCards = ({
   //   }
   // };
 
-  // I used this useEffect method before - but it causes error to be true each time page loads
   useEffect(() => {
     const addToCartFn = () => {
       if (cartItem.includes(addedProduct) || addedProduct == undefined) {
@@ -76,11 +78,11 @@ const StoreCards = ({
         setCartItem([...cartItem, addedProduct]);
       }
     };
-    if (cartId) {
+    if (newCartId) {
       addToCartFn();
-      setCartId("");
+      setNewCartId("");
     }
-  }, [cartId]);
+  }, [newCartId]);
 
   return (
     <div

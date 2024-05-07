@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import Swal from "sweetalert2";
 import Title from "../components/Title";
 import NotificationPageCard from "../components/notification/NotificationPageCard";
 import { FaEyeSlash, FaTrashCan } from "react-icons/fa6";
@@ -14,28 +15,51 @@ const Notifications = () => {
   const [notiId, setNotiId] = useState(null);
   const [notiDetails, setNotiDetails] = useState(null);
 
-  // const [deleteNoti, setDeleteNoti] = useState(false);
-  // const [delMsg, setDelMsg] = useState(false);
-
   useEffect(() => {
     setNotification(notificationDb);
   }, []);
 
+  // const handleDeleteNotification = (id) => {
+  //   const youSure = window.confirm("Are you sure?");
+  //   if (youSure) {
+  //     setNotification(
+  //       notification.filter((value) => {
+  //         return value.id !== id;
+  //       })
+  //     );
+  //     toast.success("Notification deleted", {
+  //       autoClose: 2000,
+  //       position: "top-left",
+  //     });
+  //     setNotiDetails(null);
+  //   } else {
+  //     return;
+  //   }
+  // };
+
   const handleDeleteNotification = (id) => {
-    const youSure = window.confirm("Are you sure?");
-    if (youSure) {
-      setNotification(
-        notification.filter((value) => {
-          return value.id !== id;
-        })
-      );
-      toast.success("Notification deleted", {
-        autoClose: 2000,
-        position: "top-left",
-      });
-    } else {
-      return;
-    }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "green",
+      cancelButtonColor: "#EC4899",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setNotification(
+          notification.filter((value) => {
+            return value.id !== id;
+          })
+        );
+        toast.success("Notification deleted", {
+          autoClose: 2000,
+          position: "top-left",
+        });
+        setNotiDetails(null);
+      }
+    });
   };
 
   const handleClick = (id) => {
@@ -45,9 +69,9 @@ const Notifications = () => {
 
   useEffect(() => {
     const foundItem = notification.find((val) => {
-      return val.id == notiId;
+      return val.id === notiId;
     });
-    setNotiDetails([foundItem]);
+    setNotiDetails(foundItem ? [foundItem] : null);
   }, [notiId]);
 
   return (
@@ -66,24 +90,15 @@ const Notifications = () => {
                 key={id}
                 time={time}
                 id={id}
-                handleDelete={() => handleDeleteNotification(id)}
+                handleDelete={() => {
+                  handleDeleteNotification(id);
+                }}
               />
             ))}
           </div>
           {/* Big Screen Noti Card */}
           <div className="md:max-w-[90%] w-full md:flex md:flex-col mb-20 gap-4 md:gap-5 hidden">
             {notification?.map(({ title, desc, id, date, time }) => (
-              // <NotificationPageCard
-              //   title={title}
-              //   desc={desc}
-              //   key={id}
-              //   id={id}
-              //   handleDeleteNotification={handleDeleteNotification}
-              //   // delMsg={delMsg}
-              //   // setDelMsg={setDelMsg}
-              //   // deleteNoti={deleteNoti}
-              //   // setDeleteNoti={setDeleteNoti}
-              // />
               <NewNotificationPageCard
                 date={date}
                 title={title}
@@ -95,20 +110,22 @@ const Notifications = () => {
               />
             ))}
           </div>
-          <div className="fixed right-2 top-32 w-1/2 z-[12] hidden md:flex md:flex-col">
-            <h2 className="text-base mb-4 px-1 font-semibold">Details</h2>
-            {notiDetails?.map((notiFound) => (
-              <NotificationDetails
-                id={notiFound?.id}
-                key={notiFound?.id}
-                date={notiFound?.date}
-                title={notiFound?.title}
-                desc={notiFound?.desc}
-                time={notiFound?.time}
-                category={notiFound?.category}
-              />
-            ))}
-          </div>
+          {notiDetails && (
+            <div className="fixed right-2 top-32 w-1/2 z-[12] md:flex md:flex-col">
+              <h2 className="text-base mb-4 px-1 font-semibold">Details</h2>
+              {notiDetails.map((notiFound) => (
+                <NotificationDetails
+                  id={notiFound?.id}
+                  key={notiFound?.id}
+                  date={notiFound?.date}
+                  title={notiFound?.title}
+                  desc={notiFound?.desc}
+                  time={notiFound?.time}
+                  category={notiFound?.category}
+                />
+              ))}
+            </div>
+          )}
         </div>
       ) : (
         <div className="md:max-w-[90%] w-full flex justify-center items-center text-slate-500 h-[70vh]">

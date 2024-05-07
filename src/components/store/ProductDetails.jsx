@@ -16,13 +16,17 @@ const ProductDetails = ({ handleCloseProduct }) => {
     cartId,
     setCartId,
     setCartExistErr,
+    cartAdded,
+    setCartAdded,
   } = useContext(BgContext);
   const [cartSuccess, setCartSuccess] = useState(false);
   const [cartError, setCartError] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(null);
 
+  const [newCartId, setNewCartId] = useState("");
+
   const addedProduct = data?.find((product) => {
-    return product.id == cartId;
+    return product.id == newCartId;
   });
 
   // To update cartTotal on load
@@ -38,43 +42,26 @@ const ProductDetails = ({ handleCloseProduct }) => {
 
   const handleCartItemId = (id) => {
     setCartId(id);
-    const handleAddToCart = () => {
-      if (cartItem.includes(addedProduct) || addedProduct == undefined) {
-        // setCartError(true); // local
-        setCartExistErr(true); // context
-        return;
-      } else {
-        setCartSuccess(true);
-        setCartItem([...cartItem, addedProduct]);
-        setTimeout(() => {
-          setCartSuccess(false);
-        }, 5000);
-        setCartModalCount(cartModalCount + 1);
-      }
-    };
-    handleAddToCart();
+    // The reason I didn't use the original cartId is because it is accessed elsewhere, and in our addToCart function, we set it back to an empty string to remove the toast error that keeps showing up each time we load up our page - so now, we are using a temporary id, which is modified it's effect stays locally
+    setNewCartId(id);
   };
 
-  // useEffect(() => {
-  //   const handleAddToCart = () => {
-  //     if (cartItem.includes(addedProduct) || addedProduct == undefined) {
-  //       // setCartError(true);
-  //       // setTimeout(() => {
-  //       //   setCartError(false);
-  //       // }, 5000);
-  //       return;
-  //     } else {
-  //       setCartSuccess(true);
-  //       setCartItem([...cartItem, addedProduct]);
-  //       setTimeout(() => {
-  //         setCartSuccess(false);
-  //       }, 5000);
-  //       setCartModalCount(cartModalCount + 1);
-  //     }
-  //   };
-
-  //   handleAddToCart();
-  // }, [cartId]);
+  useEffect(() => {
+    const handleAddToCartFn = () => {
+      if (cartItem.includes(addedProduct) || addedProduct == undefined) {
+        setCartExistErr(true);
+        return;
+      } else {
+        setCartAdded(true);
+        setCartModalCount(cartModalCount + 1);
+        setCartItem([...cartItem, addedProduct]);
+      }
+    };
+    if (newCartId) {
+      handleAddToCartFn();
+      setNewCartId("");
+    }
+  }, [newCartId]);
 
   useEffect(() => {
     const descID = localStorage.getItem("store-id"); // We have our particular product ID

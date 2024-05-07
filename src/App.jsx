@@ -18,6 +18,7 @@ import CartModal from "./components/modal/CartModal";
 import Checkout from "./pages/Checkout";
 import Payment from "./pages/Payment";
 import NewNotificationDetailsPage from "./components/notification/NewNotificationDetailsPage";
+import AdminDashboard from "./pages/AdminDashboard";
 
 export const BgContext = createContext(null);
 
@@ -95,6 +96,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="admin-dashboard2521" element={<AdminDashboard />} />
           <Route
             path="/dashboard"
             element={
