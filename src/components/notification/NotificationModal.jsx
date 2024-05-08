@@ -26,12 +26,12 @@ const NotificationModal = ({ handleCloseNotificationModal }) => {
       }`}
     >
       <div
-        className={`w-full flex items-center justify-between px-2 pt-2 ${
-          darkMode ? "dark-mode border rounded-t" : ""
+        className={`w-full flex items-center justify-between border-b px-2 pt-2 ${
+          darkMode ? "dark-mode rounded-t" : ""
         }`}
       >
         <p
-          className={`tracking-widest font-medium ${
+          className={`tracking-widest text-sm font-medium ${
             darkMode ? "dark-mode" : ""
           }`}
         >
