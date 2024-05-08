@@ -80,7 +80,7 @@ const Settings = () => {
     <section className="relative mb-6 md:mb-0">
       <div className="flex items-center justify-between">
         <Title title="Settings" />
-        <div className="px-4 md:px-4 lg:px-4 flex gap-2 items-center md:hidden">
+        <div className="flex gap-2 items-center md:hidden">
           <p
             className="!bg-white text-yellow-400 border rounded-full cursor-pointer p-1 transition-all duration-300"
             onClick={toggleThemeLight}
@@ -106,7 +106,7 @@ const Settings = () => {
           darkMode ? "dark-mode" : ""
         }`}
       >
-        <div className="mx-auto w-full">
+        <div className="mx-auto w-full !text-sm !text-slate-700">
           <div className="flex flex-col gap-2 w-full">
             <SettingsCard
               handleClick={() => setShow("Payment")}
@@ -150,7 +150,7 @@ const Settings = () => {
           </div>
         </div>
         <div className="mx-auto w-full">
-          <div className="flex flex-col gap-2 w-full">
+          <div className="flex flex-col gap-2 !text-sm !text-slate-700 w-full">
             <SettingsCard
               handleClick={() => {
                 setShow("Address");
@@ -200,7 +200,7 @@ const Settings = () => {
 
       {/* Show Components */}
       {/* It will also be a pop-up form for updating other user info in the settings page */}
-      <div className="fixed left-0 top-0 w-[100%] z-[999]">
+      <div className="fixed left-0 top-0 w-[100%] z-[999] !text-sm">
         {show === "Payment" && (
           <PaymentType handleClose={() => setShow(null)} />
         )}

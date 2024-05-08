@@ -236,7 +236,7 @@ const ProductSummary = () => {
             </span>
             <input
               type="text"
-              className={`py-2 md:py-2 px-2 text-slate-600 border-2 border-orange-500/80 rounded outline-none w-[70%] ${
+              className={`py-2 md:py-2 px-2 text-slate-600 border border-orange-500/80 rounded outline-none w-[70%] ${
                 darkMode ? "bg-inherit" : ""
               }`}
               placeholder="(Optional)"

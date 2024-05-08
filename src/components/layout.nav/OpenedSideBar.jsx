@@ -66,12 +66,18 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
         </p>
 
         <p onClick={handleSideBarClose} className="tooltip">
-          <FaTimes className="w-8 h-8 text-rose-500 hover:bg-rose-600 hover:text-white transition-all duration-300 cursor-pointer active:scale-75" />
+          <FaTimes className="w-6 h-6 text-rose-500 hover:bg-rose-600 hover:text-white transition-all duration-300 cursor-pointer active:scale-75" />
           <span className="tooltiptext rounded">Close Menu</span>
         </p>
       </div>
       <ul className="flex flex-col gap-1 my-4 text-green-900 overflow-auto scroll transition-all duration-300">
-        <Link to="/dashboard" onClick={() => handleActiveLink("/dashboard")}>
+        <Link
+          to="/dashboard"
+          onClick={() => {
+            handleActiveLink("/dashboard");
+            handleSideBarClose();
+          }}
+        >
           <li
             className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
               activeLink === "/dashboard"
@@ -88,7 +94,10 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
 
         <Link
           to="/dashboard/cleaners"
-          onClick={() => handleActiveLink("/cleaners")}
+          onClick={() => {
+            handleActiveLink("/cleaners");
+            handleSideBarClose();
+          }}
         >
           <li
             className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
@@ -106,7 +115,10 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
 
         <Link
           to="/dashboard/orders"
-          onClick={() => handleActiveLink("/orders")}
+          onClick={() => {
+            handleActiveLink("/orders");
+            handleSideBarClose();
+          }}
         >
           <li
             className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
@@ -124,7 +136,10 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
 
         <Link
           to="/dashboard/notifications"
-          onClick={() => handleActiveLink("/notifications")}
+          onClick={() => {
+            handleActiveLink("/notifications");
+            handleSideBarClose();
+          }}
         >
           <li
             className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
@@ -140,7 +155,13 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           </li>
         </Link>
 
-        <Link to="/dashboard/store" onClick={() => handleActiveLink("/store")}>
+        <Link
+          to="/dashboard/store"
+          onClick={() => {
+            handleActiveLink("/store");
+            handleSideBarClose();
+          }}
+        >
           <li
             className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
               activeLink === "/store"
@@ -155,7 +176,13 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           </li>
         </Link>
 
-        <Link to="/dashboard/faq" onClick={() => handleActiveLink("/faq")}>
+        <Link
+          to="/dashboard/faq"
+          onClick={() => {
+            handleActiveLink("/faq");
+            handleSideBarClose();
+          }}
+        >
           <li
             className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
               activeLink === "/faq" ? "bg-green-300 text-white rounded-md" : ""
@@ -170,7 +197,10 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
 
         <Link
           to="/dashboard/history"
-          onClick={() => handleActiveLink("/history")}
+          onClick={() => {
+            handleActiveLink("/history");
+            handleSideBarClose();
+          }}
         >
           <li
             className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
@@ -188,7 +218,10 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
 
         <Link
           to="/dashboard/contact"
-          onClick={() => handleActiveLink("/contact")}
+          onClick={() => {
+            handleActiveLink("/contact");
+            handleSideBarClose();
+          }}
         >
           <li
             className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
@@ -206,7 +239,10 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
 
         <Link
           to="/dashboard/settings"
-          onClick={() => handleActiveLink("/settings")}
+          onClick={() => {
+            handleActiveLink("/settings");
+            handleSideBarClose();
+          }}
         >
           <li
             className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${

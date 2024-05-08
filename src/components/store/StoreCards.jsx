@@ -87,7 +87,7 @@ const StoreCards = ({
   return (
     <div
       className={`h-full flex flex-col md:shadow-lg shadow-lg md:hover:shadow-lg items-center p-2 rounded scale-95 md:scale-100 transition-all duration-300 relative ${
-        darkMode ? "dark-mode border-2 border-white" : ""
+        darkMode ? "dark-mode border border-white" : ""
       }`}
     >
       <p
@@ -123,7 +123,7 @@ const StoreCards = ({
           <span className="font-medium text-green-500">{newPrice}</span>
         </p>
         <button
-          className="p-2 w-full bg-green-500/85 hover:bg-green-500 text-white  border-2 border-green-500/85 hover:border-green-500 font-medium hover:rounded-md rounded transition-all duration-300 ease-in-out"
+          className="p-2 w-full bg-green-500/85 hover:bg-green-500 text-white border border-green-500/85 hover:border-green-500 font-medium hover:rounded-md rounded transition-all duration-300 ease-in-out"
           onClick={handleViewDetails}
         >
           View Details

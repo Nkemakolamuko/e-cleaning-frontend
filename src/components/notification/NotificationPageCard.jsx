@@ -29,7 +29,7 @@ const NotificationPageCard = ({
     <>
       {!deleteNoti ? (
         <div
-          className={`md:max:-w-[90%] w-full shadow-md rounded flex-flex-col h-fit gap-3 border-2 bg-white border-t-slate-100 transition-all duration-300 ${
+          className={`md:max:-w-[90%] w-full shadow-md rounded flex-flex-col h-fit gap-3 border bg-white border-t-slate-100 transition-all duration-300 ${
             darkMode ? "dark-mode border-2" : ""
           }`}
         >

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { FaSignOutAlt } from "react-icons/fa";
+import { FaSignOutAlt, FaTimes } from "react-icons/fa";
 import {
   FaCalendarCheck,
   FaCheckDouble,
@@ -72,9 +72,10 @@ const ClosedSideBar = ({ handleSideBarOpen }) => {
           onClick={handleSideBarOpen}
           className="active:scale-75 cursor-pointer"
         >
-          <GiHamburgerMenu className="w-6 h-6" />
+          {/* <GiHamburgerMenu className="w-6 h-6" /> */}
+          <FaTimes className="w-6 h-6 text-rose-500 hover:bg-rose-600 hover:text-white transition-all duration-300 cursor-pointer active:scale-75" />
         </p>
-        <span className="tooltiptext rounded">Open Menu</span>
+        <span className="tooltiptext rounded">Close Menu</span>
       </div>
       <ul className="flex flex-col gap-1 my-4 text-green-900 w-fit transition-all duration-300">
         <Link

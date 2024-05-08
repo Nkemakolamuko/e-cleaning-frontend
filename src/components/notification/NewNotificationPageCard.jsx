@@ -15,9 +15,9 @@ const NewNotificationPageCard = ({
     <div className="flex flex-col">
       <p className="text-base mb-2 px-1 font-semibold">{date}</p>
       <div
-        className={`md:max:-w-[90%] w-full shadow-md rounded flex-flex-col h-fit gap-3 border-2 bg-white border-t-slate-100 px-2 active:bg-black/10 cursor-pointer transition-all duration-300 ${
+        className={`md:max:-w-[90%] w-full shadow-md rounded flex-flex-col h-fit gap-3 border bg-white border-t-slate-100 px-2 active:bg-black/10 cursor-pointer transition-all duration-300 ${
           darkMode
-            ? "dark-mode border-2 active:bg-white/20 transition-all duration-300"
+            ? "dark-mode border active:bg-white/20 transition-all duration-300"
             : ""
         }`}
         onClick={handleClick}

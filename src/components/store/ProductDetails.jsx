@@ -134,7 +134,7 @@ const ProductDetails = ({ handleCloseProduct }) => {
               <select
                 name="size"
                 id="size"
-                className={`active:outline-none outline-none border-2 p-2 rounded w-full font-medium transition-all duration-300 ${
+                className={`active:outline-none outline-none border p-2 rounded w-full font-medium transition-all duration-300 ${
                   darkMode ? "dark-mode" : ""
                 }`}
               >
@@ -150,7 +150,7 @@ const ProductDetails = ({ handleCloseProduct }) => {
               <select
                 name="color"
                 id="color"
-                className={`active:outline-none outline-none border-2 p-2 rounded w-full font-medium transition-all duration-300 ${
+                className={`active:outline-none outline-none border p-2 rounded w-full font-medium transition-all duration-300 ${
                   darkMode ? "dark-mode" : ""
                 }`}
               >
@@ -167,7 +167,7 @@ const ProductDetails = ({ handleCloseProduct }) => {
               className={`p-3 w-full hover:border-black font-medium md:hover:rounded rounded transition-all duration-300 ease-in-out ${
                 darkMode
                   ? "bg-orange-500 text-white "
-                  : "text-white bg-black hover:bg-black hover:text-white  border-2 border-black"
+                  : "text-white bg-black hover:bg-black hover:text-white  border border-black"
               }`}
               onClick={() => handleCartItemId(currentProduct?.id)}
             >

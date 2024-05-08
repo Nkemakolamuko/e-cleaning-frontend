@@ -9,7 +9,7 @@ const AvailableCleaners = ({ name, desc, handleNext, handlePrev }) => {
   return (
     <div className={`${darkMode && "dark-mode"} h-[450px]`}>
       <div
-        className={`px-2 pt-2 pb-3 rounded h-full flex flex-col md:shadow-lg shadow-lg hover:shadow-lg w-[250px] md:w-[300px] items-center bg-white border border-green-100 to-white transition-all duration-300 ${
+        className={`px-2 pt-2 pb-3 rounded h-full flex flex-col md:shadow-lg shadow-lg hover:shadow-lg w-[300px] md:w-[330px] items-center bg-white border border-green-100 to-white transition-all duration-300 ${
           darkMode ? "dark-mode" : ""
         }`}
       >

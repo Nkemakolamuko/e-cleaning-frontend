@@ -30,7 +30,7 @@ const NewNotificationDetailsPage = () => {
       </p>
       {notification.map((noti) => (
         <div
-          className={`border-2 w-fit mx-auto rounded p-4 h-fit flex flex-col text-slate-700 gap-2 shadow-lg transition-all duration-300 ${
+          className={`border w-fit mx-auto rounded p-4 h-fit flex flex-col text-slate-700 gap-2 shadow-lg transition-all duration-300 ${
             darkMode && "!text-slate-200"
           }`}
           key={noti.id}

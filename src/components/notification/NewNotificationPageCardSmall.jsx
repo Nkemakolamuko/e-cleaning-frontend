@@ -14,17 +14,23 @@ const NewNotificationPageCardSmall = ({
   const { darkMode } = useContext(BgContext);
   return (
     <div className="flex flex-col relative">
-      <p className="text-sm mb-1 px-1 font-semibold">{date}</p>
+      <p
+        className={`text-sm text-slate-500 mb-1 px-1 font-semibold ${
+          darkMode ? "dark-mode text-slate-200" : ""
+        }`}
+      >
+        {date}
+      </p>
       <Link
         to={`/dashboard/notifications/${id}`}
-        className={`md:max:-w-[90%] w-full shadow-md rounded flex-flex-col h-fit gap-3 border-2 bg-white border-t-slate-100 px-2 active:bg-black/10 cursor-pointer transition-all duration-300 ${
+        className={`md:max:-w-[90%] w-full shadow-md rounded flex-flex-col h-fit gap-3 border bg-white border-t-slate-100 px-2 active:bg-black/10 cursor-pointer transition-all duration-300 ${
           darkMode
-            ? "dark-mode border-2 active:bg-white/20 transition-all duration-300"
+            ? "dark-mode border active:bg-white/20 transition-all duration-300"
             : ""
         }`}
       >
         <p
-          className={`tracking-wider font-medium text-slate-700 px-2 py-2 ${
+          className={`tracking-wider font-medium text-slate-700 text-sm px-2 py-2 ${
             darkMode ? "!text-slate-200" : ""
           }`}
         >
@@ -33,7 +39,7 @@ const NewNotificationPageCardSmall = ({
 
         <div className="flex w-full pb-2 items-center truncate transition-all duration-300">
           <div className="p-2 bg-cyan-50 text-cyan-500 rounded-full">
-            <FaBell className="w-6 h-6" />
+            <FaBell className="w-5 h-5" />
           </div>
           <div
             className={`text-sm p-2 text-slate-700 ${

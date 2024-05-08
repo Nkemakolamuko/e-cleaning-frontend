@@ -72,10 +72,12 @@ const Header = () => {
     setShowNotificationModal(false);
   };
 
+  const { sidebar, setSidebar } = useContext(SideBarContext);
+
   return (
     <header
       className={`header shadow-md relative w-full transition-all duration-300 bg-white ${
-        darkMode ? "dark-mode for-header shadow- shadow-white/40" : ""
+        darkMode ? "dark-mode for-header border-b" : ""
       }`}
     >
       {showCartModal && <CartModal handleModalClose={handleModalClose} />}
@@ -87,12 +89,19 @@ const Header = () => {
       )}
 
       <p
-        className="font-semibold truncate flex items-center gap-1 w-[50%]"
+        className="font-semibold truncate flex items-center gap-2 md:gap-6 w-[50%]"
         // contentEditable
       >
-        {/* <GiHamburgerMenu className="w-6 h-6 md:hidden" /> */}
-        👋 Hi,{" "}
+        {!sidebar && (
+          <GiHamburgerMenu
+            className={`w-6 h-6 cursor-pointer`}
+            onClick={() => {
+              setSidebar(true);
+            }}
+          />
+        )}
         <span className="truncate">
+          👋 Hi,{" "}
           {user?.name?.split(" ")[0].charAt(0).toUpperCase() +
             user?.name?.slice(1).split(" ")[0].toLowerCase() ||
             user?.name?.charAt(0).toUpperCase() ||
@@ -166,7 +175,7 @@ const Header = () => {
         </p>
       </div>
 
-      {!smallScreenSideBar && (
+      {!sidebar && (
         <a
           href="tel:+2347040876440"
           target="_blank"
@@ -184,7 +193,7 @@ const Header = () => {
         </a>
       )}
 
-      {!smallScreenSideBar && (
+      {!sidebar && (
         <p className="cursor-pointer md:hidden" onClick={handleCartModal}>
           <FaCartShopping
             className={`w-6 h-6 text-green-900 relative active:scale-90 ${

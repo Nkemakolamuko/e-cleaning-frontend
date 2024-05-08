@@ -9,7 +9,7 @@ const FAQCards = () => {
   return (
     <div
       className={`flex flex-col bg-white rounded border-2 transition-all duration-300 ${
-        darkMode ? "dark-mode border-2" : ""
+        darkMode ? "dark-mode border" : ""
       }`}
     >
       <div
@@ -23,7 +23,7 @@ const FAQCards = () => {
         onClick={() => setShowQuestion(!showQuestion)}
       >
         <p
-          className={`!tracking-widest font-medium text-slate-800 ${
+          className={`!tracking-widest font-medium text-slate-800 text-sm md:text-base ${
             darkMode ? "!text-slate-200" : ""
           }`}
         >

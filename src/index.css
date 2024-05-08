@@ -40,7 +40,8 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 260px 1fr 1fr 1fr;
+  grid-template-columns: 0px 1fr 1fr 1fr;
+  /* grid-template-columns: 260px 1fr 1fr 1fr; */
   grid-template-rows: 60px 1fr;
   grid-template-areas:
     "sidebar header header header"
@@ -52,7 +53,8 @@ body {
 
 .grid-container-close {
   display: grid;
-  grid-template-columns: 45px 1fr 1fr 1fr;
+  /* grid-template-columns: 45px 1fr 1fr 1fr; */
+  grid-template-columns: 260px 1fr 1fr 1fr;
   grid-template-rows: 60px 1fr;
   grid-template-areas:
     "sidebar header header header"

@@ -1,14 +1,21 @@
 import React, { useContext, useEffect, useState } from "react";
 import Title from "../components/Title";
 // import userImage from "../assets/userImage.jpg";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/download.jpg";
 import userImage from "../assets/ugo-best.jpg";
 import {
   FaAngleLeft,
   FaAngleRight,
   FaCircleExclamation,
+  FaEnvelope,
+  FaLocationDot,
+  FaMapLocation,
+  FaMapPin,
+  FaPhone,
   FaStar,
   FaStarHalf,
+  FaStore,
+  FaWhatsapp,
 } from "react-icons/fa6";
 import ActionBTN from "../components/ActionBTN";
 import LatestFeatures from "../components/LatestFeatures";
@@ -17,6 +24,10 @@ import { Link } from "react-router-dom";
 import { FaGreaterThan } from "react-icons/fa";
 import { BgContext } from "../App";
 import AvailableCleaners from "../components/AvailableCleaners";
+import DashboardNewCard from "../components/DashboardNewCard";
+import DetailsCleaner from "../components/dashboard/DetailsCleaner";
+import DetailsProduct from "../components/dashboard/DetailsProduct";
+import { ToastContainer, toast } from "react-toastify";
 
 const cleaners = [
   {
@@ -120,48 +131,55 @@ const Dashboard = () => {
     return () => clearInterval(intervalId);
   }, [startIndex]);
 
+  const [delay, setDelay] = useState(false);
+
+  // Add to cart
+  const handleAddToCart = () => {
+    const id = setTimeout(() => {
+      toast.error("An error occurred, try again --", { autoClose: 2000 });
+    }, 1000);
+    return () => clearTimeout(id);
+  };
+
   return (
     <section
       className={`flex flex-col align-center justify-between w-full overflow-hidden ${
         darkMode ? "dark-mode" : ""
       }`}
     >
+      <ToastContainer />
       <Title title="Dashboard" />
 
-      {/* <p className="text-slate-300">
-        Instead of these kinda cards to come first - I'd create an auto slider
-        to display our products - then maybe clicking it takes you to the Store
-        page{" "}
-      </p> */}
-      <div className="flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-row items-center gap-2 scale-100 lg:scale-100 md:scale-100 px-2">
+      <div className="flex flex-col md:hidden md:grid-cols-2 lg:hidden lg:flex-row items-center gap-2 scale-100 lg:scale-100 md:scale-100">
         {/* Turn these to individual components */}
         <div
-          className={`bg-white w-full h-fit lg:w-[33%] md:h-[210px] d-cards rounded-[4px] shadow-lg shadow-black/20 flex flex-col ${
+          className={`bg-white w-full h-fit lg:w-[33%] md:h-[240px] d-cards rounded-[4px] shadow-lg shadow-black/20 flex flex-col mb-4 ${
             darkMode ? "dark-mode border" : ""
           }`}
         >
           <p
-            className={`border-b-2 bg-slate-50 w-full text-center rounded-t-[4px] py-1 !tracking-wider px-2 ${
+            className={`border-b bg-slate-50 w-full text-center rounded-t-[4px] py-1 text-sm font-medium px-2 ${
               darkMode ? "dark-mode" : ""
             }`}
           >
             Weekly Top Rated Cleaner
           </p>
-          <div className="flex flex-col md:flex-row items-center md:items-center text-center mx-auto md:mx-0 md:text-start gap-2 w-full md:w-full h-full md:h-full p-2 justify-between">
+          <div className="flex flex-col md:flex-row items-center md:items-center text-center mx-auto md:mx-0 md:text-start gap-2 w-full md:w-full h-full md:h-full px-2 py-3 justify-between">
             <div className="flex flex-col w-full md:w-fit items-center md:justify-center h-full">
               <img
                 src={userImage}
                 alt="User Image"
                 // width={"180rem"}
                 // height={"180rem"}
-                className="rounded-[4px] w-[250px] md:h-[150px]"
+                className="rounded-[4px] w-full md:h-[180px]"
               />
             </div>
-            <div className="flex flex-col gap-1 md:h-[150px] md:justify-between">
-              <p className="font-semibold text-green-600 text-nowrap">
+            <div className="flex flex-col gap-1 md:h-[180px] md:justify-between w-full">
+              <p className="font-semibold text-green-600 text-nowrap flex items-center gap-2 text-start">
+                <FaStore />
                 Ugo Best And Sons
               </p>
-              <p className="font-semibold flex items-center gap-1 text-sm justify-center md:justify-start">
+              <p className="font-semibold flex items-center gap-1 text-sm justify-start">
                 Rating:{" "}
                 <span className="text-sm font-normal text-yellow-400 flex items-center">
                   <FaStar />
@@ -171,20 +189,38 @@ const Dashboard = () => {
                   <FaStarHalf />
                 </span>
               </p>
-              <p className="font-semibold text-start text-sm">
-                Location:{" "}
+              <p className="font-semibold justify-start flex flex-col text-sm">
+                <span className="flex items-center gap-2">
+                  <FaLocationDot />
+                  Location:
+                </span>
                 <span className="text-xs font-normal">
                   1st Floor Makazi Plaza, Area 2 by TZ Junction Owerri, Imo
                   State
                 </span>
               </p>
 
-              <ActionBTN text="Contact Now!" />
+              {/* <ActionBTN text="Contact Now!" /> */}
+              <div className="flex flex-col gap-1">
+                <h2 className="font-medium text-sm text-start">Contact Now:</h2>
+                <p className="flex items-center gap-5 text-sm px-4 py-1 border rounded w-full cursor-pointer">
+                  <FaWhatsapp className="w-6 h-6" />
+                  <span>WhatsApp</span>
+                </p>
+                <p className="flex items-center gap-5 text-sm px-4 py-1 border rounded w-full cursor-pointer">
+                  <FaPhone className="w-6 h-6" />
+                  <span>Phone</span>
+                </p>
+                <p className="flex items-center gap-5 text-sm px-4 py-1 border rounded w-full cursor-pointer">
+                  <FaEnvelope className="w-6 h-6" />
+                  <span>Email</span>
+                </p>
+              </div>
             </div>
           </div>
         </div>
         <div
-          className={`w-full h-fit lg:w-[33%] md:h-[220px] d-cards rounded-[4px] shadow-lg shadow-black/20 flex flex-col transition-all duration-300 ease-in-out ${
+          className={`w-full h-fit lg:w-[33%] md:h-[260px] d-cards rounded-[4px] shadow-lg shadow-black/20 flex flex-col transition-all duration-300 ease-in-out ${
             darkMode ? "dark-mode border" : ""
           }`}
         >
@@ -192,31 +228,41 @@ const Dashboard = () => {
             Flash Sales!!!!
           </p>
 
-          <div className="flex flex-col p-2 h-full w-[80%] mx-auto gap-2">
+          <div className="flex flex-col p-2 h-full w-[100%] mx-auto gap-2">
             <div className="flex flex-col m-auto text-center items-center">
               <img
                 src={logo}
                 alt="Product"
-                width="20%"
-                height="20%"
-                className=""
+                // width="40%"
+                // height="40%"
+                className="w-[80%] h-[80%]"
               />
               <p className="font-semibold">
-                <span className="!tracking-widest">Sneakers -</span>{" "}
+                <span className="!tracking-widest">Spray Starch -</span>{" "}
                 <span className="text-rose-600">15% off</span>
               </p>
-              <p className="text-sm">Product available as seen. Hurry Now!!</p>
             </div>
             {/* <ActionBTN text="Buy Now @ N14, 800" /> */}
-            <a
-              href="tel:+2347040876440"
-              className="bg-green-500 text-white text-sm py-3 font-semibold rounded-[3px] hover:bg-green-600 transition-all duration-300 mb-1 text-center cursor-pointer"
+            <p className="flex justify-between w-fit gap-4">
+              <span className="py-2 font-medium text-rose-500 text-lg opacity-80 line-through">
+                N3,800
+              </span>
+              <span className="py-2 font-medium text-green-500 text-lg">
+                N2,900
+              </span>
+            </p>
+            <p className="text-sm">Hurry before product runs out</p>
+            <p className="text-sm">Qty Left : 12</p>
+
+            <p
+              className="py-3 rounded text-white bg-orange-500 text-center w-full font-medium cursor-pointer mt-2 shadow-lg active:scale-95"
+              onClick={handleAddToCart}
             >
-              Buy Now @ N14, 800
-            </a>
+              Add To Cart
+            </p>
           </div>
         </div>
-        <div
+        {/* <div
           className={`bg-white w-full h-fit lg:w-[33%] md:h-[210px] d-cards rounded-[4px] shadow-lg shadow-black/20 flex items-center ${
             darkMode ? "dark-mode border" : ""
           }`}
@@ -250,7 +296,19 @@ const Dashboard = () => {
               Promo Last NOW till August 24th 2024
             </p>
           </div>
-        </div>
+        </div> */}
+      </div>
+      <div className="md:grid md:grid-cols-1 lg:grid-cols-2 gap-4 hidden">
+        <DashboardNewCard
+          image={userImage}
+          details={<DetailsCleaner />}
+          info="Best Performing Cleaner This Week"
+        />
+        <DashboardNewCard
+          image={logo}
+          details={<DetailsProduct handleAddToCart={handleAddToCart} />}
+          info="Product On Flash Sale"
+        />
       </div>
 
       {/* Features */}
@@ -273,7 +331,13 @@ const Dashboard = () => {
           <p className="flex items-center update-small gap-4">
             <div className="flex items-center gap-2 w-fit text-nowrap">
               <FaCircleExclamation className="text-[#FFC83D]" />
-              <h2 className="font-semibold  ">We've Added Search Filter!!</h2>
+              <h2 className="font-semibold">We've Added Search Filter!!</h2>
+            </div>
+            <div className="flex items-center gap-2 w-fit text-nowrap">
+              <FaCircleExclamation className="text-[#FFC83D]" />
+              <h2 className="font-semibold">
+                Promo - 20% off for laundry wash above N5,000
+              </h2>
             </div>
             <div className="flex items-center gap-2 w-fit text-nowrap">
               <FaCircleExclamation className="text-[#FFC83D]" />
@@ -300,6 +364,12 @@ const Dashboard = () => {
             <div className="flex items-center gap-2 w-fit text-nowrap">
               <FaCircleExclamation className="text-[#FFC83D]" />
               <h2 className="font-semibold  ">We've Added Search Filter!!</h2>
+            </div>
+            <div className="flex items-center gap-2 w-fit text-nowrap">
+              <FaCircleExclamation className="text-[#FFC83D]" />
+              <h2 className="font-semibold">
+                Promo - 20% off for laundry wash above N5,000
+              </h2>
             </div>
             <div className="flex items-center gap-2 w-fit text-nowrap">
               <FaCircleExclamation className="text-[#FFC83D]" />

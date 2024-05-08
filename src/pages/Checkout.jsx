@@ -47,7 +47,7 @@ const Checkout = () => {
     >
       <div
         className={`container mx-auto md:max-w-[800px] h-fit flex justify-center flex-col px-4 mb-8 shadow-2xl rounded shadow-black/20 pb-2 ${
-          darkMode ? "dark-mode border-2 shadow-lg shadow-white/30" : ""
+          darkMode ? "dark-mode border shadow-lg shadow-white/30" : ""
         }`}
       >
         <div className="flex items-center justify-between py-2">
@@ -111,7 +111,7 @@ const Checkout = () => {
           <form className="flex flex-col gap-2 mb-2" onSubmit={handleUpdate}>
             <input
               type="text"
-              className={`py-2 px-2 rounded outline-none border-2 w-full ${
+              className={`py-2 px-2 rounded outline-none border w-full ${
                 darkMode ? "dark-mode bg-inherit" : ""
               }`}
               value={address}

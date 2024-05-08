@@ -41,7 +41,7 @@ const BecomeCleaner = ({ handleCloseCleaner }) => {
       <ToastContainer />
       <div
         className={`w-full rounded-md flex flex-col gap-2 bg-white text-center ${
-          darkMode ? "dark-mode border-2" : ""
+          darkMode ? "dark-mode border" : ""
         }`}
       >
         <div

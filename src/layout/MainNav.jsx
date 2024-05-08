@@ -8,6 +8,7 @@ export const SideBarContext = createContext(null);
 const MainNav = ({ children }) => {
   const [styleSidebar, setStyleSidebar] = useState(true);
   const [smallScreenSideBar, setSmallScreenSidebar] = useState(false);
+  const [sidebar, setSidebar] = useState(false);
   const { darkMode } = useContext(BgContext);
 
   return (
@@ -17,18 +18,20 @@ const MainNav = ({ children }) => {
         setStyleSidebar,
         smallScreenSideBar,
         setSmallScreenSidebar,
+        sidebar,
+        setSidebar,
       }}
     >
       <div
-        className={`${
-          styleSidebar ? "grid-container-close" : "grid-container"
-        } ${darkMode ? "dark-mode" : ""}`}
+        className={`${sidebar ? "grid-container-close" : "grid-container"} ${
+          darkMode ? "dark-mode" : ""
+        }`}
       >
         <NavigationBar />
         <Header />
         <main
           className={`scroll ${
-            smallScreenSideBar
+            sidebar
               ? "opacity-0 md:!opacity-100 main-container"
               : "main-container bg-white opacity-100"
           } ${darkMode ? "dark-mode" : ""}`}

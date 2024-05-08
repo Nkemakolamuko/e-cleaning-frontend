@@ -74,6 +74,27 @@ const Notifications = () => {
     setNotiDetails(foundItem ? [foundItem] : null);
   }, [notiId]);
 
+  const deleteAll = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "green",
+      cancelButtonColor: "#EC4899",
+      confirmButtonText: "Yes, delete all!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setNotification([]);
+        toast.success("Notifications deleted", {
+          autoClose: 2000,
+          position: "top-left",
+        });
+        setNotiDetails(null);
+      }
+    });
+  };
+
   return (
     <div>
       <ToastContainer />
@@ -139,8 +160,7 @@ const Notifications = () => {
             darkMode ? "bg-rose-800 active:bg-rose-900 hover:bg-rose-900" : ""
           }`}
           onClick={() => {
-            const youSure = window.confirm("Are you sure? ");
-            youSure && setNotification([]);
+            deleteAll();
           }}
         >
           <FaTrashCan className="w-4 h-4 md:w-5 md:h-5" /> Delete all

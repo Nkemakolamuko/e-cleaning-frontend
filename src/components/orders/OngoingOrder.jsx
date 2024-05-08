@@ -61,8 +61,8 @@ const OngoingOrder = () => {
 
   return (
     <div
-      className={`h-fit w-full border-2 rounded shadow-lg ${
-        darkMode ? "dark-mode rounded border-2" : ""
+      className={`h-fit w-full border rounded shadow-lg text-sm md:text-base ${
+        darkMode ? "dark-mode rounded border" : ""
       }`}
     >
       <div

@@ -29,6 +29,12 @@ const LatestFeatures = () => {
           </div>
           <div className="flex items-center gap-2 w-fit text-nowrap">
             <FaCircleExclamation className="text-[#FFC83D]" />
+            <h2 className="font-semibold">
+              Promo - 20% off for laundry wash above N5,000
+            </h2>
+          </div>
+          <div className="flex items-center gap-2 w-fit text-nowrap">
+            <FaCircleExclamation className="text-[#FFC83D]" />
             <h2 className="font-semibold  ">We've Partnered With Kuda</h2>
           </div>
           <div className="flex items-center gap-2 w-fit text-nowrap">
@@ -55,6 +61,12 @@ const LatestFeatures = () => {
           <div className="flex items-center gap-2 w-fit text-nowrap">
             <FaCircleExclamation className="text-[#FFC83D]" />
             <h2 className="font-semibold  ">We've Added Search Filter!!</h2>
+          </div>
+          <div className="flex items-center gap-2 w-fit text-nowrap">
+            <FaCircleExclamation className="text-[#FFC83D]" />
+            <h2 className="font-semibold">
+              Promo - 20% off for laundry wash above N5,000
+            </h2>
           </div>
           <div className="flex items-center gap-2 w-fit text-nowrap">
             <FaCircleExclamation className="text-[#FFC83D]" />

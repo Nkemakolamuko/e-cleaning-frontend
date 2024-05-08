@@ -9,7 +9,7 @@ const PaymentType = ({ handleClose }) => {
     <div className="w-full h-screen bg-slate-500/75 flex items-center justify-center absolute top-0 p-[10px] md:p-[100px] lg:p-[300px] flex-col">
       <div
         className={`w-full rounded-md flex flex-col gap-2 bg-white text-center ${
-          darkMode ? "dark-mode border-2" : ""
+          darkMode ? "dark-mode border" : ""
         }`}
       >
         <div

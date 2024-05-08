@@ -27,7 +27,7 @@ const Payment = () => {
     >
       <div
         className={`container mx-auto md:max-w-[800px] h-fit flex justify-center flex-col py-2 mb-8 rounded ${
-          darkMode ? "dark-mode border-2 shadow-lg shadow-white/30" : ""
+          darkMode ? "dark-mode border shadow-lg shadow-white/30" : ""
         }`}
       >
         <div className="flex items-center justify-between p-2 border-b">
@@ -131,7 +131,7 @@ const Payment = () => {
         {showPaymentMsg && (
           <div
             className={`mt-4 bg-green-50 flex items-start justify-between rounded px-4 py-4 text-green-700 mx-2 cursor-default ${
-              darkMode ? "dark-mode border-2" : ""
+              darkMode ? "dark-mode border" : ""
             }`}
           >
             <div className="flex flex-col gap-2">
