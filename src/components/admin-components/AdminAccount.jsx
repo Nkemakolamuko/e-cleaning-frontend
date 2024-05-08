@@ -4,7 +4,7 @@ import { FaUser, FaUserGear } from "react-icons/fa6";
 
 const AdminAccount = ({ handleAccount }) => {
   return (
-    <div className="absolute w-[300px] right-2 top-16 border rounded shadow text-sm">
+    <div className="absolute w-[300px] right-2 top-16 border rounded shadow text-sm bg-white">
       <p className="w-full flex items-center justify-between px-2 py-2 border-b">
         <span className="text-slate-500 font-medium">Actions</span>
         <FaTimes className="cursor-pointer" onClick={handleAccount} />
