@@ -18,7 +18,7 @@ const AdminProducts = () => {
 
       <Link
         to="/admin-dashboard2521/create-products"
-        className="px-2 py-3 text-center rounded bg-green-800 text-white text-sm font-medium container ml-auto w-fit flex active:scale-95"
+        className="px-4 py-3 text-center rounded bg-green-800 text-white text-sm font-medium container ml-auto md:ml-0 w-fit flex active:scale-95"
       >
         Add Product
       </Link>
@@ -27,7 +27,7 @@ const AdminProducts = () => {
         <select
           name="category"
           id="category"
-          className="w-full md:w-1/2 border rounded px-2 py-2 text-sm"
+          className="w-full md:w-1/3 border rounded px-2 py-2 text-sm"
         >
           <option value="Category">---Select Category---</option>
           <option value="category">All</option>
@@ -44,7 +44,7 @@ const AdminProducts = () => {
               className="border rounded flex flex-col w-full p-2 text-center"
               key={product.id}
             >
-              <div className="w-full h-[220px]">
+              <div className="w-full h-[200px]">
                 <img
                   src={product.img}
                   alt="Product Image"

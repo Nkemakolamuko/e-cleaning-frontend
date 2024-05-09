@@ -18,8 +18,8 @@ import {
 
 const AdminSidebar = () => {
   const { sidebar, setSidebar } = useContext(SideBarContext);
-  const [iconColor, setIconColor] = useState("Dashboard");
-  const [bgColor, setBgColor] = useState("Dashboard");
+  const [iconColor, setIconColor] = useState("");
+  const [bgColor, setBgColor] = useState("");
   return (
     <>
       {sidebar && (
@@ -91,6 +91,18 @@ const AdminSidebar = () => {
               }}
               iconColor={iconColor == "Product-Category" ? iconColor : ""}
               bg={bgColor == "Product-Category" ? bgColor : ""}
+            />
+            <AdminSideBarLink
+              to="/admin-dashboard2521/cleaners"
+              title="Cleaners"
+              icon={<FaUsers />}
+              handleClick={() => {
+                setSidebar(false);
+                setIconColor("Cleaners");
+                setBgColor("Cleaners");
+              }}
+              iconColor={iconColor == "Cleaners" ? iconColor : ""}
+              bg={bgColor == "Cleaners" ? bgColor : ""}
             />
             <AdminSideBarLink
               to="/admin-dashboard2521/transactions"

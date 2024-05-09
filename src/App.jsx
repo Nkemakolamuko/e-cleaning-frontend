@@ -27,6 +27,8 @@ import AdminProductCategory from "./pages/admin-dashboard/AdminProductCategory";
 import AdminTransaction from "./pages/admin-dashboard/AdminTransaction";
 import AdminReviews from "./pages/admin-dashboard/AdminReviews";
 import AdminUsers from "./pages/admin-dashboard/AdminUsers";
+import AdminCleaners from "./pages/admin-dashboard/AdminCleaners";
+import AdminOrderDetails from "./pages/admin-dashboard/AdminOrderDetails";
 
 export const BgContext = createContext(null);
 
@@ -123,6 +125,14 @@ function App() {
             }
           />
           <Route
+            path="admin-dashboard2521/order"
+            element={
+              <MainAdmin>
+                <AdminOrderDetails />
+              </MainAdmin>
+            }
+          />
+          <Route
             path="admin-dashboard2521/products"
             element={
               <MainAdmin>
@@ -143,6 +153,14 @@ function App() {
             element={
               <MainAdmin>
                 <AdminProductCategory />
+              </MainAdmin>
+            }
+          />
+          <Route
+            path="admin-dashboard2521/cleaners"
+            element={
+              <MainAdmin>
+                <AdminCleaners />
               </MainAdmin>
             }
           />

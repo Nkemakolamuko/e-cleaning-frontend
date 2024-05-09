@@ -1,14 +1,16 @@
 import React from "react";
 import Title from "../../components/Title";
+import { useNavigate } from "react-router-dom";
 
 const AdminOrder = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <Title title={"Orders"} />
 
       <div className="border rounded py-4 text-slate-700">
         <h3 className="px-4">Filter:</h3>
-        <div className="flex items-center w-full md:w-1/2 gap-4 px-4 border-b pb-4">
+        <div className="flex items-center w-full md:w-1/2 gap-4 px-4 pb-4">
           <select
             name="status"
             id="status"
@@ -35,7 +37,7 @@ const AdminOrder = () => {
           </select>
         </div>
 
-        <div className="p-4 overflow-auto scroll">
+        <div className="p-4 overflow-auto scroll border-t">
           <table className="table-auto w-full border-collapse text-nowrap">
             <thead className="border-b-2">
               <tr className="text-left bg-gray-200">
@@ -49,8 +51,12 @@ const AdminOrder = () => {
               </tr>
             </thead>
             <tbody className="text-sm">
-              <tr className="bg-white border-b">
+              <tr
+                className="bg-white border-b hover:bg-slate-100 cursor-pointer transition-all duration-300"
+                onClick={() => navigate("/admin-dashboard2521/order")}
+              >
                 <td className="px-4 py-4">
+                  {/* The order will be by ID */}
                   <ul className="font-medium text-base">
                     <li>Black Clarks Shoe - 1</li>
                     <li>Tie - 2</li>
@@ -75,7 +81,10 @@ const AdminOrder = () => {
                 </td>
               </tr>
               {/* 2 */}
-              <tr className="bg-white border-b">
+              <tr
+                className="bg-white border-b hover:bg-slate-100 cursor-pointer transition-all duration-300"
+                onClick={() => navigate("/admin-dashboard2521/order")}
+              >
                 <td className="px-4 py-4">
                   <ul className="font-medium text-base">
                     <li>Black Adidas Shoe - 1</li>
@@ -101,7 +110,10 @@ const AdminOrder = () => {
                 </td>
               </tr>
               {/* 3 */}
-              <tr className="bg-white border-b">
+              <tr
+                className="bg-white border-b hover:bg-slate-100 cursor-pointer transition-all duration-300"
+                onClick={() => navigate("/admin-dashboard2521/order")}
+              >
                 <td className="px-4 py-4">
                   <ul className="font-medium text-base">
                     <li>Black Clarks Shoe - 1</li>
@@ -127,7 +139,10 @@ const AdminOrder = () => {
                 </td>
               </tr>
               {/* 4 */}
-              <tr className="bg-white border-b">
+              <tr
+                className="bg-white border-b hover:bg-slate-100 cursor-pointer transition-all duration-300"
+                onClick={() => navigate("/admin-dashboard2521/order")}
+              >
                 <td className="px-4 py-4">
                   <ul className="font-medium text-base">
                     <li>Black Clarks Shoe - 1</li>
@@ -153,7 +168,10 @@ const AdminOrder = () => {
                 </td>
               </tr>
               {/* 5 */}
-              <tr className="bg-white border-b">
+              <tr
+                className="bg-white border-b hover:bg-slate-100 cursor-pointer transition-all duration-300"
+                onClick={() => navigate("/admin-dashboard2521/order")}
+              >
                 <td className="px-4 py-4">
                   <ul className="font-medium text-base">
                     <li>Black Clarks Shoe - 1</li>
