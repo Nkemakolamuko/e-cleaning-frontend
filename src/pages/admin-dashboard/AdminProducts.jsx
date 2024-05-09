@@ -3,6 +3,7 @@ import Title from "../../components/Title";
 import image from "../../assets/download.jpg";
 import { FaPen, FaTrashCan } from "react-icons/fa6";
 import data from "../../../db/storeDB";
+import { Link } from "react-router-dom";
 
 const AdminProducts = () => {
   const [products, setProducts] = useState([]);
@@ -15,7 +16,14 @@ const AdminProducts = () => {
     <div>
       <Title title={"Products"} />
 
-      <div className="p-4 flex flex-col border gap-4">
+      <Link
+        to="/admin-dashboard2521/create-products"
+        className="px-2 py-3 text-center rounded bg-green-800 text-white text-sm font-medium container ml-auto w-fit flex active:scale-95"
+      >
+        Add Product
+      </Link>
+
+      <div className="p-4 flex flex-col border gap-4 mt-4">
         <select
           name="category"
           id="category"
