@@ -35,39 +35,150 @@ const AdminOrder = () => {
           </select>
         </div>
 
-        <div className="p-4 overflow-auto">
-          <table className="overflow-auto text-nowrap">
+        <div className="p-4 overflow-auto scroll">
+          <table className="table-auto w-full border-collapse text-nowrap">
             <thead className="border-b-2">
-              <tr className="flex items-center gap-4 py-2">
-                <th>Items</th>
-                <th>Email</th>
-                <th>Total</th>
-                <th>Payment Status</th>
-                <th>Date</th>
-                <th>Status</th>
-                <th>Action</th>
+              <tr className="text-left bg-gray-200">
+                <th className="px-4 py-2">Items</th>
+                <th className="px-4 py-2">Email</th>
+                <th className="px-4 py-2">Total</th>
+                <th className="px-4 py-2">Payment Status</th>
+                <th className="px-4 py-2">Date</th>
+                <th className="px-4 py-2">Status</th>
+                <th className="px-4 py-2">Action</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td className="w-fit">
-                  <ul>
+            <tbody className="text-sm">
+              <tr className="bg-white border-b">
+                <td className="px-4 py-4">
+                  <ul className="font-medium text-base">
                     <li>Black Clarks Shoe - 1</li>
                     <li>Tie - 2</li>
                     <li>Red Heels - 1</li>
                   </ul>
                 </td>
-                <td>useremail@gmail.com</td>
-                <td>₦ 125, 850</td>
-                <td>
+                <td className="px-4 py-4">user1email@gmail.com</td>
+                <td className="px-4 py-4">₦ 125, 850</td>
+                <td className="px-4 py-4">
                   <span className="text-xs text-green-700 bg-green-100 py-1 px-2 rounded-full">
                     Paid at 12/05/2024 by 07:54
                   </span>
                 </td>
-                <td>{new Date().getUTCFullYear()}</td>
-                <td>Delivered</td>
-                <td>view details</td>
+                <td className="px-4 py-4">{new Date().toDateString()}</td>
+                <td className="px-4 py-2 text-green-500 font-semibold">
+                  Delivered
+                </td>
+                <td className="px-4 py-4">
+                  <span className="bg-green-400 text-white rounded px-2 py-2">
+                    view details
+                  </span>
+                </td>
               </tr>
+              {/* 2 */}
+              <tr className="bg-white border-b">
+                <td className="px-4 py-4">
+                  <ul className="font-medium text-base">
+                    <li>Black Adidas Shoe - 1</li>
+                    <li>Spray Starch - 3</li>
+                    <li>Black Sneakers - 1</li>
+                  </ul>
+                </td>
+                <td className="px-4 py-4">user2email@gmail.com</td>
+                <td className="px-4 py-4">₦ 175, 500</td>
+                <td className="px-4 py-4">
+                  <span className="text-xs text-rose-700 bg-rose-100 py-1 px-2 rounded-full">
+                    Not paid
+                  </span>
+                </td>
+                <td className="px-4 py-4">{new Date().toDateString()}</td>
+                <td className="px-4 py-2 text-rose-500 font-semibold">
+                  Not Delivered
+                </td>
+                <td className="px-4 py-4">
+                  <span className="bg-green-400 text-white rounded px-2 py-2">
+                    view details
+                  </span>
+                </td>
+              </tr>
+              {/* 3 */}
+              <tr className="bg-white border-b">
+                <td className="px-4 py-4">
+                  <ul className="font-medium text-base">
+                    <li>Black Clarks Shoe - 1</li>
+                    <li>Tie - 2</li>
+                    <li>Red Heels - 1</li>
+                  </ul>
+                </td>
+                <td className="px-4 py-4">user1email@gmail.com</td>
+                <td className="px-4 py-4">₦ 125, 850</td>
+                <td className="px-4 py-4">
+                  <span className="text-xs text-green-700 bg-green-100 py-1 px-2 rounded-full">
+                    Paid at 12/05/2024 by 07:54
+                  </span>
+                </td>
+                <td className="px-4 py-4">{new Date().toDateString()}</td>
+                <td className="px-4 py-2 text-green-500 font-semibold">
+                  Delivered
+                </td>
+                <td className="px-4 py-4">
+                  <span className="bg-green-400 text-white rounded px-2 py-2">
+                    view details
+                  </span>
+                </td>
+              </tr>
+              {/* 4 */}
+              <tr className="bg-white border-b">
+                <td className="px-4 py-4">
+                  <ul className="font-medium text-base">
+                    <li>Black Clarks Shoe - 1</li>
+                    <li>Tie - 2</li>
+                    <li>Red Heels - 1</li>
+                  </ul>
+                </td>
+                <td className="px-4 py-4">user1email@gmail.com</td>
+                <td className="px-4 py-4">₦ 125, 850</td>
+                <td className="px-4 py-4">
+                  <span className="text-xs text-green-700 bg-green-100 py-1 px-2 rounded-full">
+                    Paid at 12/05/2024 by 07:54
+                  </span>
+                </td>
+                <td className="px-4 py-4">{new Date().toDateString()}</td>
+                <td className="px-4 py-2 text-green-500 font-semibold">
+                  Delivered
+                </td>
+                <td className="px-4 py-4">
+                  <span className="bg-green-400 text-white rounded px-2 py-2">
+                    view details
+                  </span>
+                </td>
+              </tr>
+              {/* 5 */}
+              <tr className="bg-white border-b">
+                <td className="px-4 py-4">
+                  <ul className="font-medium text-base">
+                    <li>Black Clarks Shoe - 1</li>
+                    <li>Tie - 2</li>
+                    <li>Red Heels - 1</li>
+                  </ul>
+                </td>
+                <td className="px-4 py-4">user1email@gmail.com</td>
+                <td className="px-4 py-4">₦ 125, 850</td>
+                <td className="px-4 py-4">
+                  <span className="text-xs text-green-700 bg-green-100 py-1 px-2 rounded-full">
+                    Paid at 12/05/2024 by 07:54
+                  </span>
+                </td>
+                <td className="px-4 py-4">{new Date().toDateString()}</td>
+                <td className="px-4 py-2 text-green-500 font-semibold">
+                  Delivered
+                </td>
+                <td className="px-4 py-4">
+                  <span className="bg-green-400 text-white rounded px-2 py-2">
+                    view details
+                  </span>
+                </td>
+              </tr>
+              {/* Add more rows as needed */}
             </tbody>
           </table>
         </div>
