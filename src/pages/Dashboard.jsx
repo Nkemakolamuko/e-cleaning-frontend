@@ -153,7 +153,7 @@ const Dashboard = () => {
       <div className="flex flex-col md:hidden md:grid-cols-2 lg:hidden lg:flex-row items-center gap-2 scale-100 lg:scale-100 md:scale-100">
         {/* Turn these to individual components */}
         <div
-          className={`bg-white w-full h-fit lg:w-[33%] md:h-[240px] d-cards rounded-[4px] shadow-lg shadow-black/20 flex flex-col mb-4 ${
+          className={`bg-white w-full h-fit lg:w-[33%] md:h-[240px] d-cards rounded-[4px] border flex flex-col mb-4 ${
             darkMode ? "dark-mode border" : ""
           }`}
         >
@@ -220,7 +220,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div
-          className={`w-full h-fit lg:w-[33%] md:h-[260px] d-cards rounded-[4px] shadow-lg shadow-black/20 flex flex-col transition-all duration-300 ease-in-out ${
+          className={`w-full h-fit lg:w-[33%] md:h-[260px] d-cards rounded-[4px] border flex flex-col transition-all duration-300 ease-in-out ${
             darkMode ? "dark-mode border" : ""
           }`}
         >

@@ -77,7 +77,7 @@ const Header = () => {
 
   return (
     <header
-      className={`header shadow-md relative w-full transition-all duration-300 bg-white ${
+      className={`header border-b relative w-full transition-all duration-300 bg-white ${
         darkMode ? "dark-mode for-header border-b" : ""
       }`}
     >

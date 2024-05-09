@@ -8,7 +8,7 @@ const AdminOrder = () => {
 
       <div className="border rounded py-4 text-slate-700">
         <h3 className="px-4">Filter:</h3>
-        <div className="flex items-center w-full gap-4 px-4 border-b pb-4">
+        <div className="flex items-center w-full md:w-1/2 gap-4 px-4 border-b pb-4">
           <select
             name="status"
             id="status"
@@ -69,7 +69,7 @@ const AdminOrder = () => {
                   Delivered
                 </td>
                 <td className="px-4 py-4">
-                  <span className="bg-green-400 text-white rounded px-2 py-2">
+                  <span className="bg-green-400 text-white rounded px-2 py-2 cursor-pointer">
                     view details
                   </span>
                 </td>
@@ -95,7 +95,7 @@ const AdminOrder = () => {
                   Not Delivered
                 </td>
                 <td className="px-4 py-4">
-                  <span className="bg-green-400 text-white rounded px-2 py-2">
+                  <span className="bg-green-400 text-white rounded px-2 py-2 cursor-pointer">
                     view details
                   </span>
                 </td>
@@ -121,7 +121,7 @@ const AdminOrder = () => {
                   Delivered
                 </td>
                 <td className="px-4 py-4">
-                  <span className="bg-green-400 text-white rounded px-2 py-2">
+                  <span className="bg-green-400 text-white rounded px-2 py-2 cursor-pointer">
                     view details
                   </span>
                 </td>
@@ -147,7 +147,7 @@ const AdminOrder = () => {
                   Delivered
                 </td>
                 <td className="px-4 py-4">
-                  <span className="bg-green-400 text-white rounded px-2 py-2">
+                  <span className="bg-green-400 text-white rounded px-2 py-2 cursor-pointer">
                     view details
                   </span>
                 </td>
@@ -173,7 +173,7 @@ const AdminOrder = () => {
                   Delivered
                 </td>
                 <td className="px-4 py-4">
-                  <span className="bg-green-400 text-white rounded px-2 py-2">
+                  <span className="bg-green-400 text-white rounded px-2 py-2 cursor-pointer">
                     view details
                   </span>
                 </td>
