@@ -20,7 +20,7 @@ const AdminOrderDetails = () => {
     <div>
       <p
         className="text-slate-800 py-2 px-4 mt-2 rounded-full border flex items-center gap-2 cursor-pointer w-fit text-sm md:text-base"
-        onClick={() => navigate("/admin-dashboard2521/orders")}
+        onClick={() => navigate(-1)}
       >
         <FaArrowLeft />
         <span>Go Back</span>
