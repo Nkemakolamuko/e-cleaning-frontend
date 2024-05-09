@@ -13,8 +13,9 @@ const History = () => {
   const [active, setActive] = useState("2024");
   return (
     <div className="flex flex-col w-full h-screen">
+      <Title title="Cleaning History" />
       <ToastContainer />
-      <div className="fixed top-16 sticky-z-50 bg-green-50 w-full md:hidden">
+      {/* <div className="fixed top-16 sticky-z-50 bg-green-50 w-full md:hidden">
         <Title title="Cleaning History" />
       </div>
       <div className="hidden md:block">
@@ -81,8 +82,11 @@ const History = () => {
           >
             2026
           </p>
-        </aside>
-      </section>
+        </aside> */}
+      {/* </section> */}
+      <div className="grid place-content-center place-items-center w-full h-[80vh]">
+        <p>Coming Soon...</p>
+      </div>
     </div>
   );
 };

@@ -12,6 +12,7 @@ import NotificationModal from "../components/notification/NotificationModal";
 import { SideBarContext } from "./MainNav";
 import notificationDb from "../../db/notificationDb";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { FaSearch } from "react-icons/fa";
 
 const Header = () => {
   const {
@@ -89,7 +90,7 @@ const Header = () => {
       )}
 
       <p
-        className="font-semibold truncate flex items-center gap-2 md:gap-6 w-[50%]"
+        className="font-semibold truncate flex items-center gap-2 md:gap-6 w-fit"
         // contentEditable
       >
         {!sidebar && (
@@ -100,7 +101,7 @@ const Header = () => {
             }}
           />
         )}
-        <span className="truncate">
+        <span className="truncate hidden md:flex">
           👋 Hi,{" "}
           {user?.name?.split(" ")[0].charAt(0).toUpperCase() +
             user?.name?.slice(1).split(" ")[0].toLowerCase() ||
@@ -108,6 +109,39 @@ const Header = () => {
             "Buddy"}
         </span>
       </p>
+
+      {/* Search Box */}
+      {!sidebar && (
+        <div
+          className={`flex md:hidden items-center w-1/2 border rounded bg-inherit mr-4 text-slate-600 text-sm ${
+            darkMode ? "dark-mode !text-slate-200" : ""
+          }`}
+        >
+          <input
+            type="text"
+            className="py-3 px-2 outline-none bg-inherit w-full"
+            placeholder="Enter city name to search available cleaners in that area"
+          />
+          <p className="p-3 border-l cursor-pointer">
+            <FaSearch />
+          </p>
+        </div>
+      )}
+
+      <div
+        className={`hidden md:flex items-center w-1/2 border rounded bg-inherit mr-4 text-slate-600 text-sm ${
+          darkMode ? "dark-mode !text-slate-200" : ""
+        }`}
+      >
+        <input
+          type="text"
+          className="py-3 px-2 outline-none bg-inherit w-full"
+          placeholder="Enter city name to search available cleaners in that area"
+        />
+        <p className="p-3 border-l cursor-pointer">
+          <FaSearch />
+        </p>
+      </div>
 
       <div className="hidden md:flex items-center gap-2">
         <a
@@ -150,7 +184,7 @@ const Header = () => {
 
           <span
             className={`absolute 
-                 py-1 bg-rose-500 text-white text-xs top-2 right-10 rounded-full ${
+                 py-1 bg-rose-500 text-white text-xs top-2 ml-3 rounded-full ${
                    notification?.length > 9 ? "px-1" : "px-[9px]"
                  } `}
           >
@@ -175,7 +209,7 @@ const Header = () => {
         </p>
       </div>
 
-      {!sidebar && (
+      {/* {!sidebar && (
         <a
           href="tel:+2347040876440"
           target="_blank"
@@ -191,6 +225,29 @@ const Header = () => {
             Available For Immediate Response!!
           </span>
         </a>
+      )} */}
+
+      {/* Notification Small */}
+      {!sidebar && (
+        <p
+          className="cursor-pointer md:hidden"
+          onClick={handleNotificationModal}
+        >
+          <FaRegBell
+            className={`w-6 h-6 text-green-900 relative active:scale-90 ${
+              darkMode ? "dark-mode" : ""
+            }`}
+          />
+
+          <span
+            className={`absolute 
+                 py-1 bg-rose-500/80 text-white text-xs top-2 ml-3 rounded-full ${
+                   notification?.length > 9 ? "px-1" : "px-[9px]"
+                 } `}
+          >
+            {notification?.length > 9 ? "9+" : notification?.length || "0"}
+          </span>
+        </p>
       )}
 
       {!sidebar && (

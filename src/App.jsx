@@ -20,6 +20,13 @@ import Payment from "./pages/Payment";
 import NewNotificationDetailsPage from "./components/notification/NewNotificationDetailsPage";
 import AdminDashboard from "./pages/admin-dashboard/AdminDashboard";
 import MainAdmin from "./layout/admin-layout/MainAdmin";
+import AdminOrder from "./pages/admin-dashboard/AdminOrder";
+import AdminProducts from "./pages/admin-dashboard/AdminProducts";
+import AdminCreateProducts from "./pages/admin-dashboard/AdminCreateProducts";
+import AdminProductCategory from "./pages/admin-dashboard/AdminProductCategory";
+import AdminTransaction from "./pages/admin-dashboard/AdminTransaction";
+import AdminReviews from "./pages/admin-dashboard/AdminReviews";
+import AdminUsers from "./pages/admin-dashboard/AdminUsers";
 
 export const BgContext = createContext(null);
 
@@ -97,6 +104,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+
+          {/* Admin Dashboard*/}
           <Route
             path="admin-dashboard2521"
             element={
@@ -105,6 +114,64 @@ function App() {
               </MainAdmin>
             }
           />
+          <Route
+            path="admin-dashboard2521/orders"
+            element={
+              <MainAdmin>
+                <AdminOrder />
+              </MainAdmin>
+            }
+          />
+          <Route
+            path="admin-dashboard2521/products"
+            element={
+              <MainAdmin>
+                <AdminProducts />
+              </MainAdmin>
+            }
+          />
+          <Route
+            path="admin-dashboard2521/create-products"
+            element={
+              <MainAdmin>
+                <AdminCreateProducts />
+              </MainAdmin>
+            }
+          />
+          <Route
+            path="admin-dashboard2521/products-category"
+            element={
+              <MainAdmin>
+                <AdminProductCategory />
+              </MainAdmin>
+            }
+          />
+          <Route
+            path="admin-dashboard2521/transactions"
+            element={
+              <MainAdmin>
+                <AdminTransaction />
+              </MainAdmin>
+            }
+          />
+          <Route
+            path="admin-dashboard2521/reviews"
+            element={
+              <MainAdmin>
+                <AdminReviews />
+              </MainAdmin>
+            }
+          />
+          <Route
+            path="admin-dashboard2521/users"
+            element={
+              <MainAdmin>
+                <AdminUsers />
+              </MainAdmin>
+            }
+          />
+
+          {/* Users Dashboard */}
           <Route
             path="/dashboard"
             element={

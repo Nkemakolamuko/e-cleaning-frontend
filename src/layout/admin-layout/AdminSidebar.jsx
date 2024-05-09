@@ -37,7 +37,7 @@ const AdminSidebar = () => {
               title="Dashboard"
               icon={<FaHome />}
               handleClick={() => {
-                // setSidebar(false);
+                setSidebar(false);
                 setIconColor("Dashboard");
                 setBgColor("Dashboard");
               }}
@@ -45,11 +45,11 @@ const AdminSidebar = () => {
               bg={bgColor == "Dashboard" ? bgColor : ""}
             />
             <AdminSideBarLink
-              to="/admin-dashboard2521"
+              to="/admin-dashboard2521/orders"
               title="Orders"
               icon={<FaShoppingBasket />}
               handleClick={() => {
-                // setSidebar(false);
+                setSidebar(false);
                 setIconColor("Orders");
                 setBgColor("Orders");
               }}
@@ -57,11 +57,11 @@ const AdminSidebar = () => {
               bg={bgColor == "Orders" ? bgColor : ""}
             />
             <AdminSideBarLink
-              to="/admin-dashboard2521"
+              to="/admin-dashboard2521/products"
               title="Products"
               icon={<FaShoppingBag />}
               handleClick={() => {
-                // setSidebar(false);
+                setSidebar(false);
                 setIconColor("Products");
                 setBgColor("Products");
               }}
@@ -69,11 +69,11 @@ const AdminSidebar = () => {
               bg={bgColor == "Products" ? bgColor : ""}
             />
             <AdminSideBarLink
-              to="/admin-dashboard2521"
+              to="/admin-dashboard2521/create-products"
               title="Create Product"
               icon={<FaCartPlus />}
               handleClick={() => {
-                // setSidebar(false);
+                setSidebar(false);
                 setIconColor("Add-Product");
                 setBgColor("Add-Product");
               }}
@@ -81,11 +81,11 @@ const AdminSidebar = () => {
               bg={bgColor == "Add-Product" ? bgColor : ""}
             />
             <AdminSideBarLink
-              to="/admin-dashboard2521"
+              to="/admin-dashboard2521/products-category"
               title="Product Category"
               icon={<FaListUl />}
               handleClick={() => {
-                // setSidebar(false);
+                setSidebar(false);
                 setIconColor("Product-Category");
                 setBgColor("Product-Category");
               }}
@@ -93,11 +93,11 @@ const AdminSidebar = () => {
               bg={bgColor == "Product-Category" ? bgColor : ""}
             />
             <AdminSideBarLink
-              to="/admin-dashboard2521"
+              to="/admin-dashboard2521/transactions"
               title="Transactions"
               icon={<FaNairaSign />}
               handleClick={() => {
-                // setSidebar(false);
+                setSidebar(false);
                 setIconColor("Transactions");
                 setBgColor("Transactions");
               }}
@@ -105,11 +105,11 @@ const AdminSidebar = () => {
               bg={bgColor == "Transactions" ? bgColor : ""}
             />
             <AdminSideBarLink
-              to="/admin-dashboard2521"
+              to="/admin-dashboard2521/reviews"
               title="Reviews"
               icon={<FaListCheck />}
               handleClick={() => {
-                // setSidebar(false);
+                setSidebar(false);
                 setIconColor("Reviews");
                 setBgColor("Reviews");
               }}
@@ -117,11 +117,11 @@ const AdminSidebar = () => {
               bg={bgColor == "Reviews" ? bgColor : ""}
             />
             <AdminSideBarLink
-              to="/admin-dashboard2521"
+              to="/admin-dashboard2521/users"
               title="Users"
               icon={<FaUsers />}
               handleClick={() => {
-                // setSidebar(false);
+                setSidebar(false);
                 setIconColor("Users");
                 setBgColor("Users");
               }}

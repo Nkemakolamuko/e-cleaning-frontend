@@ -243,7 +243,7 @@ const Dashboard = () => {
               </p>
             </div>
             {/* <ActionBTN text="Buy Now @ N14, 800" /> */}
-            <p className="flex justify-between w-fit gap-4">
+            <p className="flex w-1/2 container mx-auto gap-4">
               <span className="py-2 font-medium text-rose-500 text-lg opacity-80 line-through">
                 N3,800
               </span>

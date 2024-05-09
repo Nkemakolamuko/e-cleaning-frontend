@@ -13,7 +13,9 @@ const DetailsCleaner = () => {
   const { darkMode } = useContext(BgContext);
   return (
     <div
-      className={`flex flex-col h-full gap-2 ${darkMode ? "dark-mode" : ""}`}
+      className={`flex flex-col h-full gap-2 text-slate-600 ${
+        darkMode ? "dark-mode !text-slate-100" : ""
+      }`}
     >
       {" "}
       <p className={`text-green-500 font-medium flex items-center gap-2`}>

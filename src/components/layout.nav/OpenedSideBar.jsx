@@ -61,7 +61,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
     >
       {/* <p className="text-lg font-bold">Clean-Off Agency</p> */}
       <div className="flex items-center justify-between w-full">
-        <p className="text-base md:text-lg font-bold truncate w-[80%]">
+        <p className="text-sm md:text-base font-bold truncate w-[85%]">
           24/7 E-Laundry Service
         </p>
 
@@ -79,7 +79,13 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+              darkMode ? "dark-mode " : ""
+            } ${
+              darkMode && activeLink === "/dashboard"
+                ? "!bg-green-300 !text-white rounded-md"
+                : ""
+            } ${
               activeLink === "/dashboard"
                 ? "bg-green-300 text-white rounded-md"
                 : ""
@@ -100,7 +106,13 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+              darkMode ? "dark-mode " : ""
+            } ${
+              darkMode && activeLink === "/cleaners"
+                ? "!bg-green-300 !text-white rounded-md"
+                : ""
+            } ${
               activeLink === "/cleaners"
                 ? "bg-green-300 text-white rounded-md"
                 : ""
@@ -121,7 +133,13 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+              darkMode ? "dark-mode " : ""
+            } ${
+              darkMode && activeLink === "/orders"
+                ? "!bg-green-300 !text-white rounded-md"
+                : ""
+            } ${
               activeLink === "/orders"
                 ? "bg-green-300 text-white rounded-md"
                 : ""
@@ -142,7 +160,13 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+              darkMode ? "dark-mode " : ""
+            } ${
+              darkMode && activeLink === "/notifications"
+                ? "!bg-green-300 !text-white rounded-md"
+                : ""
+            } ${
               activeLink === "/notifications"
                 ? "bg-green-300 text-white rounded-md"
                 : ""
@@ -163,7 +187,13 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+              darkMode ? "dark-mode " : ""
+            } ${
+              darkMode && activeLink === "/store"
+                ? "!bg-green-300 !text-white rounded-md"
+                : ""
+            } ${
               activeLink === "/store"
                 ? "bg-green-300 text-white rounded-md"
                 : ""
@@ -184,7 +214,13 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+              darkMode ? "dark-mode " : ""
+            } ${
+              darkMode && activeLink === "/faq"
+                ? "!bg-green-300 !text-white rounded-md"
+                : ""
+            } ${
               activeLink === "/faq" ? "bg-green-300 text-white rounded-md" : ""
             } transition-all duration-300`}
           >
@@ -203,7 +239,13 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+              darkMode ? "dark-mode " : ""
+            } ${
+              darkMode && activeLink === "/history"
+                ? "!bg-green-300 !text-white rounded-md"
+                : ""
+            } ${
               activeLink === "/history"
                 ? "bg-green-300 text-white rounded-md"
                 : ""
@@ -224,7 +266,13 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+              darkMode ? "dark-mode " : ""
+            } ${
+              darkMode && activeLink === "/contact"
+                ? "!bg-green-300 !text-white rounded-md"
+                : ""
+            } ${
               activeLink === "/contact"
                 ? "bg-green-300 text-white rounded-md"
                 : ""
@@ -245,7 +293,13 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 bg-green-100 px-2 py-4 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+              darkMode ? "dark-mode " : ""
+            } ${
+              darkMode && activeLink === "/settings"
+                ? "!bg-green-300 !text-white rounded-md"
+                : ""
+            } ${
               activeLink === "/settings"
                 ? "bg-green-300 text-white rounded-md"
                 : ""

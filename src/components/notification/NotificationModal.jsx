@@ -21,7 +21,7 @@ const NotificationModal = ({ handleCloseNotificationModal }) => {
 
   return (
     <div
-      className={`max-w-[300px] h-fit bg-white flex items-center flex-col justify-center absolute top-14 right-16 z-[999] shadow-lg shadow-black/20 rounded transition-all duration-300 ${
+      className={`max-w-[300px] h-fit bg-white flex items-center flex-col justify-center absolute top-16 right-2 border z-[999] shadow-lg shadow-black/20 rounded transition-all duration-300 ${
         darkMode ? "dark-mode shadow-lg shadow-white/40 border" : ""
       }`}
     >
@@ -40,7 +40,7 @@ const NotificationModal = ({ handleCloseNotificationModal }) => {
         <CloseButton handleModalClose={handleCloseNotificationModal} />
       </div>
       {notification?.length !== 0 ? (
-        <div className="flex flex-col gap-2 max-w-[100%]">
+        <div className="flex flex-col max-w-[100%]">
           {notification?.map((value) => (
             <NotificationModalCards
               title={value.title}
