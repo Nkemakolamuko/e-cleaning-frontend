@@ -23,7 +23,7 @@ const AdminSidebar = () => {
   return (
     <>
       {sidebar && (
-        <div className="z-50 flex flex-col w-full h-screen gap-2 mt-1 shadow">
+        <div className="z-50 flex flex-col w-full h-screen gap-2 mt-1 shadow-lg">
           <div className="flex items-center gap-2 px-2 py-4 justify-between w-full">
             <p className="truncate font-medium">Admin Dashboard</p>
             <FaTimes

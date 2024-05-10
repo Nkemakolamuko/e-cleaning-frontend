@@ -10,7 +10,9 @@ const BecomeCleaner = ({ handleCloseCleaner }) => {
   const [fullName, setFullName] = useState("");
   const [bizName, setBizName] = useState("");
   const [location, setLocation] = useState("");
+  const [desc, setDesc] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [businessImage, setBusinessImage] = useState("");
   const [err, setErr] = useState("");
 
   const handleSubmit = (e) => {
@@ -28,7 +30,9 @@ const BecomeCleaner = ({ handleCloseCleaner }) => {
       fullName,
       bizName,
       location,
+      desc,
       phoneNumber,
+      businessImage,
     };
     // console.log(cleanerDetails);
     toast.success("Submitted Successfully - You'd be contacted shortly.");
@@ -132,6 +136,44 @@ const BecomeCleaner = ({ handleCloseCleaner }) => {
               className="outline-none border-2 rounded px-2 py-3 w-full text-sm"
               placeholder="Enter your company/business phone number"
             />
+          </p>
+          <p className="flex flex-col items-start w-full">
+            <label
+              htmlFor="businessImage"
+              className="font-medium flex items-center gap-2"
+            >
+              Company/Business Image <span className="text-rose-500">*</span>
+            </label>
+            <input
+              type="file"
+              id="businessImage"
+              value={businessImage}
+              onChange={(e) => setBusinessImage(e.target.value)}
+              name="businessImage"
+              className="outline-none border-2 rounded px-2 py-3 w-full text-sm"
+              placeholder="Enter your company/business image"
+            />
+          </p>
+
+          <p className="flex flex-col items-start w-full">
+            <label
+              htmlFor="desc"
+              className="font-medium flex items-center gap-2"
+            >
+              Company/Business Description{" "}
+              <span className="text-rose-500">*</span>
+            </label>
+            <textarea
+              type="text"
+              cols={10}
+              rows={5}
+              id="desc"
+              value={desc}
+              onChange={(e) => setDesc(e.target.value)}
+              name="desc"
+              className="outline-none border-2 rounded px-2 py-3 w-full text-sm resize-none"
+              placeholder="Enter your company/business description"
+            ></textarea>
           </p>
 
           <input

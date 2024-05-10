@@ -28,6 +28,7 @@ const AdminOrder = () => {
             className="w-full border rounded px-2 py-2 text-sm"
           >
             <option value="Show 0-10">---Select---</option>
+            <option value="Show 0-10">Show All</option>
             <option value="Show 0-10">Show 0-10</option>
             <option value="Show 0-10">Show 0-20</option>
             <option value="Show 0-10">Show 0-30</option>

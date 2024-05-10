@@ -38,10 +38,10 @@ const AdminOrderDetails = () => {
           <p className="flex items-center gap-2 w-full md:w-1/2 md:container md:mx-auto">
             <select
               name="order-status"
-              className="outline-none border rounded p-2 text-slate-800 w-full"
+              className="outline-none border rounded p-2 text-slate-800 w-full font-medium"
               id="order-status"
             >
-              <option value="Status">Change Order Status</option>
+              <option value="Status">Change Payment Status</option>
               <option value="Status">Awaiting Payment</option>
               <option value="Status">Confirmed</option>
               <option value="Status">Shipped</option>

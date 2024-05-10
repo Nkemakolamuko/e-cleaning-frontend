@@ -13,7 +13,7 @@ const AdminHeader = () => {
   return (
     <div
       className={`header relative z-40 top-0 w-full py-3 border-b flex items-center justify-between h-fit bg-slate-50 text-slate-500 over ${
-        sidebar && "opacity-0 md:opacity-100"
+        sidebar && "truncate"
       }`}
     >
       <div className="flex items-center gap-4 w-full">
@@ -29,23 +29,25 @@ const AdminHeader = () => {
             className="py-2 md:py-3 px-2 bg-inherit w-full outline-none"
             placeholder="Search User"
           />
-          <p className="cursor-pointer border-l px-4 py-2 md:py-3">
-            <FaSearch className="w-5 h-5" />
+          <p className="cursor-pointer border-l md:px-4 px-3 py-2 md:py-3">
+            <FaSearch className="md:w-5 md:h-5 h-4 w-4" />
           </p>
         </div>
       </div>
-      <div className="flex items-center gap-4 w-full justify-end">
-        <FaBell
-          className="cursor-pointer w-6 h-6 md:w-7 md:h-7 hover:text-slate-700 active:scale-95 transition-all"
-          onClick={() => setNotification(true)}
-        />
-        <p
-          className="bg-black rounded text-sm md:text-base flex items-center gap-2 shadow text-slate-100 font-medium py-2 px-2 cursor-pointer active:scale-95"
-          onClick={() => setAccount(true)}
-        >
-          Account <FaAngleRight />
-        </p>
-      </div>
+      {!sidebar && (
+        <div className="flex items-center gap-4 w-full justify-end">
+          <FaBell
+            className="cursor-pointer w-6 h-6 md:w-7 md:h-7 hover:text-slate-700 active:scale-95 transition-all"
+            onClick={() => setNotification(true)}
+          />
+          <p
+            className="bg-black rounded text-sm md:text-base flex items-center gap-2 shadow text-slate-100 font-medium py-2 px-2 cursor-pointer active:scale-95"
+            onClick={() => setAccount(true)}
+          >
+            Account <FaAngleRight />
+          </p>
+        </div>
+      )}
 
       {notification && (
         <AdminNotification handleNotification={() => setNotification(false)} />
