@@ -3,6 +3,7 @@ import lottie from "lottie-web";
 import loginAnimation from "../../animations/loginAnimation.json";
 import loginLogo from "../../animations/registerLogo.json";
 import logo from "../../assets/logo.jpg";
+import axios from "axios";
 import {
   FaEye,
   FaEyeSlash,
@@ -41,7 +42,7 @@ const Register = () => {
     });
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!name.trim() || !email.trim() || !password.trim()) {
       toast.error("All fields are required!", { position: "top-left" });
@@ -57,18 +58,37 @@ const Register = () => {
         email,
         password,
         address,
-        id: Math.random(),
       },
     ];
+
+    try {
+      const response = await axios.post(
+        "https://cleaning-backend.vercel.app/api/users/register",
+        {
+          name,
+          email,
+          password,
+          address,
+        },
+        {
+          method: "POST",
+        }
+      );
+      console.log(response);
+    } catch (error) {
+      toast.error(error.message);
+      console.log(error);
+    }
+
     localStorage.setItem("user", JSON.stringify(user));
 
-    user && toast.success("Registration successful");
-    setTimeout(() => {
-      if (user) window.location.href = "/dashboard/settings";
-    }, 1000);
-    setName("");
-    setEmail("");
-    setPassword("");
+    // user && toast.success("Registration successful");
+    // setTimeout(() => {
+    //   if (user) window.location.href = "/dashboard/settings";
+    // }, 1000);
+    // setName("");
+    // setEmail("");
+    // setPassword("");
   };
   return (
     <section className="w-full h-screen bg-white md:flex md:flex-row md:items-center">
@@ -117,6 +137,19 @@ const Register = () => {
               placeholder="user@gmail.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              className="p-2 md:py-3 text-slate-700 outline-slate-500  border-2 rounded transition-all duration-300 w-full"
+            />
+          </p>
+          <p className="flex flex-col w-full">
+            <label htmlFor="address" className="tracking-wider font-medium">
+              Address <span className="text-slate-400">(Optional)</span>
+            </label>
+            <input
+              type="text"
+              id="address"
+              placeholder="Your Address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
               className="p-2 md:py-3 text-slate-700 outline-slate-500  border-2 rounded transition-all duration-300 w-full"
             />
           </p>
