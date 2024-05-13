@@ -80,7 +80,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
         >
           <li
             className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-500 hover:rounded-md hover:text-white ${
-              darkMode ? "dark-mode !bg-[#0000ff]" : ""
+              darkMode ? "dark-mode " : ""
             } ${
               darkMode && activeLink === "/dashboard"
                 ? "!bg-[#0000ff] !text-white rounded-md"
@@ -107,7 +107,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
         >
           <li
             className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-500 hover:rounded-md hover:text-white ${
-              darkMode ? "dark-mode !bg-[#0000ff]" : ""
+              darkMode ? "dark-mode " : ""
             } ${
               darkMode && activeLink === "/cleaners"
                 ? "!bg-[#0000ff] !text-white rounded-md"
@@ -134,7 +134,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
         >
           <li
             className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-500 hover:rounded-md hover:text-white ${
-              darkMode ? "dark-mode !bg-[#0000ff]" : ""
+              darkMode ? "dark-mode " : ""
             } ${
               darkMode && activeLink === "/orders"
                 ? "!bg-[#0000ff] !text-white rounded-md"
@@ -161,7 +161,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
         >
           <li
             className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-500 hover:rounded-md hover:text-white ${
-              darkMode ? "dark-mode !bg-[#0000ff]" : ""
+              darkMode ? "dark-mode " : ""
             } ${
               darkMode && activeLink === "/notifications"
                 ? "!bg-[#0000ff] !text-white rounded-md"
@@ -188,7 +188,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
         >
           <li
             className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-500 hover:rounded-md hover:text-white ${
-              darkMode ? "dark-mode !bg-[#0000ff]" : ""
+              darkMode ? "dark-mode " : ""
             } ${
               darkMode && activeLink === "/store"
                 ? "!bg-[#0000ff] !text-white rounded-md"
@@ -215,7 +215,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
         >
           <li
             className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-500 hover:rounded-md hover:text-white ${
-              darkMode ? "dark-mode !bg-[#0000ff]" : ""
+              darkMode ? "dark-mode " : ""
             } ${
               darkMode && activeLink === "/faq"
                 ? "!bg-[#0000ff] !text-white rounded-md"
@@ -240,7 +240,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
         >
           <li
             className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-500 hover:rounded-md hover:text-white ${
-              darkMode ? "dark-mode !bg-[#0000ff]" : ""
+              darkMode ? "dark-mode " : ""
             } ${
               darkMode && activeLink === "/history"
                 ? "!bg-[#0000ff] !text-white rounded-md"
@@ -267,7 +267,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
         >
           <li
             className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-500 hover:rounded-md hover:text-white ${
-              darkMode ? "dark-mode !bg-[#0000ff]" : ""
+              darkMode ? "dark-mode " : ""
             } ${
               darkMode && activeLink === "/contact"
                 ? "!bg-[#0000ff] !text-white rounded-md"
@@ -294,7 +294,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
         >
           <li
             className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-500 hover:rounded-md hover:text-white ${
-              darkMode ? "dark-mode !bg-[#0000ff]" : ""
+              darkMode ? "dark-mode " : ""
             } ${
               darkMode && activeLink === "/settings"
                 ? "!bg-[#0000ff] !text-white rounded-md"
