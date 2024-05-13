@@ -23,6 +23,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -61,6 +62,7 @@ const Register = () => {
       },
     ];
 
+    setLoading(true);
     try {
       const response = await axios.post(
         "https://cleaning-backend.vercel.app/api/users/register",
@@ -75,9 +77,11 @@ const Register = () => {
         }
       );
       console.log(response);
+      setLoading(false);
     } catch (error) {
       toast.error(error.message);
       console.log(error);
+      setLoading(false);
     }
 
     localStorage.setItem("user", JSON.stringify(user));
@@ -178,7 +182,7 @@ const Register = () => {
             className="p-2 md:p-4 bg-green-500 hover:bg-green-600 text-white font-medium tracking-widest rounded w-full mt-2  transition-all duration-300"
             onClick={handleSubmit}
           >
-            Register
+            {loading ? "Please wait..." : "Register"}
           </button>
         </form>
 
