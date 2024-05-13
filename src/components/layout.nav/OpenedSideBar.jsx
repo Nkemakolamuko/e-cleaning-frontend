@@ -79,15 +79,15 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-[#0000ff] hover:rounded-md hover:text-white ${
-              darkMode ? "dark-mode " : ""
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-500 hover:rounded-md hover:text-white ${
+              darkMode ? "dark-mode !bg-[#0000ff]" : ""
             } ${
               darkMode && activeLink === "/dashboard"
                 ? "!bg-[#0000ff] !text-white rounded-md"
                 : ""
             } ${
               activeLink === "/dashboard"
-                ? "bg-[#0000ff] text-white rounded-md"
+                ? "bg-green-500 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -106,15 +106,15 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-[#0000ff] hover:rounded-md hover:text-white ${
-              darkMode ? "dark-mode " : ""
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-500 hover:rounded-md hover:text-white ${
+              darkMode ? "dark-mode !bg-[#0000ff]" : ""
             } ${
               darkMode && activeLink === "/cleaners"
                 ? "!bg-[#0000ff] !text-white rounded-md"
                 : ""
             } ${
               activeLink === "/cleaners"
-                ? "bg-[#0000ff] text-white rounded-md"
+                ? "bg-green-500 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -133,15 +133,15 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-[#0000ff] hover:rounded-md hover:text-white ${
-              darkMode ? "dark-mode " : ""
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-500 hover:rounded-md hover:text-white ${
+              darkMode ? "dark-mode !bg-[#0000ff]" : ""
             } ${
               darkMode && activeLink === "/orders"
                 ? "!bg-[#0000ff] !text-white rounded-md"
                 : ""
             } ${
               activeLink === "/orders"
-                ? "bg-[#0000ff] text-white rounded-md"
+                ? "bg-green-500 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -160,15 +160,15 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-[#0000ff] hover:rounded-md hover:text-white ${
-              darkMode ? "dark-mode " : ""
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-500 hover:rounded-md hover:text-white ${
+              darkMode ? "dark-mode !bg-[#0000ff]" : ""
             } ${
               darkMode && activeLink === "/notifications"
                 ? "!bg-[#0000ff] !text-white rounded-md"
                 : ""
             } ${
               activeLink === "/notifications"
-                ? "bg-[#0000ff] text-white rounded-md"
+                ? "bg-green-500 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -187,15 +187,15 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-[#0000ff] hover:rounded-md hover:text-white ${
-              darkMode ? "dark-mode " : ""
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-500 hover:rounded-md hover:text-white ${
+              darkMode ? "dark-mode !bg-[#0000ff]" : ""
             } ${
               darkMode && activeLink === "/store"
                 ? "!bg-[#0000ff] !text-white rounded-md"
                 : ""
             } ${
               activeLink === "/store"
-                ? "bg-[#0000ff] text-white rounded-md"
+                ? "bg-green-500 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -214,8 +214,8 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-[#0000ff] hover:rounded-md hover:text-white ${
-              darkMode ? "dark-mode " : ""
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-500 hover:rounded-md hover:text-white ${
+              darkMode ? "dark-mode !bg-[#0000ff]" : ""
             } ${
               darkMode && activeLink === "/faq"
                 ? "!bg-[#0000ff] !text-white rounded-md"
@@ -239,15 +239,15 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-[#0000ff] hover:rounded-md hover:text-white ${
-              darkMode ? "dark-mode " : ""
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-500 hover:rounded-md hover:text-white ${
+              darkMode ? "dark-mode !bg-[#0000ff]" : ""
             } ${
               darkMode && activeLink === "/history"
                 ? "!bg-[#0000ff] !text-white rounded-md"
                 : ""
             } ${
               activeLink === "/history"
-                ? "bg-[#0000ff] text-white rounded-md"
+                ? "bg-green-500 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -266,15 +266,15 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-[#0000ff] hover:rounded-md hover:text-white ${
-              darkMode ? "dark-mode " : ""
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-500 hover:rounded-md hover:text-white ${
+              darkMode ? "dark-mode !bg-[#0000ff]" : ""
             } ${
               darkMode && activeLink === "/contact"
                 ? "!bg-[#0000ff] !text-white rounded-md"
                 : ""
             } ${
               activeLink === "/contact"
-                ? "bg-[#0000ff] text-white rounded-md"
+                ? "bg-green-500 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -293,15 +293,15 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-[#0000ff] hover:rounded-md hover:text-white ${
-              darkMode ? "dark-mode " : ""
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-500 hover:rounded-md hover:text-white ${
+              darkMode ? "dark-mode !bg-[#0000ff]" : ""
             } ${
               darkMode && activeLink === "/settings"
                 ? "!bg-[#0000ff] !text-white rounded-md"
                 : ""
             } ${
               activeLink === "/settings"
-                ? "bg-[#0000ff] text-white rounded-md"
+                ? "bg-green-500 text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
