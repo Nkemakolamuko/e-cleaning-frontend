@@ -79,15 +79,15 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-[#0000ff] hover:rounded-md hover:text-white ${
               darkMode ? "dark-mode " : ""
             } ${
               darkMode && activeLink === "/dashboard"
-                ? "!bg-green-300 !text-white rounded-md"
+                ? "!bg-[#0000ff] !text-white rounded-md"
                 : ""
             } ${
               activeLink === "/dashboard"
-                ? "bg-green-300 text-white rounded-md"
+                ? "bg-[#0000ff] text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -106,15 +106,15 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-[#0000ff] hover:rounded-md hover:text-white ${
               darkMode ? "dark-mode " : ""
             } ${
               darkMode && activeLink === "/cleaners"
-                ? "!bg-green-300 !text-white rounded-md"
+                ? "!bg-[#0000ff] !text-white rounded-md"
                 : ""
             } ${
               activeLink === "/cleaners"
-                ? "bg-green-300 text-white rounded-md"
+                ? "bg-[#0000ff] text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -133,15 +133,15 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-[#0000ff] hover:rounded-md hover:text-white ${
               darkMode ? "dark-mode " : ""
             } ${
               darkMode && activeLink === "/orders"
-                ? "!bg-green-300 !text-white rounded-md"
+                ? "!bg-[#0000ff] !text-white rounded-md"
                 : ""
             } ${
               activeLink === "/orders"
-                ? "bg-green-300 text-white rounded-md"
+                ? "bg-[#0000ff] text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -160,15 +160,15 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-[#0000ff] hover:rounded-md hover:text-white ${
               darkMode ? "dark-mode " : ""
             } ${
               darkMode && activeLink === "/notifications"
-                ? "!bg-green-300 !text-white rounded-md"
+                ? "!bg-[#0000ff] !text-white rounded-md"
                 : ""
             } ${
               activeLink === "/notifications"
-                ? "bg-green-300 text-white rounded-md"
+                ? "bg-[#0000ff] text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -187,15 +187,15 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-[#0000ff] hover:rounded-md hover:text-white ${
               darkMode ? "dark-mode " : ""
             } ${
               darkMode && activeLink === "/store"
-                ? "!bg-green-300 !text-white rounded-md"
+                ? "!bg-[#0000ff] !text-white rounded-md"
                 : ""
             } ${
               activeLink === "/store"
-                ? "bg-green-300 text-white rounded-md"
+                ? "bg-[#0000ff] text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -214,14 +214,14 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-[#0000ff] hover:rounded-md hover:text-white ${
               darkMode ? "dark-mode " : ""
             } ${
               darkMode && activeLink === "/faq"
-                ? "!bg-green-300 !text-white rounded-md"
+                ? "!bg-[#0000ff] !text-white rounded-md"
                 : ""
             } ${
-              activeLink === "/faq" ? "bg-green-300 text-white rounded-md" : ""
+              activeLink === "/faq" ? "bg-[#0000ff] text-white rounded-md" : ""
             } transition-all duration-300`}
           >
             <span className="">
@@ -239,15 +239,15 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-[#0000ff] hover:rounded-md hover:text-white ${
               darkMode ? "dark-mode " : ""
             } ${
               darkMode && activeLink === "/history"
-                ? "!bg-green-300 !text-white rounded-md"
+                ? "!bg-[#0000ff] !text-white rounded-md"
                 : ""
             } ${
               activeLink === "/history"
-                ? "bg-green-300 text-white rounded-md"
+                ? "bg-[#0000ff] text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -266,15 +266,15 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-[#0000ff] hover:rounded-md hover:text-white ${
               darkMode ? "dark-mode " : ""
             } ${
               darkMode && activeLink === "/contact"
-                ? "!bg-green-300 !text-white rounded-md"
+                ? "!bg-[#0000ff] !text-white rounded-md"
                 : ""
             } ${
               activeLink === "/contact"
-                ? "bg-green-300 text-white rounded-md"
+                ? "bg-[#0000ff] text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
@@ -293,15 +293,15 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
           }}
         >
           <li
-            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-green-300 hover:rounded-md hover:text-white ${
+            className={`flex items-center gap-4 rounded text-sm px-2 py-3 cursor-pointer hover:bg-[#0000ff] hover:rounded-md hover:text-white ${
               darkMode ? "dark-mode " : ""
             } ${
               darkMode && activeLink === "/settings"
-                ? "!bg-green-300 !text-white rounded-md"
+                ? "!bg-[#0000ff] !text-white rounded-md"
                 : ""
             } ${
               activeLink === "/settings"
-                ? "bg-green-300 text-white rounded-md"
+                ? "bg-[#0000ff] text-white rounded-md"
                 : ""
             } transition-all duration-300`}
           >
