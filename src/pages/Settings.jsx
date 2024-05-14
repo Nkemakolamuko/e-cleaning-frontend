@@ -112,9 +112,7 @@ const Settings = () => {
               handleClick={() => setShow("Payment")}
               title={"Make Payments"}
               desc={"Click to select"}
-              icon={
-                <FaDollarSign className="md:w-8 md:h-8 w-6 h-6 text-green-600 group-text-green-700" />
-              }
+              icon={<FaDollarSign className="md:w-8 md:h-8 w-6 h-6" />}
             />
 
             <SettingsCard
@@ -126,26 +124,20 @@ const Settings = () => {
               }}
               title={user?.email || "loading..."}
               desc={"Click to change"}
-              icon={
-                <FaCheckDouble className="md:w-8 md:h-8 w-6 h-6 text-green-500 group-hover:text-green-600" />
-              }
+              icon={<FaCheckDouble className="md:w-8 md:h-8 w-6 h-6" />}
             />
             <SettingsCard
               handleClick={() => setShow("Privacy")}
               title={"Privacy Policy"}
               desc={"Click to read"}
-              icon={
-                <FaUserShield className="md:w-8 md:h-8 w-6 h-6 text-slate-500 group-hover:text-slate-600" />
-              }
+              icon={<FaUserShield className="md:w-8 md:h-8 w-6 h-6" />}
             />
 
             <SettingsCard
               handleClick={() => setShow("Cleaner")}
               title={"Become A Cleaner"}
               desc={"Click to fill out form"}
-              icon={
-                <FaUserPlus className="md:w-8 md:h-8 w-6 h-6 text-slate-500 group-hover:text-slate-600" />
-              }
+              icon={<FaUserPlus className="md:w-8 md:h-8 w-6 h-6" />}
             />
           </div>
         </div>
@@ -162,7 +154,7 @@ const Settings = () => {
               desc={user?.address || "Click to enter address for delivery"}
               icon={
                 <span className="w-[9%]">
-                  <FaHome className="md:w-8 md:h-8 w-6 h-6 text-neutral-700 group-hover:text-neutral-900" />
+                  <FaHome className="md:w-8 md:h-8 w-6 h-6" />
                 </span>
               }
             />
@@ -173,9 +165,7 @@ const Settings = () => {
               }}
               title={"Change Password"}
               desc={"***********"}
-              icon={
-                <FaLock className="md:w-8 md:h-8 w-6 h-6 text-yellow-500 group-hover:text-yellow-600" />
-              }
+              icon={<FaLock className="md:w-8 md:h-8 w-6 h-6" />}
             />
 
             <SettingsCard
@@ -184,9 +174,7 @@ const Settings = () => {
               }}
               title={"Share App"}
               desc={"Click to invite friends and family"}
-              icon={
-                <FaShareNodes className="md:w-8 md:h-8 w-6 h-6 text-cyan-400 group-hover:text-cyan-500" />
-              }
+              icon={<FaShareNodes className="md:w-8 md:h-8 w-6 h-6" />}
             />
           </div>
         </div>

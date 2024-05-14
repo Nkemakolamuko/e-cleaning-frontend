@@ -14,7 +14,9 @@ const ContactImage = ({ means }) => {
         <p className="relative rounded-full border-4 md:border-cyan-400 border-cyan-400 group-hover:border-cyan-500 w-fit overflow-hidden p-6 transition-all duration-300 ease-in-out">
           <FaPhoneAlt
             className={`w-20 md:w-24 h-20 md:h-24 text-neutral-800 md:text-neutral-800 group-hover:text-neutral-900 ${
-              darkMode ? "dark-mode group-hover:text-neutral-200" : ""
+              darkMode
+                ? "dark-mode group-hover:!text-neutral-100 !text-neutral-400"
+                : ""
             }`}
           />
         </p>

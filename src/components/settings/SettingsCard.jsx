@@ -13,10 +13,14 @@ const SettingsCard = ({ handleClick, title, desc, icon }) => {
       onClick={handleClick}
     >
       <p className="flex flex-col">
-        <span className="font-medium">{title}</span>
+        <span className={`font-medium ${darkMode ? "!text-blue-600" : ""}`}>
+          {title}
+        </span>
         <span className="text-xs">{desc}</span>
       </p>
-      <p>{icon}</p>
+      <p className={`${darkMode ? "text-white/80" : "!text-neutral-55"}`}>
+        {icon}
+      </p>
     </div>
   );
 };

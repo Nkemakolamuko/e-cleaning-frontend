@@ -168,7 +168,7 @@ const Header = () => {
           </p>
           <p className="tracking-tighter text-xs font-medium">THEME</p>
           <p
-            className="border bg-neutral-900 rounded-full cursor-pointer p-2 text-white transition-all duration-300"
+            className="border border-[#0000ff] bg-[#000081] rounded-full cursor-pointer p-2 text-white transition-all duration-300"
             onClick={toggleThemeDark}
           >
             <FaMoon />
