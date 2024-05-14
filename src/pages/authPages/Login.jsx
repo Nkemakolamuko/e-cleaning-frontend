@@ -15,9 +15,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "../../api/axios";
 import AuthContext from "../../context-API/AuthProvider.jsx";
+import { BgContext } from "../../App.jsx";
 
 const Login = () => {
   const { setAuth } = useContext(AuthContext); // the nigga used 'authContext' - why small 'a'
+  const { setGlobalUser } = useContext(BgContext);
   const container = useRef(null);
   const loginLogoContainer = useRef(null);
   const userRef = useRef();
@@ -46,10 +48,10 @@ const Login = () => {
   }, []);
 
   useEffect(() => {
-    const userDetails = JSON.parse(localStorage.getItem("user"));
+    // const userDetails = JSON.parse(localStorage.getItem("user"));
     // console.log(userDetails);
     // setUserDetail([...userDetail, userDetails]);
-    userDetails.map((user) => setUserDetail(user));
+    // userDetails.map((user) => setUserDetail(user));
 
     userRef.current.focus();
   }, []);
@@ -65,46 +67,57 @@ const Login = () => {
     try {
       const response = await axios.post(
         "/api/users/login",
-        JSON.stringify({ user }),
+        JSON.stringify({ email, password }),
         {
           headers: { "Content-Type": "application/json" },
-          withCredentials: true,
+          // withCredentials: true,
         }
       );
-      console.log(response);
+      // console.log(response.data);
+      setGlobalUser(response?.data);
       const accessToken = response?.data?.accessToken;
-      setAuth({ user, pwd, accessToken });
-      console.log(accessToken);
-      toast.success("Login successful");
+      setAuth({ user, accessToken });
+      // console.log(accessToken);
+      if (response.data.email === "ultimateadminidan@gmail.com") {
+        toast.success("Admin login successful");
+        setTimeout(() => {
+          navigate("/admin-dashboard2521");
+        }, 2000);
+      } else {
+        toast.success("User login successful.");
+        setTimeout(() => {
+          navigate("/dashboard/settings");
+        }, 2000);
+      }
       setLoading(false);
     } catch (error) {
       toast.error(error.message, { position: "bottom-left" });
       console.log(error.message);
       setLoading(false);
     }
-    const userDetails = JSON.parse(localStorage.getItem("user"));
-    // setUserDetail([...userDetail, userDetails]);
-    userDetails.map((user) => setUserDetail(user));
+    // const userDetails = JSON.parse(localStorage.getItem("user"));
+    // // setUserDetail([...userDetail, userDetails]);
+    // userDetails.map((user) => setUserDetail(user));
 
-    if (
-      user.email.trim() === "ultimateadminidan@gmail.com" &&
-      user.password.trim() === "@OmolaDe2521"
-    ) {
-      toast.success("Admin login successful");
-      setTimeout(() => {
-        window.location.href = "/admin-dashboard2521";
-      }, 1000);
-    } else if (
-      user.email.trim() === userDetail.email &&
-      user.password.trim() === userDetail.password
-    ) {
-      toast.success("User login successful.");
-      setTimeout(() => {
-        window.location.href = "/dashboard/settings";
-      }, 1000);
-    } else {
-      toast.error("Incorrect login details", { position: "bottom-left" });
-    }
+    // if (
+    //   user.email.trim() === "ultimateadminidan@gmail.com" &&
+    //   user.password.trim() === "@OmolaDe2521"
+    // ) {
+    //   toast.success("Admin login successful");
+    //   setTimeout(() => {
+    //     window.location.href = "/admin-dashboard2521";
+    //   }, 1000);
+    // } else if (
+    //   user.email.trim() === userDetail.email &&
+    //   user.password.trim() === userDetail.password
+    // ) {
+    //   toast.success("User login successful.");
+    //   setTimeout(() => {
+    //     window.location.href = "/dashboard/settings";
+    //   }, 1000);
+    // } else {
+    //   toast.error("Incorrect login details", { position: "bottom-left" });
+    // }
   };
   return (
     <section className="w-full h-screen bg-white md:flex md:flex-row md:items-center">

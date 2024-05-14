@@ -48,6 +48,7 @@ function App() {
   const [showNotificationModal, setShowNotificationModal] = useState(false);
   const [notification, setNotification] = useState([]);
   const [quantity, setQuantity] = useState(1);
+  const [globalUser, setGlobalUser] = useState([]);
 
   useEffect(() => {
     if (cartExistErr) {
@@ -67,6 +68,8 @@ function App() {
 
     <BgContext.Provider
       value={{
+        globalUser,
+        setGlobalUser,
         bg,
         setBg,
         cartId,

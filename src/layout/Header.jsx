@@ -28,6 +28,8 @@ const Header = () => {
     setShowNotificationModal,
     notification,
     setNotification,
+    globalUser,
+    setGlobalUser,
   } = useContext(BgContext);
 
   const { smallScreenSideBar } = useContext(SideBarContext);
@@ -103,10 +105,13 @@ const Header = () => {
         )}
         <span className="truncate hidden md:flex">
           👋 Hi,{" "}
-          {user?.name?.split(" ")[0].charAt(0).toUpperCase() +
+          {/* {user?.name?.split(" ")[0].charAt(0).toUpperCase() +
             user?.name?.slice(1).split(" ")[0].toLowerCase() ||
             user?.name?.charAt(0).toUpperCase() ||
-            "Buddy"}
+            "Buddy"} */}
+          {globalUser?.username.split(" ")[0].charAt(0).toUpperCase() +
+            globalUser?.username?.slice(1).split(" ")[0].toLowerCase() ||
+            "Loading..."}
         </span>
       </p>
 

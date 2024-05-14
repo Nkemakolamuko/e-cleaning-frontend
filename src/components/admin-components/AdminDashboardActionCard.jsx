@@ -7,7 +7,7 @@ const AdminDashboardActionCard = ({ icon, title, desc }) => {
 
       <p className="flex flex-col text-slate-500 text-sm">
         <span className="font-medium">{title}</span>
-        <span>{desc}</span>
+        <code>{desc}</code>
       </p>
     </div>
   );

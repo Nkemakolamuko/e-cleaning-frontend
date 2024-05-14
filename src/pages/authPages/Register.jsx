@@ -52,10 +52,10 @@ const Register = () => {
       toast.error("All fields are required!", { position: "top-left" });
       return;
     }
-    // if (name.split(" ")[1] === undefined) {
-    //   alert("Needs at least 2 names");
-    //   return;
-    // }
+    if (name.split(" ")[1] === undefined) {
+      toast.error("Needs at least 2 names");
+      return;
+    }
     const user = [
       {
         name,
@@ -70,22 +70,25 @@ const Register = () => {
       const response = await axios.post(
         "/api/users/register",
         JSON.stringify({
-          name,
+          username: name,
           email,
           password,
           address,
         }),
         {
           headers: { "Content-Type": "application/json" },
-          withCredentials: true,
+          // withCredentials: true,
         }
       );
-      console.log(response);
       toast.success("Registration successful");
       setLoading(false);
       setName("");
       setEmail("");
+      setAddress("");
       setPassword("");
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000);
     } catch (error) {
       toast.error(error.message, { position: "bottom-left" });
       console.log(error);
@@ -94,10 +97,10 @@ const Register = () => {
 
     localStorage.setItem("user", JSON.stringify(user));
 
-    user && toast.success("Registration successful");
-    setTimeout(() => {
-      if (user) window.location.href = "/dashboard/settings";
-    }, 1000);
+    // user && toast.success("Registration successful");
+    // setTimeout(() => {
+    //   if (user) window.location.href = "/dashboard/settings";
+    // }, 1000);
     // setName("");
     // setEmail("");
     // setPassword("");
