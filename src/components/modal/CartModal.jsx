@@ -21,8 +21,10 @@ const CartModal = ({ handleModalClose }) => {
     >
       {!cartModalCount ? (
         <div
-          className={`fixed top-0 left-0 w-full md:w-1/2 flex flex-col bg-white h-[50vh] md:h-[30vh] shadow-lg ${
-            darkMode ? "dark-mode shadow-md shadow-white" : ""
+          className={`fixed top-0 left-0 w-full md:w-1/2 flex flex-col bg-white h-[50vh] md:h-[30vh] shadow-lg border rounded ${
+            darkMode
+              ? "dark-mode border rounded shadow-lg !shadow-white/30"
+              : ""
           }`}
         >
           <div className="w-full flex items-center justify-between pl-2 border-b">

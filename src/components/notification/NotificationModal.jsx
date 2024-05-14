@@ -22,7 +22,7 @@ const NotificationModal = ({ handleCloseNotificationModal }) => {
   return (
     <div
       className={`max-w-[300px] h-fit bg-white flex items-center flex-col justify-center absolute top-16 right-2 border z-[999] shadow-lg shadow-black/20 rounded transition-all duration-300 ${
-        darkMode ? "dark-mode shadow-lg shadow-white/40 border" : ""
+        darkMode ? "dark-mode border" : ""
       }`}
     >
       <div

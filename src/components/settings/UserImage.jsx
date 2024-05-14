@@ -60,7 +60,11 @@ const UserImage = ({ user }) => {
   return (
     <>
       <div className="flex flex-col gap-2 items-center group w-fit transition-all duration-300 ease-in-out">
-        <p className="max-w-[150rem] max-h-[150rem] relative rounded-full border-4 border-blue-500 group-hover:border-blue-700 overflow-hidden">
+        <p
+          className={`max-w-[150rem] max-h-[150rem] relative rounded-full border-4 border-green-300 group-hover:border-green-500 overflow-hidden ${
+            darkMode ? "!border-blue-500 group-hover:border-blue-700" : ""
+          }`}
+        >
           <img
             src={file || user}
             alt="User Image"

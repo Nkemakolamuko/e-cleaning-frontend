@@ -84,7 +84,7 @@ const History = () => {
           </p>
         </aside> */}
       {/* </section> */}
-      <div className="grid place-content-center place-items-center w-full h-[80vh]">
+      <div className="grid place-content-center place-items-center w-full h-[60vh]">
         <p>Coming Soon...</p>
       </div>
     </div>

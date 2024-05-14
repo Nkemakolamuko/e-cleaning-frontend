@@ -41,16 +41,16 @@ const BecomeCleaner = ({ handleCloseCleaner }) => {
     }, 5000);
   };
   return (
-    <div className="w-full h-screen bg-slate-500/75 flex items-center md:justify-center absolute top-0 p-[10px] md:p-[100px] lg:p-[300px] flex-col overflow-auto">
+    <div className="w-full h-screen bg-slate-500/75 flex items-center absolute top-0 p-[10px] md:py-[10px] md:px-[100px] lg:py-[30px] lg:px-[300px] flex-col overflow-auto rounded">
       <ToastContainer />
       <div
         className={`w-full rounded-md flex flex-col gap-2 bg-white text-center ${
-          darkMode ? "dark-mode border" : ""
+          darkMode ? "dark-mode border rounded" : ""
         }`}
       >
         <div
           className={`flex items-center mb-2 border-b px-4 pt-2 pb-0 ${
-            darkMode ? "dark-mode" : ""
+            darkMode ? "dark-mode rounded" : ""
           }`}
         >
           <h2 className="!tracking-widest font-medium">Become a cleaner</h2>
@@ -61,7 +61,7 @@ const BecomeCleaner = ({ handleCloseCleaner }) => {
 
         <form
           className={`px-4 pb-6 pt-2 flex flex-col gap-4 text-slate-800 ${
-            darkMode ? "dark-mode" : ""
+            darkMode ? "dark-mode rounded" : ""
           }`}
           onSubmit={handleSubmit}
         >
@@ -78,7 +78,9 @@ const BecomeCleaner = ({ handleCloseCleaner }) => {
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               name="fullName"
-              className="outline-none border-2 rounded px-2 py-3 w-full text-sm"
+              className={`outline-none border-2 rounded px-2 py-3 w-full text-sm ${
+                darkMode ? " dark-mode" : ""
+              }`}
               placeholder="Enter your full name"
             />
           </p>
@@ -96,7 +98,9 @@ const BecomeCleaner = ({ handleCloseCleaner }) => {
               value={bizName}
               onChange={(e) => setBizName(e.target.value)}
               name="compName"
-              className="outline-none border-2 rounded px-2 py-3 w-full text-sm"
+              className={`outline-none border-2 rounded px-2 py-3 w-full text-sm ${
+                darkMode ? " dark-mode" : ""
+              }`}
               placeholder="Enter your company/business name"
             />
           </p>
@@ -114,7 +118,9 @@ const BecomeCleaner = ({ handleCloseCleaner }) => {
               value={location}
               onChange={(e) => setLocation(e.target.value)}
               name="location"
-              className="outline-none border-2 rounded px-2 py-3 w-full text-sm"
+              className={`outline-none border-2 rounded px-2 py-3 w-full text-sm ${
+                darkMode ? " dark-mode" : ""
+              }`}
               placeholder="Enter your company/business location"
             />
           </p>
@@ -133,7 +139,9 @@ const BecomeCleaner = ({ handleCloseCleaner }) => {
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
               name="phoneNumber"
-              className="outline-none border-2 rounded px-2 py-3 w-full text-sm"
+              className={`outline-none border-2 rounded px-2 py-3 w-full text-sm ${
+                darkMode ? " dark-mode" : ""
+              }`}
               placeholder="Enter your company/business phone number"
             />
           </p>
@@ -150,7 +158,9 @@ const BecomeCleaner = ({ handleCloseCleaner }) => {
               value={businessImage}
               onChange={(e) => setBusinessImage(e.target.value)}
               name="businessImage"
-              className="outline-none border-2 rounded px-2 py-3 w-full text-sm"
+              className={`outline-none border-2 rounded px-2 py-3 w-full text-sm ${
+                darkMode ? " dark-mode" : ""
+              }`}
               placeholder="Enter your company/business image"
             />
           </p>
@@ -171,7 +181,9 @@ const BecomeCleaner = ({ handleCloseCleaner }) => {
               value={desc}
               onChange={(e) => setDesc(e.target.value)}
               name="desc"
-              className="outline-none border-2 rounded px-2 py-3 w-full text-sm resize-none"
+              className={`outline-none border-2 rounded px-2 py-3 w-full text-sm resize-none ${
+                darkMode ? "dark-mode" : ""
+              }`}
               placeholder="Enter your company/business description"
             ></textarea>
           </p>

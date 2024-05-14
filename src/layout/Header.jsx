@@ -119,7 +119,7 @@ const Header = () => {
         >
           <input
             type="text"
-            className="py-3 px-2 outline-none bg-inherit w-full"
+            className="py-3 px-2 outline-none bg-inherit w-full rounded"
             placeholder="Enter city name to search available cleaners in that area"
           />
           <p className="p-3 border-l cursor-pointer">
@@ -135,7 +135,7 @@ const Header = () => {
       >
         <input
           type="text"
-          className="py-3 px-2 outline-none bg-inherit w-full"
+          className="py-3 px-2 outline-none bg-inherit w-full rounded"
           placeholder="Enter city name to search available cleaners in that area"
         />
         <p className="p-3 border-l cursor-pointer">
@@ -166,7 +166,7 @@ const Header = () => {
           >
             <FaSun />
           </p>
-          <p className="tracking-tighter text-xs font-medium">THEME</p>
+          <p className="tracking-tighter text-xs font-medium">CHANGE THEME</p>
           <p
             className="border border-[#0000ff] bg-[#000081] rounded-full cursor-pointer p-2 text-white transition-all duration-300"
             onClick={toggleThemeDark}

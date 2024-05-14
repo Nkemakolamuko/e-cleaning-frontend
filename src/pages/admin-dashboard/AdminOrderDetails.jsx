@@ -41,7 +41,7 @@ const AdminOrderDetails = () => {
               className="outline-none border rounded p-2 text-slate-800 w-full font-medium"
               id="order-status"
             >
-              <option value="Status">Change Payment Status</option>
+              <option value="Status">Change Order Status</option>
               <option value="Status">Awaiting Payment</option>
               <option value="Status">Confirmed</option>
               <option value="Status">Shipped</option>

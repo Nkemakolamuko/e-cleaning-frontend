@@ -15,9 +15,7 @@ const ActionButtons = ({ text, logo, bg, bgHover, handleClick, to }) => {
         onClick={handleClick}
       >
         <span>{logo}</span>
-        <span className={`${darkMode ? "text-blue-400" : "text-neutral-95"}`}>
-          {text}
-        </span>
+        <span>{text}</span>
       </li>
     </a>
   );

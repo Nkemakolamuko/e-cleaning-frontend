@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Title from "../components/Title";
 // import userImage from "../assets/userImage.jpg";
 import logo from "../assets/download.jpg";
@@ -79,6 +79,12 @@ const cleaners = [
 
 const Dashboard = () => {
   const { darkMode } = useContext(BgContext);
+  const dashboardRef = useRef();
+
+  useEffect(() => {
+    dashboardRef.current.focus();
+  }, []);
+
   const [startIndex, setStartIndex] = useState(0);
   let itemsPerPage = 4;
   let time = 3000;
@@ -146,6 +152,7 @@ const Dashboard = () => {
       className={`flex flex-col align-center justify-between w-full overflow-hidden ${
         darkMode ? "dark-mode" : ""
       }`}
+      ref={dashboardRef}
     >
       <ToastContainer />
       <Title title="Dashboard" />
@@ -402,7 +409,7 @@ const Dashboard = () => {
 
           <select
             name="location"
-            className={`border rounded py-1 cursor-pointer mb-2 text-black ${
+            className={`border rounded py-1 cursor-pointer mb-2 outline-none text-black ${
               darkMode ? "dark-mode" : ""
             }`}
           >

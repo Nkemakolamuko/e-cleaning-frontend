@@ -17,9 +17,9 @@ const FAQCards = () => {
           showQuestion && "bg-slate-50"
         } group hover:bg-slate-50 text-base cursor-pointer transition-all duration-300 ${
           darkMode
-            ? `dark-mode hover:bg-slate-400 group-hover:!text-slate-200`
+            ? `dark-mode hover:!bg-slate-800 group-hover:!text-slate-200`
             : ""
-        } ${darkMode && showQuestion ? "!bg-slate-400" : ""}`}
+        } ${darkMode && showQuestion ? "!bg-slate-800" : ""}`}
         onClick={() => setShowQuestion(!showQuestion)}
       >
         <p

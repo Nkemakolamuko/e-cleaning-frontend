@@ -82,14 +82,14 @@ const Settings = () => {
         <Title title="Settings" />
         <div className="flex gap-2 items-center md:hidden">
           <p
-            className="!bg-white text-yellow-400 border rounded-full cursor-pointer p-1 transition-all duration-300"
+            className="!bg-white text-yellow-400 border rounded-full cursor-pointer p-2 transition-all duration-300"
             onClick={toggleThemeLight}
           >
             <FaSun />
           </p>
-          <p className="tracking-tighter text-xs font-medium">THEME</p>
+          <p className="tracking-tighter text-xs font-medium">CHANGE THEME</p>
           <p
-            className="border bg-neutral-900 rounded-full cursor-pointer p-1 text-white transition-all duration-300"
+            className="border border-[#0101be] bg-[#000068] rounded-full cursor-pointer p-2 text-white transition-all duration-300"
             onClick={toggleThemeDark}
           >
             <FaMoon />

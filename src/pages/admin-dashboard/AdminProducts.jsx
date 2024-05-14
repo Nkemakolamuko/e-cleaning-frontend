@@ -23,7 +23,7 @@ const AdminProducts = () => {
         Add Product
       </Link>
 
-      <div className="p-4 flex flex-col border gap-4 mt-4">
+      <div className="p-4 flex flex-col border rounded gap-4 mt-4">
         <select
           name="category"
           id="category"
@@ -44,13 +44,15 @@ const AdminProducts = () => {
               className="border rounded flex flex-col w-full p-2 text-center"
               key={product.id}
             >
-              <div className="w-full h-[200px]">
-                <img
-                  src={product.img}
-                  alt="Product Image"
-                  className="w-full h-full"
-                />
-              </div>
+              {/* <div className="w-full h-[200px]"> */}
+              <img
+                src={product.img}
+                alt="Product Image"
+                width={"50%"}
+                height={"50%"}
+                className="mx-auto"
+              />
+              {/* </div> */}
               <p className="py-2">{product.title}</p>
               <p className="pb-2 font-medium">{product.newPrice}</p>
 
