@@ -3,7 +3,7 @@ import lottie from "lottie-web";
 import loginAnimation from "../../animations/loginAnimation.json";
 import loginLogo from "../../animations/registerLogo.json";
 import logo from "../../assets/logo.jpg";
-import axios from "axios";
+import axios from "../../api/axios";
 import {
   FaEye,
   FaEyeSlash,
@@ -18,6 +18,7 @@ import { ToastContainer, toast } from "react-toastify";
 const Register = () => {
   const container = useRef(null);
   const loginLogoContainer = useRef(null);
+  const userRef = useRef();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -65,19 +66,23 @@ const Register = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "https://cleaning-backend.vercel.app/api/users/register",
-        {
+        "/api/users/register",
+        JSON.stringify({
           name,
           email,
           password,
           address,
-        },
+        }),
         {
-          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          // withCredentials: true,
         }
       );
       console.log(response);
       setLoading(false);
+      setName("");
+      setEmail("");
+      setPassword("");
     } catch (error) {
       toast.error(error.message);
       console.log(error);
@@ -86,10 +91,10 @@ const Register = () => {
 
     localStorage.setItem("user", JSON.stringify(user));
 
-    // user && toast.success("Registration successful");
-    // setTimeout(() => {
-    //   if (user) window.location.href = "/dashboard/settings";
-    // }, 1000);
+    user && toast.success("Registration successful");
+    setTimeout(() => {
+      if (user) window.location.href = "/dashboard/settings";
+    }, 1000);
     // setName("");
     // setEmail("");
     // setPassword("");
@@ -125,6 +130,7 @@ const Register = () => {
             <input
               type="text"
               id="name"
+              ref={userRef}
               placeholder="Full Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -171,7 +177,7 @@ const Register = () => {
                 className="p-2 md:py-3 border-none bg-white outline-none w-[90%]"
               />
               <p
-                className="p-2 w-[10%] cursor-pointer"
+                className="p-2 w-[10%] cursor-pointer flex items-center justify-center"
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
@@ -179,7 +185,12 @@ const Register = () => {
             </div>
           </div>
           <button
-            className="p-2 md:p-4 bg-green-500 hover:bg-green-600 text-white font-medium tracking-widest rounded w-full mt-2  transition-all duration-300"
+            className={`p-3 md:p-4 bg-green-500 hover:bg-green-600 text-white font-medium tracking-widest rounded w-full mt-2  transition-all duration-300 ${
+              loading
+                ? "cursor-not-allowed bg-green-500/50 hover:bg-green-600/50 text-white/50"
+                : "cursor-pointer"
+            }`}
+            disabled={loading ? true : false}
             onClick={handleSubmit}
           >
             {loading ? "Please wait..." : "Register"}
