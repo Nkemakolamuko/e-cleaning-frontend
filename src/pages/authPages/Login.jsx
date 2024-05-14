@@ -86,25 +86,25 @@ const Login = () => {
     // setUserDetail([...userDetail, userDetails]);
     userDetails.map((user) => setUserDetail(user));
 
-    // if (
-    //   user.email.trim() === "ultimateadminidan@gmail.com" &&
-    //   user.password.trim() === "@OmolaDe2521"
-    // ) {
-    //   toast.success("Admin login successful");
-    //   setTimeout(() => {
-    //     window.location.href = "/admin-dashboard2521";
-    //   }, 1000);
-    // } else if (
-    //   user.email.trim() === userDetail.email &&
-    //   user.password.trim() === userDetail.password
-    // ) {
-    //   toast.success("User login successful.");
-    //   setTimeout(() => {
-    //     window.location.href = "/dashboard/settings";
-    //   }, 1000);
-    // } else {
-    //   toast.error("Incorrect login details", { position: "bottom-left" });
-    // }
+    if (
+      user.email.trim() === "ultimateadminidan@gmail.com" &&
+      user.password.trim() === "@OmolaDe2521"
+    ) {
+      toast.success("Admin login successful");
+      setTimeout(() => {
+        window.location.href = "/admin-dashboard2521";
+      }, 1000);
+    } else if (
+      user.email.trim() === userDetail.email &&
+      user.password.trim() === userDetail.password
+    ) {
+      toast.success("User login successful.");
+      setTimeout(() => {
+        window.location.href = "/dashboard/settings";
+      }, 1000);
+    } else {
+      toast.error("Incorrect login details", { position: "bottom-left" });
+    }
   };
   return (
     <section className="w-full h-screen bg-white md:flex md:flex-row md:items-center">
