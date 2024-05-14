@@ -27,7 +27,7 @@ const AdminOrderDetails = () => {
       </p>
 
       <div className="border rounded flex flex-col w-full mt-4">
-        <div className="flex flex-col text-sm bg-green-500 p-4 text-white gap-2 container mx-auto w-full rounded-t">
+        <div className="flex flex-col text-sm bg-green-500 p-4 text-white gap-2 w-full rounded-t">
           <p className="flex items-center gap-2 md:w-1/2 md:container md:mx-auto">
             <FaCalendarAlt className="text-slate-800" />
             <span className="font-semibold text-base">May 12, 2024</span>
@@ -80,7 +80,7 @@ const AdminOrderDetails = () => {
           <table className="table-auto border border-collapse mt-2 p-4 w-full text-sm rounded overflow-auto text-nowrap">
             <thead className="border-b bg-slate-200 text-slate-600">
               <tr className="text-left rounded-t">
-                <th className="px-4 py-3">Product</th>
+                <th className="px-4 py-3">Product(s)</th>
                 <th className="px-4 py-3">Unit Price</th>
                 <th className="px-4 py-3">Quantity</th>
                 <th className="px-4 py-3">Total</th>
@@ -129,7 +129,7 @@ const AdminOrderDetails = () => {
 
         <div className="p-4">
           <div className="border rounded p-4 w-full">
-            <p className="w-full text-center bg-neutral-900 text-white rounded py-3 cursor-pointer">
+            <p className="w-full text-center bg-neutral-900 text-white rounded py-3 cursor-pointer active:scale-95">
               MARK AS DELIVERED
             </p>
           </div>

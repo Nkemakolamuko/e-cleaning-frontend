@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const LatestOrders = ({ userEmail, amountPaid, paymentDate }) => {
+const LatestOrders = ({ userEmail, amountPaid, paymentDate, name }) => {
   const navigate = useNavigate();
   return (
     <p className="flex items-center justify-between py-2 gap-4 text-sm scroll border-b overflow-auto">
-      <span className="font-semibold">User</span>
+      <span className="font-semibold">{name}</span>
       <span>{userEmail}</span>
       <span>₦ {amountPaid}</span>
       <span>{paymentDate}</span>

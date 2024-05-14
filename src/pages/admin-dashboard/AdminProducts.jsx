@@ -41,7 +41,7 @@ const AdminProducts = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {products?.map((product) => (
             <div
-              className="border rounded flex flex-col w-full p-2 text-center"
+              className="border rounded flex flex-col w-full p-2 justify-between text-center"
               key={product.id}
             >
               {/* <div className="w-full h-[200px]"> */}
@@ -53,16 +53,19 @@ const AdminProducts = () => {
                 className="mx-auto"
               />
               {/* </div> */}
-              <p className="py-2">{product.title}</p>
-              <p className="pb-2 font-medium">{product.newPrice}</p>
 
-              <div className="w-full flex flex-col md:flex-row items-center gap-2">
-                <p className="rounded text-center py-3 border border-green-500 text-green-500 active:scale-95 cursor-pointer w-full flex justify-center">
-                  <FaPen />
-                </p>
-                <p className="rounded text-center py-3 border border-rose-500 text-rose-500 active:scale-95 cursor-pointer w-full flex justify-center">
-                  <FaTrashCan />
-                </p>
+              <div className="flex flex-col">
+                <p className="py-2">{product.title}</p>
+                <p className="pb-2 font-medium">{product.newPrice}</p>
+
+                <div className="w-full flex flex-col md:flex-row items-center gap-2">
+                  <p className="rounded text-center py-3 border border-green-500 text-green-500 active:scale-95 cursor-pointer w-full flex justify-center">
+                    <FaPen />
+                  </p>
+                  <p className="rounded text-center py-3 border border-rose-500 text-rose-500 active:scale-95 cursor-pointer w-full flex justify-center">
+                    <FaTrashCan />
+                  </p>
+                </div>
               </div>
             </div>
           ))}

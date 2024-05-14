@@ -14,7 +14,7 @@ const AdminOrder = () => {
           <select
             name="status"
             id="status"
-            className="w-full border rounded px-2 py-2 text-sm"
+            className="w-full border rounded px-2 py-2 text-sm outline-none"
           >
             <option value="Delivered">---Select---</option>
             <option value="Delivered">All</option>
@@ -25,7 +25,7 @@ const AdminOrder = () => {
           <select
             name="show"
             id="show"
-            className="w-full border rounded px-2 py-2 text-sm"
+            className="w-full border rounded px-2 py-2 text-sm outline-none"
           >
             <option value="Show 0-10">---Select---</option>
             <option value="Show 0-10">Show All</option>
