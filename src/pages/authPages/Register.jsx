@@ -42,6 +42,8 @@ const Register = () => {
       loop: true,
       autoplay: true,
     });
+
+    userRef.current.focus();
   }, []);
 
   const handleSubmit = async (e) => {
@@ -75,16 +77,17 @@ const Register = () => {
         }),
         {
           headers: { "Content-Type": "application/json" },
-          // withCredentials: true,
+          withCredentials: true,
         }
       );
       console.log(response);
+      toast.success("Registration successful");
       setLoading(false);
       setName("");
       setEmail("");
       setPassword("");
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error.message, { position: "bottom-left" });
       console.log(error);
       setLoading(false);
     }

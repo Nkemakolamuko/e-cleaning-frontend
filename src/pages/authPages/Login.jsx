@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import lottie from "lottie-web";
 import loginAnimation from "../../animations/loginAnimation.json";
 import loginLogo from "../../animations/loginLogo.json";
@@ -13,13 +13,18 @@ import {
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import axios from "../../api/axios";
+import AuthContext from "../../context-API/AuthProvider.jsx";
 
 const Login = () => {
+  const { setAuth } = useContext(AuthContext); // the nigga used 'authContext' - why small 'a'
   const container = useRef(null);
   const loginLogoContainer = useRef(null);
+  const userRef = useRef();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [userDetail, setUserDetail] = useState([]);
   const navigate = useNavigate();
 
@@ -45,40 +50,61 @@ const Login = () => {
     // console.log(userDetails);
     // setUserDetail([...userDetail, userDetails]);
     userDetails.map((user) => setUserDetail(user));
+
+    userRef.current.focus();
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const user = {
       email,
       password,
     };
+
+    setLoading(true);
+    try {
+      const response = await axios.post(
+        "/api/users/login",
+        JSON.stringify({ user }),
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
+      console.log(response);
+      const accessToken = response?.data?.accessToken;
+      setAuth({ user, pwd, accessToken });
+      console.log(accessToken);
+      toast.success("Login successful");
+      setLoading(false);
+    } catch (error) {
+      toast.error(error.message, { position: "bottom-left" });
+      console.log(error.message);
+      setLoading(false);
+    }
     const userDetails = JSON.parse(localStorage.getItem("user"));
-    // console.log(userDetails);
     // setUserDetail([...userDetail, userDetails]);
     userDetails.map((user) => setUserDetail(user));
-    // console.log(user);
-    // console.log(userDetail);
 
-    if (
-      user.email.trim() === "ultimateadminidan@gmail.com" &&
-      user.password.trim() === "@OmolaDe2521"
-    ) {
-      toast.success("Admin login successful");
-      setTimeout(() => {
-        window.location.href = "/admin-dashboard2521";
-      }, 1000);
-    } else if (
-      user.email.trim() === userDetail.email &&
-      user.password.trim() === userDetail.password
-    ) {
-      toast.success("User login successful.");
-      setTimeout(() => {
-        window.location.href = "/dashboard/settings";
-      }, 1000);
-    } else {
-      toast.error("Incorrect login details", { position: "top-right" });
-    }
+    // if (
+    //   user.email.trim() === "ultimateadminidan@gmail.com" &&
+    //   user.password.trim() === "@OmolaDe2521"
+    // ) {
+    //   toast.success("Admin login successful");
+    //   setTimeout(() => {
+    //     window.location.href = "/admin-dashboard2521";
+    //   }, 1000);
+    // } else if (
+    //   user.email.trim() === userDetail.email &&
+    //   user.password.trim() === userDetail.password
+    // ) {
+    //   toast.success("User login successful.");
+    //   setTimeout(() => {
+    //     window.location.href = "/dashboard/settings";
+    //   }, 1000);
+    // } else {
+    //   toast.error("Incorrect login details", { position: "bottom-left" });
+    // }
   };
   return (
     <section className="w-full h-screen bg-white md:flex md:flex-row md:items-center">
@@ -118,6 +144,7 @@ const Login = () => {
             <input
               type="text"
               id="email"
+              ref={userRef}
               placeholder="user@gmail.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -146,10 +173,15 @@ const Login = () => {
             </div>
           </div>
           <button
-            className="p-2 md:p-4 bg-green-500 hover:bg-green-600 text-white font-medium tracking-widest rounded w-full mt-2  transition-all duration-300"
+            className={`p-2 md:p-4 bg-green-500 hover:bg-green-600 text-white font-medium tracking-widest rounded w-full mt-2  transition-all duration-300 ${
+              loading
+                ? "cursor-not-allowed bg-green-500/50 hover:bg-green-600/50 text-white/50"
+                : "cursor-pointer"
+            }`}
+            disabled={loading ? true : false}
             onClick={handleSubmit}
           >
-            Login
+            {loading ? "Please wait..." : "Login"}
           </button>
         </form>
 
