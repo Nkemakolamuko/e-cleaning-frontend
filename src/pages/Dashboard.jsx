@@ -312,10 +312,10 @@ const Dashboard = () => {
       </div>
 
       {/* Features */}
-      <section className="mt-7 w-full hidden md:flex">
+      <section className="mt-7 w-full hidden md:flex border rounded p-2">
         <LatestFeatures />
       </section>
-      <section className="md:hidden mt-7">
+      <section className="md:hidden mt-7 border rounded p-2">
         <h2
           className={`font-semibold !tracking-widest text-gray-800 ${
             darkMode ? "dark-mode" : ""
@@ -324,7 +324,7 @@ const Dashboard = () => {
           Latest Features And Updates
         </h2>
         <div
-          className={`flex items-center py-3 gap-4 overflow-hidden w-full text-nowrap border-y ${
+          className={`flex items-center py-3 gap-4 overflow-hidden w-full text-nowrap ${
             darkMode ? "dark-mode" : ""
           }`}
         >
@@ -396,7 +396,7 @@ const Dashboard = () => {
       </section>
 
       {/*Available Cleaners*/}
-      <section className="mt-7 w-full flex flex-col overflow-auto">
+      <section className="mt-7 w-full flex flex-col overflow-auto border rounded p-2">
         <div className="flex items-center md:gap-4 w-full justify-between md:justify-normal md:mb-2">
           <Title title="Available Cleaners" />
 
@@ -457,7 +457,7 @@ const Dashboard = () => {
 
       {/* History */}
       <div
-        className={`flex items-center md:gap-3 md:justify-start justify-between mt-7 ${
+        className={`flex items-center md:gap-3 md:justify-start justify-between mt-7 border rounded-t p-2 ${
           darkMode ? "dark-mode" : ""
         }`}
       >
@@ -479,7 +479,7 @@ const Dashboard = () => {
           </span>
         </Link>
       </div>
-      <section className="flex flex-col w-full overflow-auto">
+      <section className="flex flex-col w-full overflow-auto border rounded-b p-2">
         {/* <div className="overflow-auto"></div> */}
         <DashboardHistory />
       </section>

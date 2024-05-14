@@ -6,7 +6,7 @@ const DashboardHistory = () => {
   return (
     <>
       <table
-        className={`table-auto shadow-history border border-green-50 mt-2 rounded !bg-white border-separate border-spacing-y-1 text-nowrap text-xs md:text-sm overflow-auto scroll ${
+        className={`table-auto border border-green-50 rounded !bg-white border-separate border-spacing-y-1 text-nowrap text-xs md:text-sm overflow-auto scroll ${
           darkMode ? "dark-mode" : ""
         }`}
       >
