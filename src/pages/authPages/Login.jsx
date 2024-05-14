@@ -173,7 +173,7 @@ const Login = () => {
             </div>
           </div>
           <button
-            className={`p-2 md:p-4 bg-green-500 hover:bg-green-600 text-white font-medium tracking-widest rounded w-full mt-2  transition-all duration-300 ${
+            className={`p-3 md:p-4 bg-green-500 hover:bg-green-600 text-white font-medium tracking-widest rounded w-full mt-2  transition-all duration-300 ${
               loading
                 ? "cursor-not-allowed bg-green-500/50 hover:bg-green-600/50 text-white/50"
                 : "cursor-pointer"
