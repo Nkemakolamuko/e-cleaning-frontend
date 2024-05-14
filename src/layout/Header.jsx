@@ -109,8 +109,8 @@ const Header = () => {
             user?.name?.slice(1).split(" ")[0].toLowerCase() ||
             user?.name?.charAt(0).toUpperCase() ||
             "Buddy"} */}
-          {globalUser?.username.split(" ")[0].charAt(0).toUpperCase() +
-            globalUser?.username?.slice(1).split(" ")[0].toLowerCase() ||
+          {globalUser?.username?.split(" ")[0].charAt(0).toUpperCase() +
+            globalUser?.username?.slice(1)?.split(" ")[0].toLowerCase() ||
             "Loading..."}
         </span>
       </p>
