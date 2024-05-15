@@ -218,7 +218,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
                 ? "!bg-[#0000ff] !text-white rounded-md"
                 : ""
             } ${
-              activeLink === "/faq" ? "bg-[#0000ff] text-white rounded-md" : ""
+              activeLink === "/faq" ? "bg-green-500 text-white rounded-md" : ""
             } transition-all duration-300`}
           >
             <span className="">
