@@ -477,6 +477,7 @@ const Dashboard = () => {
               desc={value.desc}
               location={value.location}
               key={value.id}
+              id={value.id}
             />
           ))}
         </section>

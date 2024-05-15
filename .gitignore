@@ -25,3 +25,6 @@ dist-ssr
 
 # Practice code
 ./src/layout/test.js
+
+# Old code that I might need
+./src/oldHistory.txt

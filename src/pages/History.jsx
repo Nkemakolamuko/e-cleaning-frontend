@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Title from "../components/Title";
 import History23 from "../components/history/history23/History23";
 import History24 from "../components/history/history24/History24";
@@ -7,86 +7,34 @@ import History26 from "../components/history/history26/History26";
 import { BgContext } from "../App";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import DashboardHistoryCard from "../components/history/DashboardHistoryCard";
+import cleanersData from "../../db/cleanersDb";
 
 const History = () => {
   const { darkMode } = useContext(BgContext);
   const [active, setActive] = useState("2024");
+  const [history, setHistory] = useState([]);
+
+  useEffect(() => {
+    const historyData = cleanersData;
+    setHistory(historyData.slice(0));
+  }, []);
   return (
     <div className="flex flex-col w-full h-screen">
-      <Title title="Cleaning History" />
+      <Title title="Wash History" />
       <ToastContainer />
-      {/* <div className="fixed top-16 sticky-z-50 bg-green-50 w-full md:hidden">
-        <Title title="Cleaning History" />
-      </div>
-      <div className="hidden md:block">
-        <Title title="Cleaning History" />
-      </div>
-      <section className="flex md:flex-row flex-col-reverse items-center w-full justify-between h-full">
-        <aside className="w-full md:w-[70%] flex flex-col h-full">
-          {active === "2023" && <History23 />}
-          {active === "2024" && <History24 />}
-          {active === "2025" && <History25 />}
-          {active === "2026" && <History26 />}
-        </aside>
-        <aside
-          className={`flex flex-row w-[85%] right-0 justify-between md:justify-normal md:flex-col gap-3 md:w-[20%] text-center h-fit md:h-full top-28 md:top-32 overflow-auto md:right-6 fixed z-50 bg-green-50 p-2 md:bg-transparent md-p-0 ${
-            darkMode ? "dark-mode" : ""
-          }`}
-        >
-          <p className="font-semibold tracking-widest hidden md:block">
-            Select Year
-          </p>
-          <p
-            className={`p-2 border-2 rounded tracking-wide font-medium hover:bg-green-300 hover:text-white hover:border-green-300 ${
-              active === "2023"
-                ? "bg-green-300 text-white !border-green-300"
-                : "bg-white text-black"
-            } transition-all duration-300 cursor-pointer`}
-            onClick={() => setActive("2023")}
-          >
-            2023
-          </p>
-          <p
-            className={`p-2 border-2 rounded tracking-wide font-medium hover:bg-green-300 hover:text-white hover:border-green-300 ${
-              active === "2024"
-                ? "bg-green-300 text-white !border-green-300"
-                : "bg-white text-black"
-            } transition-all duration-300 cursor-pointer`}
-            onClick={() => setActive("2024")}
-          >
-            2024
-          </p>
-          <p
-            className={`p-2 border-2 rounded tracking-wide font-medium hover:bg-green-300 hover:text-white hover:border-green-300 ${
-              active === "2025"
-                ? "bg-green-300 text-white !border-green-300"
-                : "bg-white text-black"
-            } transition-all duration-300 cursor-pointer`}
-            onClick={() => {
-              // setActive("2025");
-              toast("Coming soon...", { autoClose: 2000 });
-            }}
-          >
-            2025
-          </p>
-          <p
-            className={`p-2 border-2 rounded tracking-wide font-medium hover:bg-green-300 hover:text-white hover:border-green-300 ${
-              active === "2026"
-                ? "bg-green-300 text-white !border-green-300"
-                : "bg-white text-black"
-            } transition-all duration-300 cursor-pointer`}
-            onClick={() => {
-              // setActive("2026");
-              toast("Coming soon...", { autoClose: 2000 });
-            }}
-          >
-            2026
-          </p>
-        </aside> */}
-      {/* </section> */}
-      <div className="grid place-content-center place-items-center w-full h-[60vh]">
-        <p>Coming Soon...</p>
-      </div>
+
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-2 gap-2">
+        {history?.map((value) => (
+          <DashboardHistoryCard
+            businessName={value.businessName}
+            desc={value.desc}
+            location={value.location}
+            key={value.id}
+            id={value.id}
+          />
+        ))}
+      </section>
     </div>
   );
 };

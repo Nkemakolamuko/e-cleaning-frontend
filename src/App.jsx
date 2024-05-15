@@ -29,6 +29,7 @@ import AdminReviews from "./pages/admin-dashboard/AdminReviews";
 import AdminUsers from "./pages/admin-dashboard/AdminUsers";
 import AdminCleaners from "./pages/admin-dashboard/AdminCleaners";
 import AdminOrderDetails from "./pages/admin-dashboard/AdminOrderDetails";
+import DashboardHistoryDetails from "./components/history/DashboardHistoryDetails";
 
 export const BgContext = createContext(null);
 
@@ -250,6 +251,10 @@ function App() {
                 <History />
               </MainNav>
             }
+          />
+          <Route
+            path="/dashboard/history/:id"
+            element={<DashboardHistoryDetails />}
           />
           <Route
             path="/dashboard/notifications"

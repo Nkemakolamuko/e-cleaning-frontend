@@ -2,11 +2,15 @@ import React, { useContext } from "react";
 import img from "../../assets/userImage.jpg";
 import { FaHistory } from "react-icons/fa";
 import { BgContext } from "../../App";
+import { Link } from "react-router-dom";
 
-const DashboardHistoryCard = ({ businessName, location, desc }) => {
+const DashboardHistoryCard = ({ businessName, location, desc, id }) => {
   const { darkMode } = useContext(BgContext);
   return (
-    <div className="flex items-center justify-between border rounded p-2">
+    <Link
+      to={`/dashboard/history/${id}`}
+      className="flex items-center justify-between border rounded p-2"
+    >
       <div className="w-[30%] h-full">
         <img
           src={img}
@@ -39,7 +43,7 @@ const DashboardHistoryCard = ({ businessName, location, desc }) => {
           <FaHistory />{" "}
         </p>
       </div>
-    </div>
+    </Link>
   );
 };
 
