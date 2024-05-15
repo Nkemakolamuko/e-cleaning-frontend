@@ -23,6 +23,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ const Register = () => {
       return;
     }
     if (name.split(" ")[1] === undefined) {
-      toast.error("Needs at least 2 names");
+      toast.error("Needs at least 2 names", { position: "top-left" });
       return;
     }
     const user = [
@@ -62,6 +63,7 @@ const Register = () => {
         email,
         password,
         address,
+        phoneNumber,
       },
     ];
 
@@ -74,6 +76,7 @@ const Register = () => {
           email,
           password,
           address,
+          phoneNumber,
         }),
         {
           headers: { "Content-Type": "application/json" },
@@ -86,35 +89,25 @@ const Register = () => {
       setEmail("");
       setAddress("");
       setPassword("");
+      setPhoneNumber("");
       setTimeout(() => {
         navigate("/login");
       }, 2000);
     } catch (error) {
-      toast.error(error.message, { position: "bottom-left" });
-      console.log(error);
+      toast.error(error.message, { position: "top-left" });
       setLoading(false);
     }
 
     localStorage.setItem("user", JSON.stringify(user));
-
-    // user && toast.success("Registration successful");
-    // setTimeout(() => {
-    //   if (user) window.location.href = "/dashboard/settings";
-    // }, 1000);
-    // setName("");
-    // setEmail("");
-    // setPassword("");
   };
   return (
     <section className="w-full h-screen bg-white md:flex md:flex-row md:items-center">
       <ToastContainer />
       <div className="w-[50%] h-screen hidden md:flex overflow-hidden">
-        {/* <img src={logo} alt="Login Image" className="h-full" /> */}
         <div ref={container} />
       </div>
 
-      {/* max-w-[410px] */}
-      <div className="md:max-w-[50%] h-full flex flex-col items-center justify-center md:justify-normal  container mx-auto lg:px-20 md:py-8 md:px-6 px-2 pb-2 pt-24 overflow-auto scroll">
+      <div className="md:max-w-[50%] h-full flex flex-col items-center md:justify-normal container mx-auto lg:px-20 md:py-8 md:px-6 px-2 pb-2 overflow-auto scroll">
         <div className="w-[20%] h-[20%]">
           <div ref={loginLogoContainer} />
         </div>
@@ -153,6 +146,19 @@ const Register = () => {
               placeholder="user@gmail.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              className="p-2 md:py-3 text-slate-700 outline-slate-500  border-2 rounded transition-all duration-300 w-full"
+            />
+          </p>
+          <p className="flex flex-col w-full">
+            <label htmlFor="phoneNumber" className="tracking-wider font-medium">
+              Phone Number
+            </label>
+            <input
+              type="tel"
+              id="phoneNumber"
+              placeholder="07040876440"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
               className="p-2 md:py-3 text-slate-700 outline-slate-500  border-2 rounded transition-all duration-300 w-full"
             />
           </p>
@@ -213,28 +219,37 @@ const Register = () => {
           </Link>
         </div>
 
-        <div className="flex items-center justify-between gap-1 mt-3 w-full">
+        <div className="flex items-center justify-between gap-1 mt-3 w-full text-nowrap">
           <p className="border-slate-300 border w-full"></p>
-          <p>or</p>
+          <p className="text-sm">Or Login Using</p>
           <p className="border-slate-300 border w-full"></p>
         </div>
 
         {/* Other Methods */}
         <div className="flex flex-col w-full gap-1 transition-all duration-300">
-          <p className="p-2 md:py-3 bg-black text-white border-2 border-black font-medium tracking-widest rounded w-full mt-2 flex items-center justify-center cursor-pointer gap-4 group transition-all duration-300">
+          <p
+            className="p-2 md:py-3 bg-white text-slate-600 border font-medium tracking-widest rounded w-full mt-2 flex items-center cursor-pointer gap-4 group transition-all duration-300"
+            onClick={() => toast("Coming soon...")}
+          >
             <FcGoogle className="w-6 h-6" />
 
             <span className="">Google</span>
           </p>
-          <p className="p-2 md:py-3 bg-blue-500 border-2 border-blue-500 hover:border-blue-600 hover:bg-blue-600 font-medium text-white tracking-widest rounded w-full mt-2 flex justify-center items-center cursor-pointer gap-4 transition-all duration-300">
-            <FaFacebook className="w-6 h-6" />
+          <p
+            className="p-2 md:py-3 bg-white text-slate-600 border font-medium tracking-widest rounded w-full mt-2 flex items-center cursor-pointer gap-4 transition-all duration-300"
+            onClick={() => toast("Coming soon...")}
+          >
+            <FaFacebook className="w-6 h-6 text-blue-500" />
 
-            <span className=" text-white">Facebook</span>
+            <span className="">Facebook</span>
           </p>
-          <p className="p-2 md:py-3 bg-neutral-900 border-2 border-neutral-900 hover:bg-neutral-950 hover:border-neutral-950text-white font-medium tracking-widest rounded w-full mt-2 flex justify-center items-center cursor-pointer text-white gap-4 transition-all duration-300">
-            <FaXTwitter className="w-6 h-6" />
+          <p
+            className="p-2 md:py-3 bg-white text-slate-600 border font-medium tracking-widest rounded w-full mt-2 flex items-center cursor-pointer gap-4 transition-all duration-300"
+            onClick={() => toast("Coming soon...")}
+          >
+            <FaXTwitter className="w-6 h-6 text-neutral-950" />
 
-            <span className=" text-white">Twitter ( X )</span>
+            <span className="">Twitter ( X )</span>
           </p>
         </div>
       </div>
