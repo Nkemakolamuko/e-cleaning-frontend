@@ -44,7 +44,8 @@ const UserImage = ({ user }) => {
     const userToUpdate = JSON.parse(localStorage.getItem("user"));
     // console.log(userToUpdate);
     const newUsername = userToUpdate[0].name;
-    setUsername(newUsername);
+    // setUsername(newUsername);
+    setUsername(user || "");
     setUpdatedName([userToUpdate]);
     // console.log("U ", updatedName);
   };
@@ -66,7 +67,7 @@ const UserImage = ({ user }) => {
           }`}
         >
           <img
-            src={file || user}
+            src={file}
             alt="User Image"
             width="150rem"
             height="150rem"
@@ -103,7 +104,8 @@ const UserImage = ({ user }) => {
             {/* Name */}
             <p className="text-sm text-center md:text-base !tracking-widest font-semibold transition-all duration-300">
               {/* {userData?.name?.toUpperCase() || "Username"} */}
-              {userData?.map((user) => user?.name?.toUpperCase()) || "Username"}
+              {/* {userData?.map((user) => user?.name?.toUpperCase()) || "Username"} */}
+              {user || "Loading..."}
             </p>
             <FaPencil className="opacity-100 md:hidden md:group-hover:flex w-5 h-5 md:text-slate-600 transition-all duration-300" />
           </div>

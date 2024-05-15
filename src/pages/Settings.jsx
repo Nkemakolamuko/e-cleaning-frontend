@@ -107,7 +107,7 @@ const Settings = () => {
       </div>
       <div className="mt-5 w-full flex items-center justify-center">
         {/* <UserImage user={user} /> */}
-        <UserImage user={globalUser?.username || "Loading..."} />
+        <UserImage user={globalUser?.username} />
       </div>
 
       {/* Actions */}
