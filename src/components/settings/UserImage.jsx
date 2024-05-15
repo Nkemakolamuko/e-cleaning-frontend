@@ -59,7 +59,7 @@ const UserImage = ({ user }) => {
 
   return (
     <>
-      <div className="flex flex-col gap-2 items-center group w-fit transition-all duration-300 ease-in-out">
+      <div className="flex flex-col gap-2 items-center group w-full transition-all duration-300 ease-in-out">
         <p
           className={`max-w-[150rem] max-h-[150rem] relative rounded-full border-4 border-green-300 group-hover:border-green-500 overflow-hidden ${
             darkMode ? "!border-blue-500 group-hover:border-blue-700" : ""
@@ -73,7 +73,11 @@ const UserImage = ({ user }) => {
             className="rounded-full max-w-[200px] max-h-[150px]"
           />
         </p>
-        <p className="absolute top-32 rounded-full bg-slate-200/35 p-2 group-hover:bg-slate-200/75 cursor-pointer opacity-30 group-hover:opacity-100 transition-all duration-300">
+        <p
+          className={`absolute top-32 rounded-full bg-slate-200/35 p-2 group-hover:bg-slate-200/75 cursor-pointer opacity-30 group-hover:opacity-100 transition-all duration-300 ${
+            darkMode ? "!bg-slate-500 group-hover:!bg-slate-200" : ""
+          }`}
+        >
           <label htmlFor="image">
             <input
               type="file"
@@ -82,7 +86,11 @@ const UserImage = ({ user }) => {
               className="hidden"
               onChange={handleChange}
             />
-            <FaCamera className="cursor-pointer w-7 h-7 text-neutral-800 group-hover:text-neutral-900 active:scale-75 transition-all duration-300" />
+            <FaCamera
+              className={`cursor-pointer w-7 h-7 text-neutral-800 group-hover:text-neutral-900 active:scale-75 transition-all duration-300 ${
+                darkMode ? "!text-slate-100 group-hover:!text-slate-800" : ""
+              }`}
+            />
           </label>
         </p>
         {!showInput && (
@@ -93,11 +101,11 @@ const UserImage = ({ user }) => {
             onClick={() => handleUpdate()}
           >
             {/* Name */}
-            <p className="text-sm text-center md:text-base !tracking-widest font-semibold">
+            <p className="text-sm text-center md:text-base !tracking-widest font-semibold transition-all duration-300">
               {/* {userData?.name?.toUpperCase() || "Username"} */}
               {userData?.map((user) => user?.name?.toUpperCase()) || "Username"}
             </p>
-            <FaPencil className="opacity-100 md:opacity-0 md:group-hover:opacity-100 w-6 h-6 md:w-6 md:h-6 md:text-slate-600" />
+            <FaPencil className="opacity-100 md:hidden md:group-hover:flex w-5 h-5 md:text-slate-600 transition-all duration-300" />
           </div>
         )}
         {showInput && (

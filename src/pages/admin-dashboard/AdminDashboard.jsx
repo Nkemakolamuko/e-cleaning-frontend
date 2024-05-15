@@ -12,58 +12,51 @@ import {
 } from "recharts";
 import AdminDashboardActionCard from "../../components/admin-components/AdminDashboardActionCard";
 import Title from "../../components/Title";
-import {
-  FaCartShopping,
-  FaNairaSign,
-  FaShop,
-  FaUsers,
-  FaUsersBetweenLines,
-  FaUsersGear,
-} from "react-icons/fa6";
+import { FaCartShopping, FaNairaSign, FaShop, FaUsers } from "react-icons/fa6";
 import { FaExclamationCircle } from "react-icons/fa";
 import LatestOrders from "../../components/admin-components/LatestOrders";
 
 const data = [
   {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
+    name: "2018",
+    Addition: 3000,
+    Drop: 1400,
     amt: 2400,
   },
   {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
+    name: "2019",
+    Addition: 3500,
+    Drop: 1398,
     amt: 2210,
   },
   {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
+    name: "2020",
+    Addition: 9800,
+    Drop: 1450,
     amt: 2290,
   },
   {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
+    name: "2021",
+    Addition: 6780,
+    Drop: 1908,
     amt: 2000,
   },
   {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
+    name: "2022",
+    Addition: 7890,
+    Drop: 2800,
     amt: 2181,
   },
   {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
+    name: "2023",
+    Addition: 6390,
+    Drop: 2400,
     amt: 2500,
   },
   {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
+    name: "2024",
+    Addition: 8490,
+    Drop: 1300,
     amt: 2100,
   },
 ];
@@ -104,7 +97,7 @@ const AdminDashboard = () => {
           />
           <AdminDashboardActionCard
             icon={
-              <p className="rounded-full bg-rose-50 p-4">
+              <p className="rounded-full bg-rose-100 p-4">
                 <FaExclamationCircle className="text-rose-500" />
               </p>
             }
@@ -113,7 +106,7 @@ const AdminDashboard = () => {
           />
           <AdminDashboardActionCard
             icon={
-              <p className="rounded-full bg-blue-50 p-4">
+              <p className="rounded-full bg-blue-100 p-4">
                 <FaUsers className="text-blue-500" />
               </p>
             }
@@ -159,43 +152,56 @@ const AdminDashboard = () => {
                 </span>
               }
             />
+            <LatestOrders
+              name={"Iniesta Andreas"}
+              userPhoneNumber={"07040876440"}
+              userEmail={"ini@gmail.com"}
+              amountPaid={"104, 700"}
+              paymentDate={
+                <span className="text-xs text-rose-700 bg-rose-100 py-1 px-2 rounded-full">
+                  Created Order - Payment Pending
+                </span>
+              }
+            />
           </div>
         </div>
 
         {/* Sale Statistics */}
         <div className="border flex flex-col gap-2 rounded w-full h-[300px] mt-4 md:mt-6">
           <h2 className="font-medium px-4 py-4 border-b">Sale Statistics</h2>
-          <div className="mt-2">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart
-                width={500}
-                height={300}
-                data={data}
-                margin={{
-                  top: 5,
-                  right: 30,
-                  left: 20,
-                  bottom: 5,
-                }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar
-                  dataKey="pv"
-                  fill="#8884d8"
-                  activeBar={<Rectangle fill="pink" stroke="blue" />}
-                />
-                <Bar
-                  dataKey="uv"
-                  fill="#82ca9d"
-                  activeBar={<Rectangle fill="gold" stroke="purple" />}
-                />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
+          {/* <div className="mt-2"> */}
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart
+              width={500}
+              height={300}
+              data={data}
+              margin={{
+                top: 5,
+                right: 30,
+                left: 20,
+                bottom: 5,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar
+                dataKey="Drop"
+                // fill="#8884d8"
+                fill="#F43F5E"
+                activeBar={<Rectangle fill="#F43F5E" stroke="#F43F5E" />}
+              />
+              <Bar
+                dataKey="Addition"
+                // fill="#82ca9d"
+                fill="#4ADE80"
+                activeBar={<Rectangle fill="#4ADE80" stroke="#4ADE80" />}
+              />
+            </BarChart>
+          </ResponsiveContainer>
+          {/* </div> */}
         </div>
 
         {/* Cleaners Statistics */}
@@ -203,37 +209,77 @@ const AdminDashboard = () => {
           <h2 className="font-medium px-4 py-4 border-b">
             Cleaners Statistics
           </h2>
-          <div className="mt-2">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart
-                width={500}
-                height={300}
-                data={data}
-                margin={{
-                  top: 5,
-                  right: 30,
-                  left: 20,
-                  bottom: 5,
-                }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar
-                  dataKey="pv"
-                  fill="#8884d8"
-                  activeBar={<Rectangle fill="pink" stroke="blue" />}
-                />
-                <Bar
-                  dataKey="uv"
-                  fill="#82ca9d"
-                  activeBar={<Rectangle fill="gold" stroke="purple" />}
-                />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
+          {/* <div className="mt-2"> */}
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart
+              width={500}
+              height={300}
+              data={data}
+              margin={{
+                top: 5,
+                right: 30,
+                left: 20,
+                bottom: 5,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar
+                dataKey="Drop"
+                // fill="#8884d8"
+                fill="#F43F5E"
+                activeBar={<Rectangle fill="#F43F5E" stroke="#F43F5E" />}
+              />
+              <Bar
+                dataKey="Addition"
+                // fill="#82ca9d"
+                fill="#4ADE80"
+                activeBar={<Rectangle fill="#4ADE80" stroke="#4ADE80" />}
+              />
+            </BarChart>
+          </ResponsiveContainer>
+          {/* </div> */}
+        </div>
+
+        {/* Users Statistics */}
+        <div className="border flex flex-col gap-2 rounded w-full h-[300px] mt-4 md:mt-6">
+          <h2 className="font-medium px-4 py-4 border-b">Users Statistics</h2>
+          {/* <div className="mt-2"> */}
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart
+              width={500}
+              height={300}
+              data={data}
+              margin={{
+                top: 5,
+                right: 30,
+                left: 20,
+                bottom: 5,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar
+                dataKey="Drop"
+                // fill="#8884d8"
+                fill="#F43F5E"
+                activeBar={<Rectangle fill="#F43F5E" stroke="#F43F5E" />}
+              />
+              <Bar
+                dataKey="Addition"
+                // fill="#82ca9d"
+                fill="#4ADE80"
+                activeBar={<Rectangle fill="#4ADE80" stroke="#4ADE80" />}
+              />
+            </BarChart>
+          </ResponsiveContainer>
+          {/* </div> */}
         </div>
       </div>
     </>

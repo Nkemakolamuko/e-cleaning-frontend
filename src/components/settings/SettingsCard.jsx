@@ -18,7 +18,13 @@ const SettingsCard = ({ handleClick, title, desc, icon }) => {
         </span>
         <span className="text-xs">{desc}</span>
       </p>
-      <p className={`${darkMode ? "text-white/80" : "!text-neutral-55"}`}>
+      <p
+        className={`${
+          darkMode
+            ? "text-white/80 group-hover:!text-neutral-950"
+            : "!text-neutral-55"
+        }`}
+      >
         {icon}
       </p>
     </div>

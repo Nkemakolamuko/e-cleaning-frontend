@@ -22,6 +22,7 @@ import BecomeCleaner from "../components/settings/BecomeCleaner";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "../api/axios";
 import AuthContext from "../context-API/AuthProvider";
+import { getUser } from "../api/api.controller/getUser";
 
 const Settings = () => {
   const { darkMode, setDarkMode, globalUser, setGlobalUser } =
@@ -37,22 +38,8 @@ const Settings = () => {
     const data = JSON.parse(localStorage.getItem("user"));
     setUser(data[0]);
     setUpdatedUser([...updatedUser, data]);
-    const getUser = async () => {
-      try {
-        const response = await axios.get("/api/users/current", {
-          headers: {
-            Authorization: `Bearer ${auth.accessToken}`,
-          },
-        });
-        // console.log(response);
-        setGlobalUser(response?.data);
-      } catch (error) {
-        // console.log(error.message);
-        toast.error(error.message);
-      }
-    };
 
-    getUser();
+    getUser(auth, setGlobalUser); // declared elsewhere --
   }, []);
 
   useEffect(() => {
@@ -139,7 +126,7 @@ const Settings = () => {
                 // setUserAddress(user?.address);
                 setUserAddress(globalUser?.address);
               }}
-              title={"Change Address"}
+              title={"Address"}
               // desc={user?.address || "Click to enter address for delivery"}
               desc={globalUser?.address || "Loading..."}
               icon={
@@ -158,7 +145,7 @@ const Settings = () => {
                 setUserEmail(globalUser?.email);
               }}
               // title={user?.email || "loading..."}
-              title={globalUser?.email || "loading..."}
+              title={globalUser?.email || "Loading..."}
               desc={"Click to update"}
               icon={<FaCheckDouble className="md:w-8 md:h-8 w-6 h-6" />}
             />

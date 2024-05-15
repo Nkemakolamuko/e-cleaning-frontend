@@ -11,13 +11,15 @@ const AdminUsersCard = () => {
         Plot 294 Zone A, Kusa Jisalo Crescent, Apo New Garki Town, Apo - Abuja.
       </span>
       <span>Joined - {joinedAt.split("GMT")}</span>
-      <span className="py-1 bg-rose-500 text-white cursor-pointer">
+      <span className="py-1 bg-rose-500 text-white cursor-pointer active:scale-95">
         Restrict account
       </span>
-      <span className="py-1 bg-rose-500 text-white cursor-pointer">
+      <span className="py-1 bg-rose-500 text-white cursor-pointer active:scale-95">
         Delete account
       </span>
-      <span className="px-2 py-1 cursor-pointer border">Edit</span>
+      <span className="px-2 py-1 cursor-pointer border active:scale-95">
+        Edit
+      </span>
     </div>
   );
 };
