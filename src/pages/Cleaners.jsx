@@ -5,6 +5,7 @@ import FavoriteCleaners from "../components/cleanersNearby/FavoriteCleaners";
 import { BgContext } from "../App";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 
 // Still on this -- the favorite stuff -- I need it to remain true when set to true and be unable to add it to favorites if it's true -- I want to add toggle option as well
 
@@ -92,19 +93,28 @@ const Cleaners = () => {
   }, [favId]);
 
   const handleFavRemove = (id) => {
-    const youSure = window.confirm("Are you sure?");
-    if (youSure) {
-      setYourFavorites(yourFavorites.filter((fav) => fav.id !== id));
-      toast.success("Cleaner removed from favorite!", {
-        autoClose: 2000,
-      });
-    } else {
-      toast.error("Cancelled", {
-        autoClose: 1000,
-        position: "bottom-left",
-      });
-      return;
-    }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You will have to add it again!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "green",
+      cancelButtonColor: "#EC4899",
+      confirmButtonText: "Yes, remove!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setYourFavorites(yourFavorites.filter((fav) => fav.id !== id));
+        toast.success("Cleaner removed from favorite!", {
+          autoClose: 2000,
+        });
+      } else {
+        toast.error("Cancelled", {
+          autoClose: 1000,
+          position: "bottom-left",
+        });
+        return;
+      }
+    });
   };
 
   return (

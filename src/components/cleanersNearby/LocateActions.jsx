@@ -1,6 +1,7 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa";
 import { FaAngleRight } from "react-icons/fa6";
+import { toast } from "react-toastify";
 
 const LocateActions = ({ setDirection, handleClose }) => {
   return (
@@ -14,7 +15,12 @@ const LocateActions = ({ setDirection, handleClose }) => {
         </span>
         <span
           className="py-2 px-3 flex items-center gap-2 hover:bg-white/10 rounded cursor-pointer transition-all duration-200"
-          onClick={setDirection}
+          onClick={() => {
+            toast.success(
+              "Working on it - call instead if description ain't good enough!"
+            );
+            setDirection;
+          }}
         >
           Google map <FaAngleRight />
         </span>
