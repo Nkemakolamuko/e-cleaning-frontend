@@ -18,10 +18,13 @@ const AdminHeader = () => {
     >
       <div className="flex items-center gap-4 w-full">
         {!sidebar && (
-          <GiHamburgerMenu
-            className="w-7 h-7 cursor-pointer active:scale-95 text-neutral-900"
-            onClick={() => setSidebar(true)}
-          />
+          <p className="p-1 rounded-full hover:bg-slate-200 transition-all duration-300 tooltip">
+            <GiHamburgerMenu
+              className="w-7 h-7 cursor-pointer active:scale-95 text-neutral-900"
+              onClick={() => setSidebar(true)}
+            />
+            <span className="tooltiptext rounded">Open Menu</span>
+          </p>
         )}
         <div className="flex items-center justify-between border rounded w-full bg-white">
           <input

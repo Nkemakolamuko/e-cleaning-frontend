@@ -52,7 +52,7 @@ const CleanersCard = ({ fav, handleFav, name, addedToFavorite }) => {
           handleClose={() => setDirection(false)}
         />
       )}
-      <div className="h-[200px] w-full">
+      <div className="h-[230px] w-full">
         <img
           src={logo}
           alt="Cleaner Image"

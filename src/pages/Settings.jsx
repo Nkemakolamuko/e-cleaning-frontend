@@ -23,6 +23,7 @@ import { ToastContainer, toast } from "react-toastify";
 import axios from "../api/axios";
 import AuthContext from "../context-API/AuthProvider";
 import { getUser } from "../api/api.controller/getUser";
+import { updateUser } from "../api/api.controller/updateUser";
 
 const Settings = () => {
   const { darkMode, setDarkMode, globalUser, setGlobalUser } =
@@ -58,6 +59,9 @@ const Settings = () => {
 
     const updatedUserToLS = updatedUser[0];
     localStorage.setItem("user", JSON.stringify(updatedUserToLS));
+    // setShow(false);
+
+    updateUser(auth, setGlobalUser, { address: userAddress }); // I guess, I'm 100% sure - I'd test
     setShow(false);
   };
 
@@ -72,6 +76,9 @@ const Settings = () => {
 
     const updatedUserToLS = updatedUser[0];
     localStorage.setItem("user", JSON.stringify(updatedUserToLS));
+    // setShow(false);
+
+    updateUser(auth, setGlobalUser, { email: userEmail }); // I guess, I'm 100% sure - I'd test
     setShow(false);
   };
 
@@ -79,7 +86,6 @@ const Settings = () => {
   const toggleThemeDark = () => {
     setDarkMode(true);
   };
-
   const toggleThemeLight = () => {
     setDarkMode(false);
   };

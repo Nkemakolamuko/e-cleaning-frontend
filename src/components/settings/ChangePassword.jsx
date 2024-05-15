@@ -82,7 +82,7 @@ const ChangePassword = ({ handleClosePassword }) => {
           </p>
           <input
             type="submit"
-            value="Reset"
+            value="Change Password"
             className="py-3 px-6 w-fit font-semibold !tracking-widest bg-yellow-500 text-white rounded hover:bg-yellow-600 transition-all duration-300 cursor-pointer"
           />
         </form>

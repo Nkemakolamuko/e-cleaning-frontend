@@ -96,12 +96,13 @@ const Header = () => {
         // contentEditable
       >
         {!sidebar && (
-          <GiHamburgerMenu
-            className={`w-6 h-6 cursor-pointer`}
-            onClick={() => {
-              setSidebar(true);
-            }}
-          />
+          <p className="p-1 rounded-full hover:bg-slate-200 transition-all duration-300 tooltip">
+            <GiHamburgerMenu
+              className="w-7 h-7 cursor-pointer active:scale-95 hover:text-slate-800"
+              onClick={() => setSidebar(true)}
+            />
+            <span className="tooltiptext rounded">Open Menu</span>
+          </p>
         )}
         <span className="truncate hidden md:flex">
           👋 Hi,{" "}
@@ -124,10 +125,10 @@ const Header = () => {
         >
           <input
             type="text"
-            className="py-3 px-2 outline-none bg-inherit w-full rounded"
+            className="py-2 px-2 outline-none bg-inherit w-full rounded"
             placeholder="Enter city name to search available cleaners in that area"
           />
-          <p className="p-3 border-l cursor-pointer">
+          <p className="p-2 border-l cursor-pointer">
             <FaSearch />
           </p>
         </div>
@@ -214,24 +215,6 @@ const Header = () => {
         </p>
       </div>
 
-      {/* {!sidebar && (
-        <a
-          href="tel:+2347040876440"
-          target="_blank"
-          className={`p-2 border bg-black/90 rounded hover:bg-black text-white hover:rounded-md text-sm cursor-pointer font-semibold flex items-center gap-3 tooltip-hot transition-all duration-300 md:hidden ${
-            darkMode ? "dark-mode !bg-yellow-400" : ""
-          }`}
-        >
-          <span className={`text-yellow-300 ${darkMode ? "!text-white" : ""}`}>
-            <FaFire />
-          </span>
-          <span>Hotline</span>
-          <span className="tooltip-hottext rounded">
-            Available For Immediate Response!!
-          </span>
-        </a>
-      )} */}
-
       {/* Notification Small */}
       {!sidebar && (
         <p
@@ -255,24 +238,24 @@ const Header = () => {
         </p>
       )}
 
-      {!sidebar && (
-        <p className="cursor-pointer md:hidden" onClick={handleCartModal}>
-          <FaCartShopping
-            className={`w-6 h-6 text-green-900 relative active:scale-90 ${
-              darkMode ? "dark-mode" : ""
-            }`}
-          />
-          {cartModalCount > 0 && (
-            <span
-              className={`absolute ${
-                cartModalCount > 9 ? "px-1" : "px-2"
-              } py-1 bg-rose-500 text-white text-xs top-2 right-1 rounded-full`}
-            >
-              {cartModalCount > 9 ? "9+" : cartModalCount}
-            </span>
-          )}
-        </p>
-      )}
+      {/* {!sidebar && ( */}
+      <p className="cursor-pointer md:hidden" onClick={handleCartModal}>
+        <FaCartShopping
+          className={`w-6 h-6 text-green-900 relative active:scale-90 ${
+            darkMode ? "dark-mode" : ""
+          }`}
+        />
+        {cartModalCount > 0 && (
+          <span
+            className={`absolute ${
+              cartModalCount > 9 ? "px-1" : "px-2"
+            } py-1 bg-rose-500 text-white text-xs top-2 right-1 rounded-full`}
+          >
+            {cartModalCount > 9 ? "9+" : cartModalCount}
+          </span>
+        )}
+      </p>
+      {/* )} */}
     </header>
   );
 };

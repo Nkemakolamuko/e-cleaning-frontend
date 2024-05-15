@@ -65,14 +65,14 @@ body {
 .grid-container-close {
   display: grid;
   /* grid-template-columns: 45px 1fr 1fr 1fr; */
-  grid-template-columns: 260px 1fr 1fr 1fr;
+  grid-template-columns: 280px 1fr 1fr 1fr; /* from 260 */
   grid-template-rows: 60px 1fr;
   grid-template-areas:
     "sidebar header header header"
     "sidebar main main main";
   height: 100vh;
   overflow-y: hidden;
-  overflow-x: hidden; /* I added this on my own to fix the scroll x shit */
+  overflow-x: hidden;
 }
 
 .grid-container-close-small {
@@ -97,7 +97,7 @@ body {
 
 .header {
   grid-area: header;
-  height: 60px;
+  height: 55px;
   display: flex;
   align-items: center;
   justify-content: space-between;

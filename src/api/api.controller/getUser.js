@@ -12,7 +12,7 @@ export const getUser = async (auth, setGlobalUser) => {
   } catch (error) {
     if (error.message == "Network Error") {
       toast.error(
-        "Failed to get fetch user, check your internet connection and reload page."
+        "Failed to get user details, check your internet connection and reload page."
       );
     } else {
       toast.error(error.message);

@@ -14,9 +14,11 @@ import {
 } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import { BgContext } from "../../App";
+import AuthContext from "../../context-API/AuthProvider";
 
 const OpenedSideBar = ({ handleSideBarClose }) => {
   const { darkMode } = useContext(BgContext);
+  const { setAuth } = useContext(AuthContext);
   const [activeLink, setActiveLink] = useState(null);
 
   const navigate = useNavigate();
@@ -33,12 +35,6 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
 
   // Handle Logout
   const handleLogout = () => {
-    // // window.location.replace("/dashboard");
-    // const confirmLogOut = confirm("Are you sure?");
-    // if (confirmLogOut) {
-    //   // window.location.href = "/login";
-    //   navigate("/login");
-    // }
     Swal.fire({
       title: "Are you sure?",
       text: "You will have to login again!",
@@ -49,6 +45,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
       confirmButtonText: "Yes, logout!",
     }).then((result) => {
       if (result.isConfirmed) {
+        setAuth({});
         window.location.href = "/login";
       }
     });

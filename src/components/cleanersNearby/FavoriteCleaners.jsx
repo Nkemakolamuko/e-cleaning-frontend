@@ -51,7 +51,7 @@ const FavoriteCleaners = ({ fav, handleFavRemove, name }) => {
         />
       )}
 
-      <div className="h-[200px] w-full">
+      <div className="h-[230px] w-full">
         <img
           src={logo}
           alt="Cleaner Image"

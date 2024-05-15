@@ -28,6 +28,8 @@ import DashboardNewCard from "../components/DashboardNewCard";
 import DetailsCleaner from "../components/dashboard/DetailsCleaner";
 import DetailsProduct from "../components/dashboard/DetailsProduct";
 import { ToastContainer, toast } from "react-toastify";
+import DashboardHistoryCard from "../components/history/DashboardHistoryCard";
+import cleanersData from "../../db/cleanersDb";
 
 const cleaners = [
   {
@@ -79,6 +81,7 @@ const cleaners = [
 
 const Dashboard = () => {
   const { darkMode } = useContext(BgContext);
+  const [history, setHistory] = useState([]);
   const dashboardRef = useRef();
 
   useEffect(() => {
@@ -147,6 +150,11 @@ const Dashboard = () => {
     return () => clearTimeout(id);
   };
 
+  useEffect(() => {
+    const historyData = cleanersData;
+    setHistory(historyData.slice(0, 5));
+  }, []);
+
   return (
     <section
       className={`flex flex-col align-center justify-between w-full overflow-hidden ${
@@ -159,79 +167,13 @@ const Dashboard = () => {
 
       <div className="flex flex-col md:hidden md:grid-cols-2 lg:hidden lg:flex-row items-center gap-2 scale-100 lg:scale-100 md:scale-100">
         {/* Turn these to individual components */}
-        <div
-          className={`bg-white w-full h-fit lg:w-[33%] md:h-[240px] d-cards rounded-[4px] border flex flex-col mb-4 ${
-            darkMode ? "dark-mode border" : ""
-          }`}
-        >
-          <p
-            className={`border-b bg-slate-50 w-full text-center rounded-t-[4px] py-1 text-sm font-medium px-2 ${
-              darkMode ? "dark-mode" : ""
-            }`}
-          >
-            Weekly Top Rated Cleaner
-          </p>
-          <div className="flex flex-col md:flex-row items-center md:items-center text-center mx-auto md:mx-0 md:text-start gap-2 w-full md:w-full h-full md:h-full px-2 py-3 justify-between">
-            <div className="flex flex-col w-full md:w-fit items-center md:justify-center h-full">
-              <img
-                src={userImage}
-                alt="User Image"
-                // width={"180rem"}
-                // height={"180rem"}
-                className="rounded-[4px] w-full md:h-[180px]"
-              />
-            </div>
-            <div className="flex flex-col gap-1 md:h-[180px] md:justify-between w-full">
-              <p className="font-semibold text-green-600 text-nowrap flex items-center gap-2 text-start">
-                <FaStore />
-                Ugo Best And Sons
-              </p>
-              <p className="font-semibold flex items-center gap-1 text-sm justify-start">
-                Rating:{" "}
-                <span className="text-sm font-normal text-yellow-400 flex items-center">
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStarHalf />
-                </span>
-              </p>
-              <p className="font-semibold justify-start flex flex-col text-sm">
-                <span className="flex items-center gap-2">
-                  <FaLocationDot />
-                  Location:
-                </span>
-                <span className="text-xs font-normal">
-                  1st Floor Makazi Plaza, Area 2 by TZ Junction Owerri, Imo
-                  State
-                </span>
-              </p>
 
-              {/* <ActionBTN text="Contact Now!" /> */}
-              <div className="flex flex-col gap-1">
-                <h2 className="font-medium text-sm text-start">Contact Now:</h2>
-                <p className="flex items-center gap-5 text-sm px-4 py-1 border rounded w-full cursor-pointer">
-                  <FaWhatsapp className="w-6 h-6" />
-                  <span>WhatsApp</span>
-                </p>
-                <p className="flex items-center gap-5 text-sm px-4 py-1 border rounded w-full cursor-pointer">
-                  <FaPhone className="w-6 h-6" />
-                  <span>Phone</span>
-                </p>
-                <p className="flex items-center gap-5 text-sm px-4 py-1 border rounded w-full cursor-pointer">
-                  <FaEnvelope className="w-6 h-6" />
-                  <span>Email</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
         <div
-          className={`w-full h-fit lg:w-[33%] md:h-[260px] d-cards rounded-[4px] border flex flex-col transition-all duration-300 ease-in-out ${
+          className={`w-full h-fit lg:w-[33%] md:h-[260px] mb-4 d-cards rounded border flex flex-col transition-all duration-300 ease-in-out ${
             darkMode ? "dark-mode border" : ""
           }`}
         >
-          <p className="bg-[#FFC83D] text-white w-full text-center rounded-t-[4px] py-[2px] text-xl !tracking-widest">
+          <p className="bg-[#FFC83D] text-white w-full text-center rounded-t border border-[#FFC83D] py-2 text-xl !tracking-widest">
             Flash Sales!!!!
           </p>
 
@@ -269,41 +211,79 @@ const Dashboard = () => {
             </p>
           </div>
         </div>
-        {/* <div
-          className={`bg-white w-full h-fit lg:w-[33%] md:h-[210px] d-cards rounded-[4px] shadow-lg shadow-black/20 flex items-center ${
+        <div
+          className={`bg-white w-full h-fit lg:w-[33%] md:h-[240px] d-cards rounded-[4px] border flex flex-col mb-2 ${
             darkMode ? "dark-mode border" : ""
           }`}
         >
-          <div className="flex flex-col px-2 !bg-green-500 !text-white !tracking-widest h-[208px] items-center justify-center lg:text-2xl md:text-xl text-lg font-bold rounded-tl rounded-bl">
-            <p>P</p>
-            <p>R</p>
-            <p>0</p>
-            <p>M</p>
-            <p>0</p>
-          </div>
-          <div className="flex flex-col justify-between h-[210px] w-full">
-            <div className="flex flex-col px-2 pt-2 m-auto items-center pb-8 md:pb-2">
-              <p className="">
-                <span className="text-green-500 md:text-8xl text-7xl !tracking-tighter font-bold">
-                  20%
-                </span>{" "}
-                <span className="text-rose-500 md:text-3xl text-xl font-medium">
-                  Off
+          <p
+            className={`border-b bg-slate-50 w-full text-center rounded-t-[4px] py-3 text-sm font-medium px-2 ${
+              darkMode ? "dark-mode" : ""
+            }`}
+          >
+            Weekly Top Rated Cleaner
+          </p>
+          <div className="flex flex-col md:flex-row items-center md:items-center text-center mx-auto md:mx-0 md:text-start gap-2 w-full md:w-full h-full md:h-full px-2 py-3 justify-between">
+            <div className="flex flex-col w-full md:w-fit items-center md:justify-center h-full">
+              <img
+                src={userImage}
+                alt="User Image"
+                // width={"180rem"}
+                // height={"180rem"}
+                className="rounded-[4px] w-full md:h-[180px]"
+              />
+            </div>
+            <div className="flex flex-col gap-1 md:h-[180px] md:justify-between w-full">
+              <p
+                className={`font-semibold text-green-600 text-nowrap flex items-center gap-2 text-center ${
+                  darkMode ? "!text-green-500" : ""
+                }`}
+              >
+                <FaStore />
+                Ugo Best And Sons
+              </p>
+              <p className="font-semibold flex items-center gap-1 text-sm justify-start">
+                Rating:{" "}
+                <span className="text-sm font-normal text-yellow-400 flex items-center">
+                  <FaStar />
+                  <FaStar />
+                  <FaStar />
+                  <FaStar />
+                  <FaStarHalf />
                 </span>
               </p>
-              <p className="font-semibold text-center">
-                For Laundry Wash Above N5,000
+              <p className="font-semibold justify-start flex flex-col text-sm">
+                <span className="flex items-center gap-2">
+                  <FaLocationDot />
+                  Location:
+                </span>
+                <span className="text-xs font-normal">
+                  1st Floor Makazi Plaza, Area 2 by TZ Junction Owerri, Imo
+                  State
+                </span>
               </p>
+
+              {/* <ActionBTN text="Contact Now!" /> */}
+              <div className="flex flex-col gap-1">
+                <h2 className="font-medium text-sm text-start">
+                  Contact now through:
+                </h2>
+                <p className="flex items-center gap-5 text-sm px-4 py-2 border rounded w-full cursor-pointer">
+                  <FaWhatsapp className="w-6 h-6" />
+                  <span>WhatsApp</span>
+                </p>
+                <p className="flex items-center gap-5 text-sm px-4 py-2 border rounded w-full cursor-pointer">
+                  <FaPhone className="w-6 h-6" />
+                  <span>Phone</span>
+                </p>
+                <p className="flex items-center gap-5 text-sm px-4 py-2 border rounded w-full cursor-pointer">
+                  <FaEnvelope className="w-6 h-6" />
+                  <span>Email</span>
+                </p>
+              </div>
             </div>
-            <p
-              className={`bg-slate-50 text-center rounded-b-r-[4px] py-2 text-xs ${
-                darkMode ? "dark-mode border-y rounded-b-r-[4px]" : ""
-              }`}
-            >
-              Promo Last NOW till August 24th 2024
-            </p>
           </div>
-        </div> */}
+        </div>
       </div>
       <div className="md:grid md:grid-cols-1 lg:grid-cols-2 gap-4 hidden">
         <DashboardNewCard
@@ -463,32 +443,43 @@ const Dashboard = () => {
       </section>
 
       {/* History */}
-      <div
-        className={`flex items-center md:gap-3 md:justify-start justify-between mt-7 border rounded-t p-2 ${
-          darkMode ? "dark-mode" : ""
-        }`}
-      >
-        <h2
-          className={`font-semibold !tracking-widest text-gray-800 ${
+      <section className="p-2 flex flex-col border rounded mt-7">
+        <div
+          className={`flex items-center md:gap-3 md:justify-start justify-between border rounded p-2 ${
             darkMode ? "dark-mode" : ""
           }`}
         >
-          History
-        </h2>
+          <h2
+            className={`font-semibold !tracking-widest text-gray-800 ${
+              darkMode ? "dark-mode" : ""
+            }`}
+          >
+            History
+          </h2>
 
-        <Link
-          to="/dashboard/history"
-          className="w-fit flex items-center justify-end font-medium gap-2 py-2 md:py-1 px-4 bg-green-50 md:bg-white md:hover:bg-green-50 text-green-500 rounded ml-auto md:ml-0 hover:bg-green-100 hover:underline hover:underline-offset-1 text-xs md:text-sm transition-all duration-300"
-        >
-          <span>View All</span>
-          <span>
-            <FaGreaterThan />
-          </span>
-        </Link>
-      </div>
-      <section className="flex flex-col w-full overflow-auto border rounded-b p-2">
-        {/* <div className="overflow-auto"></div> */}
-        <DashboardHistory />
+          <Link
+            to="/dashboard/history"
+            className="w-fit flex items-center justify-end font-medium gap-2 py-2 md:py-1 px-4 bg-green-50 md:bg-white md:hover:bg-green-50 text-green-500 rounded ml-auto md:ml-0 hover:bg-green-100 hover:underline hover:underline-offset-1 text-xs md:text-sm transition-all duration-300"
+          >
+            <span>View All</span>
+            <span>
+              <FaGreaterThan />
+            </span>
+          </Link>
+        </div>
+        {/* <section className="flex flex-col w-full overflow-auto border rounded-b p-2"> */}
+        {/* <DashboardHistory /> */}
+        {/* </section> */}
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-2 gap-2">
+          {history?.map((value) => (
+            <DashboardHistoryCard
+              businessName={value.businessName}
+              desc={value.desc}
+              location={value.location}
+              key={value.id}
+            />
+          ))}
+        </section>
       </section>
     </section>
   );

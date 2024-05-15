@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
+  const emailRef = useRef(null);
+
+  useEffect(() => {
+    emailRef.current.focus();
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!email.trim()) {
-      return alert("Provide Email");
+      return toast.error("Please provide email");
     }
-    alert("Coming soon!!");
+    toast("Coming soon...");
   };
   return (
     <section className="w-full h-screen bg-gradient-to-t from-green-50 to-transparent">
@@ -30,19 +36,21 @@ const ForgotPassword = () => {
             <input
               type="text"
               id="email"
+              ref={emailRef}
               placeholder="user@gmail.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="p-2 text-slate-700 outline-slate-500  border-2 rounded transition-all duration-300 w-full"
+              className="p-3 text-slate-700 outline-slate-500  border-2 rounded transition-all duration-300 w-full"
             />
           </p>
           <button
-            className="p-2 bg-green-500 hover:bg-green-600 text-white font-medium tracking-widest rounded w-full mt-2  transition-all duration-300"
+            className="p-3 bg-green-500 hover:bg-green-600 text-white font-medium tracking-widest rounded w-full mt-2 active:scale-95 transition-all duration-300"
             onClick={handleSubmit}
           >
             Reset Password
           </button>
         </form>
+        <ToastContainer />
         <div className="flex items-center justify-between text-sm mt-3 w-full">
           <p>Remembered password?</p>
           <Link

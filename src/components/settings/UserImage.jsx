@@ -120,7 +120,7 @@ const UserImage = ({ user }) => {
               onChange={(e) => {
                 setUsername(e.target.value);
               }}
-              className={`!tracking-widest max-w-[180px] md:max-w-full text-sm md:text-base px-4 py-[10px] rounded-l bg-white border-y border-l border-r-0 border-y-slate-400 border-l-slate-400 outline-none ${
+              className={`!tracking-widest max-w-[180px] md:max-w-full text-sm md:text-base px-4 py-[7px] rounded-l bg-white border-y border-l border-r-0 border-y-slate-400 border-l-slate-400 outline-none ${
                 darkMode ? "dark-mode" : ""
               }`}
             />
@@ -129,14 +129,14 @@ const UserImage = ({ user }) => {
               <input
                 type="submit"
                 value="Update"
-                className="bg-yellow-400 hover:bg-yellow-500 text-white py-[10px] px-2 rounded-r border text-sm md:text-base border-yellow-400 hover:border-yellow-500 cursor-pointer transition-all duration-300"
+                className="bg-yellow-400 hover:bg-yellow-500 text-white py-[7px] px-2 rounded-r border text-sm md:text-base border-yellow-400 hover:border-yellow-500 cursor-pointer transition-all duration-300"
                 onClick={handleSubmit}
               />
             ) : (
               <input
                 type="submit"
                 value="Cancel"
-                className="bg-rose-400 hover:bg-rose-500 text-white py-[10px] px-2 rounded-r border text-sm md:text-base border-rose-400 hover:border-rose-500 cursor-pointer transition-all duration-300"
+                className="bg-rose-400 hover:bg-rose-500 text-white py-[7px] px-2 rounded-r border text-sm md:text-base border-rose-400 hover:border-rose-500 cursor-pointer transition-all duration-300"
                 onClick={() => {
                   setShowInput(false);
                 }}
