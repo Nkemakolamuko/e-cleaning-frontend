@@ -154,7 +154,7 @@ const Header = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="py-2 px-2 outline-none bg-inherit w-full rounded"
-            placeholder='Search "Abuja"'
+            placeholder='Search Eg. "Enugu"'
           />
           <p className="p-2 border-l cursor-pointer">
             <FaSearch />
