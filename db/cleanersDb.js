@@ -107,6 +107,30 @@ const cleanersData = [
     name: "Uche Iwegbu",
     id: 9,
   },
+  {
+    businessName: "Omo and Co",
+    favorite: false,
+    desc: "We prioritize our customers satisfaction more than anything else, try us out today, and you'd have an experience of a lifetime.",
+    img: "https://img-url.jpg",
+    rating: 3.5,
+    address: "Shop 12 Sazodo Plaza, off deChills Auchi, Edo State",
+    location: "Auchi",
+    phoneNumber: "08040876440",
+    name: "Omozele Osarieme",
+    id: 10,
+  },
+  {
+    businessName: "Oforegbu and Sons",
+    favorite: false,
+    desc: "We prioritize our customers satisfaction more than anything else, try us out today, and you'd have an experience of a lifetime.",
+    img: "https://img-url.jpg",
+    rating: 4.5,
+    address: "Shop 12 Sazodo Plaza, off Nowas Junction Trans-Ekulu",
+    location: "Enugu",
+    phoneNumber: "08040876440",
+    name: "Uchenna Ofor",
+    id: 11,
+  },
 ];
 
 export default cleanersData;

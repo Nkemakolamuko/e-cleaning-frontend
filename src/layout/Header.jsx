@@ -223,7 +223,9 @@ const Header = () => {
           >
             <FaSun />
           </p>
-          <p className="tracking-tighter text-xs font-medium">CHANGE THEME</p>
+          <p className="tracking-tighter text-xs font-medium text-nowrap">
+            CHANGE THEME
+          </p>
           <p
             className="border border-[#0000ff] bg-[#000081] rounded-full cursor-pointer p-2 text-white transition-all duration-300"
             onClick={toggleThemeDark}
