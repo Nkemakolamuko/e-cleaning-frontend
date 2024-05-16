@@ -100,35 +100,7 @@ const ProductSummary = () => {
   }, [cartId]);
 
   // Delete from cart
-  // const handleDeleteFromCart = (id) => {
-  //   const youSure = confirm("Are you sure?");
-  //   if (youSure && cartItem.length == 1) {
-  //     setCartItem([]);
-  //     setCartId(null);
-  //   } else {
-  //     setCartItem(
-  //       cartItem.filter((product) => {
-  //         return product.id !== id;
-  //       })
-  //     );
-  //   }
-
-  //   youSure && setCartModalCount(cartModalCount - 1);
-
-  //   // I need to use maybe Swal here, because the above doesn't work as expected - for cancel especially
-  // };
   const handleDeleteFromCart = (id) => {
-    // const youSure = window.confirm("Are you sure?");
-    // if (youSure) {
-    //   // If user confirms deletion
-    //   const updatedCart = cartItem.filter((product) => product.id !== id);
-    //   setCartItem(updatedCart);
-    //   setCartModalCount(cartModalCount - 1);
-    //   if (updatedCart.length === 0) {
-    //     // If cart becomes empty after deletion
-    //     setCartId(null);
-    //   }
-    // }
     Swal.fire({
       title: "Are you sure?",
       text: "You will have to add it again!",
@@ -143,7 +115,7 @@ const ProductSummary = () => {
         setCartItem(updatedCart);
         setCartModalCount(cartModalCount - 1);
         if (updatedCart.length === 0) {
-          // If cart becomes empty after deletion
+          // If cart becomes empty after deletion so that when I leave the cart and come back it won't get the item again
           setCartId(null);
         }
       }

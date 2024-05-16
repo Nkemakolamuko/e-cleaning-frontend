@@ -40,15 +40,6 @@ const AvailableCleaners = ({ name, desc, handleNext, handlePrev }) => {
               "Details About them Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, consequuntur!"}
           </p>
 
-          {/* <a
-            href="tel:+2347040876440"
-            target="_blank"
-            className="md:w-[70%] mx-auto w-full"
-          >
-            <button className="p-3 md:p-3 !bg-cyan-500 text-white hover:bg-cyan-600 font-medium tracking-widest rounded text-xs md:text-sm active:scale-90 md:w-full w-full transition-all duration-300">
-              Contact Now!
-            </button>
-          </a> */}
           <h1 className="w-full text-center tracking-widest font-medium mt-2">
             Contact Cleaner Using :
           </h1>

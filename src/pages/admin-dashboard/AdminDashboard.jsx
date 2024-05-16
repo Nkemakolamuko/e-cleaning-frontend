@@ -113,6 +113,15 @@ const AdminDashboard = () => {
             title={"Total No. Of Cleaners"}
             desc={"1,085"}
           />
+          <AdminDashboardActionCard
+            icon={
+              <p className="rounded-full bg-yellow-100 p-4">
+                <FaUsers className="text-yellow-500" />
+              </p>
+            }
+            title={"Total No. Of Users"}
+            desc={"2,652"}
+          />
         </div>
 
         {/* Orders */}

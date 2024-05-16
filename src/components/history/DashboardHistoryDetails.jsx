@@ -18,9 +18,9 @@ const DashboardHistoryDetails = () => {
     setHistory([foundHistory]);
   }, []);
   return (
-    <section className={`${darkMode ? "dark-mode" : ""}`}>
+    <section className={`p-2 ${darkMode ? "dark-mode" : ""}`}>
       <div
-        className={`p-2 flex flex-col w-full container mx-auto justify-center items-center ${
+        className={`p-2 h-screen flex flex-col w-full container mx-auto justify-center md:justify-normal items-center ${
           darkMode ? "dark-mode" : ""
         }`}
       >
@@ -49,7 +49,7 @@ const DashboardHistoryDetails = () => {
           {history ? (
             history.map((value) => (
               <div
-                className={`w-fit h-fit flex flex-col border-x border-b items-center z-10 justify-center py-3 -lg:mt-12 -mt-24 text-sm px-2 ${
+                className={`w-fit lg:w-full h-fit flex flex-col border-x border-b items-center z-10 justify-center py-3 -lg:mt-12 -mt-24 text-sm px-2 ${
                   darkMode ? "border-none" : ""
                 }`}
                 key={value.id}
@@ -58,7 +58,7 @@ const DashboardHistoryDetails = () => {
                   src={img}
                   alt="Cleaner Image"
                   className={`rounded-full w-[50%] h-[55%] lg:w-[30%] md:w-[50%] md:h-[50%] border-8 border-white ${
-                    darkMode ? "border-[#00001f]" : ""
+                    darkMode ? "!border-[#00001f]" : ""
                   }`}
                 />
                 <div className="flex flex-col gap-1 justify-center items-center text-center w-full">

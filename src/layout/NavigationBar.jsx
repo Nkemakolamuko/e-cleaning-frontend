@@ -6,9 +6,9 @@ import { SideBarContext } from "./MainNav";
 
 const NavigationBar = () => {
   const {
-    styleSidebar,
-    setStyleSidebar,
-    setSmallScreenSidebar,
+    // styleSidebar,
+    // setStyleSidebar,
+    // setSmallScreenSidebar,
     sidebar,
     setSidebar,
   } = useContext(SideBarContext);

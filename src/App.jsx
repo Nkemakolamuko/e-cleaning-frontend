@@ -30,6 +30,7 @@ import AdminUsers from "./pages/admin-dashboard/AdminUsers";
 import AdminCleaners from "./pages/admin-dashboard/AdminCleaners";
 import AdminOrderDetails from "./pages/admin-dashboard/AdminOrderDetails";
 import DashboardHistoryDetails from "./components/history/DashboardHistoryDetails";
+import SearchQueryDetailsPage from "./components/SearchQueryDetailsPage";
 
 export const BgContext = createContext(null);
 
@@ -201,6 +202,10 @@ function App() {
                 <Dashboard />
               </MainNav>
             }
+          />
+          <Route
+            path="/dashboard/search-query/:id"
+            element={<SearchQueryDetailsPage />}
           />
           <Route
             path="/dashboard/contact"

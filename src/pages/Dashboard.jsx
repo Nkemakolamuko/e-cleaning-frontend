@@ -173,7 +173,7 @@ const Dashboard = () => {
             darkMode ? "dark-mode border" : ""
           }`}
         >
-          <p className="bg-[#FFC83D] text-white w-full text-center rounded-t border border-[#FFC83D] py-2 text-xl !tracking-widest">
+          <p className="bg-[#FFC83D] text-white w-full text-center rounded-t border border-[#FFC83D] py-2 text-sm !tracking-widest">
             Flash Sales!!!!
           </p>
 

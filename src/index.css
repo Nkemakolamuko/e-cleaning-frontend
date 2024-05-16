@@ -280,3 +280,13 @@ body {
 .delivery {
   animation: delivery 2s linear infinite;
 }
+
+.RightToLeft {
+  animation: RightToLeft 10s infinite linear;
+}
+
+@keyframes RightToLeft {
+  to {
+    transform: translateX(-92%);
+  }
+}

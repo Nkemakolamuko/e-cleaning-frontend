@@ -137,7 +137,7 @@ const Header = () => {
             "Buddy"} */}
           {globalUser?.username?.split(" ")[0].charAt(0).toUpperCase() +
             globalUser?.username?.slice(1)?.split(" ")[0].toLowerCase() ||
-            "Loading..."}
+            "Loading..."}{" "}
         </span>
       </p>
 
@@ -154,7 +154,7 @@ const Header = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="py-2 px-2 outline-none bg-inherit w-full rounded"
-            placeholder="Enter full city name to search available cleaners in that area"
+            placeholder='Search "Abuja"'
           />
           <p className="p-2 border-l cursor-pointer">
             <FaSearch />
@@ -183,7 +183,7 @@ const Header = () => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="py-3 px-2 outline-none bg-inherit w-full rounded"
-          placeholder="Enter full city name to search available cleaners in that area"
+          placeholder="Enter full city name - 'Abuja' - to search available cleaners in that area"
         />
         <p className="p-3 border-l cursor-pointer">
           <FaSearch />
