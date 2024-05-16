@@ -13,6 +13,8 @@ import { SideBarContext } from "./MainNav";
 import notificationDb from "../../db/notificationDb";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaSearch } from "react-icons/fa";
+import SearchQuery from "../components/SearchQuery";
+import cleanersData from "../../db/cleanersDb";
 
 const Header = () => {
   const {
@@ -33,6 +35,7 @@ const Header = () => {
   } = useContext(BgContext);
 
   const { smallScreenSideBar } = useContext(SideBarContext);
+  const [search, setSearch] = useState("");
 
   const [user, setUser] = useState([]);
   useEffect(() => {
@@ -77,6 +80,28 @@ const Header = () => {
 
   const { sidebar, setSidebar } = useContext(SideBarContext);
 
+  // Search Query Handler
+  const filteredCleaner = cleanersData.filter((cleaner) => {
+    return cleaner.location.toLowerCase().includes(search.toLowerCase());
+  });
+
+  const filteredData = (search) => {
+    let filteredCleaners = [];
+    if (search) {
+      filteredCleaners = filteredCleaner;
+    }
+
+    return filteredCleaners.map((value, i) => (
+      <SearchQuery
+        businessName={value.businessName}
+        key={value.id}
+        id={value.id}
+      />
+    ));
+  };
+
+  const result = filteredData(search);
+
   return (
     <header
       className={`header border-b relative w-full transition-all duration-300 bg-white ${
@@ -117,36 +142,62 @@ const Header = () => {
       </p>
 
       {/* Search Box */}
+      {/* For small */}
       {!sidebar && (
         <div
-          className={`flex md:hidden items-center w-1/2 border rounded bg-inherit mr-4 text-slate-600 text-sm ${
+          className={`relative flex md:hidden items-center w-1/2 border rounded bg-inherit mr-4 text-slate-600 text-sm ${
             darkMode ? "dark-mode !text-slate-200" : ""
           }`}
         >
           <input
             type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
             className="py-2 px-2 outline-none bg-inherit w-full rounded"
-            placeholder="Enter city name to search available cleaners in that area"
+            placeholder="Enter full city name to search available cleaners in that area"
           />
           <p className="p-2 border-l cursor-pointer">
             <FaSearch />
           </p>
+          {/* Search Query */}
+          {/* {result ? ( */}
+          <div className="absolute w-full rounded flex flex-col text-sm h-fit z-10 top-12 bg-white text-slate-700 shadow">
+            {result}
+          </div>
+          {/* ) : (
+            <p className="absolute w-full flex items-center py-3 z-10 bg-white top-12 rounded border px-2 text-sm justify-center">
+              None found.
+            </p>
+          )} */}
         </div>
       )}
 
+      {/* For MD */}
       <div
-        className={`hidden md:flex items-center w-1/2 border rounded bg-inherit mr-4 text-slate-600 text-sm ${
+        className={`relative hidden md:flex items-center w-1/2 border rounded bg-inherit mr-4 text-slate-600 text-sm ${
           darkMode ? "dark-mode !text-slate-200" : ""
         }`}
       >
         <input
           type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
           className="py-3 px-2 outline-none bg-inherit w-full rounded"
-          placeholder="Enter city name to search available cleaners in that area"
+          placeholder="Enter full city name to search available cleaners in that area"
         />
         <p className="p-3 border-l cursor-pointer">
           <FaSearch />
         </p>
+        {/* Search Query */}
+        {/* {result ? ( */}
+        <div className="absolute w-full rounded flex flex-col text-sm h-fit z-10 top-12 bg-white text-slate-700 shadow">
+          {result}
+        </div>
+        {/* ) : (
+            <p className="absolute w-full flex items-center py-3 z-10 bg-white top-12 rounded border px-2 text-sm justify-center">
+              None found.
+            </p>
+          )} */}
       </div>
 
       <div className="hidden md:flex items-center gap-2">
