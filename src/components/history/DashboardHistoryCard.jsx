@@ -9,7 +9,7 @@ const DashboardHistoryCard = ({ businessName, location, desc, id }) => {
   return (
     <Link
       to={`/dashboard/history/${id}`}
-      className="flex items-center justify-between border rounded p-2 hover:shadow-lg transition-all duration-300"
+      className="flex items-center justify-between border rounded p-2 hover:shadow-lg transition-all duration-300 tooltip"
     >
       <div className="w-[40%] md:w-[30%] h-full">
         <img
@@ -52,6 +52,7 @@ const DashboardHistoryCard = ({ businessName, location, desc, id }) => {
           {/* <FaHistory />{" "} */}
         </p>
       </div>
+      <span className="tooltiptext rounded">Click for more details</span>
     </Link>
   );
 };
