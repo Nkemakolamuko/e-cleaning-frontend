@@ -12,7 +12,7 @@ import NotificationModal from "../components/notification/NotificationModal";
 import { SideBarContext } from "./MainNav";
 import notificationDb from "../../db/notificationDb";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaTimes } from "react-icons/fa";
 import SearchQuery from "../components/SearchQuery";
 import cleanersData from "../../db/cleanersDb";
 
@@ -36,6 +36,7 @@ const Header = () => {
 
   const { smallScreenSideBar } = useContext(SideBarContext);
   const [search, setSearch] = useState("");
+  const [typing, setTyping] = useState(false);
 
   const [user, setUser] = useState([]);
   useEffect(() => {
@@ -121,7 +122,11 @@ const Header = () => {
         // contentEditable
       >
         {!sidebar && (
-          <p className="p-1 rounded-full hover:bg-slate-200 transition-all duration-300 tooltip">
+          <p
+            className={`p-1 rounded-full hover:bg-slate-200 transition-all duration-300 tooltip ${
+              typing && "hidden"
+            }`}
+          >
             <GiHamburgerMenu
               className="w-7 h-7 cursor-pointer active:scale-95 hover:text-slate-800"
               onClick={() => setSidebar(true)}
@@ -145,19 +150,31 @@ const Header = () => {
       {/* For small */}
       {!sidebar && (
         <div
-          className={`relative flex md:hidden items-center w-1/2 border rounded bg-inherit mr-4 text-slate-600 text-sm ${
-            darkMode ? "dark-mode !text-slate-200" : ""
-          }`}
+          className={`relative flex md:hidden items-center border rounded bg-inherit text-slate-600 text-sm ${
+            typing ? "ml-0 mr-0 w-full" : "mr-4 w-1/2"
+          } ${darkMode ? "dark-mode !text-slate-200" : ""}`}
+          onClick={() => {
+            setTyping(!typing);
+            setSearch("");
+          }}
         >
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="py-2 px-2 outline-none bg-inherit w-full rounded"
+            className={`py-2 px-2 outline-none bg-inherit w-full rounded`}
             placeholder='Search Eg. "Enugu"'
           />
-          <p className="p-2 border-l cursor-pointer">
-            <FaSearch />
+          <p
+            className={`py-2 border-l cursor-pointer ${
+              typing ? "px-4" : "px-2"
+            }`}
+            onClick={() => {
+              setTyping(!typing);
+              setSearch("");
+            }}
+          >
+            {typing ? <FaTimes className="text-rose-500" /> : <FaSearch />}
           </p>
           {/* Search Query */}
           {/* {result ? ( */}
@@ -177,6 +194,10 @@ const Header = () => {
         className={`relative hidden md:flex items-center w-1/2 border rounded bg-inherit mr-4 text-slate-600 text-sm ${
           darkMode ? "dark-mode !text-slate-200" : ""
         }`}
+        onClick={() => {
+          setTyping(!typing);
+          setSearch("");
+        }}
       >
         <input
           type="text"
@@ -186,7 +207,7 @@ const Header = () => {
           placeholder="Enter full city name - 'Abuja' - to search available cleaners in that area"
         />
         <p className="p-3 border-l cursor-pointer">
-          <FaSearch />
+          {typing ? <FaTimes className="text-rose-500" /> : <FaSearch />}
         </p>
         {/* Search Query */}
         {/* {result ? ( */}
@@ -268,47 +289,51 @@ const Header = () => {
         </p>
       </div>
 
-      {/* Notification Small */}
-      {!sidebar && (
-        <p
-          className="cursor-pointer md:hidden"
-          onClick={handleNotificationModal}
-        >
-          <FaRegBell
-            className={`w-6 h-6 text-green-900 relative active:scale-90 ${
-              darkMode ? "dark-mode" : ""
-            }`}
-          />
+      {!typing && (
+        <>
+          {/* Notification Small */}
+          {!sidebar && (
+            <p
+              className="cursor-pointer md:hidden"
+              onClick={handleNotificationModal}
+            >
+              <FaRegBell
+                className={`w-6 h-6 text-green-900 relative active:scale-90 ${
+                  darkMode ? "dark-mode" : ""
+                }`}
+              />
 
-          <span
-            className={`absolute 
+              <span
+                className={`absolute 
                  py-1 bg-rose-500/80 text-white text-xs top-2 ml-3 rounded-full ${
                    notification?.length > 9 ? "px-1" : "px-[9px]"
                  } `}
-          >
-            {notification?.length > 9 ? "9+" : notification?.length || "0"}
-          </span>
-        </p>
-      )}
+              >
+                {notification?.length > 9 ? "9+" : notification?.length || "0"}
+              </span>
+            </p>
+          )}
 
-      {/* {!sidebar && ( */}
-      <p className="cursor-pointer md:hidden" onClick={handleCartModal}>
-        <FaCartShopping
-          className={`w-6 h-6 text-green-900 relative active:scale-90 ${
-            darkMode ? "dark-mode" : ""
-          }`}
-        />
-        {cartModalCount > 0 && (
-          <span
-            className={`absolute ${
-              cartModalCount > 9 ? "px-1" : "px-2"
-            } py-1 bg-rose-500 text-white text-xs top-2 right-1 rounded-full`}
-          >
-            {cartModalCount > 9 ? "9+" : cartModalCount}
-          </span>
-        )}
-      </p>
-      {/* )} */}
+          {/* {!sidebar && ( */}
+          <p className="cursor-pointer md:hidden" onClick={handleCartModal}>
+            <FaCartShopping
+              className={`w-6 h-6 text-green-900 relative active:scale-90 ${
+                darkMode ? "dark-mode" : ""
+              }`}
+            />
+            {cartModalCount > 0 && (
+              <span
+                className={`absolute ${
+                  cartModalCount > 9 ? "px-1" : "px-2"
+                } py-1 bg-rose-500 text-white text-xs top-2 right-1 rounded-full`}
+              >
+                {cartModalCount > 9 ? "9+" : cartModalCount}
+              </span>
+            )}
+          </p>
+          {/* )} */}
+        </>
+      )}
     </header>
   );
 };
