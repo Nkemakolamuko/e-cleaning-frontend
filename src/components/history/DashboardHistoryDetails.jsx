@@ -18,18 +18,22 @@ const DashboardHistoryDetails = () => {
     setHistory([foundHistory]);
   }, []);
   return (
-    <section className={`p-2 ${darkMode ? "dark-mode" : ""}`}>
+    <section
+      className={`p-2 h-screen overflow-auto scroll ${
+        darkMode ? "dark-mode" : ""
+      }`}
+    >
       <div
-        className={`p-2 h-screen flex flex-col w-full container mx-auto justify-center md:justify-normal items-center ${
+        className={`p-2 h-full flex flex-col w-full md:w-1/2 container mx-auto duration-300 justify-center md:justify-normal items-center ${
           darkMode ? "dark-mode" : ""
         }`}
       >
         <div className="w-full">
           <p
-            className={`rounded-full border px-4 py-2 cursor-pointer w-fit flex items-center gap-3 text-slate-600 text-sm ${
-              darkMode ? "!text-slate-200" : ""
+            className={`px-4 py-2 cursor-pointer w-fit flex items-center gap-3 text-slate-600  hover:bg-slate-200 transition-all text-sm ${
+              darkMode ? "!text-slate-200 hover:!bg-slate-700" : ""
             }`}
-            onClick={() => navigate(-1)}
+            onClick={() => navigate("/dashboard")}
           >
             <FaAngleLeft />
             <span>Go back</span>
@@ -37,7 +41,7 @@ const DashboardHistoryDetails = () => {
         </div>
 
         <div
-          className={`relative flex flex-col mt-4 w-full md:w-1/2 ${
+          className={`relative flex flex-col mt-4 w-full border rounded ${
             darkMode ? "" : ""
           }`}
         >
