@@ -68,8 +68,8 @@ const SearchQueryDetailsPage = () => {
             }`}
           >
             <p
-              className={`px-3 py-2 w-fit cursor-pointer flex items-center text-slate-700 gap-2 md:hidden ${
-                darkMode ? "!text-slate-200" : ""
+              className={`px-3 py-2 w-fit cursor-pointer flex md:hidden items-center text-slate-600 gap-2 hover:bg-slate-200 transition-all ${
+                darkMode ? "!text-slate-200 hover:!bg-slate-700" : ""
               }`}
               onClick={() => navigate("/dashboard")}
             >
@@ -79,8 +79,8 @@ const SearchQueryDetailsPage = () => {
             <div className="flex flex-col py-2 gap-4 md:flex-row md:items-center">
               <div className="flex flex-col md:h-screen md:top-12 md:w-[40%] md:fixed">
                 <p
-                  className={`px-3 py-2 mb-4 w-fit cursor-pointer hidden md:flex items-center text-slate-700 gap-2 ${
-                    darkMode ? "!text-slate-200" : ""
+                  className={`px-3 py-2 mb-4 w-fit cursor-pointer hidden md:flex items-center gap-2 text-slate-600 hover:bg-slate-200 transition-all ${
+                    darkMode ? "!text-slate-200 hover:!bg-slate-700" : ""
                   }`}
                   onClick={() => navigate("/dashboard")}
                 >

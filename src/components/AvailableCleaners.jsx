@@ -2,45 +2,55 @@ import React, { useContext } from "react";
 import { BgContext } from "../App";
 // import logo from "../assets/logo.jpg";
 import logo from "../assets/ugo-best.jpg";
-import { FaEnvelope, FaPhone, FaWhatsapp } from "react-icons/fa6";
+import {
+  FaEnvelope,
+  FaLocationDot,
+  FaPhone,
+  FaWhatsapp,
+} from "react-icons/fa6";
 
-const AvailableCleaners = ({ name, desc, handleNext, handlePrev }) => {
+const AvailableCleaners = ({ name, desc, location }) => {
   const { darkMode } = useContext(BgContext);
   return (
-    <div className={`${darkMode && "dark-mode"} h-[450px]`}>
+    <div className={`${darkMode && "dark-mode"} h-[390px]`}>
       <div
-        className={`px-2 pt-2 pb-3 rounded h-full flex flex-col md:shadow-lg shadow-lg hover:shadow-lg w-[300px] md:w-[330px] items-center bg-white border border-green-100 to-white transition-all duration-300 ${
+        className={`pt-2 rounded h-full flex justify-between flex-col md:shadow-lg shadow-lg hover:shadow-lg w-[300px] md:w-[330px] items-center bg-white border border-green-100 to-white transition-all duration-300 ${
           darkMode ? "dark-mode" : ""
         }`}
       >
-        <div className="h-[200px] w-full">
+        <div className="h-[150px] w-[80%]">
           <img
             src={logo}
             alt="Cleaner Image"
-            // height={"80rem"}
-            // width={"80rem"}
-            className="rounded-t mx-auto w-full h-[200px]"
+            className="mx-auto w-full h-full"
           />
         </div>
-        <div className="flex flex-col justify-between h-[50%] w-full text-slate-800 gap-2 mt-2">
+        <div className="flex flex-col justify-between h-fit w-full text-slate-800 pb-2">
           <p
-            className={`text-center text-base md:text-lg font-medium !tracking-widest text-green-700 ${
+            className={`text-center text-base font-medium !tracking-widest text-green-700 ${
               darkMode ? "!text-green-500" : ""
             }`}
           >
             {name || "Full Name"}
           </p>
+          <p
+            className={`text-center w-full justify-center border-y py-2 text-sm flex items-center gap-2 font-medium !tracking-widest text-blue-700 ${
+              darkMode ? "!text-blue-500" : ""
+            }`}
+          >
+            <FaLocationDot className="w-5 h-5" /> {location || "Location"}
+          </p>
 
           <p
-            className={`text-xs lg:text-sm text-slate-700 text-center ${
+            className={`text-xs text-slate-700 text-center ${
               darkMode ? "!text-slate-200" : ""
             }`}
           >
             {desc ||
-              "Details About them Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, consequuntur!"}
+              "We prioritize our customers satisfaction more than anything else, try us out today, and you'd have an experience of a lifetime"}
           </p>
 
-          <h1 className="w-full text-center tracking-widest font-medium mt-2">
+          <h1 className="w-full text-center text-sm tracking-widest font-medium mt-2">
             Contact Cleaner Using :
           </h1>
           <div className="flex flex-wrap md:w-[70%] mx-auto w-full gap-2 items-center justify-center z-10">

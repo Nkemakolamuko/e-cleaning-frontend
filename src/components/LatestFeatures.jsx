@@ -10,7 +10,7 @@ const LatestFeatures = () => {
   return (
     <div className={`${darkMode ? "dark-mode" : ""}`}>
       <h2
-        className={`font-semibold tracking-widest text-gray-800 ${
+        className={`font-semibold tracking-widest border-b p-2 text-gray-800 ${
           darkMode ? "dark-mode" : ""
         }`}
       >
@@ -18,7 +18,7 @@ const LatestFeatures = () => {
       </h2>
       <div
         className={`h-fit w-full
-        } py-2 mt-2 overflow-hidden flex items-center bg-white transition-all duration-300 ${
+        } py-2 px-2 mt-2 overflow-hidden flex items-center bg-white transition-all duration-300 ${
           darkMode ? "dark-mode" : ""
         }`}
       >

@@ -125,11 +125,11 @@ const Dashboard = () => {
     });
   };
 
-  const cleanersCount = cleaners.length;
+  const cleanersCount = cleanersData.length;
 
   const displayCleaners = Array.from({ length: itemsPerPage }, (_, index) => {
     const memberIndex = (startIndex + index) % cleanersCount;
-    return cleaners[memberIndex];
+    return cleanersData[memberIndex];
   });
 
   useEffect(() => {
@@ -139,8 +139,6 @@ const Dashboard = () => {
 
     return () => clearInterval(intervalId);
   }, [startIndex]);
-
-  const [delay, setDelay] = useState(false);
 
   // Add to cart
   const handleAddToCart = () => {
@@ -233,53 +231,60 @@ const Dashboard = () => {
                 className="rounded-[4px] w-full md:h-[180px]"
               />
             </div>
-            <div className="flex flex-col gap-1 md:h-[180px] md:justify-between w-full">
+            <div className="flex flex-col justify-center gap-2 md:h-[180px] md:justify-between w-full">
               <p
-                className={`font-semibold text-green-600 text-nowrap flex items-center gap-2 text-center ${
+                className={`font-semibold text-green-600 text-nowrap flex justify-center items-center gap-2 text-center ${
                   darkMode ? "!text-green-500" : ""
                 }`}
               >
-                <FaStore />
                 Ugo Best And Sons
+                <p
+                  className={`font-semibold flex justify-center items-center gap-1 text-sm text-slate-800 ${
+                    darkMode && "!text-slate-200"
+                  }`}
+                >
+                  - 4.5/5
+                  <span className="text-sm font-normal text-yellow-400">
+                    <FaStar className="w-5 h-5" />
+                  </span>
+                </p>
               </p>
-              <p className="font-semibold flex items-center gap-1 text-sm justify-start">
-                Rating:{" "}
-                <span className="text-sm font-normal text-yellow-400 flex items-center">
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStarHalf />
-                </span>
-              </p>
-              <p className="font-semibold justify-start flex flex-col text-sm">
-                <span className="flex items-center gap-2">
-                  <FaLocationDot />
+              <p className="font-semibold flex justify-center items-center text-sm gap-2">
+                <span className="flex items-center gap-1">
+                  <FaLocationDot className="w-5 h-5" />
                   Location:
                 </span>
-                <span className="text-xs font-normal">
-                  1st Floor Makazi Plaza, Area 2 by TZ Junction Owerri, Imo
-                  State
-                </span>
+                <span>Owerri</span>
               </p>
+              <span className="text-xs font-normal">
+                1st Floor Makazi Plaza, Area 2 by TZ Junction Owerri, Imo State
+              </span>
 
               {/* <ActionBTN text="Contact Now!" /> */}
               <div className="flex flex-col gap-1">
-                <h2 className="font-medium text-sm text-start">
-                  Contact now through:
-                </h2>
-                <p className="flex items-center gap-5 text-sm px-4 py-2 border rounded w-full cursor-pointer">
+                <h2 className="text-sm text-start">Contact now through:</h2>
+                <a
+                  href="https://www.whatsapp.com"
+                  target="_blank"
+                  className="flex items-center gap-3 text-sm px-4 py-2 border rounded w-full cursor-pointer"
+                >
                   <FaWhatsapp className="w-6 h-6" />
                   <span>WhatsApp</span>
-                </p>
-                <p className="flex items-center gap-5 text-sm px-4 py-2 border rounded w-full cursor-pointer">
+                </a>
+                <a
+                  href="tel:+2347040876440"
+                  className="flex items-center gap-3 text-sm px-4 py-2 border rounded w-full cursor-pointer"
+                >
                   <FaPhone className="w-6 h-6" />
                   <span>Phone</span>
-                </p>
-                <p className="flex items-center gap-5 text-sm px-4 py-2 border rounded w-full cursor-pointer">
+                </a>
+                <a
+                  href="mailto:vintio234@gmail.com"
+                  className="flex items-center gap-3 text-sm px-4 py-2 border rounded w-full cursor-pointer"
+                >
                   <FaEnvelope className="w-6 h-6" />
                   <span>Email</span>
-                </p>
+                </a>
               </div>
             </div>
           </div>
@@ -299,19 +304,19 @@ const Dashboard = () => {
       </div>
 
       {/* Features */}
-      <section className="mt-7 w-full hidden md:flex border rounded p-2">
+      <section className="mt-7 w-full hidden md:flex border rounded">
         <LatestFeatures />
       </section>
-      <section className="md:hidden mt-7 border rounded p-2">
+      <section className="md:hidden mt-7 border rounded">
         <h2
-          className={`font-semibold !tracking-widest text-gray-800 ${
+          className={`font-semibold !tracking-widest text-gray-800 border-b p-2 ${
             darkMode ? "dark-mode" : ""
           }`}
         >
           Latest Features And Updates
         </h2>
         <div
-          className={`flex items-center py-3 gap-4 overflow-hidden w-full text-nowrap ${
+          className={`flex items-center py-3 px-2 gap-4 overflow-hidden w-full text-nowrap ${
             darkMode ? "dark-mode" : ""
           }`}
         >
@@ -383,8 +388,8 @@ const Dashboard = () => {
       </section>
 
       {/*Available Cleaners*/}
-      <section className="mt-7 w-full flex flex-col overflow-auto border rounded p-2">
-        <div className="flex items-center md:gap-4 w-full justify-between md:justify-normal md:mb-2">
+      <section className="mt-7 w-full flex flex-col overflow-auto border rounded">
+        <div className="flex items-center md:gap-4 w-full justify-between md:justify-normal md:mb-2 border-b text-nowrap px-2 gap-1">
           <Title title="Available Cleaners" />
 
           <select
@@ -392,52 +397,62 @@ const Dashboard = () => {
             className={`border rounded py-1 cursor-pointer mb-2 outline-none text-black ${
               darkMode ? "dark-mode" : ""
             }`}
+            onChange={() =>
+              toast("Working on it...", {
+                position: "bottom-center",
+                autoClose: 2000,
+              })
+            }
           >
-            <option value="Choose Location">----Choose Location----</option>
-            <option value="OgborHill" onClick={() => alert("Working on it...")}>
-              OgborHill
-            </option>
-            <option value="Osisioma" onClick={() => alert("Working on it...")}>
-              Osisioma
-            </option>
-            <option value="7UP" onClick={() => alert("Working on it...")}>
-              7UP
-            </option>
-            <option value="PH Road" onClick={() => alert("Working on it...")}>
-              PH Road
-            </option>
-            <option value="Federal" onClick={() => alert("Working on it...")}>
-              Federal
-            </option>
+            <option value="Choose Location">---Choose Location---</option>
+            {cleanersData
+              .filter((value) => value.location)
+              .map((cleaner) => (
+                <option value="OgborHill" key={cleaner.id}>
+                  {cleaner.location}
+                </option>
+              ))}
           </select>
         </div>
 
-        <div className="w-full h-[450px] flex items-center gap-2 overflow-hidden relative">
-          {displayCleaners.map((cleaner) => {
-            return (
-              <AvailableCleaners
-                name={cleaner.name}
-                desc={cleaner.desc}
-                key={cleaner.id}
-              />
-            );
-          })}
-          <AvailableCleaners />
-          <div className="absolute flex items-center w-full h-full top-0 justify-between">
+        <div className="w-full h-fit flex flex-col overflow-hidden mt-2 px-2">
+          <div className="flex items-center w-full h-full justify-between">
             <p
-              className="cursor-pointer p-2 md:p-3 bg-yellow-400 text-white font-medium rounded-r hover:bg-yellow-500 active:scale-90 shadow-lg shadow-black/20 flex items-center justify-between"
+              className="cursor-pointer p-2 md:p-3 bg-yellow-400 text-white rounded-r hover:bg-yellow-500 active:scale-90 shadow-lg shadow-black/20 flex items-center justify-between"
               onClick={handlePrev}
             >
               <FaAngleLeft />
               <span>Prev</span>
             </p>
+            <Link
+              to={"/dashboard/cleaners"}
+              className="cursor-pointer p-2 md:p-3 active:scale-95 flex items-center justify-between border"
+            >
+              <span>See all</span>
+              <FaAngleRight />
+            </Link>
             <p
-              className="cursor-pointer p-2 md:p-3 bg-yellow-400 text-white font-medium rounded-l hover:bg-yellow-500 active:scale-90 shadow-lg shadow-black/20 flex items-center justify-between"
+              className="cursor-pointer p-2 md:p-3 bg-yellow-400 text-white rounded-l hover:bg-yellow-500 active:scale-90 shadow-lg shadow-black/20 flex items-center justify-between"
               onClick={handleNext}
             >
               <span>Next</span>
               <FaAngleRight />
             </p>
+          </div>
+          <div className="w-full h-fit py-2 flex items-center gap-2 overflow-hidden">
+            {displayCleaners
+              // .filter((value) => value.location == "Enugu")
+              .map((cleaner) => {
+                return (
+                  <AvailableCleaners
+                    name={cleaner.name}
+                    desc={cleaner.desc}
+                    key={cleaner.id}
+                    location={cleaner.location}
+                  />
+                );
+              })}
+            <AvailableCleaners />
           </div>
         </div>
       </section>
