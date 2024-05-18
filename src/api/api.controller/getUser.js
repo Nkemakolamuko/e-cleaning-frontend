@@ -10,12 +10,10 @@ export const getUser = async (auth, setGlobalUser) => {
     });
     setGlobalUser(response?.data);
   } catch (error) {
-    if (error.message == "Network Error") {
-      toast.error(
-        "Failed to get user details, check your internet connection and reload page."
-      );
+    if (error.response) {
+      toast.error(error.response.data.message);
     } else {
-      toast.error(error.message);
+      toast.error(error.message, { position: "top-left" });
     }
   }
 };

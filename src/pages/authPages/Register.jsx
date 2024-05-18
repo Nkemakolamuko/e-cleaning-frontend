@@ -94,8 +94,13 @@ const Register = () => {
         navigate("/login");
       }, 2000);
     } catch (error) {
-      toast.error(error.message, { position: "top-left" });
-      setLoading(false);
+      if (error.response) {
+        toast.error(error.response.data.message);
+        setLoading(false);
+      } else {
+        toast.error(error.message, { position: "top-left" });
+        setLoading(false);
+      }
     }
 
     localStorage.setItem("user", JSON.stringify(user));
