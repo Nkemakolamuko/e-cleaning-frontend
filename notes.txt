@@ -1,0 +1,1 @@
+For the admin - I'd create account with the admin details, so it will register in the backend and then i can use the data as I want to --

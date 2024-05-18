@@ -58,6 +58,10 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!email || !password) {
+      toast.error("Fields can't be empty", { position: "top-left" });
+      return;
+    }
     const user = {
       email,
       password,
@@ -76,7 +80,7 @@ const Login = () => {
       // console.log(response.data);
       setGlobalUser(response?.data);
       const accessToken = response?.data?.accessToken;
-      const id = response?.data?.id;
+      const id = response?.data?.id; // For when I want to edit user details, I'd need the ID
       setAuth({ accessToken, id });
       // console.log(accessToken);
       if (
@@ -220,7 +224,9 @@ const Login = () => {
         <div className="flex flex-col w-full gap-1 transition-all duration-300">
           <p
             className="p-2 md:py-3 bg-white text-slate-600 border font-medium tracking-widest rounded w-full mt-2 flex items-center cursor-pointer gap-4 group transition-all duration-300"
-            onClick={() => toast("Coming soon...")}
+            onClick={() =>
+              toast("Coming soon...", { position: "bottom-right" })
+            }
           >
             <FcGoogle className="w-6 h-6" />
 
@@ -228,7 +234,9 @@ const Login = () => {
           </p>
           <p
             className="p-2 md:py-3 bg-white text-slate-600 border font-medium tracking-widest rounded w-full mt-2 flex items-center cursor-pointer gap-4 transition-all duration-300"
-            onClick={() => toast("Coming soon...")}
+            onClick={() =>
+              toast("Coming soon...", { position: "bottom-right" })
+            }
           >
             <FaFacebook className="w-6 h-6 text-blue-500" />
 
@@ -236,7 +244,9 @@ const Login = () => {
           </p>
           <p
             className="p-2 md:py-3 bg-white text-slate-600 border font-medium tracking-widest rounded w-full mt-2 flex items-center cursor-pointer gap-4 transition-all duration-300"
-            onClick={() => toast("Coming soon...")}
+            onClick={() =>
+              toast("Coming soon...", { position: "bottom-right" })
+            }
           >
             <FaXTwitter className="w-6 h-6 text-neutral-950" />
 
