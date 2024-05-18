@@ -15,6 +15,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { BgContext } from "../../App";
 import AuthContext from "../../context-API/AuthProvider";
+import { handleLogout } from "../../api/api.controller/logout";
 
 const OpenedSideBar = ({ handleSideBarClose }) => {
   const { darkMode } = useContext(BgContext);
@@ -33,23 +34,6 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
     setActiveLink(linkStored);
   });
 
-  // Handle Logout
-  const handleLogout = () => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You will have to login again!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "green",
-      cancelButtonColor: "#EC4899",
-      confirmButtonText: "Yes, logout!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        setAuth({});
-        window.location.href = "/login";
-      }
-    });
-  };
   return (
     <aside
       className={`w-full h-screen bg-white flex flex-col px-6 py-5 shadow-2xl md:shadow-lg z-50 border-r ${
@@ -313,7 +297,7 @@ const OpenedSideBar = ({ handleSideBarClose }) => {
       {/* Log Out */}
       <p
         className="flex flex-col items-center text-rose-600 border border-slate-300 p-2 hover:bg-rose-600 hover:text-white transition-all duration-300 cursor-pointer"
-        onClick={handleLogout}
+        onClick={() => handleLogout(setAuth)}
       >
         <span>
           <FaSignOutAlt />

@@ -38,6 +38,7 @@ import AdminOrderDetails from "./pages/admin-dashboard/AdminOrderDetails";
 import DashboardHistoryDetails from "./components/history/DashboardHistoryDetails";
 import SearchQueryDetailsPage from "./components/SearchQueryDetailsPage";
 import AuthContext from "./context-API/AuthProvider";
+import AdminProfile from "./components/admin-components/AdminProfile";
 
 export const BgContext = createContext(null);
 
@@ -144,6 +145,14 @@ function App() {
             element={
               <MainAdmin>
                 <AdminDashboard />
+              </MainAdmin>
+            }
+          />
+          <Route
+            path="admin-dashboard2521/admin-profile"
+            element={
+              <MainAdmin>
+                <AdminProfile />
               </MainAdmin>
             }
           />
