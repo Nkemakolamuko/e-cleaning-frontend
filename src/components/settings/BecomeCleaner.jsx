@@ -4,22 +4,36 @@ import CloseButton from "../CloseButton";
 import { BgContext } from "../../App";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "../../api/axios";
 
 const BecomeCleaner = ({ handleCloseCleaner }) => {
   const { darkMode } = useContext(BgContext);
-  const [fullName, setFullName] = useState("");
-  const [bizName, setBizName] = useState("");
+  const [name, setName] = useState("");
+  const [businessName, setBusinessName] = useState("");
   const [location, setLocation] = useState("");
+  const [address, setAddress] = useState("");
   const [desc, setDesc] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [businessImage, setBusinessImage] = useState("");
+  const [img, setImg] = useState("");
   const [err, setErr] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!fullName || !bizName || !location || !phoneNumber) {
-      //   setErr("All fields are required!")
+    if (name.split(" ")[1] === undefined) {
+      toast.error("Needs at least 2 names", { position: "top-left" });
+      return;
+    }
+
+    if (
+      !name ||
+      !businessName ||
+      !location ||
+      !phoneNumber ||
+      !desc ||
+      !img ||
+      !address
+    ) {
       toast.error("All fields are required.", {
         position: "bottom-left",
       });
@@ -27,18 +41,37 @@ const BecomeCleaner = ({ handleCloseCleaner }) => {
     }
 
     const cleanerDetails = {
-      fullName,
-      bizName,
+      name,
+      businessName,
       location,
+      address,
       desc,
       phoneNumber,
-      businessImage,
+      img,
     };
-    // console.log(cleanerDetails);
-    toast.success("Submitted Successfully - You'd be contacted shortly.");
-    setTimeout(() => {
-      handleCloseCleaner();
-    }, 5000);
+
+    try {
+      const response = await axios.post(
+        "/api/cleaners",
+        JSON.stringify({
+          name,
+          businessName,
+          location,
+          address,
+          desc,
+          phoneNumber,
+          img,
+        })
+      );
+      console.log(response);
+      toast.success("Submitted Successfully - You'd be contacted shortly.");
+      setTimeout(() => {
+        handleCloseCleaner();
+      }, 5000);
+    } catch (error) {
+      console.log(error.message);
+      toast.error(`Error Occurred:  ${error.message}`);
+    }
   };
   return (
     <div className="w-full h-screen bg-slate-500/75 flex items-center absolute top-0 p-[10px] md:py-[10px] md:px-[100px] lg:py-[30px] lg:px-[300px] flex-col overflow-auto rounded">
@@ -67,17 +100,17 @@ const BecomeCleaner = ({ handleCloseCleaner }) => {
         >
           <p className="flex flex-col items-start w-full">
             <label
-              htmlFor="fullName"
+              htmlFor="name"
               className="font-medium flex items-center gap-2"
             >
               Full Name <span className="text-rose-500">*</span>
             </label>
             <input
               type="text"
-              id="fullName"
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
-              name="fullName"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              name="name"
               className={`outline-none border-2 rounded px-2 py-3 w-full text-sm ${
                 darkMode ? " dark-mode" : ""
               }`}
@@ -95,13 +128,13 @@ const BecomeCleaner = ({ handleCloseCleaner }) => {
             <input
               type="text"
               id="compName"
-              value={bizName}
-              onChange={(e) => setBizName(e.target.value)}
+              value={businessName}
+              onChange={(e) => setBusinessName(e.target.value)}
               name="compName"
               className={`outline-none border-2 rounded px-2 py-3 w-full text-sm ${
                 darkMode ? " dark-mode" : ""
               }`}
-              placeholder="Enter your company/business name"
+              placeholder="Eg. Euphoria Brothers"
             />
           </p>
 
@@ -121,7 +154,27 @@ const BecomeCleaner = ({ handleCloseCleaner }) => {
               className={`outline-none border-2 rounded px-2 py-3 w-full text-sm ${
                 darkMode ? " dark-mode" : ""
               }`}
-              placeholder="Enter your company/business location"
+              placeholder="Eg. Owerri"
+            />
+          </p>
+
+          <p className="flex flex-col items-start w-full">
+            <label
+              htmlFor="address"
+              className="font-medium flex items-center gap-2"
+            >
+              Company/Business Address <span className="text-rose-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              name="address"
+              className={`outline-none border-2 rounded px-2 py-3 w-full text-sm ${
+                darkMode ? " dark-mode" : ""
+              }`}
+              placeholder="Eg. Shop 12 Sazodo Plaza Nowas junction Enugu, Enugu State"
             />
           </p>
 
@@ -142,26 +195,26 @@ const BecomeCleaner = ({ handleCloseCleaner }) => {
               className={`outline-none border-2 rounded px-2 py-3 w-full text-sm ${
                 darkMode ? " dark-mode" : ""
               }`}
-              placeholder="Enter your company/business phone number"
+              placeholder="Eg. 07040876440"
             />
           </p>
           <p className="flex flex-col items-start w-full">
             <label
-              htmlFor="businessImage"
+              htmlFor="img"
               className="font-medium flex items-center gap-2"
             >
-              Company/Business Image <span className="text-rose-500">*</span>
+              Company/Business img <span className="text-rose-500">*</span>
             </label>
             <input
               type="file"
-              id="businessImage"
-              value={businessImage}
-              onChange={(e) => setBusinessImage(e.target.value)}
-              name="businessImage"
+              id="img"
+              value={img}
+              onChange={(e) => setImg(e.target.value)}
+              name="img"
               className={`outline-none border-2 rounded px-2 py-3 w-full text-sm ${
                 darkMode ? " dark-mode" : ""
               }`}
-              placeholder="Enter your company/business image"
+              placeholder="Enter your company/business img"
             />
           </p>
 
@@ -184,7 +237,7 @@ const BecomeCleaner = ({ handleCloseCleaner }) => {
               className={`outline-none border-2 rounded px-2 py-3 w-full text-sm resize-none ${
                 darkMode ? "dark-mode" : ""
               }`}
-              placeholder="Enter your company/business description"
+              placeholder="Eg. We prioritize our customers satisfaction more than anything else, try us out today, and you'd have an experience of a lifetime"
             ></textarea>
           </p>
 

@@ -18,25 +18,28 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LocateActions from "./LocateActions";
 
-const CleanersCard = ({ fav, handleFav, name, addedToFavorite }) => {
+const CleanersCard = ({
+  fav,
+  handleFav,
+  name,
+  addedToFavorite,
+  address,
+  location,
+}) => {
   const { darkMode } = useContext(BgContext);
   const [direction, setDirection] = useState(false);
   return (
     <div
-      className={`px-2 pt-2 pb-3 rounded h-fit flex flex-col md:shadow-lg shadow-lg hover:shadow-lg w-full items-center bg-white border border-green-100 to-white relative transition-all duration-300 ${
+      className={`pt-2 pb-3 rounded h-fit flex flex-col md:gap-2 md:shadow-lg shadow-lg hover:shadow-lg w-full items-center bg-white border border-green-100 to-white relative transition-all duration-300 ${
         darkMode ? "dark-mode" : ""
       }`}
-      // onClick={() => setDirection(false)}
     >
       {/* <ToastContainer /> */}
       <p
-        className="absolute left-4 bg-black/70 backdrop-blur top-5 rounded-md p-2 shadow-lg active:scale-95 text-slate-200 flex items-center gap-2 group cursor-pointer transition-all duration-300"
-        onClick={() =>
-          // toast.success(
-          //   "Working on it - call instead if description ain't good enough!"
-          // )
-          setDirection(!direction)
-        }
+        className={`absolute left-4 bg-black/70 backdrop-blur top-5 rounded-md p-2 shadow-lg active:scale-95 text-slate-200 flex items-center gap-2 group cursor-pointer border transition-all duration-300 ${
+          darkMode && "!border-slate-200"
+        }`}
+        onClick={() => setDirection(!direction)}
       >
         {/* Click and it will show you google map address and direction of the shop */}
         <span className="flex items-center gap-2 transition-all duration-300">
@@ -52,7 +55,7 @@ const CleanersCard = ({ fav, handleFav, name, addedToFavorite }) => {
           handleClose={() => setDirection(false)}
         />
       )}
-      <div className="h-[230px] w-full">
+      <div className="h-[150px] w-[80%]">
         <img
           src={logo}
           alt="Cleaner Image"
@@ -62,33 +65,32 @@ const CleanersCard = ({ fav, handleFav, name, addedToFavorite }) => {
         />
       </div>
       <div className="flex flex-col w-full text-slate-800 gap-2 mt-2">
-        <div className="flex items-center flex-col">
+        <div className="flex gap-1 flex-col">
           <p
             className={`text-center text-base md:text-lg font-medium !tracking-widest text-green-700 ${
               darkMode ? "!text-green-500" : ""
             }`}
           >
-            {name || "Tony Best"}
+            {name || "Name"}
           </p>
+
+          <div
+            className={`p-2 border-y flex items-center text-blue-700 gap-1 justify-center font-medium ${
+              darkMode && "!text-blue-500"
+            }`}
+          >
+            <FaLocationDot /> {location || "Location"}
+          </div>
+
           <div>
-            {/* {!addedToFavorite && (
-              <p
-                onClick={handleFav}
-                className={`flex items-center text-xs gap-2 text-center border rounded px-2 py-1 cursor-pointer transition-all duration-300 active:scale-95 ${
-                  darkMode ? "dark-mode !bg-inherit" : ""
-                }`}
-              >
-                <FaPlus /> Add to favorite
-              </p>
-            )} */}
             {addedToFavorite ? (
-              <p className="px-2 py-1 text-sm border-b border-b-green-400 text-green-500 text-center">
+              <p className="px-2 py-1 text-sm border-b border-b-green-400 text-green-500 text-center w-fit mx-auto">
                 Added to favorite
               </p>
             ) : (
               <p
                 onClick={handleFav}
-                className={`flex items-center text-sm gap-2 bg-green-500 text-white text-center border rounded px-2 py-1 active:scale-95 shadow-md cursor-pointer transition-all duration-300 ${
+                className={`flex items-center text-sm gap-2 bg-green-500 text-white text-center border rounded px-2 py-1 active:scale-95 w-fit mx-auto shadow-md cursor-pointer transition-all duration-300 ${
                   darkMode
                     ? "dark-mode !bg-green-500 !text-white shadow-md shadow-white/20"
                     : ""
@@ -101,23 +103,15 @@ const CleanersCard = ({ fav, handleFav, name, addedToFavorite }) => {
         </div>
 
         <p
-          className={`text-xs lg:text-sm text-slate-700 text-center mt-2 ${
+          className={`text-xs lg:text-sm text-slate-700 text-center p-2 ${
             darkMode ? "!text-slate-200" : ""
           }`}
         >
-          Located at Shop 12 Sazodo Plaza, by NOWAS junction, Trans-Ekulu Enugu.
+          {address ||
+            "Located at Shop 12 Sazodo Plaza, by NOWAS junction, Trans-Ekulu Enugu."}
         </p>
 
-        {/* <a
-          href="tel:+2347040876440"
-          target="_blank"
-          className="md:w-[70%] mx-auto w-full"
-        >
-          <button className="p-3 md:p-3 !bg-cyan-700 text-white hover:bg-cyan-800 font-medium tracking-widest rounded text-xs md:text-sm active:scale-90 md:w-full w-full transition-all duration-300">
-            Contact Now!
-          </button>
-        </a> */}
-        <h1 className="w-full text-center tracking-widest font-medium mt-2">
+        <h1 className="w-full text-center tracking-widest font-medium text-sm mt-2">
           Contact Cleaner Using :
         </h1>
         <div className="flex flex-wrap md:w-[70%] mx-auto w-full gap-2 items-center justify-center">

@@ -134,7 +134,7 @@ const Header = () => {
             <span className="tooltiptext rounded">Open Menu</span>
           </p>
         )}
-        <span className="truncate hidden md:flex">
+        <span className="truncate hidden lg:flex">
           👋 Hi,{" "}
           {/* {user?.name?.split(" ")[0].charAt(0).toUpperCase() +
             user?.name?.slice(1).split(" ")[0].toLowerCase() ||

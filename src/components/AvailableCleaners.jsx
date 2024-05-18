@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { BgContext } from "../App";
 // import logo from "../assets/logo.jpg";
 import logo from "../assets/ugo-best.jpg";
@@ -8,16 +8,40 @@ import {
   FaPhone,
   FaWhatsapp,
 } from "react-icons/fa6";
+import LocateActions from "./cleanersNearby/LocateActions";
 
 const AvailableCleaners = ({ name, desc, location }) => {
   const { darkMode } = useContext(BgContext);
+  const [direction, setDirection] = useState(false);
   return (
     <div className={`${darkMode && "dark-mode"} h-[390px]`}>
       <div
-        className={`pt-2 rounded h-full flex justify-between flex-col md:shadow-lg shadow-lg hover:shadow-lg w-[300px] md:w-[330px] items-center bg-white border border-green-100 to-white transition-all duration-300 ${
+        className={`relative pt-2 rounded h-full flex justify-between flex-col md:shadow-lg shadow-lg hover:shadow-lg w-[300px] md:w-[330px] items-center bg-white border border-green-100 to-white transition-all duration-300 ${
           darkMode ? "dark-mode" : ""
         }`}
       >
+        <p
+          className={`absolute left-4 bg-black/70 top-5 rounded-md p-2 shadow-lg active:scale-95 text-slate-200 flex items-center border gap-2 group cursor-pointer transition-all duration-300 ${
+            darkMode && "!border-slate-200"
+          }`}
+          onClick={() => setDirection(!direction)}
+        >
+          {/* Click and it will show you google map address and direction of the shop */}
+          <span
+            className={`flex items-center gap-2 transition-all duration-300`}
+          >
+            <FaLocationDot className="w-4 h-4" />
+            <span className="text-xs group-hover:flex hidden transition-all duration-300 text-slate-100">
+              Find Location
+            </span>
+          </span>
+        </p>
+        {direction && (
+          <LocateActions
+            setDirection={() => setDirection(false)}
+            handleClose={() => setDirection(false)}
+          />
+        )}
         <div className="h-[150px] w-[80%]">
           <img
             src={logo}

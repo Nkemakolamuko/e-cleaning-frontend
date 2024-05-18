@@ -6,6 +6,7 @@ import { BgContext } from "../App";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
+import cleanersData from "../../db/cleanersDb";
 
 // Still on this -- the favorite stuff -- I need it to remain true when set to true and be unable to add it to favorites if it's true -- I want to add toggle option as well
 
@@ -50,14 +51,16 @@ const Cleaners = () => {
   const { darkMode } = useContext(BgContext);
   const [border, setBorder] = useState("All");
   const [favHandler, setFavHandler] = useState(false);
-  const [forFavNames, setForFavNames] = useState(names);
+  const [forFavNames, setForFavNames] = useState(cleanersData);
+  const [yourArea, setYourArea] = useState(cleanersData);
   const [yourFavorites, setYourFavorites] = useState([]);
   const [favId, setFavId] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleFav = (id) => {
     setFavId(id);
     setForFavNames(
-      names.map((val) =>
+      cleanersData.map((val) =>
         val.id === id ? { ...val, favorite: !val?.favorite } : val
       )
     );
@@ -67,17 +70,13 @@ const Cleaners = () => {
     const addedToFav = () => {
       // This one negates the favorite to false
       setForFavNames(
-        names.map((val) =>
+        cleanersData.map((val) =>
           val.id === favId ? { ...val, favorite: !val?.favorite } : val
         )
       );
       const favFound = forFavNames.find((val) => val.id == favId);
 
       if (yourFavorites.includes(favFound) || favId == null) {
-        // toast.error("Cleaner exist in favorite or network error - try again!", {
-        //   position: "bottom-left",
-        // });
-        // console.log("Exist");
         return;
       } else {
         setYourFavorites([
@@ -150,7 +149,13 @@ const Cleaners = () => {
           </div>
           <div
             className="flex flex-col group cursor-pointer transition-all duration-300"
-            onClick={() => setBorder("Area")}
+            onClick={() => {
+              setBorder("Area");
+              setLoading(true);
+              setTimeout(() => {
+                setLoading(false);
+              }, 2000);
+            }}
           >
             <p
               className={`${
@@ -173,7 +178,13 @@ const Cleaners = () => {
           </div>
           <div
             className="flex flex-col group cursor-pointer transition-all duration-300"
-            onClick={() => setBorder("All")}
+            onClick={() => {
+              setBorder("All");
+              setLoading(true);
+              setTimeout(() => {
+                setLoading(false);
+              }, 2000);
+            }}
           >
             <p
               className={`${
@@ -206,6 +217,8 @@ const Cleaners = () => {
                 <FavoriteCleaners
                   name={name.name}
                   key={name.id}
+                  location={name.location}
+                  address={name.address}
                   handleFavRemove={() => handleFavRemove(name.id)}
                   // fav={name.favorite}
                 />
@@ -218,29 +231,53 @@ const Cleaners = () => {
 
         {border === "Area" && (
           <>
-            {forFavNames.map((name, i) => (
-              <CleanersCard
-                name={name.name}
-                key={name.id}
-                handleFav={() => handleFav(name.id)}
-                addedToFavorite={name.favorite}
-                fav={name.favorite}
-              />
-            ))}
+            {loading ? (
+              <p className="w-full h-[50vh] flex items-center justify-center">
+                Loading...
+              </p>
+            ) : (
+              <>
+                {yourArea
+                  .filter((cleaner) => {
+                    return cleaner.location == "Enugu";
+                  })
+                  .map((name, i) => (
+                    <CleanersCard
+                      name={name.name}
+                      key={name.id}
+                      location={name.location}
+                      address={name.address}
+                      handleFav={() => handleFav(name.id)}
+                      addedToFavorite={name.favorite}
+                      fav={name.favorite}
+                    />
+                  ))}{" "}
+              </>
+            )}
           </>
         )}
 
         {border === "All" && (
           <>
-            {forFavNames.map((name, i) => (
-              <CleanersCard
-                name={name.name}
-                key={name.id}
-                handleFav={() => handleFav(name.id)}
-                addedToFavorite={name.favorite}
-                fav={name.favorite}
-              />
-            ))}
+            {loading ? (
+              <p className="w-full h-[50vh] flex items-center justify-center">
+                Loading...
+              </p>
+            ) : (
+              <>
+                {forFavNames.map((name, i) => (
+                  <CleanersCard
+                    name={name.name}
+                    key={name.id}
+                    location={name.location}
+                    address={name.address}
+                    handleFav={() => handleFav(name.id)}
+                    addedToFavorite={name.favorite}
+                    fav={name.favorite}
+                  />
+                ))}
+              </>
+            )}
           </>
         )}
       </section>

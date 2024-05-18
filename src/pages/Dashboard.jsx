@@ -163,6 +163,7 @@ const Dashboard = () => {
       <ToastContainer />
       <Title title="Dashboard" />
 
+      {/* For Small */}
       <div className="flex flex-col md:hidden md:grid-cols-2 lg:hidden lg:flex-row items-center gap-2 scale-100 lg:scale-100 md:scale-100">
         {/* Turn these to individual components */}
 
@@ -290,14 +291,17 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+      {/* For Medium and Large */}
       <div className="md:grid md:grid-cols-1 lg:grid-cols-2 gap-4 hidden">
         <DashboardNewCard
           image={userImage}
+          addHeight={"h-[190px]"}
           details={<DetailsCleaner />}
           info="Best Performing Cleaner This Week"
         />
         <DashboardNewCard
           image={logo}
+          addHeight={"h-full"}
           details={<DetailsProduct handleAddToCart={handleAddToCart} />}
           info="Product On Flash Sale"
         />

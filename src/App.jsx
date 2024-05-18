@@ -1,5 +1,11 @@
-import { createContext, useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createContext, useContext, useEffect, useState } from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useNavigate,
+} from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import MainNav from "./layout/MainNav";
 import Orders from "./pages/Orders";
@@ -31,11 +37,13 @@ import AdminCleaners from "./pages/admin-dashboard/AdminCleaners";
 import AdminOrderDetails from "./pages/admin-dashboard/AdminOrderDetails";
 import DashboardHistoryDetails from "./components/history/DashboardHistoryDetails";
 import SearchQueryDetailsPage from "./components/SearchQueryDetailsPage";
+import AuthContext from "./context-API/AuthProvider";
 
 export const BgContext = createContext(null);
 
 function App() {
   const [bg, setBg] = useState("bg-slate-300");
+  const { auth } = useContext(AuthContext);
   const [darkMode, setDarkMode] = useState(false);
   const [cartId, setCartId] = useState(null);
   const [cartItem, setCartItem] = useState([]);
@@ -108,8 +116,26 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           {/* Auth */}
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/register"
+            element={
+              auth.accessToken ? (
+                <Navigate to={"/dashboard/settings"} />
+              ) : (
+                <Register />
+              )
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              auth.accessToken ? (
+                <Navigate to={"/dashboard/settings"} />
+              ) : (
+                <Login />
+              )
+            }
+          />
           <Route path="/forgot-password" element={<ForgotPassword />} />
 
           {/* Admin Dashboard*/}
@@ -198,9 +224,13 @@ function App() {
           <Route
             path="/dashboard"
             element={
-              <MainNav>
-                <Dashboard />
-              </MainNav>
+              !auth.accessToken ? (
+                <Navigate to={"/login"} />
+              ) : (
+                <MainNav>
+                  <Dashboard />
+                </MainNav>
+              )
             }
           />
           <Route
@@ -210,79 +240,134 @@ function App() {
           <Route
             path="/dashboard/contact"
             element={
-              <MainNav>
-                <Contact />
-              </MainNav>
+              !auth.accessToken ? (
+                <Navigate to={"/login"} />
+              ) : (
+                <MainNav>
+                  <Contact />
+                </MainNav>
+              )
             }
           />
 
           <Route
             path="/dashboard/store"
             element={
-              <MainNav>
-                <Store />
-              </MainNav>
+              !auth.accessToken ? (
+                <Navigate to={"/login"} />
+              ) : (
+                <MainNav>
+                  <Store />
+                </MainNav>
+              )
             }
           />
 
           <Route
             path="/dashboard/orders"
             element={
-              <MainNav>
-                <Orders />
-              </MainNav>
+              !auth.accessToken ? (
+                <Navigate to={"/login"} />
+              ) : (
+                <MainNav>
+                  <Orders />
+                </MainNav>
+              )
             }
           />
           <Route
             path="/dashboard/faq"
             element={
-              <MainNav>
-                <FAQ />
-              </MainNav>
+              !auth.accessToken ? (
+                <Navigate to={"/login"} />
+              ) : (
+                <MainNav>
+                  <FAQ />
+                </MainNav>
+              )
             }
           />
           <Route
             path="/dashboard/cleaners"
             element={
-              <MainNav>
-                <Cleaners />
-              </MainNav>
+              !auth.accessToken ? (
+                <Navigate to={"/login"} />
+              ) : (
+                <MainNav>
+                  <Cleaners />
+                </MainNav>
+              )
             }
           />
           <Route
             path="/dashboard/history"
             element={
-              <MainNav>
-                <History />
-              </MainNav>
+              !auth.accessToken ? (
+                <Navigate to={"/login"} />
+              ) : (
+                <MainNav>
+                  <History />
+                </MainNav>
+              )
             }
           />
           <Route
             path="/dashboard/history/:id"
-            element={<DashboardHistoryDetails />}
+            element={
+              !auth.accessToken ? (
+                <Navigate to={"/login"} />
+              ) : (
+                <DashboardHistoryDetails />
+              )
+            }
           />
           <Route
             path="/dashboard/notifications"
             element={
-              <MainNav>
-                <Notifications />
-              </MainNav>
+              !auth.accessToken ? (
+                <Navigate to={"/login"} />
+              ) : (
+                <MainNav>
+                  <Notifications />
+                </MainNav>
+              )
             }
           />
           <Route
             path="/dashboard/notifications/:notiId"
-            element={<NewNotificationDetailsPage />}
+            element={
+              !auth.accessToken ? (
+                <Navigate to={"/login"} />
+              ) : (
+                <NewNotificationDetailsPage />
+              )
+            }
           />
           <Route
             path="/dashboard/settings"
             element={
+              // I'd use the commented code below for all the routes I want to protect -
+              // !auth.accessToken ? (
+              //   <Navigate to={"/login"} />
+              // ) : (
               <MainNav>
                 <Settings />
               </MainNav>
+              // )
             }
           />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/payment" element={<Payment />} />
+          <Route
+            path="/checkout"
+            element={
+              !auth.accessToken ? <Navigate to={"/login"} /> : <Checkout />
+            }
+          />
+          <Route
+            path="/payment"
+            element={
+              !auth.accessToken ? <Navigate to={"/login"} /> : <Payment />
+            }
+          />
         </Routes>
       </BrowserRouter>
     </BgContext.Provider>

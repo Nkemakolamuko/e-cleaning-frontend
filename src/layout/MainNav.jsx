@@ -2,6 +2,8 @@ import React, { createContext, useContext, useState } from "react";
 import NavigationBar from "./NavigationBar";
 import Header from "./Header";
 import { BgContext } from "../App";
+import AuthContext from "../context-API/AuthProvider";
+import { Navigate } from "react-router-dom";
 
 export const SideBarContext = createContext(null);
 
@@ -10,6 +12,11 @@ const MainNav = ({ children }) => {
   const [smallScreenSideBar, setSmallScreenSidebar] = useState(false);
   const [sidebar, setSidebar] = useState(false);
   const { darkMode } = useContext(BgContext);
+  const { auth } = useContext(AuthContext);
+
+  if (!auth.accessToken) {
+    <Navigate to={"/login"} />;
+  }
 
   return (
     <SideBarContext.Provider

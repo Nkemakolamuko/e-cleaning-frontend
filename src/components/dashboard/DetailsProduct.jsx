@@ -16,11 +16,13 @@ const DetailsProduct = ({ handleAddToCart }) => {
       <h2 className="font-medium text-base">
         Easy On Spray Starch - 100cl and 750ml
       </h2>
-      <p className="flex justify-between w-1/2 container mx-auto">
-        <span className="py-2 font-medium text-rose-500 text-lg opacity-80 line-through">
+      <p className="flex w-full justify-between mx-auto border-y">
+        <span className="py-2 font-medium text-rose-500 text-lg opacity-80 line-through w-1/2 flex justify-center">
           N3,800
         </span>
-        <span className="py-2 font-medium text-green-500 text-lg">N2,900</span>
+        <span className="py-2 font-medium text-green-500 text-lg w-1/2 flex justify-center">
+          N2,900
+        </span>
       </p>
       <p className="mt-2">Hurry before product runs out</p>
       <p>Qty Left : 12</p>
