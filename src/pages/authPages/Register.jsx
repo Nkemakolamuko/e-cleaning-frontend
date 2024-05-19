@@ -49,14 +49,20 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!name.trim() || !email.trim() || !password.trim()) {
+    if (
+      !name.trim() ||
+      !email.trim() ||
+      !password.trim() ||
+      !address.trim() ||
+      !phoneNumber.trim()
+    ) {
       toast.error("All fields are required!", { position: "top-left" });
       return;
     }
-    if (name.split(" ")[1] === undefined) {
-      toast.error("Needs at least 2 names", { position: "top-left" });
-      return;
-    }
+    // if (name.split(" ")[1] === undefined) {
+    //   toast.error("Needs at least 2 names", { position: "top-left" });
+    //   return;
+    // }
     const user = [
       {
         name,

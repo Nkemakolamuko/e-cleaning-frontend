@@ -80,6 +80,7 @@ const Login = () => {
 
       setGlobalUser(response?.data);
       const accessToken = response?.data?.accessToken;
+      localStorage.setItem("accessToken", JSON.stringify(accessToken));
       const id = response?.data?.id;
       setAuth({ accessToken, id });
 

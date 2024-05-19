@@ -8,71 +8,57 @@ import axios from "../../api/axios";
 
 const BecomeCleaner = ({ handleCloseCleaner }) => {
   const { darkMode } = useContext(BgContext);
-  const [name, setName] = useState("");
-  const [businessName, setBusinessName] = useState("");
-  const [location, setLocation] = useState("");
-  const [address, setAddress] = useState("");
-  const [desc, setDesc] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [img, setImg] = useState("");
-  const [err, setErr] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    businessName: "",
+    location: "",
+    address: "",
+    desc: "",
+    phoneNumber: "",
+    img: null,
+  });
+  const { name, businessName, location, address, desc, phoneNumber, img } =
+    formData;
+
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+    setFormData({
+      ...formData,
+      [name]: files ? files[0] : value,
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (name.split(" ")[1] === undefined) {
-      toast.error("Needs at least 2 names", { position: "top-left" });
+    if (Object.values(formData).some((field) => !field)) {
+      toast.error("All fields are required.", { position: "bottom-left" });
       return;
     }
 
-    if (
-      !name ||
-      !businessName ||
-      !location ||
-      !phoneNumber ||
-      !desc ||
-      !img ||
-      !address
-    ) {
-      toast.error("All fields are required.", {
-        position: "bottom-left",
-      });
-      return;
+    const data = new FormData();
+    for (const key in formData) {
+      data.append(key, formData[key]);
     }
-
-    const cleanerDetails = {
-      name,
-      businessName,
-      location,
-      address,
-      desc,
-      phoneNumber,
-      img,
-    };
 
     try {
-      const response = await axios.post(
-        "/api/cleaners",
-        JSON.stringify({
-          name,
-          businessName,
-          location,
-          address,
-          desc,
-          phoneNumber,
-          img,
-        })
-      );
-      console.log(response);
-      toast.success("Submitted Successfully - You'd be contacted shortly.");
+      await axios.post("/api/cleaners", data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      toast.success("Submitted successfully - You will be contacted shortly.");
       setTimeout(() => {
         handleCloseCleaner();
       }, 5000);
     } catch (error) {
-      console.log(error.message);
-      toast.error(`Error Occurred:  ${error.message}`);
+      const message = error.response
+        ? error.response.data.message
+        : error.message;
+      toast.error(`Error occurred: ${message}`);
     }
   };
+
   return (
     <div className="w-full h-screen bg-slate-500/75 flex items-center absolute top-0 p-[10px] md:py-[10px] md:px-[100px] lg:py-[30px] lg:px-[300px] flex-col overflow-auto rounded">
       <ToastContainer />
@@ -91,168 +77,165 @@ const BecomeCleaner = ({ handleCloseCleaner }) => {
             <CloseButton handleModalClose={handleCloseCleaner} />
           </div>
         </div>
-
         <form
           className={`px-4 pb-6 pt-2 flex flex-col gap-4 text-slate-800 ${
             darkMode ? "dark-mode rounded" : ""
           }`}
           onSubmit={handleSubmit}
         >
-          <p className="flex flex-col items-start w-full">
-            <label
-              htmlFor="name"
-              className="font-medium flex items-center gap-2"
-            >
-              Full Name <span className="text-rose-500">*</span>
-            </label>
-            <input
-              type="text"
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              name="name"
-              className={`outline-none border-2 rounded px-2 py-3 w-full text-sm ${
-                darkMode ? " dark-mode" : ""
-              }`}
-              placeholder="Enter your full name"
-            />
-          </p>
-
-          <p className="flex flex-col items-start w-full">
-            <label
-              htmlFor="compName"
-              className="font-medium flex items-center gap-2"
-            >
-              Company/Business Name <span className="text-rose-500">*</span>
-            </label>
-            <input
-              type="text"
-              id="compName"
-              value={businessName}
-              onChange={(e) => setBusinessName(e.target.value)}
-              name="compName"
-              className={`outline-none border-2 rounded px-2 py-3 w-full text-sm ${
-                darkMode ? " dark-mode" : ""
-              }`}
-              placeholder="Eg. Euphoria Brothers"
-            />
-          </p>
-
-          <p className="flex flex-col items-start w-full">
-            <label
-              htmlFor="location"
-              className="font-medium flex items-center gap-2"
-            >
-              Company/Business Location <span className="text-rose-500">*</span>
-            </label>
-            <input
-              type="text"
-              id="location"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              name="location"
-              className={`outline-none border-2 rounded px-2 py-3 w-full text-sm ${
-                darkMode ? " dark-mode" : ""
-              }`}
-              placeholder="Eg. Owerri"
-            />
-          </p>
-
-          <p className="flex flex-col items-start w-full">
-            <label
-              htmlFor="address"
-              className="font-medium flex items-center gap-2"
-            >
-              Company/Business Address <span className="text-rose-500">*</span>
-            </label>
-            <input
-              type="text"
-              id="address"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              name="address"
-              className={`outline-none border-2 rounded px-2 py-3 w-full text-sm ${
-                darkMode ? " dark-mode" : ""
-              }`}
-              placeholder="Eg. Shop 12 Sazodo Plaza Nowas junction Enugu, Enugu State"
-            />
-          </p>
-
-          <p className="flex flex-col items-start w-full">
-            <label
-              htmlFor="phoneNumber"
-              className="font-medium flex items-center gap-2"
-            >
-              Company/Business Phone Number{" "}
-              <span className="text-rose-500">*</span>
-            </label>
-            <input
-              type="tel"
-              id="phoneNumber"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-              name="phoneNumber"
-              className={`outline-none border-2 rounded px-2 py-3 w-full text-sm ${
-                darkMode ? " dark-mode" : ""
-              }`}
-              placeholder="Eg. 07040876440"
-            />
-          </p>
-          <p className="flex flex-col items-start w-full">
-            <label
-              htmlFor="img"
-              className="font-medium flex items-center gap-2"
-            >
-              Company/Business img <span className="text-rose-500">*</span>
-            </label>
-            <input
-              type="file"
-              id="img"
-              value={img}
-              onChange={(e) => setImg(e.target.value)}
-              name="img"
-              className={`outline-none border-2 rounded px-2 py-3 w-full text-sm ${
-                darkMode ? " dark-mode" : ""
-              }`}
-              placeholder="Enter your company/business img"
-            />
-          </p>
-
-          <p className="flex flex-col items-start w-full">
-            <label
-              htmlFor="desc"
-              className="font-medium flex items-center gap-2"
-            >
-              Company/Business Description{" "}
-              <span className="text-rose-500">*</span>
-            </label>
-            <textarea
-              type="text"
-              cols={10}
-              rows={5}
-              id="desc"
-              value={desc}
-              onChange={(e) => setDesc(e.target.value)}
-              name="desc"
-              className={`outline-none border-2 rounded px-2 py-3 w-full text-sm resize-none ${
-                darkMode ? "dark-mode" : ""
-              }`}
-              placeholder="Eg. We prioritize our customers satisfaction more than anything else, try us out today, and you'd have an experience of a lifetime"
-            ></textarea>
-          </p>
-
-          <input
-            type="button"
-            value="Submit"
+          <InputField
+            label="Full Name"
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleChange}
+            darkMode={darkMode}
+            placeholder="Enter your full name"
+            required
+          />
+          <InputField
+            label="Company/Business Name"
+            type="text"
+            name="businessName"
+            value={businessName}
+            onChange={handleChange}
+            darkMode={darkMode}
+            placeholder="Eg. Euphoria Brothers"
+            required
+          />
+          <InputField
+            label="Company/Business Location"
+            type="text"
+            name="location"
+            value={location}
+            onChange={handleChange}
+            darkMode={darkMode}
+            placeholder="Eg. Owerri"
+            required
+          />
+          <InputField
+            label="Company/Business Address"
+            type="text"
+            name="address"
+            value={address}
+            onChange={handleChange}
+            darkMode={darkMode}
+            placeholder="Eg. Shop 12 Sazodo Plaza Nowas junction Enugu, Enugu State"
+            required
+          />
+          <InputField
+            label="Company/Business Phone Number"
+            type="tel"
+            name="phoneNumber"
+            value={phoneNumber}
+            onChange={handleChange}
+            darkMode={darkMode}
+            placeholder="Eg. 07040876440"
+            required
+          />
+          <FileInputField
+            label="Company/Business Image"
+            name="img"
+            onChange={handleChange}
+            darkMode={darkMode}
+            required
+          />
+          <TextAreaField
+            label="Company/Business Description"
+            name="desc"
+            value={desc}
+            onChange={handleChange}
+            darkMode={darkMode}
+            placeholder="Eg. We prioritize our customers satisfaction more than anything else, try us out today, and you'd have an experience of a lifetime"
+            required
+          />
+          <button
+            type="submit"
             className={`py-4 rounded shadow bg-neutral-900 text-white font-medium w-full cursor-pointer active:scale-95 ${
               darkMode ? "bg-orange-500" : ""
             }`}
-            onClick={handleSubmit}
-          />
+          >
+            Submit
+          </button>
         </form>
       </div>
     </div>
   );
 };
+
+const InputField = ({
+  label,
+  type,
+  name,
+  value,
+  onChange,
+  darkMode,
+  placeholder,
+  required,
+}) => (
+  <p className="flex flex-col items-start w-full">
+    <label htmlFor={name} className="font-medium flex items-center gap-2">
+      {label} {required && <span className="text-rose-500">*</span>}
+    </label>
+    <input
+      type={type}
+      id={name}
+      name={name}
+      value={value}
+      onChange={onChange}
+      className={`outline-none border-2 rounded px-2 py-3 w-full text-sm ${
+        darkMode ? " dark-mode" : ""
+      }`}
+      placeholder={placeholder}
+      required={required}
+    />
+  </p>
+);
+
+const FileInputField = ({ label, name, onChange, darkMode, required }) => (
+  <p className="flex flex-col items-start w-full">
+    <label htmlFor={name} className="font-medium flex items-center gap-2">
+      {label} {required && <span className="text-rose-500">*</span>}
+    </label>
+    <input
+      type="file"
+      id={name}
+      name={name}
+      onChange={onChange}
+      accept="image/*"
+      className={`outline-none border-2 rounded px-2 py-3 w-full text-sm ${
+        darkMode ? " dark-mode" : ""
+      }`}
+      required={required}
+    />
+  </p>
+);
+
+const TextAreaField = ({
+  label,
+  name,
+  value,
+  onChange,
+  darkMode,
+  placeholder,
+  required,
+}) => (
+  <p className="flex flex-col items-start w-full">
+    <label htmlFor={name} className="font-medium flex items-center gap-2">
+      {label} {required && <span className="text-rose-500">*</span>}
+    </label>
+    <textarea
+      id={name}
+      name={name}
+      value={value}
+      onChange={onChange}
+      className={`outline-none border-2 rounded px-2 py-3 w-full text-sm resize-none ${
+        darkMode ? "dark-mode" : ""
+      }`}
+      placeholder={placeholder}
+      required={required}
+    ></textarea>
+  </p>
+);
 
 export default BecomeCleaner;

@@ -28,5 +28,6 @@ dist-ssr
 
 # Old code that I might need
 ./src/oldHistory.txt
+./oldCreateCleaner.txt
 
 ./notes.txt
