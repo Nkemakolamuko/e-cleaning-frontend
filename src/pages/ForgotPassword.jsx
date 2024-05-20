@@ -18,7 +18,9 @@ const ForgotPassword = () => {
     }
 
     try {
-      const response = await axios.post("/forgot-password", { email });
+      const response = await axios.post("/api/users/forgot-password", {
+        email,
+      });
       if (response.data.success) {
         toast.success("Email sent successfully.");
       } else {
