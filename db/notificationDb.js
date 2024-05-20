@@ -8,7 +8,7 @@ const notificationDb = [
     category: "email-verification",
     date: new Date().toLocaleDateString(),
     time: new Date().toLocaleTimeString().split(" ")[0],
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure placeat esse recusandae praesentium asperiores! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, laudantium.",
+    desc: "This is a dummy notification - Do not take it seriously right now as it is static data. Thanks for your understanding.",
   },
   {
     // id: uuid4(),
@@ -17,7 +17,7 @@ const notificationDb = [
     category: "cashback",
     date: new Date().toLocaleDateString(),
     time: new Date().toLocaleTimeString().split(" ")[0],
-    desc: "Please contact customer us to redeem price. Corrupti iure placeat esse recusandae praesentium asperiores! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, laudantium.",
+    desc: "Please contact customer support to redeem price. This is a dummy notification - Do not take it seriously right now as it is static data. Thanks for your understanding.",
   },
   {
     // id: uuid4(),
@@ -26,7 +26,7 @@ const notificationDb = [
     category: "addition",
     date: new Date().toLocaleDateString(),
     time: new Date().toLocaleTimeString().split(" ")[0],
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure placeat esse recusandae praesentium asperiores! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, laudantium.",
+    desc: "This is a dummy notification - Do not take it seriously right now as it is static data. Thanks for your understanding.",
   },
   {
     // id: uuid4(),
@@ -35,7 +35,7 @@ const notificationDb = [
     category: "award",
     date: new Date().toLocaleDateString(),
     time: new Date().toLocaleTimeString().split(" ")[0],
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure placeat esse recusandae praesentium asperiores! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, laudantium.",
+    desc: "This is a dummy notification - Do not take it seriously right now as it is static data. Thanks for your understanding.",
   },
   {
     // id: uuid4(),
@@ -44,7 +44,7 @@ const notificationDb = [
     category: "promotion",
     date: new Date().toLocaleDateString(),
     time: new Date().toLocaleTimeString().split(" ")[0],
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure placeat esse recusandae praesentium asperiores! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, laudantium.",
+    desc: "This is a dummy notification - Do not take it seriously right now as it is static data. Thanks for your understanding.",
   },
   {
     // id: uuid4(),
@@ -53,7 +53,7 @@ const notificationDb = [
     category: "update",
     date: new Date().toLocaleDateString(),
     time: new Date().toLocaleTimeString().split(" ")[0],
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure placeat esse recusandae praesentium asperiores! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, laudantium.",
+    desc: "This is a dummy notification - Do not take it seriously right now as it is static data. Thanks for your understanding.",
   },
 ];
 

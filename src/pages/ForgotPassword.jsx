@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import axios from "../api/axios";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -15,7 +16,17 @@ const ForgotPassword = () => {
     if (!email.trim()) {
       return toast.error("Please provide email");
     }
-    toast("Coming soon...");
+
+    try {
+      const response = axios.post("/forgot-password", email);
+      response && toast.success("Email sent successfully.");
+    } catch (error) {
+      if (error.response) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error(error.message);
+      }
+    }
   };
   return (
     <section className="w-full h-screen bg-gradient-to-t from-green-50 to-transparent">

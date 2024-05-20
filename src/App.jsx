@@ -39,6 +39,7 @@ import DashboardHistoryDetails from "./components/history/DashboardHistoryDetail
 import SearchQueryDetailsPage from "./components/SearchQueryDetailsPage";
 import AuthContext from "./context-API/AuthProvider";
 import AdminProfile from "./components/admin-components/AdminProfile";
+import ResetPassword from "./pages/ResetPassword";
 
 export const BgContext = createContext(null);
 
@@ -138,6 +139,8 @@ function App() {
             }
           />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
 
           {/* Admin Dashboard*/}
           <Route
