@@ -24,6 +24,7 @@ import axios from "../api/axios";
 import AuthContext from "../context-API/AuthProvider";
 import { getUser } from "../api/api.controller/getUser";
 import { updateUser } from "../api/api.controller/updateUser";
+import GoToTop from "../components/help-function/GoToTop";
 
 const Settings = () => {
   const { darkMode, setDarkMode, globalUser, setGlobalUser } =
@@ -35,6 +36,7 @@ const Settings = () => {
   const [userAddress, setUserAddress] = useState("");
   const [updatedUser, setUpdatedUser] = useState([]);
 
+  GoToTop();
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("user"));
     setUser(data[0]);
@@ -91,7 +93,7 @@ const Settings = () => {
   };
 
   return (
-    <section className="relative mb-6 md:mb-0">
+    <section className="relative !scroll-smooth h-full overflow-auto scroll">
       <ToastContainer />
       <div className="flex items-center justify-between">
         <Title title="Settings" />
@@ -118,7 +120,7 @@ const Settings = () => {
 
       {/* Actions */}
       <div
-        className={`grid grid-cols-1 md:grid-cols-2 max-w-[800px] mx-auto gap-4 mt-5 ${
+        className={`md:grid h-full flex flex-col gap-2 md:gap-4 md:grid-cols-2 max-w-[800px] md:mx-auto mt-5 ${
           darkMode ? "dark-mode" : ""
         }`}
       >
@@ -201,7 +203,7 @@ const Settings = () => {
       </div>
 
       {/* Version */}
-      <div className="flex flex-col text-slate-500 text-xs text-center mt-12">
+      <div className="flex flex-col text-slate-500 text-xs text-center -translate-y-10">
         <p>24/7 E-Laundry Service</p>
         <p>version 1.0.0</p>
       </div>
