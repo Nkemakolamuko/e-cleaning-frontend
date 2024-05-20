@@ -11,15 +11,19 @@ const ForgotPassword = () => {
     emailRef.current.focus();
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email.trim()) {
       return toast.error("Please provide email");
     }
 
     try {
-      const response = axios.post("/forgot-password", email);
-      response && toast.success("Email sent successfully.");
+      const response = await axios.post("/forgot-password", { email });
+      if (response.data.success) {
+        toast.success("Email sent successfully.");
+      } else {
+        toast.error("Failed to send email. Please try again.");
+      }
     } catch (error) {
       if (error.response) {
         toast.error(error.response.data.message);
@@ -28,6 +32,7 @@ const ForgotPassword = () => {
       }
     }
   };
+
   return (
     <section className="w-full h-screen bg-gradient-to-t from-green-50 to-transparent">
       <div className="max-w-[410px] flex flex-col items-center justify-center mx-auto p-2 h-full">
@@ -56,7 +61,7 @@ const ForgotPassword = () => {
           </p>
           <button
             className="p-3 bg-green-500 hover:bg-green-600 text-white font-medium tracking-widest rounded w-full mt-2 active:scale-95 transition-all duration-300"
-            onClick={handleSubmit}
+            type="submit"
           >
             Reset Password
           </button>
@@ -72,7 +77,7 @@ const ForgotPassword = () => {
           </Link>
         </div>
         <p className="text-slate-700 mt-4 text-sm w-full">
-          Follow link that will be sent to your email to reset password.
+          Follow the link that will be sent to your email to reset the password.
         </p>
       </div>
     </section>
