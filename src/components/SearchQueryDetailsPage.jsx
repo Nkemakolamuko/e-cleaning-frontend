@@ -102,7 +102,7 @@ const SearchQueryDetailsPage = () => {
                           <img
                             src={img}
                             alt="Cleaner Image"
-                            className="rounded w-[30%] h-[100%]"
+                            className="rounded w-[40%] md:w-[30%] h-[100%]"
                           />
                           <div className="flex flex-col">
                             <p className=" font-semibold text-base">

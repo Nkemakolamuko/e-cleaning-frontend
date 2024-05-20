@@ -24,14 +24,14 @@ const MainAdmin = ({ children }) => {
       }}
     >
       <div
-        className={`${sidebar ? "grid-container-close" : "grid-container"} ${
-          darkMode ? "dark-mode" : ""
-        }`}
+        className={`!scroll-smooth ${
+          sidebar ? "grid-container-close" : "grid-container"
+        } ${darkMode ? "dark-mode" : ""}`}
       >
         <AdminSidebar />
         <AdminHeader />
         <main
-          className={`scroll ${
+          className={`scroll scroll-smooth ${
             sidebar
               ? "opacity-0 md:!opacity-100 main-container"
               : "main-container bg-white opacity-100"
