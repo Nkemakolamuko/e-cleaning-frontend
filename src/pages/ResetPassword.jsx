@@ -21,7 +21,6 @@ const ResetPassword = () => {
 
     try {
       const response = await axios.post(`/api/users/reset-password/${token}`, {
-        oldPwd,
         newPwd,
       });
       if (response.data.success) {
