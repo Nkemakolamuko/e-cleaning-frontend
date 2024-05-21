@@ -9,20 +9,21 @@ const ResetPassword = () => {
   const { darkMode } = useContext(BgContext);
   const [showPasswords, setShowPasswords] = useState(false);
   const [pwd, setPwd] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const toggleShowPasswords = () => {
     setShowPasswords(!showPasswords);
   };
 
   const token = window.location.pathname.split("/").pop();
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      const response = axios.post(`/reset-password/${token}`, {
+      const response = await axios.post(`/reset-password/${token}`, {
         password: pwd,
       });
-      // response && toast.success(response.data.message)
-      console.log(response);
+      toast.success(response.data.message);
       setTimeout(() => {
         window.location.href = "/login";
       }, 3000);
@@ -32,6 +33,8 @@ const ResetPassword = () => {
       } else {
         toast.error(error.message);
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -71,9 +74,13 @@ const ResetPassword = () => {
 
           <input
             type="submit"
-            onClick={handleSubmit}
-            value="Change Password"
-            className="py-3 px-6 w-full md:w-1/2 font-semibold !tracking-widest bg-yellow-500 text-white rounded hover:bg-yellow-600 transition-all duration-300 cursor-pointer mx-auto"
+            value={loading ? "Loading..." : "Change Password"}
+            disabled={loading}
+            className={`py-3 px-6 w-full md:w-1/2 font-semibold tracking-widest text-white rounded transition-all duration-300 cursor-pointer mx-auto ${
+              loading
+                ? "bg-yellow-400 opacity-50 cursor-not-allowed"
+                : "bg-yellow-500 hover:bg-yellow-600"
+            }`}
           />
         </form>
       </div>
