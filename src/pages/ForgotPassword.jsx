@@ -5,6 +5,7 @@ import axios from "../api/axios";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
   const emailRef = useRef(null);
 
   useEffect(() => {
@@ -17,14 +18,13 @@ const ForgotPassword = () => {
       return toast.error("Please provide email");
     }
 
+    setLoading(true);
     try {
       const response = await axios.post("/api/users/forgot-password", {
         email,
       });
-      if (response.data.success) {
+      if (response.data.message === "Email sent.") {
         toast.success("Email sent successfully.");
-      } else {
-        toast.error("Failed to send email. Please try again.");
       }
     } catch (error) {
       if (error.response) {
@@ -32,6 +32,8 @@ const ForgotPassword = () => {
       } else {
         toast.error(error.message);
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -58,14 +60,20 @@ const ForgotPassword = () => {
               placeholder="user@gmail.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="p-3 text-slate-700 outline-slate-500  border-2 rounded transition-all duration-300 w-full"
+              className="p-3 text-slate-700 outline-slate-500 border-2 rounded transition-all duration-300 w-full"
+              disabled={loading}
             />
           </p>
           <button
-            className="p-3 bg-green-500 hover:bg-green-600 text-white font-medium tracking-widest rounded w-full mt-2 active:scale-95 transition-all duration-300"
+            className={`p-3 font-medium tracking-widest rounded w-full mt-2 active:scale-95 transition-all duration-300 ${
+              loading
+                ? "bg-green-400 opacity-50 cursor-not-allowed"
+                : "bg-green-500 hover:bg-green-600 text-white"
+            }`}
             type="submit"
+            disabled={loading}
           >
-            Reset Password
+            {loading ? "Loading..." : "Reset Password"}
           </button>
         </form>
         <ToastContainer />
