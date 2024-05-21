@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 // import logo from "../../assets/logo.jpg";
-import logo from "../../assets/ugo-best.jpg";
+import logo from "../../assets/shop-button.png";
 import {
   FaBook,
   FaBookBookmark,

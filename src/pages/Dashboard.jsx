@@ -30,7 +30,6 @@ import DetailsProduct from "../components/dashboard/DetailsProduct";
 import { ToastContainer, toast } from "react-toastify";
 import DashboardHistoryCard from "../components/history/DashboardHistoryCard";
 import cleanersData from "../../db/cleanersDb";
-import GoToTop from "../components/help-function/GoToTop";
 
 const cleaners = [
   {
@@ -87,7 +86,6 @@ const Dashboard = () => {
 
   useEffect(() => {
     dashboardRef.current.focus();
-    GoToTop();
   }, []);
 
   const [startIndex, setStartIndex] = useState(0);
