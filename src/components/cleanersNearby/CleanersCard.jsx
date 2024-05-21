@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 // import logo from "../../assets/logo.jpg";
-import logo from "../../assets/ugo-best.jpg";
+// import logo from "../../assets/ugo-best.jpg";
+import logo from "../../assets/shop-button.png";
 import {
   FaAngleRight,
   FaBook,
@@ -55,7 +56,7 @@ const CleanersCard = ({
           handleClose={() => setDirection(false)}
         />
       )}
-      <div className="h-[150px] w-[80%]">
+      <div className="h-[150px] w-[80%] border rounded">
         <img
           src={logo}
           alt="Cleaner Image"
