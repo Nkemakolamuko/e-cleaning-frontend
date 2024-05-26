@@ -183,7 +183,7 @@ const Login = () => {
 
         <div className="flex items-center justify-between w-full mt-3">
           <Link
-            to="/forgot-password"
+            to={`/forgot-password/${email}`}
             className="underline underline-offset-1 text-slate-700 hover:text-slate-800 text-sm"
           >
             Forgot Password?

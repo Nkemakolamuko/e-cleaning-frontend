@@ -14,7 +14,7 @@ import ChangeAddress from "../components/settings/ChangeAddress";
 import ChangeEmail from "../components/settings/ChangeEmail";
 import ChangePassword from "../components/settings/ChangePassword";
 import ReadPrivacyPolicy from "../components/settings/ReadPrivacyPolicy";
-import { FaMoon, FaShareNodes, FaSun, FaUserPlus } from "react-icons/fa6";
+import { FaShareNodes, FaUserPlus } from "react-icons/fa6";
 import ShareApp from "../components/settings/ShareApp";
 import { BgContext } from "../App";
 import SettingsCard from "../components/settings/SettingsCard";
@@ -27,8 +27,7 @@ import { updateUser } from "../api/api.controller/updateUser";
 import GoToTop from "../components/help-function/GoToTop";
 
 const Settings = () => {
-  const { darkMode, setDarkMode, globalUser, setGlobalUser } =
-    useContext(BgContext);
+  const { darkMode, globalUser, setGlobalUser } = useContext(BgContext);
   const { auth } = useContext(AuthContext);
   const [show, setShow] = useState(null);
   const [user, setUser] = useState([]);
@@ -84,35 +83,10 @@ const Settings = () => {
     setShow(false);
   };
 
-  // Theme
-  const toggleThemeDark = () => {
-    setDarkMode(true);
-  };
-  const toggleThemeLight = () => {
-    setDarkMode(false);
-  };
-
   return (
     <section className="relative !scroll-smooth h-full overflow-auto scroll">
       <ToastContainer />
-      <div className="flex items-center justify-between">
-        <Title title="Settings" />
-        <div className="flex gap-2 items-center md:hidden">
-          <p
-            className="!bg-white text-yellow-400 border rounded-full cursor-pointer p-2 transition-all duration-300"
-            onClick={toggleThemeLight}
-          >
-            <FaSun />
-          </p>
-          <p className="tracking-tighter text-xs font-medium">CHANGE THEME</p>
-          <p
-            className="border border-[#0101be] bg-[#000068] rounded-full cursor-pointer p-2 text-white transition-all duration-300"
-            onClick={toggleThemeDark}
-          >
-            <FaMoon />
-          </p>
-        </div>
-      </div>
+      <Title title="Settings" />
       <div className="mt-5 w-full flex items-center justify-center">
         {/* <UserImage user={user} /> */}
         <UserImage user={globalUser?.username} />

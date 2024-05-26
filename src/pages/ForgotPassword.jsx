@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "../api/axios";
 
@@ -7,9 +7,11 @@ const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const emailRef = useRef(null);
+  const { userEmail } = useParams();
 
   useEffect(() => {
     emailRef.current.focus();
+    setEmail(userEmail);
   }, []);
 
   const handleSubmit = async (e) => {
