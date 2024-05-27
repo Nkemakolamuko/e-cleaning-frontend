@@ -11,7 +11,7 @@ const ForgotPassword = () => {
 
   useEffect(() => {
     emailRef.current.focus();
-    setEmail(userEmail);
+    setEmail(userEmail || "");
   }, []);
 
   const handleSubmit = async (e) => {
