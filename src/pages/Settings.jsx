@@ -84,7 +84,7 @@ const Settings = () => {
   };
 
   return (
-    <section className="relative !scroll-smooth h-full overflow-auto scroll">
+    <section className="relative h-full overflow-auto scroll">
       <ToastContainer />
       <Title title="Settings" />
       <div className="mt-5 w-full flex items-center justify-center">

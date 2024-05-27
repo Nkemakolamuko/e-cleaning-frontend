@@ -45,7 +45,7 @@ const MainNav = ({ children }) => {
       >
         <NavigationBar />
         <Header />
-        <div className="absolute top-[50%] right-0 z-50 shadow-lg text-xs border rounded bg-white backdrop-blur-md">
+        <div className="absolute top-[50%] right-0 z-50 shadow-lg text-base border rounded bg-white backdrop-blur-md">
           <div className="flex flex-col items-center md:hidden">
             <p
               className="!bg-white text-yellow-400 border rounded-full cursor-pointer p-1 m-1 transition-all duration-300"

@@ -6,12 +6,12 @@
 
 html,
 body {
-  scrollbar-width: none;
+  scrollbar-width: none !important;
   /* font-family: Poppins; */
 }
 
 .scroll {
-  scrollbar-width: none;
+  scrollbar-width: none !important;
 }
 
 .dark-mode {
