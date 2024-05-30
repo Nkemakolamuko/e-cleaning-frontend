@@ -290,3 +290,20 @@ body {
     transform: translateX(-92%);
   }
 }
+
+/* Waving Animation */
+.wave {
+  animation: wavingHand 0.7s;
+  animation-direction: reverse;
+  animation-timing-function: cubic-bezier(0.4, 0.06, 1, 0.6);
+  animation-iteration-count: infinite;
+}
+
+@keyframes wavingHand {
+  from {
+    transform: translateX(-5%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}

@@ -6,15 +6,20 @@ import userImage from "../assets/ugo-best.jpg";
 import {
   FaAngleLeft,
   FaAngleRight,
+  FaCartShopping,
+  FaCheckDouble,
   FaCircleExclamation,
   FaEnvelope,
+  FaInfo,
   FaLocationDot,
   FaMapLocation,
   FaMapPin,
+  FaNairaSign,
   FaPhone,
   FaStar,
   FaStarHalf,
   FaStore,
+  FaUsers,
   FaWhatsapp,
 } from "react-icons/fa6";
 import ActionBTN from "../components/ActionBTN";
@@ -30,6 +35,7 @@ import DetailsProduct from "../components/dashboard/DetailsProduct";
 import { ToastContainer, toast } from "react-toastify";
 import DashboardHistoryCard from "../components/history/DashboardHistoryCard";
 import cleanersData from "../../db/cleanersDb";
+import UserDashboardActionCard from "../components/UserDashboardActionCard";
 
 const cleaners = [
   {
@@ -162,6 +168,56 @@ const Dashboard = () => {
     >
       <ToastContainer />
       <Title title="Dashboard" />
+
+      {/* Action Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        <AdminDashboardActionCard
+          icon={
+            <p className="rounded-full bg-yellow-100 p-4">
+              <FaInfo className="text-yellow-500" />
+            </p>
+          }
+          title={"Ongoing Wash Order"}
+          desc={"4"}
+        />
+        <UserDashboardActionCard
+          icon={
+            <p className="rounded-full bg-green-100 p-4">
+              <FaNairaSign className="text-green-500" />
+            </p>
+          }
+          title={"Total Spent"}
+          desc={"₦15, 650"}
+        />
+        <UserDashboardActionCard
+          icon={
+            <p className="rounded-full bg-green-100 p-4">
+              <FaNairaSign className="text-green-500" />
+            </p>
+          }
+          title={"Total Cashback"}
+          desc={"₦5, 050"}
+        />
+
+        <AdminDashboardActionCard
+          icon={
+            <p className="rounded-full bg-purple-100 p-4">
+              <FaCheckDouble className="text-purple-500" />
+            </p>
+          }
+          title={"Total Wash"}
+          desc={"54"}
+        />
+        <AdminDashboardActionCard
+          icon={
+            <p className="rounded-full bg-blue-100 p-4">
+              <FaStore className="text-blue-500" />
+            </p>
+          }
+          title={"Total Products Purchased"}
+          desc={"5"}
+        />
+      </div>
 
       {/* For Small */}
       <div className="flex flex-col md:hidden md:grid-cols-2 lg:hidden lg:flex-row items-center gap-2 scale-100 lg:scale-100 md:scale-100">
