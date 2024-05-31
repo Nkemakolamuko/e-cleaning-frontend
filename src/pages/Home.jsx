@@ -6,9 +6,15 @@ const Home = () => {
   return (
     <div className="mt-5 w-full flex flex-col h-[80vh] md:h-[85vh] justify-center">
       <div className="flex flex-col w-full px-4 md:px-0 md:w-[400px] justify-center items-center mx-auto h-full my-auto">
-        <div className="p-2 rounded-full shadow w-fit mx-auto mb-4">
+        {/* <div className="p-2 rounded-full shadow w-fit mx-auto mb-4">
           <p className="text-8xl md:text-[130px] py-7 px-3 md:py-8 wave">👋</p>
-        </div>
+        </div> */}
+        <iframe
+          src="https://lottie.host/embed/10d1e8ac-3cb2-4e68-9e0d-7944e1902417/FhJ0j5E2FO.json"
+          width={200}
+          height={200}
+          className="mb-4"
+        ></iframe>
         <h2 className="text-center tracking-widest font-semibold md:text-xl px-2">
           Welcome to 24/7 E-Laundry Service
         </h2>

@@ -459,7 +459,7 @@ const Dashboard = () => {
 
           <select
             name="location"
-            className={`border rounded py-1 cursor-pointer mb-2 outline-none text-black ${
+            className={`border rounded py-1 cursor-pointer mb-2 outline-none text-black text-sm ${
               darkMode ? "dark-mode" : ""
             }`}
             onChange={() =>
@@ -469,7 +469,7 @@ const Dashboard = () => {
               })
             }
           >
-            <option value="Choose Location">---Choose Location---</option>
+            <option value="Choose Location">-Choose Location-</option>
             {cleanersData
               .filter((value) => value.location)
               .map((cleaner) => (

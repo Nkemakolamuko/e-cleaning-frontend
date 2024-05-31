@@ -75,7 +75,7 @@ const AvailableCleaners = ({ name, desc, location }) => {
           </p>
 
           <h1 className="w-full text-center text-sm tracking-widest font-medium mt-2">
-            Contact Cleaner Using :
+            Contact Cleaner Using
           </h1>
           <div className="flex flex-wrap md:w-[70%] mx-auto w-full gap-2 items-center justify-center z-10">
             <a
