@@ -170,8 +170,9 @@ const Dashboard = () => {
       <Title title="Dashboard" />
 
       {/* Action Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-        <AdminDashboardActionCard
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-4">
+        <UserDashboardActionCard
+          darkMode={darkMode}
           icon={
             <p className="rounded-full bg-yellow-100 p-4">
               <FaInfo className="text-yellow-500" />
@@ -181,6 +182,7 @@ const Dashboard = () => {
           desc={"4"}
         />
         <UserDashboardActionCard
+          darkMode={darkMode}
           icon={
             <p className="rounded-full bg-green-100 p-4">
               <FaNairaSign className="text-green-500" />
@@ -190,6 +192,7 @@ const Dashboard = () => {
           desc={"₦15, 650"}
         />
         <UserDashboardActionCard
+          darkMode={darkMode}
           icon={
             <p className="rounded-full bg-green-100 p-4">
               <FaNairaSign className="text-green-500" />
@@ -199,7 +202,8 @@ const Dashboard = () => {
           desc={"₦5, 050"}
         />
 
-        <AdminDashboardActionCard
+        <UserDashboardActionCard
+          darkMode={darkMode}
           icon={
             <p className="rounded-full bg-purple-100 p-4">
               <FaCheckDouble className="text-purple-500" />
@@ -208,7 +212,8 @@ const Dashboard = () => {
           title={"Total Wash"}
           desc={"54"}
         />
-        <AdminDashboardActionCard
+        <UserDashboardActionCard
+          darkMode={darkMode}
           icon={
             <p className="rounded-full bg-blue-100 p-4">
               <FaStore className="text-blue-500" />
@@ -351,7 +356,7 @@ const Dashboard = () => {
       <div className="md:grid md:grid-cols-1 lg:grid-cols-2 gap-4 hidden">
         <DashboardNewCard
           image={userImage}
-          addHeight={"h-[190px]"}
+          addHeight={"h-auto"}
           details={<DetailsCleaner />}
           info="Best Performing Cleaner This Week"
         />

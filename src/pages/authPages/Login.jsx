@@ -201,7 +201,7 @@ const Login = () => {
 
         <div className="flex items-center justify-between gap-1 mt-3 w-full text-nowrap">
           <p className="border-slate-300 border w-full"></p>
-          <p className="text-sm">Or Login Using</p>
+          <p className="text-sm text-nowrap">Or Login Using</p>
           <p className="border-slate-300 border w-full"></p>
         </div>
 

@@ -7,7 +7,7 @@ const CleanerContactBtns = () => {
   return (
     <div className="">
       <h1 className="w-full text-center tracking-widest font-medium mt-2 mb-1">
-        Contact Cleaner Using :
+        Contact Cleaner Using
       </h1>
       <div className="flex flex-wrap md:w-[70%] mx-auto w-full gap-2 items-center justify-center z-10">
         <a

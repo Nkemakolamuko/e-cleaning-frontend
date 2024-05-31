@@ -124,7 +124,7 @@ const Header = () => {
         {!sidebar && (
           <p
             className={`p-1 rounded-full hover:bg-slate-200 transition-all duration-300 tooltip ${
-              typing && "hidden"
+              typing && "hidden md:block"
             }`}
           >
             <GiHamburgerMenu
