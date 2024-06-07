@@ -473,7 +473,7 @@ const Dashboard = () => {
             {cleanersData
               .filter((value) => value.location)
               .map((cleaner) => (
-                <option value="OgborHill" key={cleaner.id}>
+                <option value={cleaner.location} key={cleaner.id}>
                   {cleaner.location}
                 </option>
               ))}
